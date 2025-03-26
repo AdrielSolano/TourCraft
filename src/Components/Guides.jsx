@@ -171,9 +171,9 @@ const Guides = () => {
                 >
                     <Grid item xs={12} md={6}>
                         <Box
-                            sx={{ 
-                                width: "100%", 
-                                height: { xs: "300px", md: "541px" }, 
+                            sx={{
+                                width: "100%",
+                                height: { xs: "300px", md: "541px" },
                                 backgroundImage: `url(${featureImage})`,
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
@@ -182,7 +182,16 @@ const Guides = () => {
                         />
                     </Grid>
 
-                    <Grid item xs={12} md={6}>
+                    <Grid
+                        item
+                        xs={12}
+                        md={6}
+                        sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center" // Esto centra verticalmente el contenido
+                        }}
+                    >
                         <Stack spacing={4} sx={{ width: "100%" }}>
                             <Stack spacing={1}>
                                 <DirectionsCar sx={{ fontSize: 43, color: "#0e3d4d" }} />
@@ -291,15 +300,15 @@ const Guides = () => {
                                     fontWeight: 700,
                                     ...(location.selected
                                         ? {
-                                                bgcolor: "#4daf9b",
-                                                color: "white",
-                                                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.08)",
-                                            }
+                                            bgcolor: "#4daf9b",
+                                            color: "white",
+                                            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.08)",
+                                        }
                                         : {
-                                                bgcolor: "transparent",
-                                                border: "1px solid #7bbcb0",
-                                                color: "text.primary",
-                                            }),
+                                            bgcolor: "transparent",
+                                            border: "1px solid #7bbcb0",
+                                            color: "text.primary",
+                                        }),
                                 }}
                             />
                         ))}
