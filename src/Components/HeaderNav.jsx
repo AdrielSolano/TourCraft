@@ -77,7 +77,7 @@ const HeaderNav = () => {
     const navItems = [
         { label: "Home", path: "/", active: false },
         { label: "Discover", path: "/discover", active: false },
-        { label: "Guides", path: "/guides", active: false },
+        { label: "Guides", path: "/Guides", active: false },
         { label: "About Us", path: "/AboutUs", active: false },
         { label: "Contact Us", path: "/Contact", active: false },
     ];

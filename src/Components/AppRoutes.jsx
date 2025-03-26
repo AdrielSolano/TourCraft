@@ -5,6 +5,7 @@ import SignUp from './SignUp';
 import HomePage from './HomePage'; 
 import Contact from './Contact';
 import AboutUs from './AboutUs';
+import Guides from './Guides';
 
 export default function AppRoutes() {
   return (
@@ -13,6 +14,7 @@ export default function AppRoutes() {
         <Route path='/' element={<HomePage />} />
         <Route path='/SignIn' element={<SignIn />} />
         <Route path='/SignUp' element={<SignUp />} />
+        <Route path='/Guides' element={<Guides />} />
         <Route path='/Contact' element={<Contact />} />
         <Route path='/AboutUs' element={<AboutUs />} />
       </Routes>
