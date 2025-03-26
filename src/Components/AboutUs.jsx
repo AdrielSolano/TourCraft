@@ -74,8 +74,7 @@ const AboutUs = () => {
                     width: "100%",
                     height: "451px",
                     position: "relative",
-                    backgroundImage: `url(${rectangle46})`,
-                    backgroundSize: "cover",
+                    backgroundImage: `url(${rectangle46})`, // Ya lo tienes bien                    backgroundSize: "cover",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -171,7 +170,7 @@ const AboutUs = () => {
                             display: "flex",
                             mb: 4,
                             boxShadow: "none",
-                            height: expandedMember === index ? "auto" : "500px", 
+                            height: expandedMember === index ? "auto" : "500px",
                             maxHeight: "700px", // Máxima altura para prevenir desbordamiento
                         }}
                     >
@@ -202,11 +201,11 @@ const AboutUs = () => {
                             >
                                 {member.title}
                             </Typography>
-                            <Accordion 
+                            <Accordion
                                 expanded={expandedMember === index}
                                 onChange={handleAccordionChange(index)}
-                                sx={{ 
-                                    boxShadow: 'none', 
+                                sx={{
+                                    boxShadow: 'none',
                                     border: '1px solid rgba(0, 0, 0, 0.12)',
                                     mt: 1,
                                     '&:before': {
@@ -222,9 +221,9 @@ const AboutUs = () => {
                                     expandIcon={<ExpandMoreIcon />}
                                     aria-controls={`panel-content-${index}`}
                                     id={`panel-header-${index}`}
-                                    sx={{ 
+                                    sx={{
                                         minHeight: 'auto',
-                                        '& .MuiAccordionSummary-content': { 
+                                        '& .MuiAccordionSummary-content': {
                                             margin: '8px 0',
                                             '&.Mui-expanded': {
                                                 margin: '8px 0',
@@ -235,8 +234,8 @@ const AboutUs = () => {
                                         }
                                     }}
                                 >
-                                    <Typography 
-                                        variant="body2" 
+                                    <Typography
+                                        variant="body2"
                                         sx={{
                                             color: 'primary.main',
                                             fontWeight: 'medium'
