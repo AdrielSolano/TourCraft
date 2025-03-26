@@ -2,6 +2,7 @@ import ArrowBack from "@mui/icons-material/ArrowBack";
 import Check from "@mui/icons-material/Check";
 import DirectionsCar from "@mui/icons-material/DirectionsCar";
 import Pets from "@mui/icons-material/Pets";
+import LocationOn from "@mui/icons-material/LocationOn"; // Esta es la importación que faltaba
 import {
     Box,
     Button,
@@ -15,8 +16,6 @@ import {
     Typography,
 } from "@mui/material";
 import React from "react";
-import { Link as RouterLink } from 'react-router-dom';
-import LocationOn from "@mui/icons-material/LocationOn";
 
 // Sample data for guides
 const guides = [
