@@ -32,7 +32,7 @@ const guides = [
         rating: 4.9,
         reviews: 300,
         price: "40$/day",
-        image: "/img-3.png",
+        image: "/Img1.png",
         backgroundColor: "#f1f1f1",
     },
     {
@@ -48,7 +48,7 @@ const guides = [
         rating: 4.9,
         reviews: 300,
         price: "40$/day",
-        image: "/img.png",
+        image: "/Img2.png",
         backgroundColor: "#ffffff",
     },
     {
@@ -64,7 +64,7 @@ const guides = [
         rating: 4.9,
         reviews: 300,
         price: "40$/day",
-        image: "/img-2.png",
+        image: "/Img3.png",
         backgroundColor: "#f1f1f1",
     },
     {
@@ -80,7 +80,7 @@ const guides = [
         rating: 4.9,
         reviews: 300,
         price: "40$/day",
-        image: "/image.png",
+        image: "/Img4.png",
         backgroundColor: "#ffffff",
     },
 ];
@@ -159,7 +159,7 @@ const Guides = () => {
                     <Grid item>
                         <Box
                             component="img"
-                            src="/rectangle-10.png"
+                            src="/rectangle10.png"
                             alt="Feature Image"
                             sx={{ width: "515px", height: "541px", objectFit: "cover" }}
                         />
@@ -222,7 +222,7 @@ const Guides = () => {
                 {/* Banner Image */}
                 <Box
                     component="img"
-                    src="/image-43.png"
+                    src="/image43.png"
                     alt="Banner"
                     sx={{
                         position: "absolute",
