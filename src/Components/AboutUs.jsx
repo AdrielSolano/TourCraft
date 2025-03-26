@@ -15,8 +15,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Link as RouterLink } from 'react-router-dom';
 
 // Importaciones de imágenes
-import rectangle46 from "/src/assets/rectangle46.png";
-a
+import rectangle46 from "../assets/Rectangle46.png";
 import Vector from "../assets/Vector.png";
 
 // Imágenes de miembros del equipo
