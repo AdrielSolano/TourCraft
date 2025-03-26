@@ -1,30 +1,20 @@
 import ArrowBack from "@mui/icons-material/ArrowBack";
 import Check from "@mui/icons-material/Check";
 import DirectionsCar from "@mui/icons-material/DirectionsCar";
-import Facebook from "@mui/icons-material/Facebook";
-import Instagram from "@mui/icons-material/Instagram";
-import LocationOn from "@mui/icons-material/LocationOn";
 import Pets from "@mui/icons-material/Pets";
-import Twitter from "@mui/icons-material/Twitter";
 import {
     Box,
     Button,
     Card,
     CardContent,
     Chip,
-    Container,
     Divider,
-    FormControl,
     Grid,
-    IconButton,
-    MenuItem,
     Rating,
-    Select,
     Stack,
     Typography,
 } from "@mui/material";
 import React from "react";
-import { Link } from "react-router-dom";
 
 // Sample data for guides
 const guides = [
@@ -106,21 +96,6 @@ const locations = [
     { name: "Hol-box", selected: false },
 ];
 
-// Sample data for navigation
-const navItems = [
-    { name: "Home", path: "/", active: false },
-    { name: "Discover", path: "/discover", active: false },
-    { name: "Guides", path: "/guias", active: true },
-    { name: "About Us", path: "/about", active: false },
-    { name: "Contact Us", path: "/contact", active: false },
-];
-
-// Sample data for footer links
-const footerLinks = {
-    company: ["About Us", "Contact Us", "Home", "Discover", "Guides"],
-    help: ["FAQs", "Terms and conditions", "Privacy policy"],
-};
-
 const Guides = () => {
     return (
         <Box
@@ -139,73 +114,6 @@ const Guides = () => {
                     overflow: "hidden",
                 }}
             >
-                {/* Header Navigation */}
-                <Box
-                    sx={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        p: 3,
-                    }}
-                >
-                    <Box sx={{ width: "223px", height: "105px" }}>
-                        <img
-                            src="/solano-3-1.png"
-                            alt="Tourcraft Logo"
-                            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-                        />
-                    </Box>
-
-                    <Stack direction="row" spacing={3} alignItems="center">
-                        {navItems.map((item, index) => (
-                            <Typography
-                                key={index}
-                                component={item.active ? Link : "div"}
-                                to={item.active ? item.path : undefined}
-                                sx={{
-                                    fontWeight: item.active ? 700 : 500,
-                                    cursor: "pointer",
-                                }}
-                            >
-                                {item.name}
-                            </Typography>
-                        ))}
-
-                        <Box sx={{ display: "flex", alignItems: "center" }}>
-                            <img
-                                src="/language.png"
-                                alt="Language"
-                                style={{ width: "34px", height: "34px" }}
-                            />
-                            <Typography sx={{ ml: 1 }}>| USD</Typography>
-                        </Box>
-
-                        <Button
-                            variant="outlined"
-                            sx={{
-                                borderRadius: "38px",
-                                borderWidth: 2,
-                                px: 4,
-                                py: 1.5,
-                            }}
-                        >
-                            Sign In
-                        </Button>
-
-                        <Button
-                            variant="outlined"
-                            sx={{
-                                borderRadius: "38px",
-                                borderWidth: 2,
-                                px: 4,
-                                py: 1.5,
-                            }}
-                        >
-                            Log In
-                        </Button>
-                    </Stack>
-                </Box>
-
                 {/* Back Button */}
                 <Button
                     startIcon={<ArrowBack />}
@@ -421,236 +329,6 @@ const Guides = () => {
                         </CardContent>
                     </Card>
                 ))}
-
-                {/* Footer */}
-                <Box
-                    sx={{
-                        position: "absolute",
-                        width: "100%",
-                        height: "439px",
-                        top: "4527px",
-                        left: 0,
-                        bgcolor: "#13253f",
-                    }}
-                >
-                    <Container maxWidth="lg" sx={{ pt: 10, pb: 5, position: "relative" }}>
-                        <Grid container spacing={4}>
-                            {/* Language and Currency */}
-                            <Grid item xs={3}>
-                                <Typography
-                                    variant="subtitle1"
-                                    sx={{
-                                        color: "rgba(255, 255, 255, 0.8)",
-                                        fontWeight: 700,
-                                        mb: 2,
-                                    }}
-                                >
-                                    Language
-                                </Typography>
-                                <FormControl variant="outlined" sx={{ width: "223px", mb: 4 }}>
-                                    <Select
-                                        value="english"
-                                        sx={{
-                                            bgcolor: "#13253f",
-                                            color: "rgba(255, 255, 255, 0.6)",
-                                            height: "48px",
-                                            border: "1px solid rgba(255, 255, 255, 0.2)",
-                                        }}
-                                        startAdornment={
-                                            <Box
-                                                component="img"
-                                                src="/image-26.png"
-                                                alt="Flag"
-                                                sx={{ width: "21px", height: "14px", mr: 1 }}
-                                            />
-                                        }
-                                    >
-                                        <MenuItem value="english">English (UK)</MenuItem>
-                                    </Select>
-                                </FormControl>
-
-                                <Typography
-                                    variant="subtitle1"
-                                    sx={{
-                                        color: "rgba(255, 255, 255, 0.8)",
-                                        fontWeight: 700,
-                                        mb: 2,
-                                    }}
-                                >
-                                    Currency
-                                </Typography>
-                                <FormControl variant="outlined" sx={{ width: "223px" }}>
-                                    <Select
-                                        value="usd"
-                                        sx={{
-                                            bgcolor: "#13253f",
-                                            color: "rgba(255, 255, 255, 0.6)",
-                                            height: "48px",
-                                            border: "1px solid rgba(255, 255, 255, 0.2)",
-                                        }}
-                                    >
-                                        <MenuItem value="usd">U.S. Dollar ($)</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Grid>
-
-                            {/* Company Links */}
-                            <Grid item xs={3}>
-                                <Typography
-                                    variant="subtitle1"
-                                    sx={{
-                                        color: "rgba(255, 255, 255, 0.8)",
-                                        fontWeight: 700,
-                                        mb: 2,
-                                    }}
-                                >
-                                    Company
-                                </Typography>
-                                <Stack spacing={0.5}>
-                                    {footerLinks.company.map((link, index) => (
-                                        <Typography
-                                            key={index}
-                                            component={link === "Guides" ? Link : "div"}
-                                            to={link === "Guides" ? "/guias" : "#"}
-                                            sx={{
-                                                color: "rgba(255, 255, 255, 0.6)",
-                                                lineHeight: "30px",
-                                                cursor: "pointer",
-                                            }}
-                                        >
-                                            {link}
-                                        </Typography>
-                                    ))}
-                                </Stack>
-                            </Grid>
-
-                            {/* Help Links */}
-                            <Grid item xs={3}>
-                                <Typography
-                                    variant="subtitle1"
-                                    sx={{
-                                        color: "rgba(255, 255, 255, 0.8)",
-                                        fontWeight: 700,
-                                        mb: 2,
-                                    }}
-                                >
-                                    Help
-                                </Typography>
-                                <Stack spacing={0.5}>
-                                    {footerLinks.help.map((link, index) => (
-                                        <Typography
-                                            key={index}
-                                            sx={{
-                                                color: "rgba(255, 255, 255, 0.6)",
-                                                lineHeight: "30px",
-                                            }}
-                                        >
-                                            {link}
-                                        </Typography>
-                                    ))}
-                                </Stack>
-                            </Grid>
-
-                            {/* Payment Methods */}
-                            <Grid item xs={3}>
-                                <Typography
-                                    variant="subtitle1"
-                                    sx={{
-                                        color: "rgba(255, 255, 255, 0.8)",
-                                        fontWeight: 700,
-                                        mb: 2,
-                                    }}
-                                >
-                                    Payment methods possible
-                                </Typography>
-                                <Grid container spacing={1} sx={{ mb: 2 }}>
-                                    {[
-                                        "/image-28.png",
-                                        "/image-37.png",
-                                        "/image-29.png",
-                                        "/image-31.png",
-                                        "/image-33.png",
-                                    ].map((img, index) => (
-                                        <Grid item key={index}>
-                                            <Box
-                                                component="img"
-                                                src={img}
-                                                alt="Payment method"
-                                                sx={{ width: "42px", height: "27px" }}
-                                            />
-                                        </Grid>
-                                    ))}
-                                </Grid>
-                                <Grid container spacing={1} sx={{ mb: 4 }}>
-                                    {[
-                                        "/image-34.png",
-                                        "/image-35.png",
-                                        "/image-36.png",
-                                        "/image-27.png",
-                                        "/image-30.png",
-                                    ].map((img, index) => (
-                                        <Grid item key={index}>
-                                            <Box
-                                                component="img"
-                                                src={img}
-                                                alt="Payment method"
-                                                sx={{ width: "42px", height: "27px" }}
-                                            />
-                                        </Grid>
-                                    ))}
-                                </Grid>
-
-                                <Typography
-                                    variant="subtitle1"
-                                    sx={{
-                                        color: "rgba(255, 255, 255, 0.8)",
-                                        fontWeight: 700,
-                                        mb: 2,
-                                    }}
-                                >
-                                    Company
-                                </Typography>
-                                <Typography
-                                    sx={{ color: "rgba(255, 255, 255, 0.6)", lineHeight: "30px" }}
-                                >
-                                    Become a Tour guide for Us
-                                </Typography>
-                            </Grid>
-                        </Grid>
-
-                        {/* Footer Bottom */}
-                        <Box
-                            sx={{
-                                position: "absolute",
-                                bottom: 0,
-                                left: 0,
-                                width: "100%",
-                                height: "63px",
-                                bgcolor: "rgba(0, 0, 0, 0.2)",
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "space-between",
-                                px: 4,
-                            }}
-                        >
-                            <Typography sx={{ color: "rgba(255, 255, 255, 0.6)" }}>
-                                Copyright 2024 Tourcraft. All Rights Reserved
-                            </Typography>
-
-                            <Stack direction="row" spacing={2}>
-                                <IconButton sx={{ color: "white" }}>
-                                    <Facebook />
-                                </IconButton>
-                                <IconButton sx={{ color: "white" }}>
-                                    <Twitter />
-                                </IconButton>
-                                <IconButton sx={{ color: "white" }}>
-                                    <Instagram />
-                                </IconButton>
-                            </Stack>
-                        </Box>
-                    </Container>
-                </Box>
             </Box>
         </Box>
     );
