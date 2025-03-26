@@ -74,7 +74,8 @@ const AboutUs = () => {
                     width: "100%",
                     height: "451px",
                     position: "relative",
-                    backgroundImage: `url(${rectangle46})`, // Ya lo tienes bien                    backgroundSize: "cover",
+                    backgroundImage: `url(${rectangle46})`, // Ya lo tienes bien                    
+                    backgroundSize: "cover",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
