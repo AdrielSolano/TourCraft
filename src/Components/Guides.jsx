@@ -39,7 +39,6 @@ const guides = [
         location: "Merida, MX",
         rating: 4.9,
         reviews: 300,
-        price: "40$/day",
         image: Img1,
         backgroundColor: "#f1f1f1",
     },
@@ -54,7 +53,6 @@ const guides = [
         location: "Merida, MX",
         rating: 4.9,
         reviews: 300,
-        price: "40$/day",
         image: Img2,
         backgroundColor: "#ffffff",
     },
@@ -69,7 +67,6 @@ const guides = [
         location: "Meridad, MX",
         rating: 4.9,
         reviews: 300,
-        price: "40$/day",
         image: Img3,
         backgroundColor: "#f1f1f1",
     },
@@ -84,7 +81,6 @@ const guides = [
         location: "Merida, MX",
         rating: 4.9,
         reviews: 300,
-        price: "40$/day",
         image: Img4,
         backgroundColor: "#ffffff",
     },
@@ -160,90 +156,95 @@ const Guides = () => {
                 </Typography>
 
                 {/* Feature Section */}
-                <Grid
-                    container
+                <Box
                     sx={{
                         mt: { xs: "160px", md: "371px" },
                         px: { xs: 2, md: "150px" },
-                        gap: { xs: "40px", md: "92px" },
-                        flexDirection: { xs: "column", md: "row" }
+                        display: "flex",
+                        flexDirection: { xs: "column", md: "row" },
+                        alignItems: "center",
+                        gap: { xs: "40px", md: "92px" }
                     }}
                 >
-                    <Grid item xs={12} md={6}>
-                        <Box
-                            sx={{
-                                width: "100%",
-                                height: { xs: "300px", md: "541px" },
-                                backgroundImage: `url(${featureImage})`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                                borderRadius: "16px"
-                            }}
-                        />
-                    </Grid>
-
-                    <Grid
-                        item
-                        xs={12}
-                        md={6}
+                    {/* Imagen a la izquierda */}
+                    <Box
+                        component="img"
+                        src={featureImage}
+                        alt="Tropical resort with swimming pool"
                         sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            justifyContent: "center" // Esto centra verticalmente el contenido
+                            width: "515px",
+                            height: "541px",
+                            objectFit: "cover",
+                            borderRadius: "16px",
+                            flexShrink: 0
                         }}
-                    >
-                        <Stack spacing={4} sx={{ width: "100%" }}>
-                            <Stack spacing={1}>
+                    />
+
+                    {/* Texto a la derecha */}
+                    <Box sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        width: "478px"
+                    }}>
+                        <Stack spacing={8}>
+                            <Stack spacing={2}>
                                 <DirectionsCar sx={{ fontSize: 43, color: "#0e3d4d" }} />
                                 <Typography
-                                    variant="h4"
+                                    variant="h3"
                                     sx={{
                                         fontFamily: "'Playfair Display', serif",
                                         fontWeight: 600,
                                         color: "#0e3d4d",
-                                        fontSize: { xs: "28px", md: "40px" },
+                                        fontSize: "40px",
+                                        lineHeight: "normal"
                                     }}
                                 >
                                     Don't worry about driving
                                 </Typography>
                                 <Typography
                                     sx={{
+                                        fontFamily: "'Inter', sans-serif",
                                         fontWeight: 500,
                                         color: "#0e3d4d",
-                                        fontSize: { xs: "18px", md: "25px" },
+                                        fontSize: "25px",
+                                        lineHeight: "normal",
+                                        whiteSpace: "pre-line"
                                     }}
                                 >
-                                    The guide will do it for you, when you hire the guide he will
-                                    take care of taking you to your destination.
+                                    {`The guide will do it for you, when you\nhire the guide he will take care of taking\nyou to your destination.`}
                                 </Typography>
                             </Stack>
 
-                            <Stack spacing={1} sx={{ mt: 4 }}>
+                            <Stack spacing={2}>
                                 <Pets sx={{ fontSize: 39, color: "#0e3d4d" }} />
                                 <Typography
-                                    variant="h4"
+                                    variant="h3"
                                     sx={{
                                         fontFamily: "'Playfair Display', serif",
                                         fontWeight: 600,
                                         color: "#0e3d4d",
-                                        fontSize: { xs: "28px", md: "40px" },
+                                        fontSize: "40px",
+                                        lineHeight: "normal"
                                     }}
                                 >
                                     Come with your friend!
                                 </Typography>
                                 <Typography
                                     sx={{
+                                        fontFamily: "'Inter', sans-serif",
                                         fontWeight: 500,
                                         color: "#0e3d4d",
-                                        fontSize: { xs: "18px", md: "25px" },
+                                        fontSize: "25px",
+                                        lineHeight: "normal"
                                     }}
                                 >
                                     Find your guide who also loves pets!
                                 </Typography>
                             </Stack>
                         </Stack>
-                    </Grid>
-                </Grid>
+                    </Box>
+                </Box>
 
                 {/* Banner Image */}
                 <Box
@@ -511,20 +512,6 @@ const GuideImage = ({ guide }) => {
                     width: "100%",
                     height: "100%",
                     objectFit: "cover"
-                }}
-            />
-            <Chip
-                label={guide.price}
-                sx={{
-                    position: "absolute",
-                    top: "32px",
-                    right: "32px",
-                    bgcolor: "white",
-                    fontWeight: 600,
-                    fontSize: "20px",
-                    height: "46px",
-                    borderRadius: "8px",
-                    px: 2,
                 }}
             />
         </Box>
