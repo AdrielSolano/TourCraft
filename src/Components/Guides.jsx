@@ -2,7 +2,7 @@ import ArrowBack from "@mui/icons-material/ArrowBack";
 import Check from "@mui/icons-material/Check";
 import DirectionsCar from "@mui/icons-material/DirectionsCar";
 import Pets from "@mui/icons-material/Pets";
-import LocationOn from "@mui/icons-material/LocationOn"; // Esta es la importación que faltaba
+import LocationOn from "@mui/icons-material/LocationOn";
 import {
     Box,
     Button,
@@ -18,13 +18,20 @@ import {
 import React from "react";
 import { Link as RouterLink } from 'react-router-dom';
 
+// Importación de imágenes (asegúrate de que los archivos existan en estas rutas)
+import Img1 from '../assets/Img1.png';
+import Img2 from '../assets/Img2.png';
+import Img3 from '../assets/Img3.png';
+import Img4 from '../assets/Img4.png';
+import bannerImage from "../assets/banner-image.png"; // Renombré image43.png a banner-image.png
+import featureImage from "../assets/feature-image.png"; // Renombré Rectangle10.png a feature-image.png
+
 // Sample data for guides
 const guides = [
     {
         id: 1,
         name: "Sebastián Monteverde",
-        description:
-            "Ac euismod tincidunt sed quam pharetra laoreet nisl mollis vitae.",
+        description: "Ac euismod tincidunt sed quam pharetra laoreet nisl mollis vitae.",
         languages: "Spanish/English/Japanese",
         experience: "5 years of experience in the Merida",
         skills: ["Professional photographer", "Certified guide"],
@@ -33,14 +40,13 @@ const guides = [
         rating: 4.9,
         reviews: 300,
         price: "40$/day",
-        image: "/Img1.png",
+        image: Img1,
         backgroundColor: "#f1f1f1",
     },
     {
         id: 2,
         name: "Mariana Del Valle",
-        description:
-            "Ac euismod tincidunt sed quam pharetra laoreet nisl mollis vitae.",
+        description: "Ac euismod tincidunt sed quam pharetra laoreet nisl mollis vitae.",
         languages: "Spanish/English/Japanese",
         experience: "5 years of experience in the Merida",
         skills: ["Certified guide", "Certified guide"],
@@ -49,14 +55,13 @@ const guides = [
         rating: 4.9,
         reviews: 300,
         price: "40$/day",
-        image: "/Img2.png",
+        image: Img2,
         backgroundColor: "#ffffff",
     },
     {
         id: 3,
         name: "Camila Arrieta",
-        description:
-            "Ac euismod tincidunt sed quam pharetra laoreet nisl mollis vitae.",
+        description: "Ac euismod tincidunt sed quam pharetra laoreet nisl mollis vitae.",
         languages: "Spanish/English/Japanese",
         experience: "5 years of experience in the Merida",
         skills: ["Certified guide", "Certified guide"],
@@ -65,14 +70,13 @@ const guides = [
         rating: 4.9,
         reviews: 300,
         price: "40$/day",
-        image: "/Img3.png",
+        image: Img3,
         backgroundColor: "#f1f1f1",
     },
     {
         id: 4,
         name: "Valeria Sandoval",
-        description:
-            "Ac euismod tincidunt sed quam pharetra laoreet nisl mollis vitae.",
+        description: "Ac euismod tincidunt sed quam pharetra laoreet nisl mollis vitae.",
         languages: "Spanish/English/Japanese",
         experience: "5 years of experience in the Merida",
         skills: ["Certified guide", "Certified guide"],
@@ -81,7 +85,7 @@ const guides = [
         rating: 4.9,
         reviews: 300,
         price: "40$/day",
-        image: "/Img4.png",
+        image: Img4,
         backgroundColor: "#ffffff",
     },
 ];
@@ -106,26 +110,32 @@ const Guides = () => {
                 display: "flex",
                 justifyContent: "center",
                 width: "100%",
+                minHeight: "100vh",
+                position: "relative",
+                pb: 40 // Añadido padding bottom para evitar que el footer corte contenido
             }}
         >
             <Box
                 sx={{
                     bgcolor: "#ffffff",
-                    width: "1512px",
+                    width: "100%",
+                    maxWidth: "1512px",
                     position: "relative",
-                    overflow: "hidden",
                 }}
             >
                 {/* Back Button */}
                 <Button
                     startIcon={<ArrowBack />}
+                    component={RouterLink}
+                    to="/"
                     sx={{
                         position: "absolute",
-                        top: "172px",
-                        left: "82px",
+                        top: { xs: "20px", md: "172px" },
+                        left: { xs: "20px", md: "82px" },
                         textTransform: "none",
                         fontWeight: 600,
                         fontSize: "18px",
+                        zIndex: 1
                     }}
                 >
                     Back
@@ -136,12 +146,14 @@ const Guides = () => {
                     variant="h3"
                     sx={{
                         position: "absolute",
-                        top: "261px",
-                        left: "147px",
+                        top: { xs: "80px", md: "261px" },
+                        left: { xs: "20px", md: "147px" },
                         fontFamily: "'Playfair Display', serif",
                         fontWeight: 700,
                         color: "#0e3d4d",
-                        fontSize: "48px",
+                        fontSize: { xs: "32px", md: "48px" },
+                        width: { xs: "90%", md: "auto" },
+                        zIndex: 1
                     }}
                 >
                     Let's take a look at our guides
@@ -151,23 +163,27 @@ const Guides = () => {
                 <Grid
                     container
                     sx={{
-                        position: "absolute",
-                        top: "371px",
-                        left: "150px",
-                        gap: "92px",
+                        mt: { xs: "160px", md: "371px" },
+                        px: { xs: 2, md: "150px" },
+                        gap: { xs: "40px", md: "92px" },
+                        flexDirection: { xs: "column", md: "row" }
                     }}
                 >
-                    <Grid item>
+                    <Grid item xs={12} md={6}>
                         <Box
-                            component="img"
-                            src="/rectangle10.png"
-                            alt="Feature Image"
-                            sx={{ width: "515px", height: "541px", objectFit: "cover" }}
+                            sx={{ 
+                                width: "100%", 
+                                height: { xs: "300px", md: "541px" }, 
+                                backgroundImage: `url(${featureImage})`,
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
+                                borderRadius: "16px"
+                            }}
                         />
                     </Grid>
 
-                    <Grid item>
-                        <Stack spacing={4} sx={{ width: "478px" }}>
+                    <Grid item xs={12} md={6}>
+                        <Stack spacing={4} sx={{ width: "100%" }}>
                             <Stack spacing={1}>
                                 <DirectionsCar sx={{ fontSize: 43, color: "#0e3d4d" }} />
                                 <Typography
@@ -176,7 +192,7 @@ const Guides = () => {
                                         fontFamily: "'Playfair Display', serif",
                                         fontWeight: 600,
                                         color: "#0e3d4d",
-                                        fontSize: "40px",
+                                        fontSize: { xs: "28px", md: "40px" },
                                     }}
                                 >
                                     Don't worry about driving
@@ -185,7 +201,7 @@ const Guides = () => {
                                     sx={{
                                         fontWeight: 500,
                                         color: "#0e3d4d",
-                                        fontSize: "25px",
+                                        fontSize: { xs: "18px", md: "25px" },
                                     }}
                                 >
                                     The guide will do it for you, when you hire the guide he will
@@ -201,7 +217,7 @@ const Guides = () => {
                                         fontFamily: "'Playfair Display', serif",
                                         fontWeight: 600,
                                         color: "#0e3d4d",
-                                        fontSize: "40px",
+                                        fontSize: { xs: "28px", md: "40px" },
                                     }}
                                 >
                                     Come with your friend!
@@ -210,7 +226,7 @@ const Guides = () => {
                                     sx={{
                                         fontWeight: 500,
                                         color: "#0e3d4d",
-                                        fontSize: "25px",
+                                        fontSize: { xs: "18px", md: "25px" },
                                     }}
                                 >
                                     Find your guide who also loves pets!
@@ -222,15 +238,15 @@ const Guides = () => {
 
                 {/* Banner Image */}
                 <Box
-                    component="img"
-                    src="/image43.png"
-                    alt="Banner"
                     sx={{
-                        position: "absolute",
-                        width: "950px",
+                        width: { xs: "90%", md: "950px" },
                         height: "90px",
-                        top: "1013px",
-                        left: "281px",
+                        mx: "auto",
+                        mt: { xs: 8, md: 10 },
+                        mb: { xs: 6, md: 8 },
+                        backgroundImage: `url(${bannerImage})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center"
                     }}
                 />
 
@@ -238,99 +254,85 @@ const Guides = () => {
                 <Typography
                     variant="h4"
                     sx={{
-                        position: "absolute",
-                        top: "1199px",
-                        left: "668px",
+                        textAlign: "center",
                         fontFamily: "'Playfair Display', serif",
                         fontWeight: 700,
                         color: "#0e3d4d",
-                        fontSize: "40px",
+                        fontSize: { xs: "28px", md: "40px" },
+                        mb: 4
                     }}
                 >
                     Guides in
                 </Typography>
 
                 {/* Location Filter */}
-                <Stack
-                    direction="row"
-                    spacing={2}
-                    sx={{
-                        position: "absolute",
-                        top: "1277px",
-                        left: "173px",
-                        width: "1166px",
-                        height: "46px",
-                        justifyContent: "center",
-                    }}
-                >
-                    {locations.map((location, index) => (
-                        <Chip
-                            key={index}
-                            label={location.name}
-                            clickable
-                            sx={{
-                                height: "44px",
-                                width: "130px",
-                                borderRadius: "30px",
-                                fontSize: "14px",
-                                fontWeight: 700,
-                                ...(location.selected
-                                    ? {
-                                            bgcolor: "#4daf9b",
-                                            color: "white",
-                                            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.08)",
-                                        }
-                                    : {
-                                            bgcolor: "transparent",
-                                            border: "1px solid #7bbcb0",
-                                            color: "text.primary",
-                                        }),
-                            }}
-                        />
-                    ))}
-                </Stack>
-
-                {/* Guide Cards */}
-                {guides.map((guide, index) => (
-                    <Card
-                        key={index}
+                <Box sx={{ overflowX: "auto", px: 2 }}>
+                    <Stack
+                        direction="row"
+                        spacing={2}
                         sx={{
-                            position: "absolute",
-                            top: 1411 + index * 759,
-                            left: "36px",
-                            width: "1440px",
-                            borderRadius: "25px",
-                            bgcolor: guide.backgroundColor,
-                            p: 0,
-                            boxShadow: "none",
+                            width: "max-content",
+                            mx: "auto",
+                            mb: 6,
+                            px: 2,
+                            height: "46px",
                         }}
                     >
-                        <CardContent sx={{ p: 0 }}>
-                            <Grid container spacing={4} sx={{ p: 7.5 }}>
-                                {/* Left side for even index, right side for odd index */}
-                                {index % 2 === 0 ? (
-                                    <>
-                                        <Grid item xs={6}>
-                                            <GuideInfo guide={guide} />
-                                        </Grid>
-                                        <Grid item xs={6}>
-                                            <GuideImage guide={guide} />
-                                        </Grid>
-                                    </>
-                                ) : (
-                                    <>
-                                        <Grid item xs={6}>
-                                            <GuideImage guide={guide} />
-                                        </Grid>
-                                        <Grid item xs={6}>
-                                            <GuideInfo guide={guide} />
-                                        </Grid>
-                                    </>
-                                )}
-                            </Grid>
-                        </CardContent>
-                    </Card>
-                ))}
+                        {locations.map((location, index) => (
+                            <Chip
+                                key={index}
+                                label={location.name}
+                                clickable
+                                sx={{
+                                    height: "44px",
+                                    minWidth: "130px",
+                                    borderRadius: "30px",
+                                    fontSize: "14px",
+                                    fontWeight: 700,
+                                    ...(location.selected
+                                        ? {
+                                                bgcolor: "#4daf9b",
+                                                color: "white",
+                                                boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.08)",
+                                            }
+                                        : {
+                                                bgcolor: "transparent",
+                                                border: "1px solid #7bbcb0",
+                                                color: "text.primary",
+                                            }),
+                                }}
+                            />
+                        ))}
+                    </Stack>
+                </Box>
+
+                {/* Guide Cards */}
+                <Box sx={{ px: { xs: 2, md: 4 }, mb: 10 }}>
+                    {guides.map((guide, index) => (
+                        <Card
+                            key={index}
+                            sx={{
+                                width: "100%",
+                                borderRadius: "25px",
+                                bgcolor: guide.backgroundColor,
+                                mb: 6,
+                                boxShadow: "none",
+                            }}
+                        >
+                            <CardContent sx={{ p: 0 }}>
+                                <Grid container spacing={4} sx={{ p: { xs: 3, md: 7.5 } }}>
+                                    {/* Alternar orden en móvil */}
+                                    <Grid item xs={12} md={6} order={{ xs: index % 2 === 0 ? 1 : 2, md: 'unset' }}>
+                                        <GuideInfo guide={guide} />
+                                    </Grid>
+                                    <Grid item xs={12} md={6} order={{ xs: index % 2 === 0 ? 2 : 1, md: 'unset' }}>
+                                        <GuideImage guide={guide} />
+                                    </Grid>
+                                </Grid>
+                            </CardContent>
+                        </Card>
+                    ))}
+                </Box>
             </Box>
         </Box>
     );
@@ -345,7 +347,7 @@ const GuideInfo = ({ guide }) => {
                 sx={{
                     fontFamily: "'Playfair Display', serif",
                     fontWeight: 700,
-                    fontSize: "28px",
+                    fontSize: { xs: "24px", md: "28px" },
                 }}
             >
                 Guide In Merida
@@ -354,7 +356,7 @@ const GuideInfo = ({ guide }) => {
             <Typography
                 sx={{
                     opacity: 0.6,
-                    height: "48px",
+                    height: "auto",
                     overflow: "hidden",
                     display: "-webkit-box",
                     WebkitLineClamp: 2,
@@ -377,7 +379,7 @@ const GuideInfo = ({ guide }) => {
                             display: "-webkit-box",
                             WebkitLineClamp: 1,
                             WebkitBoxOrient: "vertical",
-                            width: "345px",
+                            width: "100%",
                         }}
                     >
                         {guide.languages}
@@ -393,7 +395,7 @@ const GuideInfo = ({ guide }) => {
                             display: "-webkit-box",
                             WebkitLineClamp: 1,
                             WebkitBoxOrient: "vertical",
-                            width: "415px",
+                            width: "100%",
                         }}
                     >
                         {guide.experience}
@@ -410,7 +412,7 @@ const GuideInfo = ({ guide }) => {
                                 display: "-webkit-box",
                                 WebkitLineClamp: 1,
                                 WebkitBoxOrient: "vertical",
-                                width: "454px",
+                                width: "100%",
                             }}
                         >
                             {skill}
@@ -438,7 +440,7 @@ const GuideInfo = ({ guide }) => {
                 </Typography>
             </Box>
 
-            <Stack direction="row" alignItems="center" spacing={2}>
+            <Stack direction="row" alignItems="center" spacing={2} flexWrap="wrap">
                 <Stack direction="row" alignItems="center" spacing={1}>
                     <LocationOn sx={{ fontSize: 16 }} />
                     <Typography sx={{ fontSize: "14px", fontWeight: 600 }}>
@@ -469,6 +471,9 @@ const GuideInfo = ({ guide }) => {
                     fontSize: "16px",
                     fontWeight: 500,
                     width: "fit-content",
+                    '&:hover': {
+                        bgcolor: "#6da89c"
+                    }
                 }}
             >
                 Choose place to go with me!
@@ -483,15 +488,22 @@ const GuideImage = ({ guide }) => {
         <Box
             sx={{
                 position: "relative",
-                width: "600px",
-                height: "482px",
+                width: "100%",
+                height: { xs: "300px", md: "482px" },
                 borderRadius: "30px",
                 overflow: "hidden",
-                backgroundImage: `url(${guide.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
             }}
         >
+            <Box
+                component="img"
+                src={guide.image}
+                alt={`Guide ${guide.name}`}
+                sx={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover"
+                }}
+            />
             <Chip
                 label={guide.price}
                 sx={{
