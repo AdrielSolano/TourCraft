@@ -1,16 +1,28 @@
 import React from "react";
-import HeaderNav, { ThemeProvider } from './Components/HeaderNav'; // Importar solo ThemeProvider
-import AppRoutes from './Components/AppRoutes';
+import AppRoutes from "./Components/AppRoutes";
+import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
 
 function App() {
-    return (
-        <ThemeProvider>
-            <HeaderNav/>
+    const navItems = [
+  { label: "Home", path: "/", active: true },
+  { label: "Tours", path: "/Tours", active: false },
+  { label: "Guides", path: "/Guides", active: false },
+  { label: "About Us", path: "/AboutUs", active: false },
+];
 
-            <AppRoutes /> {/* AppRoutes ahora maneja HeaderNav internamente */}
+const theme = createTheme();
+
+    return (
+        <>
+            <ThemeProvider theme={theme}>
+  <Header navItems={navItems} />
+            <AppRoutes/>
             <Footer />
         </ThemeProvider>
+        </>
     );
 }
 

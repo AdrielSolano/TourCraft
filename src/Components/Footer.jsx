@@ -1,261 +1,236 @@
-import { 
-    Box, 
-    Typography, 
-    Container, 
-    Grid, 
-    Stack, 
-    Select, 
-    MenuItem,
-    InputAdornment,
-    Divider,
-    IconButton,
-    Link as MuiLink
-} from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import React from "react";
+import { Box, Grid, Link, Typography } from "@mui/material";
+import phone from '../assets/phone.svg';
+import mail from '../assets/mail.svg';
+import map from '../assets/map.svg';
+import Insta from '../assets/Insta.svg';
+import Social from '../assets/Social.svg';
+import Twitter from '../assets/Twitter.svg';
+import { styled } from '@mui/material/styles';
+import Solano12 from '../assets/Solano12.png';
 
-// Importing images from assets
-import ukFlag from '../assets/image 26.png';
-import visaIcon from '../assets/image 27.png';
-import mastercardIcon from '../assets/image 28.png';
-import amexIcon from '../assets/image 29.png';
-import discoverIcon from '../assets/image 30.png';
-import paypalIcon from '../assets/image 31.png';
-import applepayIcon from '../assets/image 33.png';
-import googlepayIcon from '../assets/image 34.png';
-import alipayIcon from '../assets/image 35.png';
-import unionpayIcon from '../assets/image 36.png';
-import maestroIcon from '../assets/image 37.png';
+// Componente SocialIcon - Icono de red social
+const SocialIcon = ({ icon, alt }) => {
+    return (
+        <Box 
+            sx={{
+                backgroundColor: '#000',
+                borderRadius: '100px',
+                width: '24px',
+                height: '24px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
+        >
+            <Box 
+                component="img" 
+                src={icon} 
+                alt={alt}
+                sx={{ filter: 'invert(-80)', width: '60%', height: '60%' }}
+            />
+        </Box>
+    );
+};
+
+// Componente ContactItem - Item de contacto
+const ContactItem = ({ icon, text, href }) => {
+    const content = (
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Box 
+                component="img" 
+                src={icon} 
+                alt="" 
+                sx={{ width: '20px', height: '20px' }} 
+            />
+            <Typography
+                sx={{
+                    color: '#000',
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                    fontSize: '16px',
+                    lineHeight: '21px',
+                    opacity: 0.8,
+                    '&:hover': {
+                        opacity: href ? 1 : 0.8,
+                        textDecoration: href ? 'underline' : 'none',
+                    }
+                }}
+            >
+                {text}
+            </Typography>
+        </Box>
+    );
+
+    return href ? (
+        <Link href={href} sx={{ textDecoration: 'none' }}>
+            {content}
+        </Link>
+    ) : content;
+};
+
+// Estilo para FooterLink
+const FooterLink = styled(Link)({
+    color: '#000',
+    textDecoration: 'none',
+    opacity: 0.8,
+    fontFamily: "'Inter', sans-serif",
+    fontWeight: 400,
+    fontSize: '16px',
+    lineHeight: '22px',
+    '&:hover': {
+        opacity: 1,
+        textDecoration: 'underline',
+    }
+});
 
 const Footer = () => {
-    // Payment icons mapping
-    const paymentIcons = {
-        visa: visaIcon,
-        mastercard: mastercardIcon,
-        amex: amexIcon,
-        discover: discoverIcon,
-        paypal: paypalIcon,
-        applepay: applepayIcon,
-        googlepay: googlepayIcon,
-        alipay: alipayIcon,
-        unionpay: unionpayIcon,
-        maestro: maestroIcon
-    };
-
-    const paymentMethods = [
-        { row: 1, items: ["visa", "mastercard", "amex", "discover", "paypal"] },
-        { row: 2, items: ["applepay", "googlepay", "alipay", "unionpay", "maestro"] }
-    ];
-
-    const footerLinks = {
-        company: ["About Us", "Contact Us", "Home", "Discover", "Guides"],
-        help: ["FAQs", "Terms and conditions", "Privacy policy"]
-    };
-
     return (
-        <Box sx={{ bgcolor: '#13243e', color: 'white', py: 4 }}>
-            <Container >
-                {/* Sección centrada antes del divider */}
-                <Box sx={{ 
+        <Box
+            component="footer"
+            sx={{
+                backgroundColor: '#fff',
+                borderTop: '1px solid #e0e0e0',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '60px',
+                padding: { xs: '40px 20px 20px', md: '60px 20px 20px' },
+                width: '100%',
+            }}
+        >
+            <Box
+                sx={{
                     display: 'flex',
-                    justifyContent: 'center',
-                    width: '110%'
-                }}>
-                    <Grid container spacing={30} sx={{ maxWidth: '1500px' }}>
-                        <Grid item xs={12} md={3}>
-                            <Typography variant="subtitle1" sx={{ color: 'rgba(255, 255, 255, 0.8)', mb: 2 }}>
-                                Language
-                            </Typography>
-                            <Select
-                                value="English (UK)"
-                                sx={{ 
-                                    width: 223,
-                                    height: 48,
-                                    bgcolor: '#13253f',
-                                    color: 'rgba(255, 255, 255, 0.6)',
-                                    '.MuiOutlinedInput-notchedOutline': {
-                                        borderColor: 'rgba(255, 255, 255, 0.2)'
-                                    },
-                                    '&:hover .MuiOutlinedInput-notchedOutline': {
-                                        borderColor: 'rgba(255, 255, 255, 0.3)'
-                                    }
-                                }}
-                                startAdornment={
-                                    <InputAdornment position="start">
-                                        <Box 
-                                            component="img" 
-                                            src={ukFlag} 
-                                            alt="UK Flag" 
-                                            sx={{ width: 21, height: 14 }} 
-                                        />
-                                    </InputAdornment>
-                                }
-                            >
-                                <MenuItem value="English (UK)">English (UK)</MenuItem>
-                            </Select>
-                            
-                            <Typography variant="subtitle1" sx={{ color: 'rgba(255, 255, 255, 0.8)', mt: 4, mb: 2 }}>
-                                Currency
-                            </Typography>
-                            <Select
-                                value="U.S. Dollar ($)"
-                                sx={{ 
-                                    width: 223,
-                                    height: 48,
-                                    bgcolor: '#13253f',
-                                    color: 'rgba(255, 255, 255, 0.6)',
-                                    '.MuiOutlinedInput-notchedOutline': {
-                                        borderColor: 'rgba(255, 255, 255, 0.2)'
-                                    },
-                                    '&:hover .MuiOutlinedInput-notchedOutline': {
-                                        borderColor: 'rgba(255, 255, 255, 0.3)'
-                                    }
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '60px',
+                    width: '100%',
+                    maxWidth: '1200px',
+                }}
+            >
+                <Grid container spacing={{ xs: 4, md: 2 }} justifyContent="space-between">
+                    {/* Logo and description */}
+                    <Grid item xs={12} md={3}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                <Box
+                                    component="img"
+                                    src={Solano12}
+                                    alt="TourCraft Logo"
+                                    sx={{ width: '37px', height: '58px', objectFit: 'contain' }}
+                                />
+                                <Typography
+                                    sx={{
+                                        color: '#000',
+                                        fontFamily: "'Golos Text', sans-serif",
+                                        fontWeight: 700,
+                                        fontSize: '24px',
+                                        lineHeight: '28.8px',
+                                    }}
+                                >
+                                    TourCraft
+                                </Typography>
+                            </Box>
+
+                            <Typography
+                                sx={{
+                                    color: '#000',
+                                    fontFamily: "'Inter', sans-serif",
+                                    fontWeight: 400,
+                                    fontSize: '16px',
+                                    lineHeight: '21px',
+                                    opacity: 0.6,
                                 }}
                             >
-                                <MenuItem value="U.S. Dollar ($)">U.S. Dollar ($)</MenuItem>
-                            </Select>
-                        </Grid>
-                        
-                        <Grid item xs={12} md={2}>
-                            <Typography variant="subtitle1" sx={{ color: 'rgba(255, 255, 255, 0.8)', mb: 2 }}>
-                                Company
+                                Lorem ipsum dolor sit amet consectetur. Enim nulla suscipit leo integer bibendum ultrices. Nulla sed arcu amet montes tellus sit sem quis.
                             </Typography>
-                            <Stack spacing={1}>
-                                {footerLinks.company.map((link) => (
-                                    <Typography 
-                                        key={link} 
-                                        component={RouterLink} 
-                                        to={`/${link.toLowerCase().replace(/\s+/g, '-')}`}
-                                        sx={{ 
-                                            color: 'rgba(255, 255, 255, 0.6)',
-                                            textDecoration: 'none',
-                                            '&:hover': {
-                                                textDecoration: 'underline'
-                                            }
-                                        }}
-                                    >
-                                        {link}
-                                    </Typography>
-                                ))}
-                            </Stack>
-                        </Grid>
-                        
-                        <Grid item xs={12} md={2}>
-                            <Typography variant="subtitle1" sx={{ color: 'rgba(255, 255, 255, 0.8)', mb: 2 }}>
-                                Help
-                            </Typography>
-                            <Stack spacing={1}>
-                                {footerLinks.help.map((link) => (
-                                    <Typography 
-                                        key={link} 
-                                        component={MuiLink} 
-                                        href="#"
-                                        sx={{ 
-                                            color: 'rgba(255, 255, 255, 0.6)',
-                                            textDecoration: 'none',
-                                            '&:hover': {
-                                                textDecoration: 'underline'
-                                            }
-                                        }}
-                                    >
-                                        {link}
-                                    </Typography>
-                                ))}
-                            </Stack>
-                        </Grid>
-                        
-                        <Grid item xs={12} md={5}>
-                            <Typography variant="subtitle1" sx={{ color: 'rgba(255, 255, 255, 0.8)', mb: 2 }}>
-                                Payment methods possible
-                            </Typography>
-                            
-                            <Stack spacing={2}>
-                                {paymentMethods.map((row, index) => (
-                                    <Stack key={index} direction="row" spacing={1} useFlexGap flexWrap="wrap">
-                                        {row.items.map((method) => (
-                                            <Box 
-                                                key={method}
-                                                component="img" 
-                                                src={paymentIcons[method]} 
-                                                alt={`${method} payment method`}
-                                                sx={{ 
-                                                    width: 42, 
-                                                    height: 27,
-                                                    objectFit: 'contain'
-                                                }}
-                                            />
-                                        ))}
-                                    </Stack>
-                                ))}
-                            </Stack>
-                            
-                            <Typography variant="subtitle1" sx={{ color: 'rgba(255, 255, 255, 0.8)', mt: 4, mb: 2 }}>
-                                Join Our Team
-                            </Typography>
-                            <Typography 
-                                component={RouterLink}
-                                to="/become-a-guide"
-                                sx={{ 
-                                    color: 'rgba(255, 255, 255, 0.6)',
-                                    textDecoration: 'none',
-                                    '&:hover': {
-                                        textDecoration: 'underline'
-                                    }
-                                }}
-                            >
-                                Become a Tour guide for Us
-                            </Typography>
-                        </Grid>
+
+                            <Box sx={{ display: 'flex', gap: '12px', opacity: 0.5 }}>
+                                <SocialIcon icon={Social} alt="Facebook" />
+                                <SocialIcon icon={Twitter} alt="Twitter" />
+                                <SocialIcon icon={Insta} alt="Instagram" />
+                            </Box>
+                        </Box>
                     </Grid>
-                </Box>
-                
-                <Divider sx={{ mt: 4, mb: 2, bgcolor: 'rgba(255, 255, 255, 0.1)' }} />
-                
-                <Box sx={{ 
-                    display: 'flex', 
-                    flexDirection: { xs: 'column', sm: 'row' },
-                    justifyContent: 'space-between', 
-                    alignItems: 'center', 
-                    py: 1,
-                    gap: 2
-                }}>
-                    <Typography sx={{ color: 'rgba(255, 255, 255, 0.6)', textAlign: { xs: 'center', sm: 'left' } }}>
-                        Copyright © {new Date().getFullYear()} Tourcraft. All Rights Reserved
-                    </Typography>
-                    
-                    <Stack direction="row" spacing={4}>
-                        <IconButton 
-                            color="inherit"
-                            component="a"
-                            href="https://facebook.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <FacebookIcon />
-                        </IconButton>
-                        <IconButton 
-                            color="inherit"
-                            component="a"
-                            href="https://twitter.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <TwitterIcon />
-                        </IconButton>
-                        <IconButton 
-                            color="inherit"
-                            component="a"
-                            href="https://instagram.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <InstagramIcon />
-                        </IconButton>
-                    </Stack>
-                </Box>
-            </Container>
+
+                    {/* Useful Links */}
+                    <Grid item xs={12} sm={4} md={2}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                            <Typography
+                                sx={{
+                                    color: '#000',
+                                    fontFamily: "'Golos Text', sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: '20px',
+                                    lineHeight: '24px',
+                                }}
+                            >
+                                Useful Links
+                            </Typography>
+
+                            <Box component="ul" sx={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                                {['Home', 'Tours', 'Guides', 'About Us'].map((link) => (
+                                    <li key={link} style={{ marginBottom: '8px' }}>
+                                        <FooterLink href={`#${link.toLowerCase().replace(' ', '')}`}>
+                                            {link}
+                                        </FooterLink>
+                                    </li>
+                                ))}
+                            </Box>
+                        </Box>
+                    </Grid>
+
+                    {/* Contact */}
+                    <Grid item xs={12} sm={6} md={4}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                            <Typography
+                                sx={{
+                                    color: '#000',
+                                    fontFamily: "'Golos Text', sans-serif",
+                                    fontWeight: 600,
+                                    fontSize: '20px',
+                                    lineHeight: '24px',
+                                }}
+                            >
+                                Contact
+                            </Typography>
+
+                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                                <ContactItem 
+                                    icon={phone}
+                                    text="(+52) 55 2110 5157"
+                                    href="tel:+525521105157"
+                                />
+
+                                <ContactItem 
+                                    icon={mail}
+                                    text="tourcraftbusiness@gmail.com"
+                                    href="mailto:tourcraftbusiness@gmail.com"
+                                />
+
+                                <ContactItem 
+                                    icon={map}
+                                    text="Playa del Carmen, Quintana Roo, Mexico"
+                                />
+                            </Box>
+                        </Box>
+                    </Grid>
+                </Grid>
+            </Box>
+
+            <Typography
+                sx={{
+                    color: '#000',
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                    fontSize: '14px',
+                    lineHeight: '16.94px',
+                    opacity: 0.5,
+                }}
+            >
+                &copy;Copyright 2024 Tourcraft. All Rights Reserved
+            </Typography>
         </Box>
     );
 };

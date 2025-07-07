@@ -1,740 +1,462 @@
-import {
-    CssBaseline,
-    ThemeProvider as MuiThemeProvider,
-    createTheme,
-    useMediaQuery,
-} from "@mui/material";
-import React, { useState } from "react";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import GoogleIcon from "@mui/icons-material/Google";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import {
     Box,
     Button,
     Checkbox,
-    Container,
     Divider,
     FormControlLabel,
-    IconButton,
+    Grid,
     InputAdornment,
     Link,
-    Stack,
     TextField,
     Typography,
 } from "@mui/material";
-import { Link as RouterLink } from 'react-router-dom';
-import image52 from "../assets/image52.png";
+import React, { useState } from "react";
+import img52 from "../assets/img52.png";    
 import Solano11 from "../assets/Solano11.png";
 
-const appTheme = createTheme({
-    palette: {
-        primary: {
-            main: "#333333",
-        },
-        secondary: {
-            main: "#007aff",
-        },
-        background: {
-            default: "#ffffff",
-        },
-        text: {
-            primary: "#000000",
-            secondary: "rgba(0, 0, 0, 0.7)",
-            disabled: "rgba(0, 0, 0, 0.5)",
-        },
-        divider: "#d8dadc",
-        grey: {
-            900: "#1a202c",
-        },
-    },
-    typography: {
-        fontFamily: [
-            "Inter-Regular",
-            "Poppins-Regular",
-            "Open_Sans-SemiBold",
-            "Helvetica",
-            "Arial",
-            "sans-serif",
-        ].join(","),
-        h3: {
-            fontFamily: "'Poppins-Bold', Helvetica",
-            fontWeight: 700,
-            fontSize: "40px",
-        },
-        h5: {
-            fontFamily: "'Poppins-SemiBold', Helvetica",
-            fontWeight: 600,
-            fontSize: "25px",
-        },
-        h6: {
-            fontFamily: "'Poppins-Bold', Helvetica",
-            fontWeight: 700,
-            fontSize: "19.8px",
-            letterSpacing: "-0.2px",
-            lineHeight: "25.7px",
-        },
-        body1: {
-            fontFamily: "'Poppins-Medium', Helvetica",
-            fontWeight: 500,
-            fontSize: "17px",
-            lineHeight: "23.8px",
-        },
-        body2: {
-            fontFamily: "'Inter-Regular', Helvetica",
-            fontWeight: 400,
-            fontSize: "14px",
-        },
-        button: {
-            textTransform: "none",
-            fontFamily: "'Inter-SemiBold', Helvetica",
-            fontWeight: 600,
-        },
-    },
-    components: {
-        MuiButton: {
-            styleOverrides: {
-                root: {
-                    textTransform: "none",
-                    borderRadius: "5px",
-                },
-                contained: {
-                    boxShadow: "none",
-                    "&:hover": {
-                        boxShadow: "none",
-                    },
-                },
-            },
-        },
-        MuiTextField: {
-            styleOverrides: {
-                root: {
-                    "& .MuiOutlinedInput-root": {
-                        borderRadius: "10px",
-                        "& fieldset": {
-                            borderColor: "#d8dadc",
-                        },
-                    },
-                },
-            },
-        },
-        MuiCheckbox: {
-            styleOverrides: {
-                root: {
-                    color: "#000000",
-                },
-            },
-        },
-        MuiDivider: {
-            styleOverrides: {
-                root: {
-                    backgroundColor: "#d8dadc",
-                },
-            },
-        },
-        MuiLink: {
-            styleOverrides: {
-                root: {
-                    textDecoration: "none",
-                },
-            },
-        },
-    },
-});
-
-export const ThemeProvider = ({ children }) => {
-    return (
-        <MuiThemeProvider theme={appTheme}>
-            <CssBaseline />
-            {children}
-        </MuiThemeProvider>
-    );
-};
-
 const SignUp = () => {
-    const [showPassword, setShowPassword] = useState(false);
-    const isMobile = useMediaQuery('(max-width:900px)');
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        dateOfBirth: "",
+        password: "",
+        confirmPassword: "",
+        agreeToTerms: false,
+    });
 
-    const handleClickShowPassword = () => {
-        setShowPassword(!showPassword);
+    const handleChange = (event) => {
+        const { name, value, type, checked } = event.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: type === 'checkbox' ? checked : value
+        }));
     };
 
-    if (isMobile) {
-        return (
-            <ThemeProvider>
-                <Box sx={{ bgcolor: "#ffffff", width: "100%", minHeight: '100vh', px: 2, py: 3 }}>
-                    {/* Header with back button and logo */}
-                    <Box display="flex" justifyContent="space-between" alignItems="center" mb={3}>
-                        <Button
-                            startIcon={<ArrowBackIcon />}
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Handle form submission
+        console.log(formData);
+    };
+
+    return (
+        <Box
+            sx={{
+                width: "100%",
+                height: "100vh",
+                display: "flex",
+                bgcolor: "#ffffff",
+            }}
+        >
+            {/* Left side - Background image with text overlay */}
+            <Box
+                sx={{
+                    position: "relative",
+                    width: "50%",
+                    height: "100%",
+                    overflow: "hidden",
+                    backgroundImage: `url(${img52})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                }}
+            >
+                <Typography
+                    variant="h3"
+                    sx={{
+                        position: "absolute",
+                        width: "400px",
+                        top: "117px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        fontFamily: "Playfair Display",
+                        fontWeight: 700,
+                        color: "#ffffff",
+                        fontSize: "40px",
+                        textAlign: "center",
+                        lineHeight: "29.2px",
+                    }}
+                >
+                    Explore The Riviera Maya
+                </Typography>
+
+                <Typography
+                    variant="body1"
+                    sx={{
+                        position: "absolute",
+                        width: "600px",
+                        top: "595px",
+                        left: "50%",
+                        transform: "translateX(-50%)",
+                        fontFamily: "Playfair Display",
+                        fontWeight: 500,
+                        color: "#ffffff",
+                        fontSize: "17px",
+                        textAlign: "center",
+                        letterSpacing: "-0.34px",
+                        lineHeight: "23.8px",
+                    }}
+                >
+                    Riviera Maya at your own pace: discover, book and live your adventure.
+                </Typography>
+            </Box>
+
+            {/* Right side - Sign up form */}
+            <Box
+                sx={{
+                    width: "50%",
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    position: "relative",
+                }}
+            >
+                <Box
+                    component="img"
+                    src={Solano11}
+                    alt="TourCraft Logo"
+                    sx={{
+                        width: "259px",
+                        height: "122px",
+                        position: "absolute",
+                        top: "157px",
+                        objectFit: "cover",
+                    }}
+                />
+
+                <Box
+                    component="form"
+                    onSubmit={handleSubmit}
+                    sx={{
+                        width: "583px",
+                        mt: 8,
+                        display: "flex",
+                        flexDirection: "column",
+                    }}
+                >
+                    <Box sx={{ mb: 3 }}>
+                        <Typography
+                            variant="h4"
                             sx={{
-                                fontFamily: "Open Sans-SemiBold",
+                                fontFamily: "Playfair Display",
                                 fontWeight: 600,
-                                fontSize: "14px",
-                                color: "black",
-                                textTransform: "none",
-                                p: 0,
+                                fontSize: "24px",
+                                letterSpacing: "-0.48px",
+                                lineHeight: "33.6px",
                             }}
                         >
-                            Back
-                        </Button>
-                        <Box
+                            Create account
+                        </Typography>
+                        <Typography
+                            variant="body1"
                             sx={{
-                                width: "100px",
-                                height: "50px",
-                                backgroundImage: `url(${Solano11})`,
-                                backgroundSize: "contain",
-                                backgroundPosition: "center",
-                                backgroundRepeat: "no-repeat",
+                                fontFamily: "Playfair Display",
+                                fontWeight: 400,
+                                color: "#2D3748",
+                                fontSize: "16px",
+                                letterSpacing: "-0.32px",
+                                lineHeight: "22.4px",
                             }}
+                        >
+                            Join With Us!
+                        </Typography>
+                    </Box>
+
+                    <Grid container spacing={2}>
+                        <Grid item xs={6}>
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontFamily: "Playfair Display",
+                                    fontWeight: 400,
+                                    color: "#2D3748",
+                                    fontSize: "14px",
+                                    mb: 0.5,
+                                }}
+                            >
+                                First name
+                            </Typography>
+                            <TextField
+                                fullWidth
+                                size="small"
+                                variant="outlined"
+                                name="firstName"
+                                value={formData.firstName}
+                                onChange={handleChange}
+                                sx={{
+                                    "& .MuiOutlinedInput-root": {
+                                        borderRadius: "3.53px",
+                                        height: "33.87px",
+                                    },
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontFamily: "Playfair Display",
+                                    fontWeight: 400,
+                                    color: "#2D3748",
+                                    fontSize: "14px",
+                                    mb: 0.5,
+                                }}
+                            >
+                                Last name
+                            </Typography>
+                            <TextField
+                                fullWidth
+                                size="small"
+                                variant="outlined"
+                                name="lastName"
+                                value={formData.lastName}
+                                onChange={handleChange}
+                                placeholder="Last name"
+                                sx={{
+                                    "& .MuiOutlinedInput-root": {
+                                        borderRadius: "3.53px",
+                                        height: "33.87px",
+                                    },
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontFamily: "Playfair Display",
+                                    fontWeight: 400,
+                                    color: "#2D3748",
+                                    fontSize: "14px",
+                                    mb: 0.5,
+                                }}
+                            >
+                                Email
+                            </Typography>
+                            <TextField
+                                fullWidth
+                                size="small"
+                                variant="outlined"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                sx={{
+                                    "& .MuiOutlinedInput-root": {
+                                        borderRadius: "3.53px",
+                                        height: "33.87px",
+                                    },
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontFamily: "Playfair Display",
+                                    fontWeight: 400,
+                                    color: "#2D3748",
+                                    fontSize: "14px",
+                                    mb: 0.5,
+                                }}
+                            >
+                                Date of birth (MM/DD/YY)
+                            </Typography>
+                            <TextField
+                                fullWidth
+                                size="small"
+                                variant="outlined"
+                                name="dateOfBirth"
+                                value={formData.dateOfBirth}
+                                onChange={handleChange}
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position="end">
+                                            <CalendarTodayIcon
+                                                sx={{ width: "16px", height: "15px" }}
+                                            />
+                                        </InputAdornment>
+                                    ),
+                                }}
+                                sx={{
+                                    "& .MuiOutlinedInput-root": {
+                                        borderRadius: "3.53px",
+                                        height: "33.87px",
+                                    },
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontFamily: "Playfair Display",
+                                    fontWeight: 400,
+                                    color: "#2D3748",
+                                    fontSize: "14px",
+                                    mb: 0.5,
+                                }}
+                            >
+                                Password
+                            </Typography>
+                            <TextField
+                                fullWidth
+                                size="small"
+                                variant="outlined"
+                                type="password"
+                                name="password"
+                                value={formData.password}
+                                onChange={handleChange}
+                                sx={{
+                                    "& .MuiOutlinedInput-root": {
+                                        borderRadius: "3.53px",
+                                        height: "33.87px",
+                                    },
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontFamily: "Playfair Display",
+                                    fontWeight: 400,
+                                    color: "#2D3748",
+                                    fontSize: "14px",
+                                    mb: 0.5,
+                                }}
+                            >
+                                Confirm password
+                            </Typography>
+                            <TextField
+                                fullWidth
+                                size="small"
+                                variant="outlined"
+                                type="password"
+                                name="confirmPassword"
+                                value={formData.confirmPassword}
+                                onChange={handleChange}
+                                placeholder="Confirm password"
+                                sx={{
+                                    "& .MuiOutlinedInput-root": {
+                                        borderRadius: "3.53px",
+                                        height: "33.87px",
+                                    },
+                                }}
+                            />
+                        </Grid>
+                    </Grid>
+
+                    <Box sx={{ mt: 2, display: "flex", justifyContent: "center" }}>
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    size="small"
+                                    name="agreeToTerms"
+                                    checked={formData.agreeToTerms}
+                                    onChange={handleChange}
+                                    sx={{
+                                        width: "14.11px",
+                                        height: "14.11px",
+                                        borderRadius: "1.41px",
+                                    }}
+                                />
+                            }
+                            label={
+                                <Typography
+                                    variant="body2"
+                                    sx={{
+                                        fontFamily: "Playfair Display",
+                                        fontSize: "12px",
+                                        letterSpacing: "-0.24px",
+                                    }}
+                                >
+                                    I agree to all the{" "}
+                                    <Link
+                                        href="#"
+                                        sx={{ color: "#1D836E", textDecoration: "none" }}
+                                    >
+                                        Terms
+                                    </Link>{" "}
+                                    and{" "}
+                                    <Link
+                                        href="#"
+                                        sx={{ color: "#1D836E", textDecoration: "none" }}
+                                    >
+                                        Privacy policy
+                                    </Link>
+                                </Typography>
+                            }
                         />
                     </Box>
 
-                    {/* Main content */}
-                    <Box mb={4}>
-                        <Typography
-                            variant="h6"
-                            sx={{
-                                fontFamily: "Poppins-Bold",
-                                fontWeight: "bold",
-                                mb: 3
-                            }}
-                        >
-                            Hi, Welcome!
-                        </Typography>
+                    <Button
+                        type="submit"
+                        variant="contained"
+                        sx={{
+                            mt: 2,
+                            width: "292px",
+                            height: "36px",
+                            backgroundColor: "#80B9AD",
+                            borderRadius: "3.53px",
+                            alignSelf: "center",
+                            textTransform: "none",
+                            fontFamily: "Playfair Display",
+                            fontWeight: 600,
+                            fontSize: "12px",
+                            letterSpacing: "-0.24px",
+                            "&:hover": {
+                                backgroundColor: "#6ca99c",
+                            },
+                        }}
+                    >
+                        Create account
+                    </Button>
 
-                        {/* Form fields */}
-                        <Stack spacing={2} mb={3}>
-                            <Stack spacing={1}>
-                                <Typography
-                                    variant="body2"
-                                    sx={{
-                                        fontFamily: "Inter-Regular",
-                                    }}
-                                >
-                                    Email address
-                                </Typography>
-                                <TextField
-                                    fullWidth
-                                    placeholder="Your email"
-                                    type="email"
-                                    variant="outlined"
-                                    sx={{
-                                        "& .MuiOutlinedInput-root": {
-                                            borderRadius: "10px",
-                                            height: "48px",
-                                        },
-                                    }}
-                                />
-                            </Stack>
-
-                            <Stack spacing={1}>
-                                <Typography
-                                    variant="body2"
-                                    sx={{
-                                        fontFamily: "Inter-Regular",
-                                    }}
-                                >
-                                    Password
-                                </Typography>
-                                <TextField
-                                    fullWidth
-                                    placeholder="Password"
-                                    type={showPassword ? "text" : "password"}
-                                    variant="outlined"
-                                    InputProps={{
-                                        endAdornment: (
-                                            <InputAdornment position="end">
-                                                <IconButton
-                                                    onClick={handleClickShowPassword}
-                                                    edge="end"
-                                                >
-                                                    {showPassword ? (
-                                                        <VisibilityOffIcon />
-                                                    ) : (
-                                                        <VisibilityIcon />
-                                                    )}
-                                                </IconButton>
-                                            </InputAdornment>
-                                        ),
-                                    }}
-                                    sx={{
-                                        "& .MuiOutlinedInput-root": {
-                                            borderRadius: "10px",
-                                            height: "48px",
-                                        },
-                                    }}
-                                />
-                            </Stack>
-
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    justifyContent: "space-between",
-                                    alignItems: "center",
-                                }}
-                            >
-                                <FormControlLabel
-                                    control={<Checkbox />}
-                                    label="Remember me"
-                                    sx={{
-                                        "& .MuiFormControlLabel-label": {
-                                            fontFamily: "Inter-Regular",
-                                        },
-                                    }}
-                                />
-                                <Link
-                                    href="#"
-                                    underline="none"
-                                    sx={{
-                                        fontFamily: "Inter-Regular",
-                                        color: "#000000",
-                                    }}
-                                >
-                                    Forgot password?
-                                </Link>
-                            </Box>
-
-                            <Button
-                                variant="contained"
-                                fullWidth
-                                sx={{
-                                    bgcolor: "black",
-                                    borderRadius: "5px",
-                                    py: "5px",
-                                    fontFamily: "Inter-SemiBold",
-                                    fontWeight: 600,
-                                    fontSize: "16px",
-                                    textTransform: "none",
-                                }}
-                            >
-                                Log in
-                            </Button>
-
-                            <Box
-                                sx={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "center",
-                                }}
-                            >
-                                <Typography
-                                    variant="body2"
-                                    sx={{
-                                        fontFamily: "Poppins-Regular",
-                                        color: "#2d3748",
-                                    }}
-                                >
-                                    Don&apos;t have an account?{" "}
-                                    <Link
-                                        component={RouterLink}
-                                        to="/SignUp"
-                                        color="#007aff"
-                                        underline="none"
-                                        sx={{
-                                            '&:hover': {
-                                                textDecoration: 'underline',
-                                            }
-                                        }}
-                                    >
-                                        Sign Up
-                                    </Link>
-                                </Typography>
-                            </Box>
-
-                            <Box sx={{ display: "flex", alignItems: "center" }}>
-                                <Divider sx={{ flex: 1 }} />
-                                <Typography
-                                    variant="body2"
-                                    sx={{
-                                        px: 2,
-                                        fontFamily: "Inter-Regular",
-                                        color: "rgba(0, 0, 0, 0.7)",
-                                    }}
-                                >
-                                    Or with
-                                </Typography>
-                                <Divider sx={{ flex: 1 }} />
-                            </Box>
-
-                            <Button
-                                variant="outlined"
-                                startIcon={<GoogleIcon />}
-                                fullWidth
-                                sx={{
-                                    height: "45px",
-                                    borderRadius: "10px",
-                                    border: "1px solid #d8dadc",
-                                    fontFamily: "Inter-Medium",
-                                    fontWeight: 500,
-                                    textTransform: "none",
-                                    color: "#000000",
-                                }}
-                            >
-                                Google
-                            </Button>
-                        </Stack>
-                    </Box>
+                    <Typography
+                        variant="body2"
+                        align="center"
+                        sx={{
+                            mt: 2,
+                            fontFamily: "Playfair Display",
+                            fontSize: "11px",
+                            letterSpacing: "-0.22px",
+                        }}
+                    >
+                        Already have an account?{" "}
+                        <Link href="/Log-in" sx={{ color: "#1D836E", textDecoration: "none" }}>
+                            Log In
+                        </Link>
+                    </Typography>
                 </Box>
-            </ThemeProvider>
-        );
-    }
 
-    // Desktop view (original code)
-    return (
-        <ThemeProvider>
-            <Box sx={{ bgcolor: "#ffffff", width: "100%" }}>
-                <Container
-                    maxWidth={false}
-                    disableGutters
-                    sx={{ width: "1512px", height: "806px" }}
+                <Box
+                    sx={{
+                        position: "absolute",
+                        bottom: "160px",
+                        display: "flex",
+                        alignItems: "center",
+                        width: "560px",
+                    }}
                 >
-                    <Box sx={{ position: "relative", height: "676px", mt: "61px" }}>
-                        <Box
-                            sx={{
-                                position: "absolute",
-                                width: "1512px",
-                                height: "676px",
-                                top: 0,
-                                left: 0,
-                                overflow: "hidden",
-                            }}
-                        >
-                            {/* Left side - Image with overlay */}
-                            <Box
-                                sx={{
-                                    position: "absolute",
-                                    width: "688px",
-                                    height: "676px",
-                                    top: 0,
-                                    left: 0,
-                                }}
-                            >
-                                <Box
-                                    sx={{
-                                        position: "relative",
-                                        width: "688px",
-                                        height: "676px",
-                                        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(${image52})`,
-                                        backgroundSize: "100% 100%",
-                                    }}
-                                >
-                                    <Stack
-                                        spacing={2}
-                                        sx={{
-                                            position: "absolute",
-                                            width: "450px",
-                                            top: "120px",
-                                            left: "120px",
-                                            textAlign: "center",
-                                        }}
-                                    >
-                                        <Typography
-                                            variant="h3"
-                                            sx={{
-                                                fontFamily: "Poppins-Bold",
-                                                fontWeight: "bold",
-                                                color: "white",
-                                                fontSize: "40px",
-                                                lineHeight: "29.2px",
-                                                textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                                            }}
-                                        >
-                                            Explore Riviera Maya
-                                        </Typography>
-                                        <Typography
-                                            variant="h5"
-                                            sx={{
-                                                fontFamily: "Poppins-SemiBold",
-                                                fontWeight: 600,
-                                                color: "white",
-                                                fontSize: "25px",
-                                                lineHeight: "35px",
-                                                mt: 4,
-                                                textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-                                            }}
-                                        >
-                                            Welcome to TourCraft
-                                        </Typography>
-                                        <Typography
-                                            variant="body1"
-                                            sx={{
-                                                fontFamily: "Poppins-Medium",
-                                                fontWeight: 500,
-                                                color: "white",
-                                                fontSize: "17px",
-                                                lineHeight: "23.8px",
-                                                mt: 2,
-                                            }}
-                                        >
-                                            Riviera Maya at your own pace: discover, book and live your
-                                            adventure.
-                                        </Typography>
-                                    </Stack>
-                                </Box>
-                            </Box>
-
-                            {/* Right side - Login form */}
-                            <Box
-                                sx={{
-                                    position: "absolute",
-                                    width: "594px",
-                                    height: "515px",
-                                    top: "123px",
-                                    left: "743px",
-                                }}
-                            >
-                                <Box
-                                    sx={{
-                                        position: "absolute",
-                                        width: "581px",
-                                        height: "515px",
-                                        top: 0,
-                                        left: "13px",
-                                    }}
-                                >
-                                    <Button
-                                        startIcon={<ArrowBackIcon />}
-                                        sx={{
-                                            position: "absolute",
-                                            top: "-60px",
-                                            left: "11px",
-                                            fontFamily: "Open Sans-SemiBold",
-                                            fontWeight: 600,
-                                            fontSize: "18px",
-                                            color: "black",
-                                            textTransform: "none",
-                                        }}
-                                    >
-                                        Back
-                                    </Button>
-
-                                    <Box
-                                        sx={{
-                                            position: "absolute",
-                                            width: "207px",
-                                            height: "103px",
-                                            top: "-118px",
-                                            left: "533px",
-                                            backgroundImage: `url(${Solano11})`,
-                                            backgroundSize: "cover",
-                                            backgroundPosition: "50% 50%",
-                                        }}
-                                    />
-
-                                    <Typography
-                                        variant="h6"
-                                        sx={{
-                                            position: "absolute",
-                                            top: 0,
-                                            left: 0,
-                                            fontFamily: "Poppins-Bold",
-                                            fontWeight: "bold",
-                                            fontSize: "19.8px",
-                                            lineHeight: "25.7px",
-                                        }}
-                                    >
-                                        Hi, Welcome!
-                                    </Typography>
-
-                                    <Stack
-                                        spacing={3}
-                                        sx={{
-                                            position: "absolute",
-                                            width: "570px",
-                                            top: "64px",
-                                            left: 0,
-                                        }}
-                                    >
-                                        <Stack spacing={1.5}>
-                                            <Typography
-                                                variant="body2"
-                                                sx={{
-                                                    fontFamily: "Inter-Regular",
-                                                    fontSize: "14px",
-                                                    lineHeight: "17.5px",
-                                                }}
-                                            >
-                                                Email address
-                                            </Typography>
-                                            <TextField
-                                                fullWidth
-                                                placeholder="Your email"
-                                                type="email"
-                                                variant="outlined"
-                                                sx={{
-                                                    "& .MuiOutlinedInput-root": {
-                                                        borderRadius: "10px",
-                                                        height: "56px",
-                                                    },
-                                                }}
-                                            />
-                                        </Stack>
-
-                                        <Stack spacing={1.5}>
-                                            <Typography
-                                                variant="body2"
-                                                sx={{
-                                                    fontFamily: "Inter-Regular",
-                                                    fontSize: "14px",
-                                                    lineHeight: "17.5px",
-                                                }}
-                                            >
-                                                Password
-                                            </Typography>
-                                            <TextField
-                                                fullWidth
-                                                placeholder="Password"
-                                                type={showPassword ? "text" : "password"}
-                                                variant="outlined"
-                                                InputProps={{
-                                                    endAdornment: (
-                                                        <InputAdornment position="end">
-                                                            <IconButton
-                                                                onClick={handleClickShowPassword}
-                                                                edge="end"
-                                                            >
-                                                                {showPassword ? (
-                                                                    <VisibilityOffIcon />
-                                                                ) : (
-                                                                    <VisibilityIcon />
-                                                                )}
-                                                            </IconButton>
-                                                        </InputAdornment>
-                                                    ),
-                                                }}
-                                                sx={{
-                                                    "& .MuiOutlinedInput-root": {
-                                                        borderRadius: "10px",
-                                                        height: "56px",
-                                                    },
-                                                }}
-                                            />
-                                        </Stack>
-
-                                        <Box
-                                            sx={{
-                                                display: "flex",
-                                                justifyContent: "space-between",
-                                                alignItems: "center",
-                                            }}
-                                        >
-                                            <FormControlLabel
-                                                control={<Checkbox />}
-                                                label="Remember me"
-                                                sx={{
-                                                    "& .MuiFormControlLabel-label": {
-                                                        fontFamily: "Inter-Regular",
-                                                        fontSize: "14px",
-                                                        lineHeight: "17.5px",
-                                                    },
-                                                }}
-                                            />
-                                            <Link
-                                                href="#"
-                                                underline="none"
-                                                sx={{
-                                                    fontFamily: "Inter-Regular",
-                                                    fontSize: "14px",
-                                                    lineHeight: "17.5px",
-                                                    color: "#000000",
-                                                }}
-                                            >
-                                                Forgot password?
-                                            </Link>
-                                        </Box>
-
-                                        <Button
-                                            variant="contained"
-                                            fullWidth
-                                            sx={{
-                                                bgcolor: "black",
-                                                borderRadius: "5px",
-                                                py: "5px",
-                                                fontFamily: "Inter-SemiBold",
-                                                fontWeight: 600,
-                                                fontSize: "16px",
-                                                textTransform: "none",
-                                            }}
-                                        >
-                                            Log in
-                                        </Button>
-
-                                        <Box
-                                            sx={{
-                                                display: "flex",
-                                                alignItems: "center",
-                                                justifyContent: "center",
-                                            }}
-                                        >
-                                            <Typography
-                                                variant="body2"
-                                                sx={{
-                                                    fontFamily: "Poppins-Regular",
-                                                    fontSize: "9.9px",
-                                                    lineHeight: "13.8px",
-                                                    color: "#2d3748",
-                                                }}
-                                            >
-                                                Don&apos;t have an account?{" "}
-                                                <Link
-                                                    href="#"
-                                                    underline="none"
-                                                    sx={{
-                                                        fontFamily: "Poppins-Regular",
-                                                        fontSize: "9.9px",
-                                                        lineHeight: "13.8px",
-                                                        color: "#007aff",
-                                                    }}
-                                                >
-                                                    Sign up
-                                                </Link>
-                                            </Typography>
-                                        </Box>
-
-                                        <Box sx={{ display: "flex", alignItems: "center" }}>
-                                            <Divider sx={{ flex: 1 }} />
-                                            <Typography
-                                                variant="body2"
-                                                sx={{
-                                                    px: 2,
-                                                    fontFamily: "Inter-Regular",
-                                                    fontSize: "14px",
-                                                    lineHeight: "17.5px",
-                                                    color: "rgba(0, 0, 0, 0.7)",
-                                                }}
-                                            >
-                                                Or with
-                                            </Typography>
-                                            <Divider sx={{ flex: 1 }} />
-                                        </Box>
-
-                                        <Button
-                                            variant="outlined"
-                                            startIcon={<GoogleIcon />}
-                                            sx={{
-                                                width: "275px",
-                                                height: "45px",
-                                                left: "150px",
-                                                borderRadius: "10px",
-                                                border: "1px solid #d8dadc",
-                                                fontFamily: "Inter-Medium",
-                                                fontWeight: 500,
-                                                fontSize: "14px",
-                                                textTransform: "none",
-                                                color: "#000000",
-                                            }}
-                                        >
-                                            Google
-                                        </Button>
-                                    </Stack>
-                                </Box>
-                            </Box>
-                        </Box>
-                    </Box>
-                </Container>
+                    <Divider sx={{ flex: 1 }} />
+                    <Link
+                        href="/SignUpTourGuides"
+                        underline="always"
+                        sx={{
+                            mx: 2,
+                            color: "rgba(0, 0, 0, 0.7)",
+                            fontFamily: "Playfair Display",
+                            fontSize: "14px",
+                        }}
+                    >
+                        I want to become a guide
+                    </Link>
+                    <Divider sx={{ flex: 1 }} />
+                </Box>
             </Box>
-        </ThemeProvider>
+        </Box>
     );
 };
 

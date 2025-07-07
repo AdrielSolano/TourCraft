@@ -1,275 +1,356 @@
-import React, { useState } from "react";
-import {
-    Box,
-    Button,
-    Card,
-    CardContent,
-    CardMedia,
-    Container,
-    Typography,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-} from "@mui/material";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Link as RouterLink } from 'react-router-dom';
+import React from 'react';
+import { 
+  Box,
+  Typography,
+  Container,
+  Grid,
+  Divider,
+  Card,
+  CardContent,
+  Avatar
+} from '@mui/material';
+import { styled } from '@mui/system';
+import Rectangle46 from '../assets/Rectangle46.png';
+import David from '../assets/david.png';
+import Santiago from '../assets/santiago.png';
+import paco from '../assets/paco.png';
+import Jesus from '../assets/jesus.png';
+import Adriel from '../assets/adriel.png';
+import Alexis from '../assets/alexis.png';
+import car from '../assets/car.png';
+import lapiz from '../assets/lapiz.png';
+import lupa from '../assets/lupa.png';
+import manos from '../assets/manos.png';
+import palo     from '../assets/palo.png';
+import persona from '../assets/persona.png';
+// Styled components
+const StyledHero = styled(Box)(({ theme }) => ({
+  height: '443px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  textAlign: 'center',
+  backgroundImage: `url(${Rectangle46})`,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  [theme.breakpoints.down('sm')]: {
+    height: '300px'
+  }
+}));
 
-// Importaciones de imágenes
-import rectangle46 from "../assets/Rectangle46.png";
-import Vector from "../assets/Vector.png";
+const FeatureCard = styled(Card)(({ theme }) => ({
+  maxWidth: 345,
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  textAlign: 'center',
+  padding: theme.spacing(3),
+  boxShadow: theme.shadows[1],
+  '& .MuiCardContent-root': {
+    flexGrow: 1
+  }
+}));
 
-// Imágenes de miembros del equipo
-import David from "../assets/Image3.png";
-import Adriel from "../assets/image.png";
-import DavidDominguez from "../assets/imaga2.png";
-import Adrian from "../assets/image4.png";
-import Jesus from "../assets/image1.png";
+const TeamCard = styled(Card)(({ theme }) => ({
+  maxWidth: 282,
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  textAlign: 'center',
+  padding: theme.spacing(3),
+  boxShadow: theme.shadows[1],
+  '& .MuiCardContent-root': {
+    flexGrow: 1
+  }
+}));
 
 const AboutUs = () => {
-    // Estado para manejar la expansión de cada accordion
-    const [expandedMember, setExpandedMember] = useState(null);
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      {/* Hero Section */}
+      <StyledHero>
+        <Container>
+          <Typography variant="h2" component="h1" sx={{ 
+            color: 'common.white',
+            textShadow: '0 4px 4px rgba(0, 0, 0, 0.25)',
+            fontWeight: 600,
+            maxWidth: 750,
+            margin: '0 auto'
+          }}>
+            WE OFFER PERSONAL GUIDES FOR YOU
+          </Typography>
+        </Container>
+      </StyledHero>
 
-    // Descripción común para todos los miembros
-    const teamMemberDescription = `We are a team dedicated to connecting travelers with the best experiences that the Riviera Maya has to offer. Through our platform, we provide visitors access to a variety of tourism options, including expert guides, historical sites, natural adventures, and authentic cultural experiences. Our focus is on offering a practical and reliable way to explore this magical region, providing detailed information, personalized services, and a secure space for booking—all in one convenient place.`;
+      {/* About Section */}
+      <Box py={8}>
+        <Container>
+          <Divider sx={{ my: 5 }} />
+          
+          <Typography variant="body1" paragraph sx={{ 
+            fontSize: '1.125rem',
+            lineHeight: 1.6,
+            textAlign: 'justify'
+          }}>
+            Welcome to TourCraft, a space designed to offer authentic and personalized experiences in the Riviera Maya. 
+            We are passionate about connecting travelers with the best our region has to offer, from the stunning beaches 
+            and cenotes to its vibrant culture and delicious cuisine. Our mission is to make unique destinations accessible 
+            while supporting local guides and small businesses, promoting sustainable, high-quality tourism.
+          </Typography>
+          <Typography variant="body1" paragraph sx={{ 
+            fontSize: '1.125rem',
+            lineHeight: 1.6,
+            textAlign: 'justify'
+          }}>
+            Here, you can explore, plan, and customize your journey with us, selecting points of interest, transportation 
+            options, and services tailored to your needs. Whether you're seeking a nature adventure, a deep cultural experience, 
+            or recommendations for the best dining spots, we're here to help you create unforgettable memories in the heart 
+            of the Riviera Maya.
+          </Typography>
+          
+          <Divider sx={{ my: 5 }} />
+        </Container>
+      </Box>
 
-    // Datos de los miembros del equipo
-    const teamMembers = [
-        {
-            name: "David Santiago Gutierrez Calderon",
-            title: "Proyect leader, Software developer, TourCraft Group.",
-            image: David
-        },
-        {
-            name: "Adriel Arturo Solano Peraza",
-            title: "Scrum master, Software Develoment, TourCraft Group.",
-            image: Adriel
-        },
-        {
-            name: "David Dominguez Fraga",
-            title: "Software Analyst, TourCraft Group.",
-            image: DavidDominguez
-        },
-        {
-            name: "Adrian Francisco Farias Aranda",
-            title: "UX and UI Designer, TourCraft Group.",
-            image: Adrian
-        },
-        {
-            name: "Jesus Gallegos Gaspar",
-            title: "Team Leader, Software developer, TourCraft Group.",
-            image: Jesus
-        }
-    ];
+      {/* Features Section */}
+      <Box py={8} bgcolor="background.paper">
+        <Container>
+          <Typography variant="h2" component="h2" sx={{ 
+            fontWeight: 700,
+            mb: 8,
+            textAlign: 'center'
+          }}>
+            Dare to Explore with<br />TourCraft
+          </Typography>
+          
+          <Grid container spacing={6} justifyContent="center">
+            {/* Feature 1 */}
+            <Grid item xs={12} sm={6} md={4}>
+              <FeatureCard>
+                <Box component="img" src={lupa} alt="Hidden Gems" sx={{ width: 64, height: 64, opacity: 0.6 }} />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Hidden Gems
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Discover cenotes, secluded beaches, and the Riviera Maya's best-kept secrets.
+                  </Typography>
+                </CardContent>
+              </FeatureCard>
+            </Grid>
+            
+            {/* Feature 2 */}
+            <Grid item xs={12} sm={6} md={4}>
+              <FeatureCard>
+                <Box component="img" src={lapiz} alt="Personalized Tours" sx={{ width: 64, height: 64, opacity: 0.6 }} />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Personalized Tours
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Create your own adventure with customizable guides and itineraries.
+                  </Typography>
+                </CardContent>
+              </FeatureCard>
+            </Grid>
+            
+            {/* Feature 3 */}
+            <Grid item xs={12} sm={6} md={4}>
+              <FeatureCard>
+                <Box component="img" src={car} alt="Seamless Transport" sx={{ width: 64, height: 64, opacity: 0.6 }} />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Seamless Transport
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Relax and enjoy; we'll take care of getting you there.
+                  </Typography>
+                </CardContent>
+              </FeatureCard>
+            </Grid>
+            
+            {/* Feature 4 */}
+            <Grid item xs={12} sm={6} md={4}>
+              <FeatureCard>
+                <Box component="img" src={manos} alt="Authentic Experiences" sx={{ width: 64, height: 64, opacity: 0.6 }} />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Authentic Experiences
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Connect with local culture through unique, genuine activities.
+                  </Typography>
+                </CardContent>
+              </FeatureCard>
+            </Grid>
+            
+            {/* Feature 5 */}
+            <Grid item xs={12} sm={6} md={4}>
+              <FeatureCard>
+                <Box component="img" src={palo} alt="Local Flavors" sx={{ width: 64, height: 64, opacity: 0.6 }} />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Local Flavors
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Savor the best of Riviera Maya's cuisine with curated restaurant partnerships.
+                  </Typography>
+                </CardContent>
+              </FeatureCard>
+            </Grid>
+            
+            {/* Feature 6 */}
+            <Grid item xs={12} sm={6} md={4}>
+              <FeatureCard>
+                <Box component="img" src={persona} alt="Trusted Reviews" sx={{ width: 64, height: 64, opacity: 0.6 }} />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Trusted Reviews
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Plan with confidence by checking reviews and ratings from fellow travelers.
+                  </Typography>
+                </CardContent>
+              </FeatureCard>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
 
-    // Manejador para expandir/colapsar el accordion
-    const handleAccordionChange = (index) => (event, isExpanded) => {
-        setExpandedMember(isExpanded ? index : null);
-    };
-
-    return (
-        <Box sx={{ bgcolor: "white", width: "100%" }}>
-            {/* Hero Section */}
-            <Box
-                sx={{
-                    width: "100%",
-                    height: "451px",
-                    position: "relative",
-                    backgroundImage: `url(${rectangle46})`, // Ya lo tienes bien                    
-                    backgroundSize: "cover",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                }}
-            >
-                <Typography
-                    variant="h2"
-                    sx={{
-                        width: "748px",
-                        color: "white",
-                        fontFamily: "'Playfair Display', serif",
-                        fontWeight: 600,
-                        fontSize: "40px",
-                        textAlign: "center",
-                        letterSpacing: "-0.8px",
-                        lineHeight: "34px",
-                    }}
-                >
-                    WE OFFER PERSONAL GUIDES FOR YOU
-                </Typography>
-            </Box>
-
-            {/* Contact Us Button and About Us Title */}
-            <Container
-                maxWidth="lg"
-                sx={{ mt: 6, display: "flex", alignItems: "center" }}
-            >
-                <Button
-                    variant="contained"
-                    sx={{
-                        bgcolor: "#f3f3f3",
-                        color: "black",
-                        borderRadius: "15px",
-                        textTransform: "none",
-                        height: "58px",
-                        mr: 4,
-                    }}
-                    startIcon={
-                        <Box
-                            component="img"
-                            src={Vector}
-                        />
-                    }
-                >
-                    Contact Us
-                </Button>
-
-                <Typography
-                    variant="h4"
-                    sx={{
-                        fontWeight: 600,
-                        color: "neutral.900",
-                        ml: 40,
-                    }}
-                >
-                    About Us
-                </Typography>
-            </Container>
-
-            {/* About Us Description */}
-            <Container maxWidth="md" sx={{ mt: 2 }}>
-                <Typography
-                    variant="body1"
-                    sx={{
-                        textAlign: "justify",
-                        lineHeight: 1.6,
-                    }}
-                >
-                    Welcome to TourCraft, a space designed to offer authentic and
-                    personalized experiences in the Riviera Maya. We are passionate
-                    about connecting travelers with the best our region has to offer,
-                    from the stunning beaches and cenotes to its vibrant culture and
-                    delicious cuisine. Our mission is to make unique destinations
-                    accessible while supporting local guides and small businesses,
-                    promoting sustainable, high-quality tourism.
-                    <br />
-                    <br />
-                    Here, you can explore, plan, and customize your journey with us,
-                    selecting points of interest, transportation options, and services
-                    tailored to your needs. Whether you're seeking a nature adventure, a
-                    deep cultural experience, or recommendations for the best dining
-                    spots, we're here to help you create unforgettable memories in the
-                    heart of the Riviera Maya.
-                </Typography>
-            </Container>
-
-            {/* Team Members Section */}
-            <Container maxWidth="md" sx={{ mt: 6 }}>
-                {teamMembers.map((member, index) => (
-                    <Card
-                        key={index}
-                        sx={{
-                            display: "flex",
-                            mb: 4,
-                            boxShadow: "none",
-                            height: expandedMember === index ? "auto" : "500px",
-                            maxHeight: "700px", // Máxima altura para prevenir desbordamiento
-                        }}
-                    >
-                        <CardMedia
-                            component="img"
-                            sx={{ width: 338, height: 332, objectFit: "cover", m: 2 }}
-                            image={member.image}
-                            alt={member.name}
-                        />
-                        <CardContent sx={{ width: 344, p: 4, display: 'flex', flexDirection: 'column' }}>
-                            <Typography
-                                variant="h6"
-                                component="div"
-                                sx={{
-                                    fontWeight: 800,
-                                    fontFamily: "'Commissioner', sans-serif",
-                                }}
-                            >
-                                {member.name}
-                            </Typography>
-                            <Typography
-                                variant="subtitle1"
-                                sx={{
-                                    fontStyle: "italic",
-                                    fontFamily: "'Commissioner', sans-serif",
-                                    mb: 2,
-                                }}
-                            >
-                                {member.title}
-                            </Typography>
-                            <Accordion
-                                expanded={expandedMember === index}
-                                onChange={handleAccordionChange(index)}
-                                sx={{
-                                    boxShadow: 'none',
-                                    border: '1px solid rgba(0, 0, 0, 0.12)',
-                                    mt: 1,
-                                    '&:before': {
-                                        display: 'none',
-                                    },
-                                    '&.Mui-expanded': {
-                                        m: 0,
-                                        mb: 2,
-                                    }
-                                }}
-                            >
-                                <AccordionSummary
-                                    expandIcon={<ExpandMoreIcon />}
-                                    aria-controls={`panel-content-${index}`}
-                                    id={`panel-header-${index}`}
-                                    sx={{
-                                        minHeight: 'auto',
-                                        '& .MuiAccordionSummary-content': {
-                                            margin: '8px 0',
-                                            '&.Mui-expanded': {
-                                                margin: '8px 0',
-                                            }
-                                        },
-                                        '&:hover': {
-                                            backgroundColor: 'rgba(0, 0, 0, 0.04)',
-                                        }
-                                    }}
-                                >
-                                    <Typography
-                                        variant="body2"
-                                        sx={{
-                                            color: 'primary.main',
-                                            fontWeight: 'medium'
-                                        }}
-                                    >
-                                        {expandedMember === index ? "Hide Description" : "View Team Member Description"}
-                                    </Typography>
-                                </AccordionSummary>
-                                <AccordionDetails
-                                    sx={{
-                                        pt: 2,
-                                        '& .MuiTypography-root': {
-                                            transition: 'all 0.3s ease',
-                                        }
-                                    }}
-                                >
-                                    <Typography
-                                        variant="body2"
-                                        sx={{
-                                            textAlign: "justify",
-                                            lineHeight: 1.6,
-                                        }}
-                                    >
-                                        {teamMemberDescription}
-                                    </Typography>
-                                </AccordionDetails>
-                            </Accordion>
-                        </CardContent>
-                    </Card>
-                ))}
-            </Container>
-        </Box>
-    );
+      {/* Team Section */}
+      <Box py={8}>
+        <Container>
+          <Divider sx={{ my: 5 }} />
+          
+          <Typography variant="h2" component="h2" sx={{ 
+            fontWeight: 700,
+            mb: 8,
+            textAlign: 'center'
+          }}>
+            Meet Our Team
+          </Typography>
+          
+          <Grid container spacing={6} justifyContent="center">
+            {/* Team Member 1 */}
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <TeamCard>
+                <Avatar 
+                  src={Santiago}
+                  alt="Santiago Calderon"
+                  sx={{ width: 200, height: 200, mb: 2 }}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Santiago Calderon
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Project leader, Software developer
+                  </Typography>
+                </CardContent>
+              </TeamCard>
+            </Grid>
+            
+            {/* Team Member 2 */}
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <TeamCard>
+                <Avatar 
+                  src={David}
+                  alt="David Dominguez Fraga"
+                  sx={{ width: 200, height: 200, mb: 2 }}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    David Dominguez Fraga
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Software Analyst
+                  </Typography>
+                </CardContent>
+              </TeamCard>
+            </Grid>
+            
+            {/* Team Member 3 */}
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <TeamCard>
+                <Avatar 
+                  src={paco}
+                  alt="Adrian Farias"
+                  sx={{ width: 200, height: 200, mb: 2 }}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Adrian Farias
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    UX and UI Designer
+                  </Typography>
+                </CardContent>
+              </TeamCard>
+            </Grid>
+            
+            {/* Team Member 4 */}
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <TeamCard>
+                <Avatar 
+                  src={Jesus}
+                  alt="Jesus Gallegos"
+                  sx={{ width: 200, height: 200, mb: 2 }}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Jesus Gallegos
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Team leader, Software developer
+                  </Typography>
+                </CardContent>
+              </TeamCard>
+            </Grid>
+            
+            {/* Team Member 5 */}
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <TeamCard>
+                <Avatar 
+                  src={Adriel}
+                  alt="Adriel Solano"
+                  sx={{ width: 200, height: 200, mb: 2 }}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Adriel Solano
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Scrum master, Software Development
+                  </Typography>
+                </CardContent>
+              </TeamCard>
+            </Grid>
+            
+            {/* Team Member 6 */}
+            <Grid item xs={12} sm={6} md={4} lg={3}>
+              <TeamCard>
+                <Avatar 
+                  src={Alexis}
+                  alt="Alexis Bustos"
+                  sx={{ width: 200, height: 200, mb: 2 }}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    Alexis Bustos
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    (DBA) DataBase Administrator
+                  </Typography>
+                </CardContent>
+              </TeamCard>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
+    </Box>
+  );
 };
 
 export default AboutUs;
