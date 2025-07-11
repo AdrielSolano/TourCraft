@@ -18,7 +18,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ArrowForward, ArrowBack, Star } from '@mui/icons-material';
 import movistar from '../assets/movistar.png';
-import img2 from '../assets/img2.png';
+import im2 from '../assets/im2.png';
 import img3 from '../assets/img3.png';
 import img4 from '../assets/img4.png';
 import img5 from '../assets/img5.png';
@@ -223,7 +223,7 @@ const HomePage = () => {
                 name: 'Merida'
               },
               {
-                image: img2,
+                image: im2,
                 name: 'Cancun',
                 badge: '20%OFF'
               },
