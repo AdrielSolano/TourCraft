@@ -116,7 +116,7 @@ const HomePage = () => {
                 description: 'After helping you choose the place, time, guide, and transportation, all that\'s left is to enjoy.'
               }
             ].map((step, index) => (
-              <Grid item xs={12} md={4} key={index}>
+              <Grid xs={12} md={4} key={index}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                   <Typography
                     variant="h3"
@@ -345,7 +345,7 @@ const HomePage = () => {
                 description: 'Travel hassle-free. Our platform offers safe and comfortable transportation options to ensure you reach your favorite destinations with ease.'
               }
             ].map((service, index) => (
-              <Grid item xs={12} md={4} key={index}>
+              <Grid xs={12} md={4} key={index}>
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, textAlign: 'center' }}>
                   <Box sx={{ width: 64, height: 64, opacity: index === 1 ? 0.6 : 1 }}>
                     <img src={service.icon} alt={service.title} style={{ width: '100%', height: '100%' }} />

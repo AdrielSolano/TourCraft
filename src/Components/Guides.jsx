@@ -862,10 +862,10 @@ const Guides = () => {
                                 <CardContent sx={{ p: 0 }}>
                                     <Grid container spacing={4} sx={{ p: { xs: 3, md: 7.5 } }}>
                                         {/* Alternar orden en móvil */}
-                                        <Grid item xs={12} md={6} order={{ xs: index % 2 === 0 ? 1 : 2, md: 'unset' }}>
+                                        <Grid xs={12} md={6} order={{ xs: index % 2 === 0 ? 1 : 2, md: 'unset' }}>
                                             <GuideInfo guide={guide} />
                                         </Grid>
-                                        <Grid item xs={12} md={6} order={{ xs: index % 2 === 0 ? 2 : 1, md: 'unset' }}>
+                                        <Grid  xs={12} md={6} order={{ xs: index % 2 === 0 ? 2 : 1, md: 'unset' }}>
                                             <GuideImage guide={guide} />
                                         </Grid>
                                     </Grid>

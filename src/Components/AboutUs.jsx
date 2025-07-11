@@ -127,7 +127,7 @@ const AboutUs = () => {
           
           <Grid container spacing={6} justifyContent="center">
             {/* Feature 1 */}
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid xs={12} sm={6} md={4}>
               <FeatureCard>
                 <Box component="img" src={lupa} alt="Hidden Gems" sx={{ width: 64, height: 64, opacity: 0.6 }} />
                 <CardContent>
@@ -142,7 +142,7 @@ const AboutUs = () => {
             </Grid>
             
             {/* Feature 2 */}
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid xs={12} sm={6} md={4}>
               <FeatureCard>
                 <Box component="img" src={lapiz} alt="Personalized Tours" sx={{ width: 64, height: 64, opacity: 0.6 }} />
                 <CardContent>
@@ -157,7 +157,7 @@ const AboutUs = () => {
             </Grid>
             
             {/* Feature 3 */}
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid xs={12} sm={6} md={4}>
               <FeatureCard>
                 <Box component="img" src={car} alt="Seamless Transport" sx={{ width: 64, height: 64, opacity: 0.6 }} />
                 <CardContent>
@@ -172,7 +172,7 @@ const AboutUs = () => {
             </Grid>
             
             {/* Feature 4 */}
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid  xs={12} sm={6} md={4}>
               <FeatureCard>
                 <Box component="img" src={manos} alt="Authentic Experiences" sx={{ width: 64, height: 64, opacity: 0.6 }} />
                 <CardContent>
@@ -187,7 +187,7 @@ const AboutUs = () => {
             </Grid>
             
             {/* Feature 5 */}
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid xs={12} sm={6} md={4}>
               <FeatureCard>
                 <Box component="img" src={palo} alt="Local Flavors" sx={{ width: 64, height: 64, opacity: 0.6 }} />
                 <CardContent>
@@ -202,7 +202,7 @@ const AboutUs = () => {
             </Grid>
             
             {/* Feature 6 */}
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid xs={12} sm={6} md={4}>
               <FeatureCard>
                 <Box component="img" src={persona} alt="Trusted Reviews" sx={{ width: 64, height: 64, opacity: 0.6 }} />
                 <CardContent>
@@ -234,7 +234,7 @@ const AboutUs = () => {
           
           <Grid container spacing={6} justifyContent="center">
             {/* Team Member 1 */}
-            <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Grid xs={12} sm={6} md={4} lg={3}>
               <TeamCard>
                 <Avatar 
                   src={Santiago}
@@ -253,7 +253,7 @@ const AboutUs = () => {
             </Grid>
             
             {/* Team Member 2 */}
-            <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Grid xs={12} sm={6} md={4} lg={3}>
               <TeamCard>
                 <Avatar 
                   src={David}
@@ -272,7 +272,7 @@ const AboutUs = () => {
             </Grid>
             
             {/* Team Member 3 */}
-            <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Grid xs={12} sm={6} md={4} lg={3}>
               <TeamCard>
                 <Avatar 
                   src={paco}
@@ -291,7 +291,7 @@ const AboutUs = () => {
             </Grid>
             
             {/* Team Member 4 */}
-            <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Grid xs={12} sm={6} md={4} lg={3}>
               <TeamCard>
                 <Avatar 
                   src={Jesus}
@@ -310,7 +310,7 @@ const AboutUs = () => {
             </Grid>
             
             {/* Team Member 5 */}
-            <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Grid xs={12} sm={6} md={4} lg={3}>
               <TeamCard>
                 <Avatar 
                   src={Adriel}
@@ -329,7 +329,7 @@ const AboutUs = () => {
             </Grid>
             
             {/* Team Member 6 */}
-            <Grid item xs={12} sm={6} md={4} lg={3}>
+            <Grid xs={12} sm={6} md={4} lg={3}>
               <TeamCard>
                 <Avatar 
                   src={Alexis}

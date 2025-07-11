@@ -258,7 +258,7 @@ export const Tours = () => {
 
                     <Grid container spacing={3}>
                         {tourData.map((tour, index) => (
-                            <Grid item xs={12} sm={6} md={4} key={index}>
+                            <Grid  xs={12} sm={6} md={4} key={index}>
                                 <Card
                                     sx={{
                                         height: 494,
@@ -345,7 +345,7 @@ export const Tours = () => {
 
                     <Grid container spacing={3}>
                         {placesData.map((place, index) => (
-                            <Grid item xs={12} sm={6} md={4} key={index}>
+                            <Grid xs={12} sm={6} md={4} key={index}>
                                 <Box
                                     sx={{
                                         height: 248,

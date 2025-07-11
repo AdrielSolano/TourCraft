@@ -158,7 +158,7 @@ export const BookingSimulation = () => {
             {/* Main Content */}
             <Grid container spacing={4} sx={{ px: { xs: 2, md: 10 }, mb: 8 }}>
                 {/* Left Side - Tickets Overview */}
-                <Grid item xs={12} md={6}>
+                <Grid  xs={12} md={6}>
                     <Card sx={{ borderRadius: 3, border: "1px solid #33333333", p: 3 }}>
                         <CardContent>
                             <Typography
@@ -303,7 +303,7 @@ export const BookingSimulation = () => {
                 </Grid>
 
                 {/* Right Side - Booking Details */}
-                <Grid item xs={12} md={6}>
+                <Grid  xs={12} md={6}>
                     <Stack spacing={3}>
                         {/* Date Selection */}
                         <Stack spacing={2}>

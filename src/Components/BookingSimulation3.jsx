@@ -115,7 +115,7 @@ export const BookingSimulation3 = () => {
             {/* Main Content */}
             <Grid container spacing={4} sx={{ px: { xs: 2, md: 15 }, py: 4 }}>
                 {/* Payment Method Selection */}
-                <Grid item xs={12} md={6}>
+                <Grid xs={12} md={6}>
                     <Typography variant="h5" sx={{ fontWeight: 600, mb: 3 }}>
                         Select a payment method
                     </Typography>
@@ -205,10 +205,10 @@ export const BookingSimulation3 = () => {
                                                     onChange={(e) => setSecurityCode(e.target.value)}
                                                     sx={{ maxWidth: 255 }}
                                                 />
-                                                <Button 
+                                                <Button
                                                     onClick={handleOpenSecurityCodeDialog}
-                                                    sx={{ 
-                                                        color: '#80b9ad', 
+                                                    sx={{
+                                                        color: '#80b9ad',
                                                         textTransform: 'none',
                                                         fontSize: '0.875rem',
                                                         p: 0,
@@ -230,7 +230,7 @@ export const BookingSimulation3 = () => {
                 </Grid>
 
                 {/* Tickets Overview */}
-                <Grid item xs={12} md={6}>
+                <Grid xs={12} md={6}>
                     <Card sx={{ p: 3, borderRadius: 3, border: '1px solid rgba(51, 51, 51, 0.2)' }}>
                         <Typography variant="h5" sx={{ fontWeight: 800, textAlign: 'center', mb: 3 }}>
                             Your Tickets Overview
@@ -254,7 +254,7 @@ export const BookingSimulation3 = () => {
                                     </Typography>
                                 </Stack>
                                 <Stack direction="row" alignItems="center" spacing={1}>
-                                    <AccessTime sx={{ fontSize: 20, color: "#80b9ad"}} />
+                                    <AccessTime sx={{ fontSize: 20, color: "#80b9ad" }} />
                                     <Typography variant="h6" sx={{ fontWeight: 600 }}>
                                         15:00
                                     </Typography>
@@ -340,23 +340,23 @@ export const BookingSimulation3 = () => {
                     <Typography variant="body1" paragraph>
                         The <strong>Card Security Code (CSC)</strong> is a 3 or 4-digit number on your credit/debit card that adds an extra layer of security.
                     </Typography>
-                    
+
                     <Typography variant="h6" sx={{ mt: 2, fontWeight: 600 }}>
                         Where to find it:
                     </Typography>
-                    
+
                     <Box sx={{ mt: 2, display: 'flex', alignItems: 'center', gap: 2 }}>
                         <img src={visa} alt="Visa" style={{ width: 50 }} />
                         <Typography><strong>Visa, Mastercard, Discover:</strong> 3 digits on the back</Typography>
                     </Box>
-                    
+
                     <Box sx={{ mt: 2, display: 'flex', alignItems: 'center', gap: 2 }}>
                         <img src={Mastercard} alt="Mastercard" style={{ width: 50 }} />
                         <Typography><strong>American Express:</strong> 4 digits on the front</Typography>
                     </Box>
                 </DialogContent>
                 <DialogActions>
-                    <Button 
+                    <Button
                         onClick={handleCloseSecurityCodeDialog}
                         sx={{ color: '#80b9ad', fontWeight: 600 }}
                     >

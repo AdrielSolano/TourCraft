@@ -112,7 +112,7 @@ const Footer = () => {
             >
                 <Grid container spacing={{ xs: 4, md: 2 }} justifyContent="space-between">
                     {/* Logo and description */}
-                    <Grid item xs={12} md={3}>
+                    <Grid  xs={12} md={3}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                             <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                 <Box
@@ -156,7 +156,7 @@ const Footer = () => {
                     </Grid>
 
                     {/* Useful Links */}
-                    <Grid item xs={12} sm={4} md={2}>
+                    <Grid  xs={12} sm={4} md={2}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                             <Typography
                                 sx={{
@@ -188,7 +188,7 @@ const Footer = () => {
                     </Grid>
 
                     {/* Contact */}
-                    <Grid item xs={12} sm={6} md={4}>
+                    <Grid xs={12} sm={6} md={4}>
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                             <Typography
                                 sx={{

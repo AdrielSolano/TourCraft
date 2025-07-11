@@ -243,7 +243,7 @@ export const BookingSimulation4 = () => {
 
                 <Grid container spacing={4} justifyContent="center">
                     {restaurantData.map((restaurant) => (
-                        <Grid item xs={12} md={4} key={restaurant.id}>
+                        <Grid  xs={12} md={4} key={restaurant.id}>
                             <Card sx={{ maxWidth: 400, mx: "auto" }}>
                                 <CardMedia
                                     component="img"

@@ -119,7 +119,7 @@ const GuideSelectionated = () => {
 
         <Grid container spacing={4}>
           {/* Profile and Calendar */}
-          <Grid item xs={12} md={6}>
+          <Grid  xs={12} md={6}>
             <Box component="img" src={p2} alt="Profile" sx={{ width: "100%", height: 400, borderRadius: 2, objectFit: "cover" }} />
             <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
               {[1, 2, 3].map((i) => (
@@ -128,7 +128,7 @@ const GuideSelectionated = () => {
             </Stack>
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          <Grid xs={12} md={6}>
             <Stack spacing={3}>
               <Typography variant="h4" sx={{ fontWeight: 800 }}>David Dominguez</Typography>
               <Typography variant="h5" sx={{ color: "#80b9ad", fontWeight: 800 }}>$34 / day</Typography>
@@ -149,7 +149,7 @@ const GuideSelectionated = () => {
                     </Stack>
                     <Grid container>
                       {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
-                        <Grid item xs key={day}>
+                        <Grid xs key={day}>
                           <Typography align="center" variant="caption">{day}</Typography>
                         </Grid>
                       ))}
@@ -157,7 +157,7 @@ const GuideSelectionated = () => {
                     {calendarData.days.map((week, i) => (
                       <Grid container key={i}>
                         {week.map((day, j) => (
-                          <Grid item xs key={j}>
+                          <Grid  xs key={j}>
                             <Box sx={{ display: "flex", justifyContent: "center", py: 0.5 }}>
                               {renderCalendarDay(day, i, j)}
                             </Box>
@@ -200,7 +200,7 @@ const GuideSelectionated = () => {
 
         {/* Experiences and Details (Pending) */}
         <Grid container spacing={4} sx={{ mt: 6 }}>
-          <Grid item xs={12} md={4}>
+          <Grid  xs={12} md={4}>
             <Stack spacing={2}>
               <Box display="flex" alignItems="flex-start" gap={2}>
                 <LocationOn sx={{ color: "#000", mt: 0.5 }} />
@@ -227,7 +227,7 @@ const GuideSelectionated = () => {
             </Stack>
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid xs={12} md={4}>
             <Stack spacing={2}>
               <Box display="flex" alignItems="flex-start" gap={2}>
                 <Work sx={{ color: "#000", mt: 0.5 }} />
@@ -250,7 +250,7 @@ const GuideSelectionated = () => {
             </Stack>
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid  xs={12} md={4}>
             <Stack spacing={2}>
               <Box display="flex" alignItems="flex-start" gap={2}>
                 <FavoriteBorder sx={{ color: "#000", mt: 0.5 }} />
@@ -283,7 +283,7 @@ const GuideSelectionated = () => {
           </Typography>
           <Grid container spacing={4}>
             {reviewsData.map((review) => (
-              <Grid item xs={12} md={6} key={review.id}>
+              <Grid xs={12} md={6} key={review.id}>
                 <Card sx={{ p: 3 }}>
                   <Stack spacing={2}>
                     <Stack direction="row" spacing={2} alignItems="center">

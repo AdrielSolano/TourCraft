@@ -192,7 +192,7 @@ const SignUp = () => {
                     </Box>
 
                     <Grid container spacing={2}>
-                        <Grid item xs={6}>
+                        <Grid  xs={6}>
                             <Typography
                                 variant="body2"
                                 sx={{
@@ -221,7 +221,7 @@ const SignUp = () => {
                                 }}
                             />
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid  xs={6}>
                             <Typography
                                 variant="body2"
                                 sx={{
@@ -250,7 +250,7 @@ const SignUp = () => {
                                 }}
                             />
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid  xs={6}>
                             <Typography
                                 variant="body2"
                                 sx={{
@@ -279,7 +279,7 @@ const SignUp = () => {
                                 }}
                             />
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid xs={6}>
                             <Typography
                                 variant="body2"
                                 sx={{
@@ -340,7 +340,7 @@ const SignUp = () => {
                                 }}
                             />
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid xs={6}>
                             <Typography
                                 variant="body2"
                                 sx={{
@@ -370,7 +370,7 @@ const SignUp = () => {
                                 }}
                             />
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid xs={6}>
                             <Typography
                                 variant="body2"
                                 sx={{

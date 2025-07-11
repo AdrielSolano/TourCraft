@@ -264,7 +264,7 @@ export default function SignUpTourGuides() {
                                     spacing={2}
                                     sx={{ position: "absolute", top: "45px", width: "581px" }}
                                 >
-                                    <Grid item xs={6}>
+                                    <Grid  xs={6}>
                                         <TextField
                                             fullWidth
                                             placeholder="Full name"
@@ -277,7 +277,7 @@ export default function SignUpTourGuides() {
                                             }}
                                         />
                                     </Grid>
-                                    <Grid item xs={6}>
+                                    <Grid  xs={6}>
                                         <TextField
                                             fullWidth
                                             placeholder="Number phone"
@@ -290,7 +290,7 @@ export default function SignUpTourGuides() {
                                             }}
                                         />
                                     </Grid>
-                                    <Grid item xs={6}>
+                                    <Grid  xs={6}>
                                         <TextField
                                             fullWidth
                                             placeholder="Email"
@@ -303,7 +303,7 @@ export default function SignUpTourGuides() {
                                             }}
                                         />
                                     </Grid>
-                                    <Grid item xs={6}>
+                                    <Grid  xs={6}>
                                         <TextField
                                             fullWidth
                                             size="small"
@@ -385,7 +385,7 @@ export default function SignUpTourGuides() {
                                     spacing={2}
                                     sx={{ position: "absolute", top: "45px", width: "581px" }}
                                 >
-                                    <Grid item xs={6}>
+                                    <Grid xs={6}>
                                         <Typography
                                             sx={{
                                                 fontFamily: "'Playfair Display', serif",
@@ -423,7 +423,7 @@ export default function SignUpTourGuides() {
                                             )}
                                         />
                                     </Grid>
-                                    <Grid item xs={6}>
+                                    <Grid xs={6}>
                                         <Typography
                                             sx={{
                                                 fontFamily: "'Playfair Display', serif",
