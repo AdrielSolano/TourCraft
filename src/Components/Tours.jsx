@@ -33,7 +33,7 @@ import img22 from "../assets/img22.png";
 import img33 from "../assets/img33.png";
 import img34 from "../assets/img34.png";
 import img44 from "../assets/img44.png";
-import img1 from "../assets/movistar.png";
+import movistar from "../assets/movistar.png";
 import card10 from "../assets/Card10.png";
 import card11 from "../assets/Card11.png";
 import card13 from "../assets/Card13.png";
@@ -325,7 +325,7 @@ export const Tours = () => {
                     sx={{
                         width: "100%",
                         height: 126,
-                        backgroundImage: `url(${img1})`,
+                        backgroundImage: `url(${movistar})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         my: 4,
