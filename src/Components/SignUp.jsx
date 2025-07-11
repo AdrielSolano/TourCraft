@@ -135,7 +135,6 @@ const SignUp = () => {
                     justifyContent: "center",
                     alignItems: "center",
                     position: "relative",
-                    marginTop:"30px",
                 }}
             >
                 <Box

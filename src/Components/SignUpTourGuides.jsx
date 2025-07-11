@@ -156,7 +156,6 @@ export default function SignUpTourGuides() {
                 <Box
                     sx={{
                         height: "1024px",
-                        marginTop: "8px",
                         display: "flex",
                         left: '70px',
                         flexDirection: "column",
