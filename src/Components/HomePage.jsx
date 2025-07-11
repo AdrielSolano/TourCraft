@@ -19,7 +19,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { ArrowForward, ArrowBack, Star } from '@mui/icons-material';
 import movistar from '../assets/movistar.png';
 import im2 from '../assets/im2.png';
-import img3 from '../assets/img3.png';
+import im3 from '../assets/im3.png';
 import img4 from '../assets/img4.png';
 import img5 from '../assets/img5.png';
 import img6 from '../assets/img6.png';
@@ -219,7 +219,7 @@ const HomePage = () => {
                 badge: 'Top Ranked'
               },
               {
-                image: img3,
+                image: im3,
                 name: 'Merida'
               },
               {
