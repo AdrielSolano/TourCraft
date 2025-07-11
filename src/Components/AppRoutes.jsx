@@ -13,6 +13,7 @@ import BookingSimulation from './BookingSimulation';
 import BookingSimulation2 from './BookingSimulation2'; // Importa el componente BookingSimulation2
 import BookingSimulation3 from './BookingSimulation3'; // Importa el componente BookingSimulation3
 import BookingSimulation4 from './BookingSimulation4';
+import Merida from './Merida';
 
 export default function AppRoutes() {
   return (
@@ -25,6 +26,7 @@ export default function AppRoutes() {
         {/* Otras rutas pueden ser añadidas aquí */}
         <Route path='/Tours' element={<Tours />} /> {/* Ruta para Tours */}
         <Route path='/Guides' element={<Guides />} /> {/* Ruta para Guides */}
+        <Route path='/Merida' element={<Merida/>}/>
         <Route path='/GuideSelectionated' element={<GuideSelectionated />} /> {/* Ruta para GuideSelectionated */}
         <Route path='/BookingSimulation' element={<BookingSimulation />} /> {/* Ruta para BookingSimulation */}
         <Route path='/BookingSimulation2' element={<BookingSimulation2 />} /> {/* Ruta para BookingSimulation2 */}
