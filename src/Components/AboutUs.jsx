@@ -23,6 +23,7 @@ import lupa from '../assets/lupa.png';
 import manos from '../assets/manos.png';
 import palo     from '../assets/palo.png';
 import persona from '../assets/persona.png';
+
 // Styled components
 const StyledHero = styled(Box)(({ theme }) => ({
   height: '443px',
