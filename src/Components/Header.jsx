@@ -184,7 +184,6 @@ const Header = ({ navItems }) => {
                                 fontFamily: isActive("/Log-in") ? "Inter-Bold" : "Inter-Medium",
                                 fontWeight: isActive("/Log-in") ? 700 : 500,
                                 fontSize: "16px",
-                                backgroundColor: "white",
                             }}
                         >
                             Log In
