@@ -17,7 +17,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ArrowForward, ArrowBack, Star } from '@mui/icons-material';
-import img1 from '../assets/img1.png';
+import movistar from '../assets/movistar.png';
 import img2 from '../assets/img2.png';
 import img3 from '../assets/img3.png';
 import img4 from '../assets/img4.png';
@@ -163,7 +163,7 @@ const HomePage = () => {
         <Container>
           <Box
             component="img"
-            src={img1}
+            src={movistar}
             alt="Movistar Advertisement"
             sx={{ maxWidth: '100%', height: 'auto', display: 'block', margin: '0 auto' }}
           />
