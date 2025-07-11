@@ -30,7 +30,6 @@ export default function AppRoutes() {
         <Route path='/BookingSimulation2' element={<BookingSimulation2 />} /> {/* Ruta para BookingSimulation2 */}
         <Route path='/BookingSimulation3' element={<BookingSimulation3 />} /> {/* Ruta para BookingSimulation3 */}
         <Route path='/BookingSimulation4' element={<BookingSimulation4 />} /> {/* Ruta para BookingSimulation3 */}
-
         <Route path='/AboutUs' element={<AboutUs />} /> {/* Ruta para About Us */}
         <Route path='/NotFound' element={<NotFound />} /> {/* Ruta para manejar 404 */}
 

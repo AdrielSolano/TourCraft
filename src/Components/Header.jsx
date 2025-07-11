@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, Stack, Typography, IconButton, Drawer, List, ListItem, ListItemText } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom'; // Añade useLocation
 import Solano11 from "../assets/Solano11.png";
 import { useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -11,9 +11,15 @@ const Header = ({ navItems }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+    const location = useLocation(); // Obtiene la ruta actual
 
     const handleDrawerToggle = () => {
         setDrawerOpen(!drawerOpen);
+    };
+
+    // Función para determinar si un ítem está activo
+    const isActive = (path) => {
+        return location.pathname === path;
     };
 
     const drawer = (
@@ -38,8 +44,8 @@ const Header = ({ navItems }) => {
                         <ListItemText
                             primary={item.label}
                             primaryTypographyProps={{
-                                fontFamily: item.active ? "Inter-Bold" : "Inter-Medium",
-                                fontWeight: item.active ? 700 : 500,
+                                fontFamily: isActive(item.path) ? "Inter-Bold" : "Inter-Medium",
+                                fontWeight: isActive(item.path) ? 700 : 500,
                                 fontSize: { xs: "16px", sm: "18px" },
                             }}
                         />
@@ -57,6 +63,8 @@ const Header = ({ navItems }) => {
                     <ListItemText
                         primary="Sign In"
                         primaryTypographyProps={{
+                            fontFamily: isActive("/SignUp") ? "Inter-Bold" : "Inter-Medium",
+                            fontWeight: isActive("/SignUp") ? 700 : 500,
                             fontSize: { xs: "16px", sm: "18px" },
                         }}
                     />
@@ -73,6 +81,8 @@ const Header = ({ navItems }) => {
                     <ListItemText
                         primary="Log In"
                         primaryTypographyProps={{
+                            fontFamily: isActive("/Log-in") ? "Inter-Bold" : "Inter-Medium",
+                            fontWeight: isActive("/Log-in") ? 700 : 500,
                             fontSize: { xs: "16px", sm: "18px" },
                         }}
                     />
@@ -121,8 +131,8 @@ const Header = ({ navItems }) => {
                                 to={item.path}
                                 variant="body1"
                                 sx={{
-                                    fontFamily: item.active ? "Inter-Bold" : "Inter-Medium",
-                                    fontWeight: item.active ? 700 : 500,
+                                    fontFamily: isActive(item.path) ? "Inter-Bold" : "Inter-Medium",
+                                    fontWeight: isActive(item.path) ? 700 : 500,
                                     fontSize: "16px",
                                     cursor: "pointer",
                                     textDecoration: "none",
@@ -152,8 +162,8 @@ const Header = ({ navItems }) => {
                                 borderWidth: 2,
                                 padding: "8px 24px",
                                 textTransform: "none",
-                                fontFamily: "Inter-Medium",
-                                fontWeight: 500,
+                                fontFamily: isActive("/SignUp") ? "Inter-Bold" : "Inter-Medium",
+                                fontWeight: isActive("/SignUp") ? 700 : 500,
                                 fontSize: "16px",
                             }}
                         >
@@ -171,8 +181,8 @@ const Header = ({ navItems }) => {
                                 borderWidth: 2,
                                 padding: "8px 24px",
                                 textTransform: "none",
-                                fontFamily: "Inter-Medium",
-                                fontWeight: 500,
+                                fontFamily: isActive("/Log-in") ? "Inter-Bold" : "Inter-Medium",
+                                fontWeight: isActive("/Log-in") ? 700 : 500,
                                 fontSize: "16px",
                                 backgroundColor: "white",
                             }}

@@ -11,8 +11,10 @@ import {
     Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import Solano11 from "../assets/Solano11.png"; 
-import img48 from "../assets/img48.png"; 
+import Solano11 from "../assets/Solano11.png";
+import img48 from "../assets/img48.png";
+import { Link as RouterLink } from 'react-router-dom';
+
 
 const LogIn = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -27,7 +29,8 @@ const LogIn = () => {
                 bgcolor: "white",
                 display: "flex",
                 justifyContent: "center",
-                width: "100%",
+                width: "1440px",
+                height: "988px",
             }}
         >
             <Box
@@ -37,13 +40,16 @@ const LogIn = () => {
                     position: "relative",
                     overflow: "hidden",
                     bgcolor: "white",
+                    marginLeft: "-18px",
+                    marginTop: "-8px",
+
                 }}
             >
                 {/* Left side with background image */}
                 <Box
                     sx={{
                         position: "absolute",
-                        width: "721px",
+                        width: "755px",
                         height: "1024px",
                         top: 0,
                         left: 0,
@@ -59,13 +65,14 @@ const LogIn = () => {
                     <Box
                         sx={{
                             position: "relative",
-                            width: "100%",
-                            height: "100%",
+                            width: "755px",
+                            height: "1024px",
                             display: "flex",
                             flexDirection: "column",
                             alignItems: "center",
                             justifyContent: "space-between",
-                            padding: "117px 46px 0",
+                            backgroundColor: "rgba(0, 0, 0, 0.3)",
+                            zIndex: 1,
                         }}
                     >
                         <Typography
@@ -77,7 +84,8 @@ const LogIn = () => {
                                 textAlign: "center",
                                 lineHeight: "29.2px",
                                 width: "400px",
-                                marginBottom: "auto",
+                                marginTop: "100px",
+                                marginleft: 15,
                             }}
                         >
                             Explore The Riviera Maya
@@ -92,8 +100,8 @@ const LogIn = () => {
                                 textAlign: "center",
                                 lineHeight: "23.8px",
                                 width: "600px",
-                                marginBottom: "100px",
-                                letterSpacing: "-0.34px",
+                                marginBottom: "400px",
+                                letterSpacing: "0.40px",
                             }}
                         >
                             Riviera Maya at your own pace: discover, book and live your
@@ -106,7 +114,7 @@ const LogIn = () => {
                 <Box
                     sx={{
                         position: "absolute",
-                        right: 0,
+                        right: -60,
                         top: 0,
                         width: "calc(1440px - 721px)",
                         height: "100%",
@@ -237,7 +245,8 @@ const LogIn = () => {
                                     sx={{
                                         bgcolor: "#80b9ad",
                                         borderRadius: "4px",
-                                        py: 2,
+                                        width: "280px", 
+                                        py: 1,
                                         textTransform: "none",
                                         fontFamily: "'Playfair Display', serif",
                                         fontWeight: 600,
@@ -254,7 +263,7 @@ const LogIn = () => {
                                     variant="caption"
                                     sx={{
                                         fontFamily: "'Playfair Display', serif",
-                                        fontSize: "9.9px",
+                                        fontSize: "13.9px",
                                         mt: 1.5,
                                         letterSpacing: "-0.2px",
                                         lineHeight: "13.8px",
@@ -262,7 +271,8 @@ const LogIn = () => {
                                 >
                                     Don't have an account?{" "}
                                     <Link
-                                        component="button"
+                                        component={RouterLink}
+                                        to="/SignUp"
                                         sx={{
                                             color: "#1d836e",
                                             textDecoration: "none",

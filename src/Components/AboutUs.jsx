@@ -40,7 +40,7 @@ const StyledHero = styled(Box)(({ theme }) => ({
 
 const FeatureCard = styled(Card)(({ theme }) => ({
   maxWidth: 345,
-  height: '100%',
+  height: '90%',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -54,7 +54,7 @@ const FeatureCard = styled(Card)(({ theme }) => ({
 
 const TeamCard = styled(Card)(({ theme }) => ({
   maxWidth: 282,
-  height: '100%',
+  height: '90%',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',

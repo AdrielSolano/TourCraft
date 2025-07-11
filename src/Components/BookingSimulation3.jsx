@@ -17,7 +17,11 @@ import {
     Grid,
     Divider,
     Avatar,
-    IconButton
+    IconButton,
+    Dialog,
+    DialogTitle,
+    DialogContent,
+    DialogActions
 } from '@mui/material';
 import {
     ArrowBack,
@@ -35,7 +39,7 @@ import img from '../assets/img.png';
 import img41 from '../assets/img41.png';
 import Maestro from '../assets/Maestro.svg';
 import PayPal from '../assets/PayPal.svg';
-import visa from '../assets/visa.svg'
+import visa from '../assets/visa.svg';
 import Discover from '../assets/Discover.svg';
 import Mastercard from '../assets/Mastercard.svg';
 
@@ -48,8 +52,6 @@ const pricingItems = [
     { label: 'Tarifa del Guía', price: '$xxx.x' }
 ];
 
-
-
 // Data for steps
 const steps = ['Booking Details', 'Your Details', 'Payment'];
 
@@ -58,9 +60,18 @@ export const BookingSimulation3 = () => {
     const [cardNumber, setCardNumber] = useState('1234 5678 9101 3456');
     const [expirationDate, setExpirationDate] = useState('MM/YY');
     const [securityCode, setSecurityCode] = useState('***');
+    const [openSecurityCodeDialog, setOpenSecurityCodeDialog] = useState(false);
 
     const handlePaymentMethodChange = (event) => {
         setPaymentMethod(event.target.value);
+    };
+
+    const handleOpenSecurityCodeDialog = () => {
+        setOpenSecurityCodeDialog(true);
+    };
+
+    const handleCloseSecurityCodeDialog = () => {
+        setOpenSecurityCodeDialog(false);
     };
 
     return (
@@ -99,9 +110,7 @@ export const BookingSimulation3 = () => {
                         </Step>
                     ))}
                 </Stepper>
-
             </Box>
-
 
             {/* Main Content */}
             <Grid container spacing={4} sx={{ px: { xs: 2, md: 15 }, py: 4 }}>
@@ -196,9 +205,21 @@ export const BookingSimulation3 = () => {
                                                     onChange={(e) => setSecurityCode(e.target.value)}
                                                     sx={{ maxWidth: 255 }}
                                                 />
-                                                <Typography variant="body2" sx={{ color: '#80b9ad', cursor: 'pointer' }}>
+                                                <Button 
+                                                    onClick={handleOpenSecurityCodeDialog}
+                                                    sx={{ 
+                                                        color: '#80b9ad', 
+                                                        textTransform: 'none',
+                                                        fontSize: '0.875rem',
+                                                        p: 0,
+                                                        '&:hover': {
+                                                            backgroundColor: 'transparent',
+                                                            textDecoration: 'underline'
+                                                        }
+                                                    }}
+                                                >
                                                     What is this?
-                                                </Typography>
+                                                </Button>
                                             </Stack>
                                         </Stack>
                                     )}
@@ -247,7 +268,7 @@ export const BookingSimulation3 = () => {
                                 <Stack key={index} direction="row" justifyContent="space-between" alignItems="center">
                                     <Stack direction="row" alignItems="center" spacing={1}>
                                         <Avatar sx={{ width: 37, height: 37, bgcolor: '#ccc', color: 'rgba(51, 51, 51, 0.8)' }}>
-                                            1
+                                            {index + 1}
                                         </Avatar>
                                         <Typography variant="h6" sx={{ opacity: 0.8 }}>
                                             {item.label}
@@ -309,6 +330,40 @@ export const BookingSimulation3 = () => {
                     style={{ width: '100%', height: 184, objectFit: 'cover' }}
                 />
             </Box>
+
+            {/* Security Code Dialog */}
+            <Dialog open={openSecurityCodeDialog} onClose={handleCloseSecurityCodeDialog}>
+                <DialogTitle sx={{ fontWeight: 700, color: '#80b9ad' }}>
+                    What is a Card Security Code (CSC)?
+                </DialogTitle>
+                <DialogContent>
+                    <Typography variant="body1" paragraph>
+                        The <strong>Card Security Code (CSC)</strong> is a 3 or 4-digit number on your credit/debit card that adds an extra layer of security.
+                    </Typography>
+                    
+                    <Typography variant="h6" sx={{ mt: 2, fontWeight: 600 }}>
+                        Where to find it:
+                    </Typography>
+                    
+                    <Box sx={{ mt: 2, display: 'flex', alignItems: 'center', gap: 2 }}>
+                        <img src={visa} alt="Visa" style={{ width: 50 }} />
+                        <Typography><strong>Visa, Mastercard, Discover:</strong> 3 digits on the back</Typography>
+                    </Box>
+                    
+                    <Box sx={{ mt: 2, display: 'flex', alignItems: 'center', gap: 2 }}>
+                        <img src={Mastercard} alt="Mastercard" style={{ width: 50 }} />
+                        <Typography><strong>American Express:</strong> 4 digits on the front</Typography>
+                    </Box>
+                </DialogContent>
+                <DialogActions>
+                    <Button 
+                        onClick={handleCloseSecurityCodeDialog}
+                        sx={{ color: '#80b9ad', fontWeight: 600 }}
+                    >
+                        Close
+                    </Button>
+                </DialogActions>
+            </Dialog>
         </Box>
     );
 };

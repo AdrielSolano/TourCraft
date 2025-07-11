@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Grid, Link, Typography } from "@mui/material";
+import { Link as RouterLink } from 'react-router-dom'; // Importa RouterLink
 import phone from '../assets/phone.svg';
 import mail from '../assets/mail.svg';
 import map from '../assets/map.svg';
@@ -13,15 +14,15 @@ import Solano12 from '../assets/Solano12.png';
 const SocialIcon = ({ icon, alt }) => {
     return (
         <Box 
-            sx={{
-                backgroundColor: '#000',
-                borderRadius: '100px',
-                width: '24px',
-                height: '24px',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-            }}
+             sx={{
+                 backgroundColor: '#000',
+                 borderRadius: '100px',
+                 width: '24px',
+                 height: '24px',
+                 display: 'flex',
+                 justifyContent: 'center',
+                 alignItems: 'center',
+             }}
         >
             <Box 
                 component="img" 
@@ -96,7 +97,7 @@ const Footer = () => {
                 alignItems: 'center',
                 gap: '60px',
                 padding: { xs: '40px 20px 20px', md: '60px 20px 20px' },
-                width: '100%',
+                width: '97.90%',
             }}
         >
             <Box
@@ -170,10 +171,15 @@ const Footer = () => {
                             </Typography>
 
                             <Box component="ul" sx={{ listStyle: 'none', padding: 0, margin: 0 }}>
-                                {['Home', 'Tours', 'Guides', 'About Us'].map((link) => (
-                                    <li key={link} style={{ marginBottom: '8px' }}>
-                                        <FooterLink href={`#${link.toLowerCase().replace(' ', '')}`}>
-                                            {link}
+                                {[
+                                    { name: 'Home', path: '/' },
+                                    { name: 'Tours', path: '/tours' },
+                                    { name: 'Guides', path: '/guides' },
+                                    { name: 'About Us', path: '/about' }
+                                ].map((item) => (
+                                    <li key={item.name} style={{ marginBottom: '8px' }}>
+                                        <FooterLink component={RouterLink} to={item.path}>
+                                            {item.name}
                                         </FooterLink>
                                     </li>
                                 ))}
@@ -229,7 +235,7 @@ const Footer = () => {
                     opacity: 0.5,
                 }}
             >
-                &copy;Copyright 2024 Tourcraft. All Rights Reserved
+                &copy;Copyright 2025 Tourcraft. All Rights Reserved
             </Typography>
         </Box>
     );

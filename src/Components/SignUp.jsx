@@ -1,4 +1,3 @@
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import {
     Box,
     Button,
@@ -10,9 +9,11 @@ import {
     Link,
     TextField,
     Typography,
+    IconButton,
 } from "@mui/material";
-import React, { useState } from "react";
-import img52 from "../assets/img52.png";    
+import DateRangeIcon from '@mui/icons-material/DateRange';
+import React, { useState, useRef } from "react";
+import img52 from "../assets/img52.png";
 import Solano11 from "../assets/Solano11.png";
 
 const SignUp = () => {
@@ -26,12 +27,19 @@ const SignUp = () => {
         agreeToTerms: false,
     });
 
+    const dateInputRef = useRef(null);
+
     const handleChange = (event) => {
         const { name, value, type, checked } = event.target;
         setFormData(prev => ({
             ...prev,
             [name]: type === 'checkbox' ? checked : value
         }));
+    };
+
+    const handleDateIconClick = () => {
+        dateInputRef.current?.focus();
+        dateInputRef.current?.showPicker();
     };
 
     const handleSubmit = (event) => {
@@ -43,8 +51,8 @@ const SignUp = () => {
     return (
         <Box
             sx={{
-                width: "100%",
-                height: "100vh",
+                width: "1440px",
+                height: "988px",
                 display: "flex",
                 bgcolor: "#ffffff",
             }}
@@ -53,14 +61,27 @@ const SignUp = () => {
             <Box
                 sx={{
                     position: "relative",
-                    width: "50%",
-                    height: "100%",
+                    width: "795px",
+                    height: "1064px",
+                    marginLeft: "-8px",
+                    marginTop: "-8px",
                     overflow: "hidden",
                     backgroundImage: `url(${img52})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
             >
+                <Box
+                    sx={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        backgroundColor: "rgba(0, 0, 0, 0.3)",
+                        zIndex: 1,
+                    }}
+                />
                 <Typography
                     variant="h3"
                     sx={{
@@ -75,6 +96,7 @@ const SignUp = () => {
                         fontSize: "40px",
                         textAlign: "center",
                         lineHeight: "29.2px",
+                        zIndex: 2,
                     }}
                 >
                     Explore The Riviera Maya
@@ -93,8 +115,9 @@ const SignUp = () => {
                         color: "#ffffff",
                         fontSize: "17px",
                         textAlign: "center",
-                        letterSpacing: "-0.34px",
+                        letterSpacing: "0.70px",
                         lineHeight: "23.8px",
+                        zIndex: 2,
                     }}
                 >
                     Riviera Maya at your own pace: discover, book and live your adventure.
@@ -104,13 +127,15 @@ const SignUp = () => {
             {/* Right side - Sign up form */}
             <Box
                 sx={{
-                    width: "50%",
-                    height: "100%",
+                    width: "695px",
+                    height: "1024px",
+                    marginTop: "-8px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
                     position: "relative",
+                    marginTop:"30px",
                 }}
             >
                 <Box
@@ -119,9 +144,10 @@ const SignUp = () => {
                     alt="TourCraft Logo"
                     sx={{
                         width: "259px",
+                        left: "260px",
                         height: "122px",
                         position: "absolute",
-                        top: "157px",
+                        top: "110px",
                         objectFit: "cover",
                     }}
                 />
@@ -134,6 +160,8 @@ const SignUp = () => {
                         mt: 8,
                         display: "flex",
                         flexDirection: "column",
+                        marginLeft: "70px",
+                        marginTop:"100px",
                     }}
                 >
                     <Box sx={{ mb: 3 }}>
@@ -182,6 +210,7 @@ const SignUp = () => {
                                 fullWidth
                                 size="small"
                                 variant="outlined"
+                                placeholder="First name"
                                 name="firstName"
                                 value={formData.firstName}
                                 onChange={handleChange}
@@ -210,10 +239,10 @@ const SignUp = () => {
                                 fullWidth
                                 size="small"
                                 variant="outlined"
+                                placeholder="Last name"
                                 name="lastName"
                                 value={formData.lastName}
                                 onChange={handleChange}
-                                placeholder="Last name"
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
                                         borderRadius: "3.53px",
@@ -239,6 +268,7 @@ const SignUp = () => {
                                 fullWidth
                                 size="small"
                                 variant="outlined"
+                                placeholder="Email"
                                 name="email"
                                 value={formData.email}
                                 onChange={handleChange}
@@ -261,21 +291,32 @@ const SignUp = () => {
                                     mb: 0.5,
                                 }}
                             >
-                                Date of birth (MM/DD/YY)
+                                Date of birth
                             </Typography>
                             <TextField
                                 fullWidth
                                 size="small"
                                 variant="outlined"
                                 name="dateOfBirth"
+                                type="date"
                                 value={formData.dateOfBirth}
                                 onChange={handleChange}
+                                inputRef={dateInputRef}
+                                InputLabelProps={{
+                                    shrink: true,
+                                }}
                                 InputProps={{
                                     endAdornment: (
                                         <InputAdornment position="end">
-                                            <CalendarTodayIcon
-                                                sx={{ width: "16px", height: "15px" }}
-                                            />
+                                            <IconButton
+                                                onClick={handleDateIconClick}
+                                                edge="end"
+                                                sx={{ padding: '4px' }}
+                                            >
+                                                <DateRangeIcon
+                                                    sx={{ width: "16px", height: "15px" }}
+                                                />
+                                            </IconButton>
                                         </InputAdornment>
                                     ),
                                 }}
@@ -283,6 +324,19 @@ const SignUp = () => {
                                     "& .MuiOutlinedInput-root": {
                                         borderRadius: "3.53px",
                                         height: "33.87px",
+                                    },
+                                    "& input[type='date']": {
+                                        position: 'relative',
+                                        '&::-webkit-calendar-picker-indicator': {
+                                            position: 'absolute',
+                                            left: 0,
+                                            top: 0,
+                                            width: '100%',
+                                            height: '100%',
+                                            background: 'transparent',
+                                            color: 'transparent',
+                                            cursor: 'pointer',
+                                        },
                                     },
                                 }}
                             />
@@ -304,6 +358,7 @@ const SignUp = () => {
                                 fullWidth
                                 size="small"
                                 variant="outlined"
+                                placeholder="Password"
                                 type="password"
                                 name="password"
                                 value={formData.password}
@@ -333,11 +388,11 @@ const SignUp = () => {
                                 fullWidth
                                 size="small"
                                 variant="outlined"
+                                placeholder="Confirm Password"
                                 type="password"
                                 name="confirmPassword"
                                 value={formData.confirmPassword}
                                 onChange={handleChange}
-                                placeholder="Confirm password"
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
                                         borderRadius: "3.53px",
@@ -348,7 +403,9 @@ const SignUp = () => {
                         </Grid>
                     </Grid>
 
-                    <Box sx={{ mt: 2, display: "flex", justifyContent: "center" }}>
+                    <Box sx={{
+                        mt: 2, display: "flex", justifyContent: "center", padding: "8px", marginLeft: "20px",
+                    }}>
                         <FormControlLabel
                             control={
                                 <Checkbox
@@ -360,6 +417,7 @@ const SignUp = () => {
                                         width: "14.11px",
                                         height: "14.11px",
                                         borderRadius: "1.41px",
+                                        marginTop: "45px"
                                     }}
                                 />
                             }
@@ -370,6 +428,7 @@ const SignUp = () => {
                                         fontFamily: "Playfair Display",
                                         fontSize: "12px",
                                         letterSpacing: "-0.24px",
+                                        marginTop: "45px",
                                     }}
                                 >
                                     I agree to all the{" "}
@@ -398,6 +457,8 @@ const SignUp = () => {
                             mt: 2,
                             width: "292px",
                             height: "36px",
+                            marginLeft: "0px",
+
                             backgroundColor: "#80B9AD",
                             borderRadius: "3.53px",
                             alignSelf: "center",
@@ -422,6 +483,8 @@ const SignUp = () => {
                             fontFamily: "Playfair Display",
                             fontSize: "11px",
                             letterSpacing: "-0.22px",
+                            marginLeft: "0px",
+
                         }}
                     >
                         Already have an account?{" "}
@@ -438,6 +501,8 @@ const SignUp = () => {
                         display: "flex",
                         alignItems: "center",
                         width: "560px",
+                        marginLeft: "70px",
+
                     }}
                 >
                     <Divider sx={{ flex: 1 }} />
@@ -449,6 +514,7 @@ const SignUp = () => {
                             color: "rgba(0, 0, 0, 0.7)",
                             fontFamily: "Playfair Display",
                             fontSize: "14px",
+                            marginBottom: "10px"
                         }}
                     >
                         I want to become a guide

@@ -439,9 +439,7 @@ const Guides = () => {
                                 width: "100%",
                                 minHeight: "100vh",
                                 position: "relative",
-                                pt: 0,
-                                mt: 0,
-                                m: 0, // Elimina margen externo
+                        
                             }}
                         >
                             <Box
@@ -450,9 +448,7 @@ const Guides = () => {
                                     width: "100%",
                                     maxWidth: "1512px",
                                     position: "relative",
-                                    pt: 0,
-                                    mt: 0,
-                                    m: 0, // Elimina margen interno
+
                                 }}
                             >
                                                 

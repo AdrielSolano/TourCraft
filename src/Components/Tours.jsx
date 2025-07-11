@@ -18,6 +18,10 @@ import {
     Stack,
     Typography,
 } from "@mui/material";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -38,6 +42,11 @@ import card2 from "../assets/card2.png";
 import card3 from "../assets/card3.png";
 import i3 from "../assets/i3.jpg";
 import i1 from "../assets/i1.jpg";
+import alux from "../assets/alux.jpg";
+import harris from "../assets/harris.jpg";
+import rolandi from "../assets/rolandi.jpg";
+import hard from "../assets/hard.jpg";
+
 
 // Data
 const tourData = [
@@ -102,43 +111,59 @@ const tourData = [
 ];
 
 const placesData = [
-    { name: "Merida", image: card10 },
-    { name: "Playa del Carmen",  image: card11 },
-    { name: "Cancun", image: card13 },
-    { name: "Cozumel", image: card1 },
-    { name: "Tulum",  image: card2 },
-    { name: "Isla Mujeres", image: card3 },
+    { image: card10 },
+    { image: card2 },
+    { image: card3 },
+    { image: card11 },
+    { image: card1 },
+    { image: card13 },
 ];
 
 const restaurantData = [
     {
-        title: "We are in Merida!",
+        title: "La Chaya Maya - Mérida",
         image: i1,
         url: "https://lachayamaya.com/",
+        description: "Auténtica cocina yucateca en ambiente tradicional"
     },
     {
-        title: "Come and enjoy delicious food in Merida",
+        title: "Porfirio's - Mérida",
         image: i3,
-        url: "https://porfirios.com.mx/locaciones/restaurante-mexicano-en-merida/",
+        url: "https://porfirios.com.mx/",
+        description: "Gastronomía mexicana contemporánea"
     },
     {
-        title: "We are in Playa del Carmen!",
-        image: i1,
-        url: "https://lachayamaya.com/",
+        title: "Alux - Playa del Carmen",
+        image: alux,
+        url: "https://aluxrestaurant.com/",
+        description: "Restaurante en una cueva natural"
     },
     {
-        title: "We are in Merida!",
-        image: i3,
-        url: "https://porfirios.com.mx/locaciones/restaurante-mexicano-en-merida/",
+        title: "Harry's - Cancún",
+        image: harris,
+        url: "https://harrys.com.mx/",
+        description: "Carnes premium y mariscos frescos"
     },
+    {
+        title: "Hartwood - Tulum",
+        image: hard, 
+        url: "https://www.hartwoodtulum.com/",
+        description: "Cocina de autor con ingredientes locales y técnicas al fuego"
+    },
+    {
+        title: "Casa Rolandi - Isla Mujeres",
+        image: rolandi,
+        url: "https://casarolandi.com/",
+        description: "Cocina italiana con toques mexicanos"
+    }
 ];
+
 
 // Main component
 export const Tours = () => {
     return (
         <Box sx={{ bgcolor: "white", minHeight: "100vh" }}>
             <Container maxWidth="xl" sx={{ px: { xs: 2, md: 15 }, py: 8 }}>
-                {/* Header */}
                 <Box
                     sx={{
                         position: "relative",
@@ -357,59 +382,121 @@ export const Tours = () => {
                             fontWeight: "bold",
                             color: "black",
                             fontFamily: "serif",
+                            mb: 4
                         }}
                     >
                         Places you have to try!
                     </Typography>
 
-                    <Stack direction="row" spacing={2} sx={{ overflowX: "auto", pb: 2 }}>
-                        {restaurantData.map((restaurant, index) => (
-                            <Box
-                                key={index}
-                                sx={{
-                                    minWidth: 631,
-                                    height: 360,
-                                    background: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${restaurant.image})`,
-                                    backgroundSize: "cover",
-                                    backgroundPosition: "center",
-                                    borderRadius: "20px",
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    justifyContent: "center",
-                                    alignItems: "center",
-                                    gap: 5,
-                                    p: 8,
-                                }}
-                            >
-                                <Typography
-                                    variant="h4"
-                                    align="center"
-                                    sx={{ color: "white", fontWeight: "bold", textShadow: "1px 1px 0px black" }}
-                                >
-                                    {restaurant.title}
-                                </Typography>
-                                <Button
-                                    variant="contained"
-                                    sx={{
-                                        bgcolor: "white",
-                                        color: "black",
-                                        px: 5,
-                                        py: 1.5,
-                                        borderRadius: 3,
-                                        "&:hover": {
-                                            bgcolor: "rgba(255,255,255,0.9)",
-                                        },
-                                    }}
-                                    component={Link}
-                                    href={restaurant.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    Go web
-                                </Button>
-                            </Box>
-                        ))}
-                    </Stack>
+                    <Box sx={{ px: { xs: 1, md: 4 }, mx: 'auto', maxWidth: '95%' }}>
+                        <Slider
+                            dots={true}
+                            infinite={true}
+                            speed={500}
+                            slidesToShow={3}
+                            slidesToScroll={1}
+                            autoplay={true}
+                            autoplaySpeed={2000}
+                            responsive={[
+                                {
+                                    breakpoint: 1024,
+                                    settings: {
+                                        slidesToShow: 2,
+                                        slidesToScroll: 1
+                                    }
+                                },
+                                {
+                                    breakpoint: 600,
+                                    settings: {
+                                        slidesToShow: 1,
+                                        slidesToScroll: 1
+                                    }
+                                }
+                            ]}
+                            // Añade espacio entre slides
+                            centerPadding="20px"
+                            slidesMargin={20}
+                        >
+                            {restaurantData.map((restaurant, index) => (
+                                <Box key={index} sx={{
+                                    px: 2,
+                                    py: 1,
+                                    // Añade margen derecho excepto para el último elemento
+                                    mr: index !== restaurantData.length - 1 ? 3 : 0
+                                }}>
+                                    <Box
+                                        sx={{
+                                            height: 380, // Altura ligeramente reducida
+                                            background: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${restaurant.image})`,
+                                            backgroundSize: "cover",
+                                            backgroundPosition: "center",
+                                            borderRadius: "20px",
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            justifyContent: "center",
+                                            alignItems: "center",
+                                            gap: 3,
+                                            p: 4,
+                                            boxShadow: 3,
+                                            // Añade margen interno
+                                            margin: '0 10px',
+                                            // Añade transición para hover
+                                            transition: 'transform 0.3s ease',
+                                            '&:hover': {
+                                                transform: 'scale(1.02)'
+                                            }
+                                        }}
+                                    >
+                                        <Typography
+                                            variant="h4"
+                                            align="center"
+                                            sx={{
+                                                color: "white",
+                                                fontWeight: "bold",
+                                                textShadow: "1px 1px 3px rgba(0,0,0,0.8)",
+                                                mb: 2,
+                                                fontSize: { xs: '1.5rem', md: '1.75rem' } // Tamaño responsive
+                                            }}
+                                        >
+                                            {restaurant.title}
+                                        </Typography>
+                                        <Typography
+                                            variant="body1"
+                                            align="center"
+                                            sx={{
+                                                color: "white",
+                                                textShadow: "1px 1px 2px rgba(0,0,0,0.8)",
+                                                mb: 3,
+                                                px: 2 // Padding horizontal para el texto
+                                            }}
+                                        >
+                                            {restaurant.description}
+                                        </Typography>
+                                        <Button
+                                            variant="contained"
+                                            sx={{
+                                                bgcolor: "white",
+                                                color: "black",
+                                                px: 5,
+                                                py: 1.5,
+                                                borderRadius: 3,
+                                                fontWeight: "bold",
+                                                "&:hover": {
+                                                    bgcolor: "rgba(255,255,255,0.9)",
+                                                },
+                                            }}
+                                            component={Link}
+                                            href={restaurant.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            Visit Website
+                                        </Button>
+                                    </Box>
+                                </Box>
+                            ))}
+                        </Slider>
+                    </Box>
                 </Stack>
             </Container>
         </Box>
