@@ -20,7 +20,7 @@ import { ArrowForward, ArrowBack, Star } from '@mui/icons-material';
 import movistar from '../assets/movistar.png';
 import im2 from '../assets/im2.png';
 import im3 from '../assets/im3.png';
-import img4 from '../assets/img4.png';
+import im4 from '../assets/im4.png';
 import img5 from '../assets/img5.png';
 import img6 from '../assets/img6.png';
 import img7 from '../assets/img7.png';
@@ -214,7 +214,7 @@ const HomePage = () => {
           >
             {[
               {
-                image: img4,
+                image: im4,
                 name: 'Hol-Box',
                 badge: 'Top Ranked'
               },
