@@ -4,12 +4,9 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import EmailIcon from "@mui/icons-material/Email";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import RemoveIcon from "@mui/icons-material/Remove";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import {
     Avatar,
     Box,
@@ -38,15 +35,7 @@ const pricingItems = [
     { id: 5, label: "Tarifa del Guía", price: "$xxx.x" },
 ];
 
-// Data for footer links
-const usefulLinks = ["Home", "tours", "guides", "about Us", "contact Us"];
 
-// Data for contact info
-const contactInfo = [
-    { icon: PhoneIcon, text: "(+52) 55 2110 5157" },
-    { icon: EmailIcon, text: "tourcraftbusiness@gmail.com" },
-    { icon: LocationOnIcon, text: "Playa del Carmen, Quintana Roo, Mexico" },
-];
 
 // Data for booking steps
 const bookingSteps = [
