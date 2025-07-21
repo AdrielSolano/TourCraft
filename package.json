@@ -1,0 +1,20 @@
+{
+  "name": "tourcraft-fullstack",
+  "version": "1.0.0",
+  "description": "Sistema completo de reservas turísticas - Backend y Frontend",
+  "main": "index.js",
+  "scripts": {
+    "backend": "cd Turiscraft && npm run dev",
+    "frontend": "cd TourCraft/TourCraft && npm run dev",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "install-all": "npm install && cd Turiscraft && npm install && cd TourCraft/TourCraft && npm install",
+    "init-db": "cd Turiscraft && npm run init-db",
+    "build": "cd TourCraft/TourCraft && npm run build"
+  },
+  "keywords": ["tourism", "reservations", "react", "nodejs", "mongodb"],
+  "author": "TourCraft Team",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 
