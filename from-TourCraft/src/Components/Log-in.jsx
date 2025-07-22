@@ -34,6 +34,7 @@ const LogIn = () => {
       const res = await axios.post("http://localhost:3000/api/smart-auth/login", {
         email
       });
+      localStorage.setItem('isLoggedIn', 'true'); // Guardar estado de login
       alert("Login exitoso");
       navigate("/"); // Redirige a la página principal o donde prefieras
     } catch (err) {

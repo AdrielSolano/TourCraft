@@ -6,12 +6,17 @@ import Solano11 from "../assets/Solano11.png";
 import { useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import persona from "../assets/persona.png";
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import AccountCircle from '@mui/icons-material/AccountCircle';
 
 const Header = ({ navItems }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const location = useLocation(); // Obtiene la ruta actual
+    const [anchorEl, setAnchorEl] = useState(null);
 
     const handleDrawerToggle = () => {
         setDrawerOpen(!drawerOpen);
@@ -155,43 +160,78 @@ const Header = ({ navItems }) => {
                 {/* Desktop Auth Buttons */}
                 {!isMobile && (
                     <Stack direction="row" spacing={2} alignItems="center">
-                        <Button
-                            component={RouterLink}
-                            to="/SignUp"
-                            variant="outlined"
-                            sx={{
-                                borderRadius: "38px",
-                                borderColor: "#000",
-                                color: "#000",
-                                borderWidth: 2,
-                                padding: "8px 24px",
-                                textTransform: "none",
-                                fontFamily: isActive("/SignUp") ? "Inter-Bold" : "Inter-Medium",
-                                fontWeight: isActive("/SignUp") ? 700 : 500,
-                                fontSize: "16px",
-                            }}
-                        >
-                            Sign Up
-                        </Button>
-
-                        <Button
-                            component={RouterLink}
-                            to="/Log-in"
-                            variant="outlined"
-                            sx={{
-                                borderRadius: "38px",
-                                borderColor: "#000",
-                                color: "#000",
-                                borderWidth: 2,
-                                padding: "8px 24px",
-                                textTransform: "none",
-                                fontFamily: isActive("/Log-in") ? "Inter-Bold" : "Inter-Medium",
-                                fontWeight: isActive("/Log-in") ? 700 : 500,
-                                fontSize: "16px",
-                            }}
-                        >
-                            Log In
-                        </Button>
+                        {localStorage.getItem('isLoggedIn') !== 'true' && (
+                            <>
+                                <Button
+                                    component={RouterLink}
+                                    to="/SignUp"
+                                    variant="outlined"
+                                    sx={{
+                                        borderRadius: "38px",
+                                        borderColor: "#000",
+                                        color: "#000",
+                                        borderWidth: 2,
+                                        padding: "8px 24px",
+                                        textTransform: "none",
+                                        fontFamily: isActive("/SignUp") ? "Inter-Bold" : "Inter-Medium",
+                                        fontWeight: isActive("/SignUp") ? 700 : 500,
+                                        fontSize: "16px",
+                                    }}
+                                >
+                                    Sign Up
+                                </Button>
+                                <Button
+                                    component={RouterLink}
+                                    to="/Log-in"
+                                    variant="outlined"
+                                    sx={{
+                                        borderRadius: "38px",
+                                        borderColor: "#000",
+                                        color: "#000",
+                                        borderWidth: 2,
+                                        padding: "8px 24px",
+                                        textTransform: "none",
+                                        fontFamily: isActive("/Log-in") ? "Inter-Bold" : "Inter-Medium",
+                                        fontWeight: isActive("/Log-in") ? 700 : 500,
+                                        fontSize: "16px",
+                                    }}
+                                >
+                                    Log In
+                                </Button>
+                            </>
+                        )}
+                        {localStorage.getItem('isLoggedIn') === 'true' && (
+                            <>
+                                <IconButton onClick={e => setAnchorEl(e.currentTarget)} sx={{ p: 0, ml: 5, width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <AccountCircle sx={{ width: 56, height: 56, color: '#555' }} />
+                                </IconButton>
+                                <Menu
+                                    anchorEl={anchorEl}
+                                    open={Boolean(anchorEl)}
+                                    onClose={() => setAnchorEl(null)}
+                                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                                    transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+                                    PaperProps={{
+                                        sx: {
+                                            minWidth: 180,
+                                            boxShadow: 3,
+                                            borderRadius: 2,
+                                            mt: 1,
+                                        }
+                                    }}
+                                >
+                                    <MenuItem sx={{ py: 1.5, px: 2, fontWeight: 500, '&:hover': { background: '#f0f4f8' } }}>Mi perfil</MenuItem>
+                                    <MenuItem sx={{ py: 1.5, px: 2, fontWeight: 500, '&:hover': { background: '#f0f4f8' } }}>Mis reservas</MenuItem>
+                                    <MenuItem onClick={() => {
+                                        localStorage.removeItem('isLoggedIn');
+                                        setAnchorEl(null);
+                                        window.location.reload();
+                                    }} sx={{ py: 1.5, px: 2, fontWeight: 500, color: 'error.main', '&:hover': { background: '#ffeaea' } }}>
+                                        Cerrar sesión
+                                    </MenuItem>
+                                </Menu>
+                            </>
+                        )}
                     </Stack>
                 )}
 

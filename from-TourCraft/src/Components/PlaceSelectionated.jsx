@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
     Box,
     Container,
@@ -49,17 +49,35 @@ import Rectangle16 from '../assets/Rectangle16.png';
 import Rectangle161 from '../assets/Rectangle161.png';
 import Rectangle162 from '../assets/Rectangle162.png';
 import { Link as RouterLink } from 'react-router-dom';
+import axios from "axios";
 
-const tourCategories = [
-    { label: "Business Tours", color: "#fb3131", icon: CardTravel },
-    { label: "Nature & Adventure", color: "#7bbcb0", icon: Explore },
-    { label: "Transportation", color: "#e4b613", icon: LocalTaxi },
-    { label: "Local Visit", color: "#5b9bde", icon: DirectionsWalk },
-    { label: "Pet Friendly", color: "#d175e0", icon: DirectionsBus },
-];
+const iconMap = {
+    "Business Tours": CardTravel,
+    "Nature & Adventure": Explore,
+    "Transportation": LocalTaxi,
+    "Local Visit": DirectionsWalk,
+    "Pet Friendly": DirectionsBus,
+    // Puedes agregar más mapeos según los nombres de tus categorías
+};
 
 const PlacesSelectionated = () => {
     const testimonialsRef = useRef(null);
+    const [categorias, setCategorias] = useState([]);
+    const [zona, setZona] = useState(null);
+
+    useEffect(() => {
+        axios.get("http://localhost:3000/api/categoria")
+            .then(res => setCategorias(res.data.data))
+            .catch(err => console.error("Error al obtener categorías", err));
+    }, []);
+
+    useEffect(() => {
+        // ID real de Chichén Itzá proporcionado por el usuario
+        const idZona = "687c7886b73df4ffa42a9a4b";
+        axios.get(`http://localhost:3000/api/zonas-turisticas/${idZona}`)
+            .then(res => setZona(res.data.data))
+            .catch(err => console.error("Error al obtener zona turística", err));
+    }, []);
 
     useEffect(() => {
         const scrollContainer = testimonialsRef.current;
@@ -131,10 +149,7 @@ const PlacesSelectionated = () => {
                                     Details
                                 </Typography>
                                 <Typography variant="body1" sx={{ lineHeight: '30px', mb: 2, fontFamily: "'Inter', sans-serif" }}>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...
-                                    <Link href="#" underline="always" sx={{ ml: 0.5, color: 'inherit', fontWeight: 500 }}>
-                                        Go web
-                                    </Link>
+                                    {zona ? zona.descripción : 'Cargando descripción...'}
                                 </Typography>
                             </Box>
 
@@ -186,9 +201,6 @@ const PlacesSelectionated = () => {
                                 <Typography variant="h2" sx={{ fontWeight: 800, mb: 2, fontFamily: "'Playfair Display', serif" }}>
                                     Chichen-Itza
                                 </Typography>
-                                <Typography variant="body1" sx={{ opacity: 0.6, lineHeight: '26px', fontFamily: "'Inter', sans-serif" }}>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry...
-                                </Typography>
                             </Box>
 
                             {/* Price */}
@@ -203,14 +215,17 @@ const PlacesSelectionated = () => {
 
                             {/* Tags */}
                             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
-                                {tourCategories.map(({ label, icon: Icon, color }) => (
-                                    <Chip
-                                        key={label}
-                                        icon={<Icon sx={{ color }} />}
-                                        label={label}
-                                        sx={{ backgroundColor: "#fff", color, fontWeight: 700, border: "none", boxShadow: 1 }}
-                                    />
-                                ))}
+                                {categorias.map((cat) => {
+                                    const Icon = iconMap[cat.nombre] || CardTravel;
+                                    return (
+                                        <Chip
+                                            key={cat._id}
+                                            icon={<Icon sx={{ color: '#80b9ad' }} />}
+                                            label={cat.nombre}
+                                            sx={{ backgroundColor: "#fff", color: '#80b9ad', fontWeight: 700, border: "none", boxShadow: 1 }}
+                                        />
+                                    );
+                                })}
                             </Box>
 
                             {/* Select Place Button */}
