@@ -34,6 +34,8 @@ import {
     Email,
     LocationOn
 } from '@mui/icons-material';
+import { Link as RouterLink } from "react-router-dom";
+
 import { Link } from 'react-router-dom';
 import img from '../assets/img.png';
 import img41 from '../assets/img41.png';
@@ -79,10 +81,13 @@ export const BookingSimulation3 = () => {
             {/* Back Button */}
             <Box sx={{ px: { xs: 2, md: 15 }, py: 2 }}>
                 <Button
+                    component={RouterLink}
+                    to="/BookingSimulation2"
                     startIcon={<ArrowBack />}
                     sx={{
                         color: '#000000',
                         fontSize: '18px',
+                        fontFamily: 'Playfair Display',
                         fontWeight: 600,
                         textTransform: 'none'
                     }}
@@ -103,7 +108,7 @@ export const BookingSimulation3 = () => {
                                     </Avatar>
                                 )}
                             >
-                                <Typography sx={{ color: '#80b9ad', fontWeight: 600, fontSize: '20px' }}>
+                                <Typography sx={{ color: '#80b9ad', fontWeight: 600, fontSize: '20px', fontFamily: 'Playfair Display' }}>
                                     {label}
                                 </Typography>
                             </StepLabel>
@@ -116,7 +121,7 @@ export const BookingSimulation3 = () => {
             <Grid container spacing={4} sx={{ px: { xs: 2, md: 15 }, py: 4 }}>
                 {/* Payment Method Selection */}
                 <Grid item xs={12} md={6}>
-                    <Typography variant="h5" sx={{ fontWeight: 600, mb: 3 }}>
+                    <Typography variant="h5" sx={{ fontWeight: 600, mb: 3, fontFamily: 'Playfair Display' }}>
                         Select a payment method
                     </Typography>
 
@@ -130,7 +135,7 @@ export const BookingSimulation3 = () => {
                                         control={<Radio sx={{ color: '#80b9ad', '&.Mui-checked': { color: '#80b9ad' } }} />}
                                         label={
                                             <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ width: '100%' }}>
-                                                <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                                                <Typography variant="h6" sx={{ fontWeight: 600, fontFamily: 'Playfair Display' }}>
                                                     PayPal
                                                 </Typography>
                                                 <img
@@ -142,7 +147,7 @@ export const BookingSimulation3 = () => {
                                         }
                                         sx={{ width: '100%', m: 0 }}
                                     />
-                                    <Typography variant="body2" sx={{ mt: 1, color: '#666' }}>
+                                    <Typography variant="body2" sx={{ mt: 1, color: '#666', fontFamily: 'Playfair Display' }}>
                                         You will be redirected to the PayPal website after submitting your order
                                     </Typography>
                                 </CardContent>
@@ -159,7 +164,7 @@ export const BookingSimulation3 = () => {
                                         control={<Radio sx={{ color: '#80b9ad', '&.Mui-checked': { color: '#80b9ad' } }} />}
                                         label={
                                             <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ width: '100%' }}>
-                                                <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                                                <Typography variant="h6" sx={{ fontWeight: 600, fontFamily: 'Playfair Display' }}>
                                                     Pay with Credit Card
                                                 </Typography>
                                                 <Stack direction="row" spacing={1}>
@@ -182,6 +187,7 @@ export const BookingSimulation3 = () => {
                                                     value={cardNumber}
                                                     onChange={(e) => setCardNumber(e.target.value)}
                                                     sx={{
+                                                        fontFamily: 'Inter',
                                                         '& .MuiOutlinedInput-root': {
                                                             bgcolor: 'rgba(14, 61, 77, 0.08)',
                                                             '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
@@ -194,7 +200,7 @@ export const BookingSimulation3 = () => {
                                                     label="Expiration Date"
                                                     value={expirationDate}
                                                     onChange={(e) => setExpirationDate(e.target.value)}
-                                                    sx={{ minWidth: 200 }}
+                                                    sx={{ minWidth: 200, fontFamily: 'Inter' }}
                                                 />
                                             </Stack>
 
@@ -203,13 +209,14 @@ export const BookingSimulation3 = () => {
                                                     label="Card Security Code"
                                                     value={securityCode}
                                                     onChange={(e) => setSecurityCode(e.target.value)}
-                                                    sx={{ maxWidth: 255 }}
+                                                    sx={{ maxWidth: 255, fontFamily: 'Inter' }}
                                                 />
                                                 <Button 
                                                     onClick={handleOpenSecurityCodeDialog}
                                                     sx={{ 
                                                         color: '#80b9ad', 
                                                         textTransform: 'none',
+                                                        fontFamily: 'Inter',
                                                         fontSize: '0.875rem',
                                                         p: 0,
                                                         '&:hover': {
@@ -232,7 +239,7 @@ export const BookingSimulation3 = () => {
                 {/* Tickets Overview */}
                 <Grid item xs={12} md={6}>
                     <Card sx={{ p: 3, borderRadius: 3, border: '1px solid rgba(51, 51, 51, 0.2)' }}>
-                        <Typography variant="h5" sx={{ fontWeight: 800, textAlign: 'center', mb: 3 }}>
+                        <Typography variant="h5" sx={{ fontWeight: 800, textAlign: 'center', mb: 3, fontFamily: 'Playfair Display' }}>
                             Your Tickets Overview
                         </Typography>
 
@@ -244,18 +251,18 @@ export const BookingSimulation3 = () => {
                                 style={{ width: 160, height: 110, objectFit: 'cover', borderRadius: 8 }}
                             />
                             <Stack spacing={1}>
-                                <Typography variant="h5" sx={{ fontWeight: 700 }}>
+                                <Typography variant="h5" sx={{ fontWeight: 700, fontFamily: 'Playfair Display' }}>
                                     Chichen-Itza
                                 </Typography>
                                 <Stack direction="row" alignItems="center" spacing={1}>
                                     <CalendarToday sx={{ fontSize: 20, color: "#80b9ad" }} />
-                                    <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                                    <Typography variant="h6" sx={{ fontWeight: 600, fontFamily: 'Inter' }}>
                                         FRI, 23 DEC 2024
                                     </Typography>
                                 </Stack>
                                 <Stack direction="row" alignItems="center" spacing={1}>
                                     <AccessTime sx={{ fontSize: 20, color: "#80b9ad"}} />
-                                    <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                                    <Typography variant="h6" sx={{ fontWeight: 600, fontFamily: 'Inter' }}>
                                         15:00
                                     </Typography>
                                 </Stack>
@@ -270,11 +277,11 @@ export const BookingSimulation3 = () => {
                                         <Avatar sx={{ width: 37, height: 37, bgcolor: '#ccc', color: 'rgba(51, 51, 51, 0.8)' }}>
                                             {index + 1}
                                         </Avatar>
-                                        <Typography variant="h6" sx={{ opacity: 0.8 }}>
+                                        <Typography variant="h6" sx={{ opacity: 0.8, fontFamily: 'Playfair Display' }}>
                                             {item.label}
                                         </Typography>
                                     </Stack>
-                                    <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                                    <Typography variant="h6" sx={{ fontWeight: 600, fontFamily: 'Inter' }}>
                                         {item.price}
                                     </Typography>
                                 </Stack>
@@ -283,7 +290,7 @@ export const BookingSimulation3 = () => {
 
                         {/* Total Price */}
                         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ py: 2 }}>
-                            <Typography variant="h5" sx={{ fontWeight: 700, opacity: 0.8 }}>
+                            <Typography variant="h5" sx={{ fontWeight: 700, opacity: 0.8, fontFamily: 'Playfair Display' }}>
                                 Total Price
                             </Typography>
                             <Typography
@@ -291,6 +298,7 @@ export const BookingSimulation3 = () => {
                                 sx={{
                                     fontWeight: 700,
                                     color: '#80b9ad',
+                                    fontFamily: 'Inter',
                                     textShadow: '1px 1px 0px #bfdbd5'
                                 }}
                             >
@@ -305,6 +313,7 @@ export const BookingSimulation3 = () => {
                             variant="contained"
                             sx={{
                                 bgcolor: '#80b9ad',
+                                fontFamily: 'Inter',
                                 borderRadius: '50px',
                                 py: 2,
                                 fontSize: '20px',
@@ -333,32 +342,32 @@ export const BookingSimulation3 = () => {
 
             {/* Security Code Dialog */}
             <Dialog open={openSecurityCodeDialog} onClose={handleCloseSecurityCodeDialog}>
-                <DialogTitle sx={{ fontWeight: 700, color: '#80b9ad' }}>
+                <DialogTitle sx={{ fontWeight: 700, color: '#80b9ad', fontFamily: 'Playfair Display' }}>
                     What is a Card Security Code (CSC)?
                 </DialogTitle>
                 <DialogContent>
-                    <Typography variant="body1" paragraph>
+                    <Typography variant="body1" fontFamily= 'Playfair Display' paragraph>
                         The <strong>Card Security Code (CSC)</strong> is a 3 or 4-digit number on your credit/debit card that adds an extra layer of security.
                     </Typography>
                     
-                    <Typography variant="h6" sx={{ mt: 2, fontWeight: 600 }}>
+                    <Typography variant="h6" sx={{ mt: 2, fontWeight: 600, fontFamily: 'Playfair Display' }}>
                         Where to find it:
                     </Typography>
                     
                     <Box sx={{ mt: 2, display: 'flex', alignItems: 'center', gap: 2 }}>
                         <img src={visa} alt="Visa" style={{ width: 50 }} />
-                        <Typography><strong>Visa, Mastercard, Discover:</strong> 3 digits on the back</Typography>
+                        <Typography fontFamily= 'Playfair Display'><strong>Visa, Mastercard, Discover:</strong> 3 digits on the back</Typography>
                     </Box>
                     
                     <Box sx={{ mt: 2, display: 'flex', alignItems: 'center', gap: 2 }}>
                         <img src={Mastercard} alt="Mastercard" style={{ width: 50 }} />
-                        <Typography><strong>American Express:</strong> 4 digits on the front</Typography>
+                        <Typography fontFamily= 'Playfair Display'><strong>American Express:</strong> 4 digits on the front</Typography>
                     </Box>
                 </DialogContent>
                 <DialogActions>
                     <Button 
                         onClick={handleCloseSecurityCodeDialog}
-                        sx={{ color: '#80b9ad', fontWeight: 600 }}
+                        sx={{ color: '#80b9ad', fontWeight: 600, fontFamily: 'Inter', textTransform: 'none' }}
                     >
                         Close
                     </Button>

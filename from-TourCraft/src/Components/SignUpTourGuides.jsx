@@ -19,6 +19,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import img34 from "../assets/img34.png";
 import Solano11 from "../assets/Solano11.png";
+import { Link as RouterLink } from 'react-router-dom';
+
 
 export default function SignUpTourGuides() {
     const navigate = useNavigate();
@@ -146,7 +148,7 @@ export default function SignUpTourGuides() {
                                 width: "600px",
                                 top: "478px",
                                 left: 0,
-                                fontFamily: "'Playfair Display', serif",
+                                fontFamily: "Playfair Display",
                                 fontWeight: 500,
                                 color: "#ffffff",
                                 fontSize: "17px",
@@ -163,7 +165,7 @@ export default function SignUpTourGuides() {
                                 width: "400px",
                                 top: 0,
                                 left: "100px",
-                                fontFamily: "'Playfair Display', serif",
+                                fontFamily: "Playfair Display",
                                 fontWeight: 700,
                                 color: "#ffffff",
                                 fontSize: "40px",
@@ -188,32 +190,38 @@ export default function SignUpTourGuides() {
                         marginTop: "30px",
                     }}
                 >
-                    {/* Logo */}
                     <Box
-                        component="img"
+                        component={RouterLink}
+                        to="/"
                         sx={{
                             position: "absolute",
                             width: "195px",
                             height: "92px",
                             top: "41px",
                             left: "1170px",
-                            objectFit: "cover",
+                            display: "block", // para que el box tenga tamaño
                         }}
-                        alt="Logo TC"
-                        src={Solano11}
-                    />
+                    >
+                        <img
+                            src={Solano11}
+                            alt="Logo TC"
+                            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                        />
+                    </Box>
+
                     {/* Form Container */}
                     <Box
                         sx={{
                             position: "absolute",
                             width: "581px",
                             height: "549px",
-                            top: "148px",
+                            top: "230px",
                             left: "788px",
                             display: "flex",
                             flexDirection: "column",
                             justifyContent: "center",
-                            alignItems: "center"
+                            alignItems: "center",
+
                         }}
                     >
                         <Box
@@ -228,12 +236,13 @@ export default function SignUpTourGuides() {
                                 flexDirection: "column",
                                 justifyContent: "center",
                                 alignItems: "center",
-                                bgcolor: "transparent"
+                                bgcolor: "transparent",
+                                fontFamily: "Playfair Display",
                             }}
                         >
                             <Typography
                                 sx={{
-                                    fontFamily: "'Playfair Display', serif",
+                                    fontFamily: "Playfair Display",
                                     fontWeight: 600,
                                     color: "#000000",
                                     fontSize: "24px",
@@ -248,7 +257,7 @@ export default function SignUpTourGuides() {
                             </Typography>
                             <Typography
                                 sx={{
-                                    fontFamily: "'Playfair Display', serif",
+                                    fontFamily: "Playfair Display",
                                     fontWeight: 400,
                                     color: "#2d3748",
                                     fontSize: "16px",
@@ -273,6 +282,7 @@ export default function SignUpTourGuides() {
                                         sx={{
                                             "& .MuiOutlinedInput-root": {
                                                 borderRadius: "3.53px",
+                                                fontFamily: "Playfair Display"
                                             },
                                         }}
                                     />
@@ -289,6 +299,7 @@ export default function SignUpTourGuides() {
                                         sx={{
                                             "& .MuiOutlinedInput-root": {
                                                 borderRadius: "3.53px",
+                                                fontFamily: "Playfair Display"
                                             },
                                         }}
                                     />
@@ -305,6 +316,7 @@ export default function SignUpTourGuides() {
                                         sx={{
                                             "& .MuiOutlinedInput-root": {
                                                 borderRadius: "3.53px",
+                                                fontFamily: "Playfair Display"
                                             },
                                         }}
                                     />
@@ -321,6 +333,7 @@ export default function SignUpTourGuides() {
                                         sx={{
                                             "& .MuiOutlinedInput-root": {
                                                 borderRadius: "3.53px",
+                                                fontFamily: "Playfair Display"
                                             },
                                         }}
                                     />
@@ -337,6 +350,7 @@ export default function SignUpTourGuides() {
                                         sx={{
                                             "& .MuiOutlinedInput-root": {
                                                 borderRadius: "3.53px",
+                                                fontFamily: "Playfair Display"
                                             },
                                         }}
                                     />
@@ -353,6 +367,7 @@ export default function SignUpTourGuides() {
                                         sx={{
                                             "& .MuiOutlinedInput-root": {
                                                 borderRadius: "3.53px",
+                                                fontFamily: "Playfair Display"
                                             },
                                         }}
                                     />
@@ -367,7 +382,7 @@ export default function SignUpTourGuides() {
                                         renderInput={(params) => (
                                             <TextField {...params} label="Idiomas" size="small" />
                                         )}
-                                        sx={{ width: "100%" }}
+                                        sx={{ width: "100%", fontFamily: "Playfair Display" }}
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -385,6 +400,7 @@ export default function SignUpTourGuides() {
                                             mb: 2,
                                             "& .MuiOutlinedInput-root": {
                                                 borderRadius: "3.53px",
+                                                fontFamily: "Playfair Display"
                                             },
                                         }}
                                     />
@@ -401,6 +417,7 @@ export default function SignUpTourGuides() {
                                         sx={{
                                             "& .MuiOutlinedInput-root": {
                                                 borderRadius: "3.53px",
+                                                fontFamily: "Playfair Display"
                                             },
                                         }}
                                     />
@@ -415,10 +432,10 @@ export default function SignUpTourGuides() {
                                     height: "38px",
                                     borderRadius: "5px",
                                     textTransform: "none",
-                                    fontFamily: "'Playfair Display', serif",
                                     fontWeight: 600,
                                     fontSize: "12px",
                                     backgroundColor: "#6ca99d",
+                                    fontFamily: "Inter",
                                 }}
                             >
                                 Send registration request

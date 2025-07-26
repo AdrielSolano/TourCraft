@@ -69,7 +69,7 @@ const TeamCard = styled(Card)(({ theme }) => ({
 
 const AboutUs = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, fontFamily: "Playfair Display" }}>
       {/* Hero Section */}
       <StyledHero>
         <Container>
@@ -77,6 +77,7 @@ const AboutUs = () => {
             color: 'common.white',
             textShadow: '0 4px 4px rgba(0, 0, 0, 0.25)',
             fontWeight: 600,
+            fontFamily: "Playfair Display",
             maxWidth: 750,
             margin: '0 auto'
           }}>
@@ -93,6 +94,7 @@ const AboutUs = () => {
           <Typography variant="body1" paragraph sx={{ 
             fontSize: '1.125rem',
             lineHeight: 1.6,
+            fontFamily: "Playfair Display",
             textAlign: 'justify'
           }}>
             Welcome to TourCraft, a space designed to offer authentic and personalized experiences in the Riviera Maya. 
@@ -103,6 +105,7 @@ const AboutUs = () => {
           <Typography variant="body1" paragraph sx={{ 
             fontSize: '1.125rem',
             lineHeight: 1.6,
+            fontFamily: "Playfair Display",
             textAlign: 'justify'
           }}>
             Here, you can explore, plan, and customize your journey with us, selecting points of interest, transportation 
@@ -116,111 +119,112 @@ const AboutUs = () => {
       </Box>
 
       {/* Features Section */}
-      <Box py={8} bgcolor="background.paper">
-        <Container>
-          <Typography variant="h2" component="h2" sx={{ 
-            fontWeight: 700,
-            mb: 8,
-            textAlign: 'center'
-          }}>
-            Dare to Explore with<br />TourCraft
-          </Typography>
-          
-          <Grid container spacing={6} justifyContent="center">
-            {/* Feature 1 */}
-            <Grid item xs={12} sm={6} md={4}>
-              <FeatureCard>
-                <Box component="img" src={lupa} alt="Hidden Gems" sx={{ width: 64, height: 64, opacity: 0.6 }} />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Hidden Gems
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Discover cenotes, secluded beaches, and the Riviera Maya's best-kept secrets.
-                  </Typography>
-                </CardContent>
-              </FeatureCard>
-            </Grid>
+        <Box py={8} bgcolor="background.paper">
+          <Container>
+            <Typography variant="h2" component="h2" sx={{ 
+          fontWeight: 700,
+          mb: 8,
+          fontFamily: "Playfair Display",
+          textAlign: 'center'
+            }}>
+          Dare to Explore with<br />TourCraft
+            </Typography>
             
-            {/* Feature 2 */}
-            <Grid item xs={12} sm={6} md={4}>
-              <FeatureCard>
-                <Box component="img" src={lapiz} alt="Personalized Tours" sx={{ width: 64, height: 64, opacity: 0.6 }} />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Personalized Tours
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Create your own adventure with customizable guides and itineraries.
-                  </Typography>
-                </CardContent>
-              </FeatureCard>
-            </Grid>
-            
-            {/* Feature 3 */}
-            <Grid item xs={12} sm={6} md={4}>
-              <FeatureCard>
-                <Box component="img" src={car} alt="Seamless Transport" sx={{ width: 64, height: 64, opacity: 0.6 }} />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Seamless Transport
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Relax and enjoy; we'll take care of getting you there.
-                  </Typography>
-                </CardContent>
-              </FeatureCard>
-            </Grid>
-            
-            {/* Feature 4 */}
-            <Grid item xs={12} sm={6} md={4}>
-              <FeatureCard>
-                <Box component="img" src={manos} alt="Authentic Experiences" sx={{ width: 64, height: 64, opacity: 0.6 }} />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Authentic Experiences
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Connect with local culture through unique, genuine activities.
-                  </Typography>
-                </CardContent>
-              </FeatureCard>
-            </Grid>
-            
-            {/* Feature 5 */}
-            <Grid item xs={12} sm={6} md={4}>
-              <FeatureCard>
-                <Box component="img" src={palo} alt="Local Flavors" sx={{ width: 64, height: 64, opacity: 0.6 }} />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Local Flavors
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Savor the best of Riviera Maya's cuisine with curated restaurant partnerships.
-                  </Typography>
-                </CardContent>
-              </FeatureCard>
-            </Grid>
-            
-            {/* Feature 6 */}
-            <Grid item xs={12} sm={6} md={4}>
-              <FeatureCard>
-                <Box component="img" src={persona} alt="Trusted Reviews" sx={{ width: 64, height: 64, opacity: 0.6 }} />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    Trusted Reviews
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Plan with confidence by checking reviews and ratings from fellow travelers.
-                  </Typography>
-                </CardContent>
-              </FeatureCard>
-            </Grid>
+            <Grid container spacing={6} justifyContent="center">
+          {/* Feature 1 */}
+          <Grid item xs={12} sm={6} md={4}>
+            <FeatureCard>
+              <Box component="img" src={lupa} alt="Hidden Gems" sx={{ width: 64, height: 64, opacity: 0.6 }} />
+              <CardContent>
+            <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "Playfair Display" }}>
+              Hidden Gems
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "Playfair Display" }}>
+              Discover cenotes, secluded beaches, and the Riviera Maya's best-kept secrets.
+            </Typography>
+              </CardContent>
+            </FeatureCard>
           </Grid>
-        </Container>
-      </Box>
+          
+          {/* Feature 2 */}
+          <Grid item xs={12} sm={6} md={4}>
+            <FeatureCard>
+              <Box component="img" src={lapiz} alt="Personalized Tours" sx={{ width: 64, height: 64, opacity: 0.6 }} />
+              <CardContent>
+            <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "Playfair Display" }}>
+              Personalized Tours
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "Playfair Display" }}>
+              Create your own adventure with customizable guides and itineraries.
+            </Typography>
+              </CardContent>
+            </FeatureCard>
+          </Grid>
+          
+          {/* Feature 3 */}
+          <Grid item xs={12} sm={6} md={4}>
+            <FeatureCard>
+              <Box component="img" src={car} alt="Seamless Transport" sx={{ width: 64, height: 64, opacity: 0.6 }} />
+              <CardContent>
+            <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "Playfair Display" }}>
+              Seamless Transport
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "Playfair Display" }}>
+              Relax and enjoy; we'll take care of getting you there.
+            </Typography>
+              </CardContent>
+            </FeatureCard>
+          </Grid>
+          
+          {/* Feature 4 */}
+          <Grid item xs={12} sm={6} md={4}>
+            <FeatureCard>
+              <Box component="img" src={manos} alt="Authentic Experiences" sx={{ width: 64, height: 64, opacity: 0.6 }} />
+              <CardContent>
+            <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "Playfair Display" }}>
+              Authentic Experiences
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "Playfair Display" }}>
+              Connect with local culture through unique, genuine activities.
+            </Typography>
+              </CardContent>
+            </FeatureCard>
+          </Grid>
+          
+          {/* Feature 5 */}
+          <Grid item xs={12} sm={6} md={4}>
+            <FeatureCard>
+              <Box component="img" src={palo} alt="Local Flavors" sx={{ width: 64, height: 64, opacity: 0.6 }} />
+              <CardContent>
+            <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "Playfair Display" }}>
+              Local Flavors
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "Playfair Display" }}>
+              Savor the best of Riviera Maya's cuisine with curated restaurant partnerships.
+            </Typography>
+              </CardContent>
+            </FeatureCard>
+          </Grid>
+          
+          {/* Feature 6 */}
+          <Grid item xs={12} sm={6} md={4}>
+            <FeatureCard>
+              <Box component="img" src={persona} alt="Trusted Reviews" sx={{ width: 64, height: 64, opacity: 0.6 }} />
+              <CardContent>
+            <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "Playfair Display" }}>
+              Trusted Reviews
+            </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "Playfair Display" }}>
+              Plan with confidence by checking reviews and ratings from fellow travelers.
+            </Typography>
+              </CardContent>
+            </FeatureCard>
+          </Grid>
+            </Grid>
+          </Container>
+        </Box>
 
-      {/* Team Section */}
+        {/* Team Section */}
       <Box py={8}>
         <Container>
           <Divider sx={{ my: 5 }} />
@@ -228,6 +232,7 @@ const AboutUs = () => {
           <Typography variant="h2" component="h2" sx={{ 
             fontWeight: 700,
             mb: 8,
+            fontFamily: "Playfair Display",
             textAlign: 'center'
           }}>
             Meet Our Team
@@ -243,10 +248,10 @@ const AboutUs = () => {
                   sx={{ width: 200, height: 200, mb: 2 }}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "Playfair Display" }}>
                     Santiago Calderon
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "Playfair Display" }}>
                     Project leader, Software developer
                   </Typography>
                 </CardContent>
@@ -262,10 +267,10 @@ const AboutUs = () => {
                   sx={{ width: 200, height: 200, mb: 2 }}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "Playfair Display" }}>
                     David Dominguez Fraga
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "Playfair Display" }}>
                     Software Analyst
                   </Typography>
                 </CardContent>
@@ -281,10 +286,10 @@ const AboutUs = () => {
                   sx={{ width: 200, height: 200, mb: 2 }}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "Playfair Display" }}>
                     Adrian Farias
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "Playfair Display" }}>
                     UX and UI Designer
                   </Typography>
                 </CardContent>
@@ -300,10 +305,10 @@ const AboutUs = () => {
                   sx={{ width: 200, height: 200, mb: 2 }}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "Playfair Display" }}>
                     Jesus Gallegos
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "Playfair Display" }}>
                     Team leader, Software developer
                   </Typography>
                 </CardContent>
@@ -319,10 +324,10 @@ const AboutUs = () => {
                   sx={{ width: 200, height: 200, mb: 2 }}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "Playfair Display" }}>
                     Adriel Solano
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "Playfair Display" }}>
                     Scrum master, Software Development
                   </Typography>
                 </CardContent>
@@ -338,10 +343,10 @@ const AboutUs = () => {
                   sx={{ width: 200, height: 200, mb: 2 }}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "Playfair Display" }}>
                     Alexis Bustos
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "Playfair Display" }}>
                     (DBA) DataBase Administrator
                   </Typography>
                 </CardContent>

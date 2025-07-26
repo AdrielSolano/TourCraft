@@ -29,7 +29,7 @@ import i3 from "../assets/i3.jpg";
 import i1 from "../assets/i1.jpg";
 import image54 from "../assets/image54.png";
 import img from "../assets/img.png";
-import frame34 from "../assets/frame342.png";
+import UX1 from "../assets/UX1.jpg";
 import frame341 from "../assets/frame341.png";
 import imga5 from "../assets/imga5.png";
 import imga4 from "../assets/imga4.png";
@@ -53,7 +53,7 @@ const featuredTours = [
   {
     id: 2,
     title: "Uxmal, Kabah",
-    image: frame34,
+    image: UX1,
     rating: 5,
     reviews: 1,
     duration: "2 days",
@@ -89,7 +89,6 @@ const topActivities = [
     duration: "7 Nights, 8 days",
     originalPrice: "$1200",
     price: "$960",
-    badge: "20% off",
   },
   {
     id: 4,
@@ -100,7 +99,6 @@ const topActivities = [
     duration: "7 Nights, 8 days",
     originalPrice: "$1500",
     price: "$1200",
-    badge: "20% off",
   },
   {
     id: 5,
@@ -201,34 +199,34 @@ const TourCard = ({ tour, onClick }) => (
     <CardContent sx={{ p: 4, pb: 2 }}>
       <Stack spacing={2.5}>
         <Stack spacing={2}>
-          <Typography variant="h6" fontWeight={600} fontSize="20px">
+          <Typography variant="h6" fontFamily="Playfair Display" fontWeight={600} fontSize="20px">
             {tour.title}
           </Typography>
           <Stack direction="row" alignItems="center" spacing={1.5}>
             <Rating value={tour.rating} readOnly size="small" />
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" fontFamily="Playfair Display" color="text.secondary">
               ({tour.reviews} Review)
             </Typography>
           </Stack>
           <Stack direction="row" alignItems="center" spacing={1}>
             <AccessTime sx={{ width: 16, height: 16 }} />
-            <Typography variant="body2">{tour.duration}</Typography>
+            <Typography variant="body2" fontFamily="Playfair Display">{tour.duration}</Typography>
           </Stack>
         </Stack>
 
         <Stack direction="row" alignItems="center" spacing={0.5}>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" fontFamily="Playfair Display" color="text.secondary">
             From
           </Typography>
           {tour.originalPrice && (
             <Typography
               variant="caption"
-              sx={{ textDecoration: "line-through", color: "#999999" }}
+              sx={{ textDecoration: "line-through", fontFamily:"Inter",  color: "#999999" }}
             >
               {tour.originalPrice}
             </Typography>
           )}
-          <Typography variant="body1" fontWeight={600}>
+          <Typography variant="body1" fontFamily="Inter"fontWeight={600}>
             {tour.price}
           </Typography>
         </Stack>
@@ -242,6 +240,7 @@ const TourCard = ({ tour, onClick }) => (
         position: "absolute",
         bottom: 32,
         right: 32,
+        fontFamily: "Inter",
         backgroundColor: "#80b9ad",
         color: "#0e3d4d",
         borderRadius: "40px",
@@ -265,6 +264,9 @@ export default function Merida() {
 
   const handleChichenItzaClick = () => {
     navigate('/PlaceSelectionated');
+  };
+  const handleChichenItzaClick2 = () => {
+    navigate('/PlaceSelectionated2');
   };
 
   return (
@@ -291,6 +293,7 @@ export default function Merida() {
               sx={{
                 fontSize: "48px",
                 textShadow: "0px 4px 4px rgba(0,0,0,0.25)",
+                fontFamily: "Playfair Display",
               }}
             >
               Merida
@@ -302,7 +305,13 @@ export default function Merida() {
               <Grid item xs={12} md={6} key={tour.id}>
                 <TourCard 
                   tour={tour} 
-                  onClick={tour.title === "Chichen-Itza" ? handleChichenItzaClick : undefined}
+                  onClick={
+                    tour.title === "Chichen-Itza"
+                      ? handleChichenItzaClick
+                      : tour.title === "Uxmal, Kabah"
+                      ? handleChichenItzaClick2
+                      : undefined
+                  }
                 />
               </Grid>
             ))}
@@ -334,7 +343,7 @@ export default function Merida() {
             variant="h3"
             fontWeight="bold"
             color="#0e3d4d"
-            sx={{ fontSize: "40px", mb: 7.5 }}
+            sx={{ fontSize: "40px", mb: 7.5, fontFamily: "Playfair Display" }}
           >
             Top activities
           </Typography>
@@ -365,7 +374,7 @@ export default function Merida() {
         <Divider sx={{ mx: 15, mb: 10 }} />
 
         <Stack spacing={6} sx={{ py: 6 }}>
-          <Typography variant="h3" align="center" sx={{ fontWeight: "bold", color: "black", fontFamily: "serif", mb: 4 }}>
+          <Typography variant="h3" align="center" sx={{ fontWeight: "bold", color: "black", fontFamily: "Playfair Display", mb: 4 }}>
             Local restaurants in Merida
           </Typography>
 
@@ -402,10 +411,10 @@ export default function Merida() {
                       "&:hover": { transform: "scale(1.02)" },
                     }}
                   >
-                    <Typography variant="h4" align="center" sx={{ color: "white", fontWeight: "bold", textShadow: "1px 1px 3px rgba(0,0,0,0.8)", mb: 2, fontSize: { xs: "1.5rem", md: "1.75rem" } }}>
+                    <Typography variant="h4" align="center"  sx={{ fontFamily:"Playfair Display", color: "white", fontWeight: "bold", textShadow: "1px 1px 3px rgba(0,0,0,0.8)", mb: 2, fontSize: { xs: "1.5rem", md: "1.75rem" } }}>
                       {restaurant.title}
                     </Typography>
-                    <Typography variant="body1" align="center" sx={{ color: "white", textShadow: "1px 1px 2px rgba(0,0,0,0.8)", mb: 3, px: 2 }}>
+                    <Typography variant="body1" align="center"  sx={{ fontFamily:"Playfair Display",color: "white", textShadow: "1px 1px 2px rgba(0,0,0,0.8)", mb: 3, px: 2 }}>
                       {restaurant.description}
                     </Typography>
                     <Button
@@ -414,7 +423,8 @@ export default function Merida() {
                       target="_blank"
                       rel="noopener noreferrer"
                       variant="contained"
-                      sx={{ bgcolor: "white", color: "black", px: 5, py: 1.5, borderRadius: 3, fontWeight: "bold", "&:hover": { bgcolor: "rgba(255,255,255,0.9)" } }}
+                      
+                      sx={{ bgcolor: "white",fontFamily:"Inter", color: "black", px: 5, py: 1.5, borderRadius: 3, fontWeight: "bold", "&:hover": { bgcolor: "rgba(255,255,255,0.9)" } }}
                     >
                       Visit Website
                     </Button>

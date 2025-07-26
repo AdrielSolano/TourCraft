@@ -97,21 +97,6 @@ const restaurantData = [
 export const BookingSimulation4 = () => {
     return (
         <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
-            {/* Success Message */}
-            <Stack alignItems="center" spacing={4} sx={{ py: 8 }}>
-                <CheckCircle sx={{ fontSize: 100, color: "#80b9ad" }} />
-
-                <Stack alignItems="center" spacing={2}>
-                    <Typography variant="h4" fontWeight="bold" textAlign="center" fontFamily= 'Playfair Display'>
-                        Your reservation is complete!
-                    </Typography>
-
-                    <Typography variant="h6" textAlign="center" color="text.secondary" fontFamily= 'Playfair Display'>
-                        You will be receiving a confirmation email with order details.
-                    </Typography>
-                </Stack>
-            </Stack>
-
             {/* My Tickets Section */}
             <Box sx={{ px: { xs: 2, md: 10 }, py: 4 }}>
                 <Typography variant="h4" fontWeight="bold" sx={{ mb: 4 }} fontFamily= 'Playfair Display'>

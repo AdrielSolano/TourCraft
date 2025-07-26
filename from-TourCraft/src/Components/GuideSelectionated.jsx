@@ -1,17 +1,4 @@
-import ArrowBack from "@mui/icons-material/ArrowBack";
-import CardTravel from "@mui/icons-material/CardTravel";
-import CheckCircle from "@mui/icons-material/CheckCircle";
-import ChevronLeft from "@mui/icons-material/ChevronLeft";
-import ChevronRight from "@mui/icons-material/ChevronRight";
-import DirectionsBus from "@mui/icons-material/DirectionsBus";
-import DirectionsWalk from "@mui/icons-material/DirectionsWalk";
-import Explore from "@mui/icons-material/Explore";
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
-import Language from "@mui/icons-material/Language";
-import LocalTaxi from "@mui/icons-material/LocalTaxi";
-import LocationOn from "@mui/icons-material/LocationOn";
-import Star from "@mui/icons-material/Star";
-import Work from "@mui/icons-material/Work";
+import React, { useState } from "react";
 import {
   Avatar,
   Box,
@@ -27,24 +14,43 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+
+import {
+  ArrowBack,
+  CardTravel,
+  CheckCircle,
+  ChevronLeft,
+  ChevronRight,
+  DirectionsBus,
+  DirectionsWalk,
+  Explore,
+  FavoriteBorder,
+  Language,
+  LocalTaxi,
+  LocationOn,
+  Star,
+  Work,
+} from "@mui/icons-material";
+
+import {
+  format,
+  startOfMonth,
+  endOfMonth,
+  startOfWeek,
+  endOfWeek,
+  addDays,
+  addMonths,
+  subMonths,
+  isSameMonth,
+  isSameDay,
+  isAfter,
+  isBefore,
+} from "date-fns";
+import { Link as RouterLink } from 'react-router-dom';
+
 import p2 from "../assets/p2.png";
 import adriel from "../assets/adriel.png";
 import jesus from "../assets/jesus.png";
-
-const calendarData = {
-  month: "December",
-  year: "2022",
-  days: [
-    ["", "", "", "", "1", "2", "3"],
-    ["4", "5", "6", "7", "8", "9", "10"],
-    ["11", "12", "13", "14", "15", "16", "17"],
-    ["18", "19", "20", "21", "22", "23", "24"],
-    ["25", "26", "27", "28", "29", "30", ""],
-  ],
-  unavailableDates: ["1", "12"],
-  availableDates: ["24"],
-};
 
 const reviewsData = [
   {
@@ -56,7 +62,6 @@ const reviewsData = [
     content:
       "The tour was very well organised. One minus is that you get completely bombarded with information...",
     image: adriel,
-    verified: true,
   },
   {
     id: 2,
@@ -67,7 +72,6 @@ const reviewsData = [
     content:
       "The tour was very well organised. One minus is that you get completely bombarded with information...",
     image: jesus,
-    verified: true,
   },
 ];
 
@@ -80,147 +84,375 @@ const tourCategories = [
 ];
 
 const GuideSelectionated = () => {
-  const [selectedDate, setSelectedDate] = useState("24");
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
-  const renderCalendarDay = (day, rowIndex, dayIndex) => {
-    if (!day) return <Box key={dayIndex} sx={{ width: 32, height: 32 }} />;
-    const isUnavailable = calendarData.unavailableDates.includes(day);
-    const isAvailable = calendarData.availableDates.includes(day);
+  const formatDate = (date) => format(date, "yyyy-MM-dd");
 
-    return (
-      <Box
-        key={dayIndex}
-        onClick={() => setSelectedDate(day)}
-        sx={{
-          width: 32,
-          height: 32,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-          borderRadius: isAvailable ? 1 : 0,
-          backgroundColor: isUnavailable
-            ? "#ff3232"
-            : isAvailable
-            ? "#80b9ad"
-            : "transparent",
-          color: isUnavailable || isAvailable ? "white" : "#333333",
-        }}
-      >
-        <Typography variant="body2" sx={{ fontSize: 16 }}>{day}</Typography>
-      </Box>
-    );
+  // Crear fechas dinámicas para el mes actual
+  const yyyy = currentDate.getFullYear();
+  const mm = (currentDate.getMonth() + 1).toString().padStart(2, "0");
+
+  // Fechas disponibles y no disponibles para el mes actual
+  const availableDates = [
+    `${yyyy}-${mm}-10`,
+    `${yyyy}-${mm}-15`,
+    `${yyyy}-${mm}-20`,
+    `${yyyy}-${mm}-24`,
+    `${yyyy}-${mm}-28`,
+  ];
+  const unavailableDates = [
+    `${yyyy}-${mm}-01`,
+    `${yyyy}-${mm}-05`,
+    `${yyyy}-${mm}-12`,
+    `${yyyy}-${mm}-18`,
+    `${yyyy}-${mm}-25`,
+  ];
+
+  const nextMonth = () => setCurrentDate(addMonths(currentDate, 1));
+  const prevMonth = () => setCurrentDate(subMonths(currentDate, 1));
+
+  const isInRange = (day) => {
+    if (startDate && endDate) {
+      return (
+        isSameDay(day, startDate) ||
+        isSameDay(day, endDate) ||
+        (isAfter(day, startDate) && isBefore(day, endDate))
+      );
+    }
+    return false;
+  };
+
+  const handleDateClick = (day) => {
+    const dayString = formatDate(day);
+    if (unavailableDates.includes(dayString)) return;
+
+    // Aquí podrías bloquear si no está en availableDates si quieres, pero lo dejo libre
+    if (!startDate || (startDate && endDate)) {
+      setStartDate(day);
+      setEndDate(null);
+    } else if (startDate && !endDate) {
+      if (isBefore(day, startDate)) {
+        setEndDate(startDate);
+        setStartDate(day);
+      } else {
+        setEndDate(day);
+      }
+    }
+  };
+
+  const renderCalendarCells = () => {
+    const monthStart = startOfMonth(currentDate);
+    const monthEnd = endOfMonth(monthStart);
+    const startDateCalendar = startOfWeek(monthStart);
+    const endDateCalendar = endOfWeek(monthEnd);
+
+    let day = startDateCalendar;
+    const rows = [];
+
+    while (day <= endDateCalendar) {
+      const days = [];
+      for (let i = 0; i < 7; i++) {
+        const formatted = format(day, "d");
+        const cloneDay = day;
+        const dayString = formatDate(cloneDay);
+
+        const isUnavailable = unavailableDates.includes(dayString);
+        const isAvailable = availableDates.includes(dayString);
+
+        const selected =
+          isSameDay(cloneDay, startDate) || isSameDay(cloneDay, endDate);
+        const inRange = isInRange(cloneDay);
+
+        days.push(
+          <Grid item xs key={dayString}>
+            <Box
+              onClick={() => handleDateClick(cloneDay)}
+              sx={{
+                width: 32,
+                height: 32,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: isUnavailable ? "not-allowed" : "pointer",
+                borderRadius: 1,
+                backgroundColor: isUnavailable
+                  ? "#ff3232"
+                  : selected || inRange
+                  ? "#333"
+                  : isAvailable
+                  ? "#80b9ad"
+                  : "transparent",
+                color:
+                  isUnavailable || isAvailable || selected || inRange
+                    ? "#fff"
+                    : "#333",
+                opacity: isSameMonth(cloneDay, currentDate) ? 1 : 0.4,
+                fontFamily: "Inter",
+                userSelect: "none",
+                transition: "background-color 0.3s",
+              }}
+            >
+              <Typography
+                variant="body2"
+                sx={{ fontSize: 16, fontFamily: "Inter" }}
+              >
+                {formatted}
+              </Typography>
+            </Box>
+          </Grid>
+        );
+
+        day = addDays(day, 1);
+      }
+      rows.push(
+        <Grid container key={day}>
+          {days}
+        </Grid>
+      );
+    }
+
+    return rows;
   };
 
   return (
     <Box sx={{ backgroundColor: "#ffffff", minHeight: "100vh", py: 4 }}>
       <Container maxWidth="xl">
-        <Button startIcon={<ArrowBack />} sx={{ mb: 4, color: "#000", fontWeight: 600 }}>Back</Button>
+        <Button
+       startIcon={<ArrowBack />}
+            component={RouterLink}
+            to="/Guides"
+          sx={{
+            mb: 4,
+            color: "#000",
+            fontWeight: 600,
+            fontFamily: "Inter, sans-serif",
+          }}
+        >
+          Back
+        </Button>
 
         <Grid container spacing={4}>
-          {/* Profile and Calendar */}
           <Grid item xs={12} md={6}>
-            <Box component="img" src={p2} alt="Profile" sx={{ width: "100%", height: 400, borderRadius: 2, objectFit: "cover" }} />
+            <Box
+              component="img"
+              src={p2}
+              alt="Profile"
+              sx={{
+                width: "100%",
+                height: 400,
+                borderRadius: 2,
+                objectFit: "cover",
+              }}
+            />
             <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
               {[1, 2, 3].map((i) => (
-                <Box key={i} component="img" src={p2} sx={{ width: 120, height: 80, borderRadius: 1, objectFit: "cover" }} />
+                <Box
+                  key={i}
+                  component="img"
+                  src={p2}
+                  sx={{ width: 120, height: 80, borderRadius: 1, objectFit: "cover" }}
+                />
               ))}
             </Stack>
           </Grid>
 
           <Grid item xs={12} md={6}>
             <Stack spacing={3}>
-              <Typography variant="h4" sx={{ fontWeight: 800 }}>David Dominguez</Typography>
-              <Typography variant="h5" sx={{ color: "#80b9ad", fontWeight: 800 }}>$34 / day</Typography>
-              <Typography variant="body1">
+              <Typography
+                variant="h4"
+                sx={{ fontWeight: 800, fontFamily: "Playfair Display" }}
+              >
+                David Dominguez
+              </Typography>
+              <Typography
+                variant="h5"
+                sx={{ color: "#80b9ad", fontWeight: 800, fontFamily: "Playfair Display" }}
+              >
+                $34 / day
+              </Typography>
+              <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.
               </Typography>
 
-              {/* Calendar */}
               <Card>
                 <CardContent>
                   <Stack spacing={2}>
                     <Stack direction="row" justifyContent="space-between">
-                      <Typography>{calendarData.month} {calendarData.year}</Typography>
+                      <Typography sx={{ fontFamily: "Playfair Display" }}>
+                        {format(currentDate, "MMMM yyyy")}
+                      </Typography>
                       <Box>
-                        <IconButton><ChevronLeft /></IconButton>
-                        <IconButton><ChevronRight /></IconButton>
+                        <IconButton onClick={prevMonth}>
+                          <ChevronLeft />
+                        </IconButton>
+                        <IconButton onClick={nextMonth}>
+                          <ChevronRight />
+                        </IconButton>
                       </Box>
                     </Stack>
                     <Grid container>
-                      {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
-                        <Grid item xs key={day}>
-                          <Typography align="center" variant="caption">{day}</Typography>
-                        </Grid>
-                      ))}
-                    </Grid>
-                    {calendarData.days.map((week, i) => (
-                      <Grid container key={i}>
-                        {week.map((day, j) => (
-                          <Grid item xs key={j}>
-                            <Box sx={{ display: "flex", justifyContent: "center", py: 0.5 }}>
-                              {renderCalendarDay(day, i, j)}
-                            </Box>
+                      {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map(
+                        (day) => (
+                          <Grid item xs key={day}>
+                            <Typography
+                              align="center"
+                              variant="caption"
+                              sx={{ fontFamily: "Inter, sans-serif" }}
+                            >
+                              {day}
+                            </Typography>
                           </Grid>
-                        ))}
-                      </Grid>
-                    ))}
+                        )
+                      )}
+                    </Grid>
+                    {renderCalendarCells()}
+
+                    {/* Leyenda de colores */}
+                    <Box sx={{ mt: 2, display: "flex", gap: 3, flexWrap: "wrap" }}>
+                      <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                        <Box
+                          sx={{
+                            width: 20,
+                            height: 20,
+                            bgcolor: "#80b9ad",
+                            borderRadius: 0.5,
+                          }}
+                        />
+                        <Typography sx={{ fontFamily: "Inter, sans-serif" }}>
+                          Available
+                        </Typography>
+                      </Box>
+                      <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                        <Box
+                          sx={{
+                            width: 20,
+                            height: 20,
+                            bgcolor: "#ff3232",
+                            borderRadius: 0.5,
+                          }}
+                        />
+                        <Typography sx={{ fontFamily: "Inter, sans-serif" }}>
+                          Unavailable
+                        </Typography>
+                      </Box>
+                      <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                        <Box
+                          sx={{
+                            width: 20,
+                            height: 20,
+                            bgcolor: "#333",
+                            borderRadius: 0.5,
+                          }}
+                        />
+                        <Typography sx={{ fontFamily: "Inter, sans-serif" }}>
+                          Selected Range
+                        </Typography>
+                      </Box>
+                    </Box>
                   </Stack>
                 </CardContent>
               </Card>
 
-              {/* Select Guide Button */}
               <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-                <Button  
-                 variant="contained" 
-                    component="a"
-                    href="/BookingSimulation"
-                 sx={{ backgroundColor: "#80b9ad", px: 3, py: 1, fontWeight: 600 }}>
+                <Button
+                  variant="contained"
+                  component="a"
+                  href="/BookingSimulation"
+                  sx={{
+                    backgroundColor: "#80b9ad",
+                    px: 3,
+                    py: 1,
+                    fontWeight: 600,
+                    fontFamily: "Inter, sans-serif",
+                  }}
+                >
                   Selected as a guide!
                 </Button>
               </Box>
             </Stack>
           </Grid>
         </Grid>
-        
 
-        {/* Tour Categories */}
         <Stack direction="row" spacing={2} flexWrap="wrap" sx={{ mt: 6 }}>
           {tourCategories.map(({ label, icon: Icon, color }) => (
             <Chip
               key={label}
               icon={<Icon sx={{ color }} />}
               label={label}
-              sx={{ backgroundColor: "#fff", color, fontWeight: 700, border: "none", boxShadow: 1 }}
+              sx={{
+                backgroundColor: "#fff",
+                color,
+                fontWeight: 700,
+                border: "none",
+                boxShadow: 1,
+                fontFamily: "Playfair Display",
+              }}
             />
           ))}
         </Stack>
 
         <Divider sx={{ my: 8 }} />
 
-        {/* Experiences and Details (Pending) */}
         <Grid container spacing={4} sx={{ mt: 6 }}>
           <Grid item xs={12} md={4}>
             <Stack spacing={2}>
               <Box display="flex" alignItems="flex-start" gap={2}>
                 <LocationOn sx={{ color: "#000", mt: 0.5 }} />
                 <Box>
-                  <Typography variant="h6" fontWeight={700}>Areas and attractions covered</Typography>
-                  <Typography variant="body2">
-                    Tulum archaeological zone<br />Dos Ojos Cenote<br />Paraiso Beach<br />Xcacel Ecological Park<br />5th Avenue, Playa del Carmen
+                  <Typography
+                    variant="h6"
+                    fontWeight={700}
+                    sx={{ fontFamily: "Playfair Display" }}
+                  >
+                    Areas and attractions covered
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontFamily: "Playfair Display" }}>
+                    Tulum archaeological zone
+                    <br />
+                    Dos Ojos Cenote
+                    <br />
+                    Paraiso Beach
+                    <br />
+                    Xcacel Ecological Park
+                    <br />
+                    5th Avenue, Playa del Carmen
                   </Typography>
                 </Box>
               </Box>
               <Box display="flex" alignItems="flex-start" gap={2}>
                 <CheckCircle sx={{ color: "#000", mt: 0.5 }} />
                 <Box>
-                  <Typography variant="h6" fontWeight={700}>What's included</Typography>
-                  <Typography variant="body2">
-                    Private transportation<br />Bottled water<br />Entrance fees<br />Tour photo support
+                  <Typography
+                    variant="h6"
+                    fontWeight={700}
+                    sx={{ fontFamily: "Playfair Display" }}
+                  >
+                    What's included
                   </Typography>
-                  <Typography variant="h6" fontWeight={700} sx={{ mt: 2 }}>Does not include</Typography>
-                  <Typography variant="body2">
-                    Meals and drinks<br />Gratuities<br />Souvenirs
+                  <Typography variant="body2" sx={{ fontFamily: "Playfair Display" }}>
+                    Private transportation
+                    <br />
+                    Bottled water
+                    <br />
+                    Entrance fees
+                    <br />
+                    Tour photo support
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    fontWeight={700}
+                    sx={{ mt: 2, fontFamily: "Playfair Display" }}
+                  >
+                    Does not include
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontFamily: "Playfair Display" }}>
+                    Meals and drinks
+                    <br />
+                    Gratuities
+                    <br />
+                    Souvenirs
                   </Typography>
                 </Box>
               </Box>
@@ -232,18 +464,38 @@ const GuideSelectionated = () => {
               <Box display="flex" alignItems="flex-start" gap={2}>
                 <Work sx={{ color: "#000", mt: 0.5 }} />
                 <Box>
-                  <Typography variant="h6" fontWeight={700}>Experience and certifications</Typography>
-                  <Typography variant="body2">
-                    8 years guiding<br />Certified by Ministry of Tourism<br />First aid training
+                  <Typography
+                    variant="h6"
+                    fontWeight={700}
+                    sx={{ fontFamily: "Playfair Display" }}
+                  >
+                    Experience and certifications
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontFamily: "Playfair Display" }}>
+                    8 years guiding
+                    <br />
+                    Certified by Ministry of Tourism
+                    <br />
+                    First aid training
                   </Typography>
                 </Box>
               </Box>
               <Box display="flex" alignItems="flex-start" gap={2}>
                 <Star sx={{ color: "#000", mt: 0.5 }} />
                 <Box>
-                  <Typography variant="h6" fontWeight={700}>Guide's specialties</Typography>
-                  <Typography variant="body2">
-                    Mayan culture<br />Gastronomic tours<br />Adventure in cenotes
+                  <Typography
+                    variant="h6"
+                    fontWeight={700}
+                    sx={{ fontFamily: "Playfair Display" }}
+                  >
+                    Guide's specialties
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontFamily: "Playfair Display" }}>
+                    Mayan culture
+                    <br />
+                    Gastronomic tours
+                    <br />
+                    Adventure in cenotes
                   </Typography>
                 </Box>
               </Box>
@@ -255,18 +507,42 @@ const GuideSelectionated = () => {
               <Box display="flex" alignItems="flex-start" gap={2}>
                 <FavoriteBorder sx={{ color: "#000", mt: 0.5 }} />
                 <Box>
-                  <Typography variant="h6" fontWeight={700}>What to bring</Typography>
-                  <Typography variant="body2">
-                    Sunscreen<br />Bathing suit & towel<br />Walking shoes<br />Insect repellent<br />Water bottle
+                  <Typography
+                    variant="h6"
+                    fontWeight={700}
+                    sx={{ fontFamily: "Playfair Display" }}
+                  >
+                    What to bring
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontFamily: "Playfair Display" }}>
+                    Sunscreen
+                    <br />
+                    Bathing suit & towel
+                    <br />
+                    Walking shoes
+                    <br />
+                    Insect repellent
+                    <br />
+                    Water bottle
                   </Typography>
                 </Box>
               </Box>
               <Box display="flex" alignItems="flex-start" gap={2}>
                 <Language sx={{ color: "#000", mt: 0.5 }} />
                 <Box>
-                  <Typography variant="h6" fontWeight={700}>Additional languages</Typography>
-                  <Typography variant="body2">
-                    Spanish (native)<br />English (fluent)<br />Italian (intermediate)
+                  <Typography
+                    variant="h6"
+                    fontWeight={700}
+                    sx={{ fontFamily: "Playfair Display" }}
+                  >
+                    Additional languages
+                  </Typography>
+                  <Typography variant="body2" sx={{ fontFamily: "Playfair Display" }}>
+                    Spanish (native)
+                    <br />
+                    English (fluent)
+                    <br />
+                    Italian (intermediate)
                   </Typography>
                 </Box>
               </Box>
@@ -276,9 +552,11 @@ const GuideSelectionated = () => {
 
         <Divider sx={{ my: 8 }} />
 
-        {/* Reviews */}
         <Box sx={{ mt: 6 }}>
-          <Typography variant="h4" sx={{ fontWeight: 800, mb: 4 }}>
+          <Typography
+            variant="h4"
+            sx={{ fontWeight: 800, mb: 4, fontFamily: "Playfair Display" }}
+          >
             What they say about David Dominguez
           </Typography>
           <Grid container spacing={4}>
@@ -289,13 +567,24 @@ const GuideSelectionated = () => {
                     <Stack direction="row" spacing={2} alignItems="center">
                       <Avatar src={review.image} sx={{ width: 64, height: 64 }} />
                       <Box>
-                        <Typography variant="h6">{review.name}</Typography>
+                        <Typography sx={{ fontFamily: "Playfair Display" }}>
+                          {review.name}
+                        </Typography>
                         <Rating value={review.rating} readOnly size="small" />
-                        <Typography variant="caption">{review.date}</Typography>
+                        <Typography sx={{ fontFamily: "Playfair Display" }}>
+                          {review.date}
+                        </Typography>
                       </Box>
                     </Stack>
-                    <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>{review.title}</Typography>
-                    <Typography variant="body2">{review.content}</Typography>
+                    <Typography
+                      variant="subtitle1"
+                      sx={{ fontWeight: 700, fontFamily: "Playfair Display" }}
+                    >
+                      {review.title}
+                    </Typography>
+                    <Typography sx={{ fontFamily: "Playfair Display" }}>
+                      {review.content}
+                    </Typography>
                   </Stack>
                 </Card>
               </Grid>

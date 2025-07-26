@@ -52,7 +52,7 @@ const HomePage = () => {
             <Typography
               variant="h1"
               sx={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "Playfair Display",
                 fontWeight: 700,
                 fontSize: { xs: '2.5rem', md: '3.75rem' },
                 lineHeight: 1.2,
@@ -65,7 +65,7 @@ const HomePage = () => {
             <Typography
               variant="subtitle1"
               sx={{
-                fontFamily: 'Inter',
+                fontFamily: "Playfair Display",
                 fontWeight: 500,
                 fontSize: '1.125rem',
                 lineHeight: 1.2,
@@ -82,6 +82,7 @@ const HomePage = () => {
                 bgcolor: '#7bbcb0',
                 color: '#141841',
                 borderRadius: '38px',
+                fontFamily: 'Inter',
                 px: 5,
                 py: 2,
                 '&:hover': { bgcolor: '#6aa89c' }
@@ -121,9 +122,9 @@ const HomePage = () => {
                   <Typography
                     variant="h3"
                     sx={{
-                      fontFamily: "'Playfair Display', serif",
-                      fontWeight: 700,
-                      fontSize: '1.5625rem',
+                      fontFamily: "Inter",
+                      fontWeight: 400,
+                      fontSize: '1.2625rem',
                       lineHeight: 1.2
                     }}
                   >
@@ -132,7 +133,7 @@ const HomePage = () => {
                   <Typography
                     variant="h4"
                     sx={{
-                      fontFamily: 'Inter',
+                      fontFamily: "Playfair Display",
                       fontWeight: 700,
                       fontSize: '1.125rem',
                       lineHeight: 1.2
@@ -143,7 +144,7 @@ const HomePage = () => {
                   <Typography
                     variant="body1"
                     sx={{
-                      fontFamily: 'Inter',
+                      fontFamily: "Playfair Display",
                       fontWeight: 400,
                       fontSize: '1.125rem',
                       lineHeight: 1.2
@@ -176,7 +177,7 @@ const HomePage = () => {
           <Typography
             variant="h2"
             sx={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: "Playfair Display",
               fontWeight: 700,
               fontSize: { xs: '2.5rem', md: '2.5rem' },
               lineHeight: 1.33,
@@ -279,7 +280,7 @@ const HomePage = () => {
                     <Typography
                       variant="h3"
                       sx={{
-                        fontFamily: "'Playfair Display', serif",
+                        fontFamily: "Playfair Display",
                         fontWeight: 700,
                         fontSize: '1.75rem',
                         lineHeight: 1.33
@@ -302,14 +303,24 @@ const HomePage = () => {
                         <Typography
                           variant="caption"
                           sx={{
-                            fontFamily: destination.badge === 'Top Ranked' ? "'Playfair Display', serif" : "'Poppins', sans-serif",
                             fontWeight: 600,
                             fontSize: '1rem',
                             lineHeight: 1.5,
-                            color: 'white'
+                            color: 'white',
                           }}
                         >
-                          {destination.badge}
+                          {destination.badge &&
+                            destination.badge.split(/(\d+%?)/).map((part, i) => (
+                              <Box
+                                key={i}
+                                component="span"
+                                sx={{
+                                  fontFamily: /\d/.test(part) ? "Inter" : "Playfair Display"
+                                }}
+                              >
+                                {part}
+                              </Box>
+                            ))}
                         </Typography>
                       </Box>
                     )}
@@ -354,7 +365,7 @@ const HomePage = () => {
                     <Typography
                       variant="h3"
                       sx={{
-                        fontFamily: "'Playfair Display', serif",
+                        fontFamily: "Playfair Display",
                         fontWeight: 700,
                         fontSize: '1.5rem',
                         lineHeight: 1.2
@@ -365,7 +376,7 @@ const HomePage = () => {
                     <Typography
                       variant="subtitle1"
                       sx={{
-                        fontFamily: 'Inter',
+                        fontFamily: "Playfair Display",
                         fontWeight: 400,
                         fontSize: '1rem',
                         lineHeight: 1.2,
@@ -377,7 +388,7 @@ const HomePage = () => {
                     <Typography
                       variant="body1"
                       sx={{
-                        fontFamily: 'Inter',
+                        fontFamily: "Playfair Display",
                         fontWeight: 400,
                         fontSize: '1rem',
                         lineHeight: 1.2,
@@ -413,7 +424,7 @@ const HomePage = () => {
             <Typography
               variant="h2"
               sx={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "Playfair Display",
                 fontWeight: 700,
                 fontSize: { xs: '2.5rem', md: '2.5rem' },
                 lineHeight: 1.33,
@@ -425,7 +436,7 @@ const HomePage = () => {
             <Typography
               variant="subtitle1"
               sx={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "Playfair Display",
                 fontWeight: 400,
                 fontSize: '1rem',
                 lineHeight: 1.33,
@@ -468,7 +479,7 @@ const HomePage = () => {
                   <Typography
                     variant="body2"
                     sx={{
-                      fontFamily: 'Inter',
+                      fontFamily: "Playfair Display",
                       fontWeight: 400,
                       fontSize: '1rem',
                       lineHeight: 1.2,
@@ -481,7 +492,7 @@ const HomePage = () => {
                     <Typography
                       variant="h4"
                       sx={{
-                        fontFamily: "'Golos Text', sans-serif",
+                        fontFamily: "Playfair Display",
                         fontWeight: 600,
                         fontSize: '1.25rem',
                         lineHeight: 1.2
@@ -502,7 +513,7 @@ const HomePage = () => {
                       <Typography
                         variant="body2"
                         sx={{
-                          fontFamily: "'Golos Text', sans-serif",
+                          fontFamily: "Inter",
                           fontWeight: 400,
                           fontSize: '1rem',
                           lineHeight: 1.2
@@ -536,7 +547,7 @@ const HomePage = () => {
               <Typography
                 variant="h6"
                 sx={{
-                  fontFamily: 'Inter',
+                  fontFamily: "Playfair Display",
                   fontWeight: 600,
                   fontSize: '1.25rem',
                   lineHeight: 1.2,
@@ -548,7 +559,7 @@ const HomePage = () => {
               <Typography
                 variant="h3"
                 sx={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "Playfair Display",
                   fontWeight: 700,
                   fontSize: { xs: '2rem', md: '3rem' },
                   lineHeight: 1.33,
@@ -562,7 +573,7 @@ const HomePage = () => {
             <Typography
               variant="body1"
               sx={{
-                fontFamily: 'Inter',
+                fontFamily: "Playfair Display",
                 fontWeight: 500,
                 fontSize: '1.25rem',
                 lineHeight: 1.385,
@@ -573,7 +584,7 @@ const HomePage = () => {
             >
               My experience in the Riviera Maya was amazing! I chose the places on the site and hired a personalized guide who spoke my language. Since I was traveling with my pet, I needed help, and the guide was super attentive at all times. The tour included transportation and, thanks to his recommendations, I found great places to eat. I enjoyed exploring at my own pace and without large groups. I would definitely repeat.
             </Typography>
-            
+
             {/* Estrellas amarillas */}
             <Box sx={{ display: 'flex', gap: 1 }}>
               {[...Array(5)].map((_, i) => (
@@ -585,7 +596,7 @@ const HomePage = () => {
             <Typography
               variant="h4"
               sx={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "Playfair Display",
                 fontWeight: 700,
                 fontSize: '1.5rem',
                 color: '#0e3d4d',
@@ -656,7 +667,7 @@ const HomePage = () => {
                     <Typography
                       variant="body1"
                       sx={{
-                        fontFamily: "'Playfair Display', serif",
+                        fontFamily: "Playfair Display",
                         fontWeight: 700,
                         fontSize: '1.25rem',
                         lineHeight: 1.33,

@@ -235,6 +235,7 @@ const SignUp = () => {
                                     "& .MuiOutlinedInput-root": {
                                         borderRadius: "3.53px",
                                         height: "33.87px",
+                                        fontFamily: "Playfair Display",
                                     },
                                 }}
                             />
@@ -264,6 +265,7 @@ const SignUp = () => {
                                     "& .MuiOutlinedInput-root": {
                                         borderRadius: "3.53px",
                                         height: "33.87px",
+                                        fontFamily: "Playfair Display",
                                     },
                                 }}
                             />
@@ -293,6 +295,7 @@ const SignUp = () => {
                                     "& .MuiOutlinedInput-root": {
                                         borderRadius: "3.53px",
                                         height: "33.87px",
+                                        fontFamily: "Playfair Display",
                                     },
                                 }}
                             />
@@ -341,6 +344,7 @@ const SignUp = () => {
                                     "& .MuiOutlinedInput-root": {
                                         borderRadius: "3.53px",
                                         height: "33.87px",
+                                        fontFamily: "Playfair Display",
                                     },
                                     "& input[type='date']": {
                                         position: 'relative',
@@ -384,6 +388,7 @@ const SignUp = () => {
                                     "& .MuiOutlinedInput-root": {
                                         borderRadius: "3.53px",
                                         height: "33.87px",
+                                        fontFamily: "Playfair Display",
                                     },
                                 }}
                             />
@@ -414,6 +419,7 @@ const SignUp = () => {
                                     "& .MuiOutlinedInput-root": {
                                         borderRadius: "3.53px",
                                         height: "33.87px",
+                                        fontFamily: "Playfair Display",
                                     },
                                 }}
                             />
@@ -480,7 +486,7 @@ const SignUp = () => {
                             borderRadius: "3.53px",
                             alignSelf: "center",
                             textTransform: "none",
-                            fontFamily: "Playfair Display",
+                            fontFamily: "Inter",
                             fontWeight: 600,
                             fontSize: "12px",
                             letterSpacing: "-0.24px",

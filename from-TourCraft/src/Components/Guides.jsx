@@ -150,7 +150,7 @@ const appTheme = createTheme({
         },
     },
     typography: {
-        fontFamily: ["Inter", "Helvetica", "Arial", "sans-serif"].join(","),
+        fontFamily: ["Inter", "Playfair Display"].join(","),
         body1: {
             fontSize: "16px",
             fontWeight: 400,
@@ -206,7 +206,7 @@ const GuideInfo = ({ guide }) => {
             <Typography
                 variant="h4"
                 sx={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "Playfair Display",
                     fontWeight: 700,
                     fontSize: { xs: "24px", md: "28px" },
                 }}
@@ -219,6 +219,7 @@ const GuideInfo = ({ guide }) => {
                     opacity: 0.6,
                     height: "auto",
                     overflow: "hidden",
+                    fontFamily: "Playfair Display",
                     display: "-webkit-box",
                     WebkitLineClamp: 2,
                     WebkitBoxOrient: "vertical",
@@ -239,6 +240,7 @@ const GuideInfo = ({ guide }) => {
                             overflow: "hidden",
                             display: "-webkit-box",
                             WebkitLineClamp: 1,
+                            fontFamily: "Playfair Display",
                             WebkitBoxOrient: "vertical",
                             width: "100%",
                         }}
@@ -253,6 +255,7 @@ const GuideInfo = ({ guide }) => {
                         sx={{
                             fontWeight: 500,
                             overflow: "hidden",
+                            fontFamily: "Playfair Display",
                             display: "-webkit-box",
                             WebkitLineClamp: 1,
                             WebkitBoxOrient: "vertical",
@@ -272,6 +275,7 @@ const GuideInfo = ({ guide }) => {
                                 overflow: "hidden",
                                 display: "-webkit-box",
                                 WebkitLineClamp: 1,
+                                fontFamily: "Playfair Display",
                                 WebkitBoxOrient: "vertical",
                                 width: "100%",
                             }}
@@ -294,6 +298,7 @@ const GuideInfo = ({ guide }) => {
                     sx={{
                         color: "white",
                         fontSize: "14px",
+                        fontFamily: "Playfair Display",
                         fontWeight: 500,
                     }}
                 >
@@ -304,7 +309,7 @@ const GuideInfo = ({ guide }) => {
             <Stack direction="row" alignItems="center" spacing={2} flexWrap="wrap">
                 <Stack direction="row" alignItems="center" spacing={1}>
                     <LocationOn sx={{ fontSize: 16 }} />
-                    <Typography sx={{ fontSize: "14px", fontWeight: 600 }}>
+                    <Typography sx={{ fontSize: "14px", fontWeight: 600, fontFamily: "Playfair Display" }}>
                         {guide.location}
                     </Typography>
                 </Stack>
@@ -313,12 +318,24 @@ const GuideInfo = ({ guide }) => {
 
                 <Stack direction="row" alignItems="center" spacing={1}>
                     <Rating value={guide.rating} precision={0.1} readOnly size="small" />
-                    <Typography sx={{ fontSize: "14px", fontWeight: 700 }}>
+                    <Typography sx={{ fontSize: "14px", fontWeight: 700, fontFamily: "Inter" }}>
                         {guide.rating}
                     </Typography>
-                    <Typography sx={{ fontSize: "14px", fontWeight: 600 }}>
-                        ({guide.reviews} reviews)
+                    <Typography sx={{ fontSize: "14px", fontWeight: 600, fontFamily: "Playfair Display" }}>
+                        (
+                        <Box
+                            component="span"
+                            sx={{
+                                fontFamily: "Inter",
+                                fontWeight: 600,
+                                fontSize: "14px",
+                            }}
+                        >
+                            {guide.reviews}
+                        </Box>{" "}
+                        reviews)
                     </Typography>
+
                 </Stack>
             </Stack>
 
@@ -331,6 +348,7 @@ const GuideInfo = ({ guide }) => {
                     borderRadius: "12px",
                     py: 2,
                     textTransform: "none",
+                    fontFamily: "Inter",
                     fontSize: "16px",
                     fontWeight: 500,
                     width: "fit-content",
@@ -442,6 +460,7 @@ const Guides = () => {
                             left: { xs: "16px", md: "32px" },
                             textTransform: "none",
                             fontWeight: 100,
+                            fontFamily: "Inter",
                             fontSize: "18px",
                             zIndex: 1
                         }}
@@ -456,7 +475,7 @@ const Guides = () => {
                             position: "absolute",
                             top: { xs: "80px", md: "261px" },
                             left: { xs: "20px", md: "147px" },
-                            fontFamily: "'Playfair Display', serif",
+                            fontFamily: "Playfair Display",
                             fontWeight: 700,
                             color: "#0e3d4d",
                             fontSize: { xs: "32px", md: "48px" },
@@ -504,7 +523,7 @@ const Guides = () => {
                                     <Typography
                                         variant="h3"
                                         sx={{
-                                            fontFamily: "'Playfair Display', serif",
+                                            fontFamily: "Playfair Display",
                                             fontWeight: 600,
                                             color: "#0e3d4d",
                                             fontSize: "40px",
@@ -515,7 +534,7 @@ const Guides = () => {
                                     </Typography>
                                     <Typography
                                         sx={{
-                                            fontFamily: "'Inter', sans-serif",
+                                            fontFamily: "Playfair Display",
                                             fontWeight: 500,
                                             color: "#0e3d4d",
                                             fontSize: "25px",
@@ -532,7 +551,7 @@ const Guides = () => {
                                     <Typography
                                         variant="h3"
                                         sx={{
-                                            fontFamily: "'Playfair Display', serif",
+                                            fontFamily: "Playfair Display",
                                             fontWeight: 600,
                                             color: "#0e3d4d",
                                             fontSize: "40px",
@@ -543,7 +562,7 @@ const Guides = () => {
                                     </Typography>
                                     <Typography
                                         sx={{
-                                            fontFamily: "'Inter', sans-serif",
+                                            fontFamily: "Playfair Display",
                                             fontWeight: 500,
                                             color: "#0e3d4d",
                                             fontSize: "25px",
@@ -575,7 +594,7 @@ const Guides = () => {
                         variant="h4"
                         sx={{
                             textAlign: "center",
-                            fontFamily: "'Playfair Display', serif",
+                            fontFamily: "Playfair Display",
                             fontWeight: 700,
                             color: "#0e3d4d",
                             fontSize: { xs: "28px", md: "40px" },
@@ -610,6 +629,7 @@ const Guides = () => {
                                         minWidth: "130px",
                                         borderRadius: "30px",
                                         fontSize: "14px",
+                                        fontFamily: "Playfair Display",
                                         fontWeight: 700,
                                         ...(location.selected
                                             ? {
@@ -648,7 +668,7 @@ const Guides = () => {
                             <Stack spacing={2} sx={{ flex: 1 }}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 600, color: "text.primary" }}
+                                    sx={{ fontWeight: 600, color: "text.primary", fontFamily: "Playfair Display" }}
                                 >
                                     Language
                                 </Typography>
@@ -669,6 +689,7 @@ const Guides = () => {
                                                     sx={{
                                                         color: language.checked ? "primary.main" : "text.secondary",
                                                         fontSize: "14px",
+                                                        fontFamily: "Playfair Display",
                                                     }}
                                                 >
                                                     {language.label}
@@ -683,7 +704,7 @@ const Guides = () => {
                             <Stack spacing={2} sx={{ flex: 1 }}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 600, color: "text.primary" }}
+                                    sx={{ fontWeight: 600, color: "text.primary", fontFamily: "Playfair Display" }}
                                 >
                                     Budget
                                 </Typography>
@@ -704,6 +725,7 @@ const Guides = () => {
                                                     sx={{
                                                         color: budget.checked ? "primary.main" : "text.secondary",
                                                         fontSize: "14px",
+                                                        fontFamily: "Playfair Display",
                                                     }}
                                                 >
                                                     {budget.label}
@@ -718,7 +740,7 @@ const Guides = () => {
                             <Stack spacing={2} sx={{ flex: 1 }}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 600, color: "text.primary" }}
+                                    sx={{ fontWeight: 600, color: "text.primary", fontFamily: "Playfair Display" }}
                                 >
                                     Features
                                 </Typography>
@@ -739,6 +761,7 @@ const Guides = () => {
                                                     sx={{
                                                         color: feature.checked ? "primary.main" : "text.secondary",
                                                         fontSize: "14px",
+                                                        fontFamily: "Playfair Display",
                                                     }}
                                                 >
                                                     {feature.label}
@@ -753,7 +776,7 @@ const Guides = () => {
                             <Stack spacing={2} sx={{ flex: 1 }}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 600, color: "text.primary" }}
+                                    sx={{ fontWeight: 600, color: "text.primary", fontFamily: "Playfair Display" }}
                                 >
                                     Availability
                                 </Typography>
@@ -774,6 +797,7 @@ const Guides = () => {
                                                     sx={{
                                                         color: item.checked ? "primary.main" : "text.secondary",
                                                         fontSize: "14px",
+                                                        fontFamily: "Playfair Display",
                                                     }}
                                                 >
                                                     {item.label}
@@ -788,7 +812,7 @@ const Guides = () => {
                             <Stack spacing={2} sx={{ flex: 1 }}>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 600, color: "text.primary" }}
+                                    sx={{ fontWeight: 600, color: "text.primary", fontFamily: "Playfair Display" }}
                                 >
                                     Average rating
                                 </Typography>
@@ -810,6 +834,7 @@ const Guides = () => {
                                                         sx={{
                                                             color: rating.checked ? "primary.main" : "text.secondary",
                                                             fontSize: "14px",
+                                                            fontFamily: "Inter",
                                                         }}
                                                     >
                                                         {rating.label}

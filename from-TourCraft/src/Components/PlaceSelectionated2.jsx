@@ -30,10 +30,10 @@ import {
     DirectionsBus,
     Schedule,
 } from '@mui/icons-material';
-import img from '../assets/img.png';
-import th1 from '../assets/th1.png';
-import th2 from '../assets/th2.png';
-import th3 from '../assets/th3.png';
+import UX1 from '../assets/UX1.jpg';
+import UX2 from '../assets/UX2.jpeg';
+import UX3 from '../assets/UX3.jpg';
+import UX4 from '../assets/UX4.jpeg';
 import lg1 from '../assets/lg1.png';
 import lg2 from '../assets/lg2.png';
 import lg3 from '../assets/lg3.png';
@@ -43,7 +43,6 @@ import Rectangle161 from '../assets/Rectangle161.png';
 import Rectangle162 from '../assets/Rectangle162.png';
 import { Link as RouterLink } from 'react-router-dom';
 import axios from "axios";
-
 
 const iconMap = {
     "Business Tours": CardTravel,
@@ -56,21 +55,19 @@ const iconMap = {
 const texts = [
     "3 pickup location options: Parque de Santa Ana, Viajes Colibrí Yucatán TOURS, Entrada Avenida Cupules del Hotel Fiesta Americana. See more",
     "Van (2 hours)",
-    "Chichén Itzá - Photo stop, Visit, Guided tour, Free time, Shopping (2.5 hours)",
+    "Uxmal - Photo stop, Visit, Guided tour, Free time, Shopping (2.5 hours)",
     "Van (15 minutes)",
-    "Cenote Ik Kil - Lunch, Swimming (2.5 hours)",
+    "Kabah - Visit, Guided tour (1.5 hours)",
     "Van (1 hour)",
-    "Izamal - Photo stop, Visit, Guided tour, Free time, Shopping (1.5 hours)",
+    "Muna - Local crafts visit, Food tasting (1 hour)",
     "Van (1 hour)",
     "3 drop-off locations: Viajes Colibrí Yucatán TOURS, Entrada Avenida Cupules del Hotel Fiesta Americana, Parque de Santa Ana"
 ];
 
-const PlacesSelectionated = () => {
+const PlacesSelectionated2 = () => {
     const testimonialsRef = useRef(null);
     const [categorias, setCategorias] = useState([]);
     const [zona, setZona] = useState(null);
-
-
 
     useEffect(() => {
         axios.get("http://localhost:3000/api/categoria")
@@ -105,13 +102,12 @@ const PlacesSelectionated = () => {
         return () => clearInterval(scrollInterval);
     }, []);
 
-
     return (
         <Box sx={{ backgroundColor: '#ffffff', color: '#333333' }}>
             <Container maxWidth="lg" sx={{ py: 5 }}>
-                <Link href="/Merida" underline="none" color='black' sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 5}}>
+                <Link href="/Merida" underline="none" color='black' sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 5 }}>
                     <ArrowBack />
-                    <Typography variant="body1" color='black' sx={{ fontWeight: 600, fontFamily:"Playfair Display" }}>Back</Typography>
+                    <Typography variant="body1" color='black' sx={{ fontWeight: 600, fontFamily: "Playfair Display" }}>Back</Typography>
                 </Link>
 
                 <Grid container spacing={6}>
@@ -120,31 +116,28 @@ const PlacesSelectionated = () => {
                             <Box>
                                 <CardMedia
                                     component="img"
-                                    image={img}
-                                    alt="Chichen-Itza main view"
-                                    sx={{
-                                        borderRadius: '12px',
-                                        mb: 2.25,
-                                        width: '100%',
-                                        height: 'auto'
-                                    }}
+                                    image={UX1}
+                                    alt="Uxmal main view"
+                                    sx={{ borderRadius: '12px', mb: 2.25, width: '100%', height: 'auto' }}
                                 />
                                 <Grid container spacing={2.25}>
-                                    {[th1, th2, th3].map((img, index) => (
-                                        <Grid item xs={4} key={index}>
+                                    {[UX2, UX3, UX4].map((img, index) => (
+                                        <Grid item xs={6} sm={4} key={index}>
                                             <CardMedia
                                                 component="img"
                                                 image={img}
-                                                alt={`Thumbnail ${index + 1}`}
+                                                alt={`Thumbnail UX${index + 2}`}
                                                 sx={{
                                                     borderRadius: '12px',
                                                     width: '100%',
-                                                    height: 'auto'
+                                                    height: '120px', // Ajusta según lo que necesites
+                                                    objectFit: 'cover'
                                                 }}
                                             />
                                         </Grid>
                                     ))}
                                 </Grid>
+
                             </Box>
 
                             <Box>
@@ -166,14 +159,13 @@ const PlacesSelectionated = () => {
                                         height="400"
                                         frameBorder="0"
                                         style={{ border: 0 }}
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3733.440452917164!2d-88.57002062581933!3d20.684284799770527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5138c6e391c0e7%3A0x7c1ea0a168994d9a!2sChich%C3%A9n%20Itz%C3%A1!5e0!3m2!1ses-419!2smx!4v1721986996483!5m2!1ses-419!2smx"
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.021329480135!2d-89.77303488462958!3d20.35991058629522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f563486bea73c4f%3A0x596dab6aee51089a!2sUxmal%2C%20Yuc.!5e0!3m2!1ses-419!2smx!4v1690412072934!5m2!1ses-419!2smx"
                                         allowFullScreen=""
                                         loading="lazy"
                                         referrerPolicy="no-referrer-when-downgrade"
                                     ></iframe>
                                 </Box>
                             </Box>
-
                             <Box>
                                 <List sx={{ width: '100%', bgcolor: 'transparent', padding: 0 }}>
                                     {[
@@ -204,7 +196,7 @@ const PlacesSelectionated = () => {
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
                             <Box>
                                 <Typography variant="h2" sx={{ fontWeight: 800, mb: 2, fontFamily: "Playfair Display" }}>
-                                    Chichen-Itza
+                                    Uxmal
                                 </Typography>
                             </Box>
 
@@ -279,10 +271,12 @@ const PlacesSelectionated = () => {
                 </Grid>
             </Container>
 
+            {/* Secciones de lugares cercanos y testimonios se mantienen igual */}
+
             <Box sx={{ py: 7.5, borderTop: '1px solid rgba(0,0,0,0.1)' }}>
                 <Container maxWidth="lg">
                     <Typography variant="h2" align="center" sx={{ fontWeight: 700, mb: 7.5, fontFamily: "Playfair Display" }}>
-                        Nearby places in Chichen-itza
+                        Nearby places in Uxmal
                     </Typography>
 
                     <Grid container spacing={5}>
@@ -352,7 +346,7 @@ const PlacesSelectionated = () => {
             <Box sx={{ py: 7.5, borderTop: '1px solid rgba(0,0,0,0.1)', overflow: 'hidden' }}>
                 <Container maxWidth="lg">
                     <Typography variant="h3" sx={{ fontWeight: 400, mb: 4, fontFamily: "Playfair Display" }}>
-                        See what travelers are saying about Chichen-Itza
+                        See what travelers are saying about Uxmal
                     </Typography>
 
                     <Box
@@ -411,4 +405,4 @@ const PlacesSelectionated = () => {
     );
 };
 
-export default PlacesSelectionated; 
+export default PlacesSelectionated2;

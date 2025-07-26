@@ -6,7 +6,6 @@ import Solano11 from "../assets/Solano11.png";
 import { useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import persona from "../assets/persona.png";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -49,7 +48,7 @@ const Header = ({ navItems }) => {
                         <ListItemText
                             primary={item.label}
                             primaryTypographyProps={{
-                                fontFamily: isActive(item.path) ? "Inter-Bold" : "Inter-Medium",
+                                fontFamily: isActive(item.path) ? "Playfair Display-Bold" : "Playfair Display-Medium",
                                 fontWeight: isActive(item.path) ? 700 : 500,
                                 fontSize: { xs: "16px", sm: "18px" },
                             }}
@@ -68,7 +67,7 @@ const Header = ({ navItems }) => {
                     <ListItemText
                         primary="Sign Up"
                         primaryTypographyProps={{
-                            fontFamily: isActive("/SignUp") ? "Inter-Bold" : "Inter-Medium",
+                            fontFamily: isActive("/SignUp") ? "Playfair Display-Bold" : "Playfair Display-Medium",
                             fontWeight: isActive("/SignUp") ? 700 : 500,
                             fontSize: { xs: "16px", sm: "18px" },
                         }}
@@ -86,7 +85,7 @@ const Header = ({ navItems }) => {
                     <ListItemText
                         primary="Log In"
                         primaryTypographyProps={{
-                            fontFamily: isActive("/Log-in") ? "Inter-Bold" : "Inter-Medium",
+                            fontFamily: isActive("/Log-in") ? "Playfair Display-Bold" : "Playfair Display-Medium",
                             fontWeight: isActive("/Log-in") ? 700 : 500,
                             fontSize: { xs: "16px", sm: "18px" },
                         }}
@@ -140,7 +139,7 @@ const Header = ({ navItems }) => {
                                 to={item.path}
                                 variant="body1"
                                 sx={{
-                                    fontFamily: isActive(item.path) ? "Inter-Bold" : "Inter-Medium",
+                                    fontFamily: isActive(item.path) ? "Playfair Display-Bold" : "Playfair Display-Medium",
                                     fontWeight: isActive(item.path) ? 700 : 500,
                                     fontSize: "16px",
                                     cursor: "pointer",
@@ -173,7 +172,7 @@ const Header = ({ navItems }) => {
                                         borderWidth: 2,
                                         padding: "8px 24px",
                                         textTransform: "none",
-                                        fontFamily: isActive("/SignUp") ? "Inter-Bold" : "Inter-Medium",
+                                        fontFamily: isActive("/SignUp") ? "Playfair Display-Bold" : "Playfair Display-Medium",
                                         fontWeight: isActive("/SignUp") ? 700 : 500,
                                         fontSize: "16px",
                                     }}
@@ -191,7 +190,7 @@ const Header = ({ navItems }) => {
                                         borderWidth: 2,
                                         padding: "8px 24px",
                                         textTransform: "none",
-                                        fontFamily: isActive("/Log-in") ? "Inter-Bold" : "Inter-Medium",
+                                        fontFamily: isActive("/Log-in") ? "Playfair Display-Bold" : "Playfair Display-Medium",
                                         fontWeight: isActive("/Log-in") ? 700 : 500,
                                         fontSize: "16px",
                                     }}
@@ -203,7 +202,7 @@ const Header = ({ navItems }) => {
                         {localStorage.getItem('isLoggedIn') === 'true' && (
                             <>
                                 <IconButton onClick={e => setAnchorEl(e.currentTarget)} sx={{ p: 0, ml: 5, width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <AccountCircle sx={{ width: 56, height: 56, color: '#555' }} />
+                                    <AccountCircle sx={{ width: 56, height: 56, color: '#80B9AD' }} />
                                 </IconButton>
                                 <Menu
                                     anchorEl={anchorEl}
@@ -220,8 +219,10 @@ const Header = ({ navItems }) => {
                                         }
                                     }}
                                 >
-                                    <MenuItem sx={{ py: 1.5, px: 2, fontWeight: 500, '&:hover': { background: '#f0f4f8' } }}>Mi perfil</MenuItem>
-                                    <MenuItem sx={{ py: 1.5, px: 2, fontWeight: 500, '&:hover': { background: '#f0f4f8' } }}>Mis reservas</MenuItem>
+                                    <MenuItem component={RouterLink}
+                                    to="/Profile" sx={{ py: 1.5, px: 2, fontWeight: 500, fontFamily: "Playfair Display", '&:hover': { background: '#f0f4f8' } }}>Mi perfil</MenuItem>
+                                    <MenuItem component={RouterLink}
+                                    to="/MyTickets"sx={{ py: 1.5, px: 2, fontWeight: 500, fontFamily: "Playfair Display", '&:hover': { background: '#f0f4f8' } }}>Mis reservas</MenuItem>
                                     <MenuItem onClick={() => {
                                         localStorage.removeItem('isLoggedIn');
                                         setAnchorEl(null);

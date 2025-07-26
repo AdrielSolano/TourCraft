@@ -97,7 +97,7 @@ const LogIn = () => {
             <Typography
               variant="h3"
               sx={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "Playfair Display",
                 fontWeight: 700,
                 fontSize: "40px",
                 textAlign: "center",
@@ -113,7 +113,7 @@ const LogIn = () => {
             <Typography
               variant="body1"
               sx={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "Playfair Display",
                 fontWeight: 500,
                 fontSize: "17px",
                 textAlign: "center",
@@ -156,7 +156,8 @@ const LogIn = () => {
               fontWeight: 600,
               fontSize: "18px",
               zIndex: 1,
-              color: 'black'
+              color: 'black',
+              fontFamily: "Playfair Display",
             }}
           >
             Back
@@ -177,7 +178,7 @@ const LogIn = () => {
             <Typography
               variant="h5"
               sx={{
-                fontFamily: "'Playfair Display', serif",
+                fontFamily: "Playfair Display",
                 fontWeight: 700,
                 fontSize: "19.8px",
                 letterSpacing: "-0.2px",
@@ -192,7 +193,7 @@ const LogIn = () => {
               <Typography
                 variant="caption"
                 sx={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "Playfair Display",
                   fontSize: "14px",
                   lineHeight: "17.5px",
                 }}
@@ -216,7 +217,7 @@ const LogIn = () => {
                 }}
                 InputProps={{
                   sx: {
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "Playfair Display",
                     fontSize: "16px",
                     color: "#00000080",
                   },
@@ -226,7 +227,7 @@ const LogIn = () => {
               <Typography
                 variant="caption"
                 sx={{
-                  fontFamily: "'Playfair Display', serif",
+                  fontFamily: "Playfair Display",
                   fontSize: "14px",
                   lineHeight: "17.5px",
                 }}
@@ -250,7 +251,7 @@ const LogIn = () => {
                 }}
                 InputProps={{
                   sx: {
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "Playfair Display",
                     fontSize: "16px",
                     color: "#00000080",
                   },
@@ -290,7 +291,7 @@ const LogIn = () => {
                     width: "280px",
                     py: 1,
                     textTransform: "none",
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "Inter",
                     fontWeight: 600,
                     fontSize: "16px",
                     "&:hover": {
@@ -304,7 +305,7 @@ const LogIn = () => {
                 <Typography
                   variant="caption"
                   sx={{
-                    fontFamily: "'Playfair Display', serif",
+                    fontFamily: "Playfair Display",
                     fontSize: "13.9px",
                     mt: 1.5,
                     letterSpacing: "-0.2px",
@@ -318,7 +319,7 @@ const LogIn = () => {
                     sx={{
                       color: "#1d836e",
                       textDecoration: "none",
-                      fontFamily: "inherit",
+                      fontFamily: "Playfair Display",
                     }}
                   >
                     Sign up

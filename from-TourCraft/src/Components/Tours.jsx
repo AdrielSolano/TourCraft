@@ -256,10 +256,10 @@ export const Tours = () => {
                                     >
                                         <LocationOnIcon sx={{ color: "#80b9ad" }} />
                                         <Box>
-                                            <Typography variant="h6" sx={{ color: "#80b9ad", fontWeight: "bold" }}>
+                                            <Typography variant="h6" sx={{ color: "#80b9ad", fontWeight: "bold", fontFamily: "Playfair Display" }}>
                                                 Location
                                             </Typography>
-                                            <Typography variant="body2" sx={{ opacity: 0.4 }}>
+                                            <Typography variant="body2" sx={{ opacity: 0.4, fontFamily: "Playfair Display" }}>
                                                 {selectedLocation || "Where are you going?"}
                                             </Typography>
                                         </Box>
@@ -290,10 +290,10 @@ export const Tours = () => {
                                     >
                                         <CalendarTodayIcon sx={{ color: "#80b9ad" }} />
                                         <Box>
-                                            <Typography variant="h6" sx={{ color: "#80b9ad", fontWeight: "bold" }}>
+                                            <Typography variant="h6" sx={{ color: "#80b9ad", fontWeight: "bold", fontFamily: "Playfair Display" }}>
                                                 Date
                                             </Typography>
-                                            <Typography variant="body2" sx={{ opacity: 0.4 }}>
+                                            <Typography variant="body2" sx={{ opacity: 0.4, fontFamily: "Playfair Display" }}>
                                                 {selectedDate ? selectedDate.toLocaleDateString() : "Set date"}
                                             </Typography>
                                         </Box>
@@ -328,10 +328,10 @@ export const Tours = () => {
                                     >
                                         <PeopleIcon sx={{ color: "#80b9ad" }} />
                                         <Box>
-                                            <Typography variant="h6" sx={{ color: "#80b9ad", fontWeight: "bold" }}>
+                                            <Typography variant="h6" sx={{ color: "#80b9ad", fontWeight: "bold", fontFamily: "Playfair Display" }}>
                                                 Guests
                                             </Typography>
-                                            <Typography variant="body2" sx={{ opacity: 0.4 }}>
+                                            <Typography variant="body2" sx={{ opacity: 0.4, fontFamily: "Playfair Display" }}>
                                                 {guests} guest{guests !== 1 ? 's' : ''}
                                             </Typography>
                                         </Box>
@@ -346,7 +346,7 @@ export const Tours = () => {
                                         }}
                                     >
                                         <Box sx={{ p: 3, width: 200 }}>
-                                            <Typography variant="h6" sx={{ mb: 2 }}>
+                                            <Typography variant="h6" sx={{ mb: 2, fontFamily: "Playfair Display" }}>
                                                 Number of guests
                                             </Typography>
                                             <Stack direction="row" alignItems="center" spacing={2}>
@@ -356,7 +356,7 @@ export const Tours = () => {
                                                 >
                                                     -
                                                 </IconButton>
-                                                <Typography>{guests}</Typography>
+                                                <Typography sx={{fontFamily: "Inter"}}>{guests}</Typography>
                                                 <IconButton onClick={() => handleGuestChange(guests + 1)}>
                                                     +
                                                 </IconButton>
@@ -374,6 +374,7 @@ export const Tours = () => {
                                         borderRadius: 3,
                                         px: 3,
                                         py: 1.5,
+                                        fontFamily: "Inter",
                                         "&:hover": {
                                             bgcolor: "#6ba89c",
                                         },
@@ -389,7 +390,7 @@ export const Tours = () => {
 
                     {/* Tours */}
                     <Stack spacing={8}>
-                        <Typography variant="h3" align="center" sx={{ fontWeight: "bold", color: "black", fontFamily: "serif" }}>
+                        <Typography variant="h3" align="center" sx={{ fontWeight: "bold", color: "black", fontFamily: "Playfair Display" }}>
                             Popular Tours
                         </Typography>
 
@@ -417,35 +418,35 @@ export const Tours = () => {
                                         </Box>
                                         <CardContent sx={{ p: 4 }}>
                                             <Stack spacing={3}>
-                                                <Typography variant="h6" sx={{ fontWeight: "bold", fontFamily: "serif" }}>
+                                                <Typography variant="h6" sx={{ fontWeight: "bold", fontFamily: "Playfair Display" }}>
                                                     {tour.title}
                                                 </Typography>
 
                                                 <Stack direction="row" spacing={2} alignItems="center">
                                                     <Rating value={tour.rating} readOnly size="small" />
-                                                    <Typography variant="body2" sx={{ opacity: 0.4 }}>
+                                                    <Typography variant="body2" sx={{ opacity: 0.4, fontFamily: "Playfair Display" }}>
                                                         ({tour.reviews} Review)
                                                     </Typography>
                                                 </Stack>
 
                                                 <Stack direction="row" spacing={2} alignItems="center">
                                                     <ScheduleIcon sx={{ fontSize: 24 }} />
-                                                    <Typography variant="body1">{tour.duration}</Typography>
+                                                    <Typography variant="body1" sx={{fontFamily: "Playfair Display"}}>{tour.duration}</Typography>
                                                 </Stack>
 
                                                 <Stack direction="row" spacing={1} alignItems="center">
-                                                    <Typography variant="body1" sx={{ opacity: 0.4 }}>
+                                                    <Typography variant="body1" sx={{ opacity: 0.4, fontFamily: "Playfair Display" }}>
                                                         From
                                                     </Typography>
                                                     {tour.originalPrice && (
                                                         <Typography
                                                             variant="body2"
-                                                            sx={{ textDecoration: "line-through", color: "#999999" }}
+                                                            sx={{ textDecoration: "line-through", color: "#999999", fontFamily: "Inter" }}
                                                         >
                                                             ${tour.originalPrice}
                                                         </Typography>
                                                     )}
-                                                    <Typography variant="body1" sx={{ fontWeight: "bold" }}>
+                                                    <Typography variant="body1" sx={{ fontWeight: "bold",fontFamily: "Inter" }}>
                                                         ${tour.price}
                                                     </Typography>
                                                 </Stack>
@@ -472,10 +473,10 @@ export const Tours = () => {
                     {/* Places */}
                     <Stack spacing={8} sx={{ py: 8 }}>
                         <Stack spacing={3} alignItems="center">
-                            <Typography variant="h3" sx={{ fontWeight: "bold", color: "black", fontFamily: "serif" }}>
+                            <Typography variant="h3" sx={{ fontWeight: "bold", color: "black", fontFamily: "Playfair Display" }}>
                                 Places
                             </Typography>
-                            <Typography variant="body1" align="center" sx={{ opacity: 0.6, maxWidth: 372 }}>
+                            <Typography variant="body1" align="center" sx={{ opacity: 0.6, maxWidth: 372, fontFamily: "Playfair Display" }}>
                                 Discover amazing places in the Riviera Maya
                             </Typography>
                         </Stack>
@@ -498,7 +499,7 @@ export const Tours = () => {
                                     >
                                         <Typography
                                             variant="h4"
-                                            sx={{ color: "white", fontWeight: "bold", mb: 2 }}
+                                            sx={{ color: "white", fontWeight: "bold", mb: 2, fontFamily: "Playfair Display" }}
                                         >
                                             {place.name}
                                         </Typography>
@@ -518,7 +519,7 @@ export const Tours = () => {
                             sx={{
                                 fontWeight: "bold",
                                 color: "black",
-                                fontFamily: "serif",
+                                fontFamily: "Playfair Display",
                                 mb: 4
                             }}
                         >
@@ -586,6 +587,7 @@ export const Tours = () => {
                                                 sx={{
                                                     color: "white",
                                                     fontWeight: "bold",
+                                                    fontFamily: "Playfair Display",
                                                     textShadow: "1px 1px 3px rgba(0,0,0,0.8)",
                                                     mb: 2,
                                                     fontSize: { xs: '1.5rem', md: '1.75rem' }
@@ -600,6 +602,7 @@ export const Tours = () => {
                                                     color: "white",
                                                     textShadow: "1px 1px 2px rgba(0,0,0,0.8)",
                                                     mb: 3,
+                                                    fontFamily: "Playfair Display",
                                                     px: 2
                                                 }}
                                             >
@@ -613,6 +616,7 @@ export const Tours = () => {
                                                     px: 5,
                                                     py: 1.5,
                                                     borderRadius: 3,
+                                                    fontFamily: "Inter",
                                                     fontWeight: "bold",
                                                     "&:hover": {
                                                         bgcolor: "rgba(255,255,255,0.9)",

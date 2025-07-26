@@ -71,11 +71,13 @@ export const BookingSimulation = () => {
             {/* Back Button and Title */}
             <Box sx={{ px: { xs: 2, md: 15 }, py: 2 }}>
                 <Button
-                
+                    component={RouterLink}
+                    to="/PlaceSelectionated"
                     startIcon={<ArrowBackIcon />}
                     sx={{
                         color: "#000000",
                         fontWeight: 600,
+                        fontFamily: "Inter",
                         fontSize: "18px",
                         mb: 2,
                     }}
@@ -89,6 +91,7 @@ export const BookingSimulation = () => {
                         fontWeight: 700,
                         fontSize: "48px",
                         color: "#000000",
+                        fontFamily: "Playfair Display",
                         textAlign: "center",
                         mb: 4,
                     }}
@@ -130,6 +133,7 @@ export const BookingSimulation = () => {
                                     sx={{
                                         fontSize: "20px",
                                         fontWeight: step.active ? 600 : 400,
+                                        fontFamily: "Playfair Display",
                                         color: step.active ? "#80b9ad" : "rgba(0,0,0,0.4)",
                                     }}
                                 >
@@ -155,6 +159,7 @@ export const BookingSimulation = () => {
                                 sx={{
                                     fontWeight: 800,
                                     fontSize: "24px",
+                                    fontFamily: "Playfair Display",
                                     textAlign: "center",
                                     mb: 4,
                                 }}
@@ -178,7 +183,7 @@ export const BookingSimulation = () => {
                                     <Stack spacing={1.5}>
                                         <Typography
                                             variant="h6"
-                                            sx={{ fontWeight: 700, fontSize: "24px" }}
+                                            sx={{ fontWeight: 700, fontSize: "24px", fontFamily: "Playfair Display" }}
                                         >
                                             Chichen-Itza
                                         </Typography>
@@ -186,7 +191,7 @@ export const BookingSimulation = () => {
                                             <CalendarTodayIcon sx={{ fontSize: 24, color: "#80b9ad" }} />
                                             <Typography
                                                 variant="body1"
-                                                sx={{ fontWeight: 600, fontSize: "18px" }}
+                                                sx={{ fontWeight: 600, fontSize: "18px", fontFamily: "Inter" }}
                                             >
                                                 FRI, 23 DEC 2024
                                             </Typography>
@@ -195,7 +200,7 @@ export const BookingSimulation = () => {
                                             <AccessTimeIcon sx={{ fontSize: 24, color: "#80b9ad" }} />
                                             <Typography
                                                 variant="body1"
-                                                sx={{ fontWeight: 600, fontSize: "18px" }}
+                                                sx={{ fontWeight: 600, fontSize: "18px", fontFamily: "Inter" }}
                                             >
                                                 15:00
                                             </Typography>
@@ -231,14 +236,14 @@ export const BookingSimulation = () => {
                                             </Avatar>
                                             <Typography
                                                 variant="body1"
-                                                sx={{ fontSize: "20px", opacity: 0.8 }}
+                                                sx={{ fontSize: "20px", opacity: 0.8, fontFamily: "Playfair Display" }}
                                             >
                                                 {item.label}
                                             </Typography>
                                         </Stack>
                                         <Typography
                                             variant="body1"
-                                            sx={{ fontWeight: 600, fontSize: "20px" }}
+                                            sx={{ fontWeight: 600, fontSize: "20px", fontFamily: "Inter"}}
                                         >
                                             {item.price}
                                         </Typography>
@@ -255,13 +260,13 @@ export const BookingSimulation = () => {
                             >
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontSize: "24px", opacity: 0.8 }}
+                                    sx={{ fontWeight: 700, fontSize: "24px", opacity: 0.8, fontFamily: "Playfair Display" }}
                                 >
                                     Total Price
                                 </Typography>
                                 <Typography
                                     variant="h6"
-                                    sx={{ fontWeight: 700, fontSize: "24px", color: "#80b9ad" }}
+                                    sx={{ fontWeight: 700, fontSize: "24px", color: "#80b9ad", fontFamily: "Inter" }}
                                 >
                                     $XXX.00
                                 </Typography>
@@ -279,6 +284,7 @@ export const BookingSimulation = () => {
                                     py: 2,
                                     fontSize: "20px",
                                     fontWeight: 700,
+                                    fontFamily: "Inter",
                                     boxShadow: "0px 6px 10px rgba(0,0,0,0.1)",
                                     "&:hover": {
                                         bgcolor: "#6ba89c",
@@ -298,7 +304,7 @@ export const BookingSimulation = () => {
                         <Stack spacing={2}>
                             <Typography
                                 variant="h6"
-                                sx={{ fontWeight: 600, fontSize: "24px" }}
+                                sx={{ fontWeight: 600, fontSize: "24px", fontFamily: "Playfair Display" }}
                             >
                                 When you will visit?
                             </Typography>
@@ -307,7 +313,7 @@ export const BookingSimulation = () => {
                                 value="FRI, 23 DEC 2022"
                                 InputProps={{
                                     startAdornment: (
-                                        <CalendarTodayIcon sx={{ mr: 1, opacity: 0.5 }} />
+                                        <CalendarTodayIcon sx={{ mr: 1, opacity: 0.5,  }} />
                                     ),
                                     endAdornment: <ExpandMoreIcon />,
                                     readOnly: true,
@@ -317,13 +323,14 @@ export const BookingSimulation = () => {
                                         borderRadius: 2,
                                         fontSize: "18px",
                                         fontWeight: 600,
+                                        fontFamily: "Inter"
                                     },
                                 }}
                             />
                         </Stack>
 
                         {/* Details Section */}
-                        <Typography variant="h6" sx={{ fontWeight: 600, fontSize: "24px" }}>
+                        <Typography variant="h6" sx={{ fontWeight: 600, fontSize: "24px", fontFamily: "Playfair Display" }}>
                             Details
                         </Typography>
 
@@ -337,13 +344,13 @@ export const BookingSimulation = () => {
                                 <Stack>
                                     <Typography
                                         variant="h6"
-                                        sx={{ fontWeight: 700, fontSize: "20px" }}
+                                        sx={{ fontWeight: 700, fontSize: "20px", fontFamily: "Playfair Display" }}
                                     >
-                                        Adult (18+)
+                                        Adult (<Box component="span" sx={{ fontFamily: "Inter", display: "inline", fontWeight: 700 }}>18+</Box>)
                                     </Typography>
                                     <Typography
                                         variant="h6"
-                                        sx={{ fontWeight: 700, fontSize: "20px", color: "#80b9ad" }}
+                                        sx={{ fontWeight: 700, fontSize: "20px", color: "#80b9ad", fontFamily: "Inter" }}
                                     >
                                         $32.00
                                     </Typography>
@@ -369,7 +376,7 @@ export const BookingSimulation = () => {
                                     >
                                         <Typography
                                             variant="h6"
-                                            sx={{ fontWeight: 600, fontSize: "24px" }}
+                                            sx={{ fontWeight: 600, fontSize: "24px", fontFamily: "Inter" }}
                                         >
                                             {adultCount}
                                         </Typography>
@@ -391,19 +398,19 @@ export const BookingSimulation = () => {
                                 <Stack spacing={0.5}>
                                     <Typography
                                         variant="h6"
-                                        sx={{ fontWeight: 700, fontSize: "20px" }}
+                                        sx={{ fontWeight: 700, fontSize: "20px", fontFamily: "Playfair Display" }}
                                     >
-                                        Child (6-17)
+                                        Child (<Box component="span" sx={{ fontFamily: "Inter", display: "inline", fontWeight: 700 }}>6-17</Box>) 
                                     </Typography>
                                     <Typography
                                         variant="body1"
-                                        sx={{ fontSize: "18px", opacity: 0.6 }}
+                                        sx={{ fontSize: "18px", opacity: 0.6, fontFamily: "Playfair Display" }}
                                     >
                                         Your friend's entrance to Chichen-itza
                                     </Typography>
                                     <Typography
                                         variant="h6"
-                                        sx={{ fontWeight: 700, fontSize: "20px", color: "#80b9ad" }}
+                                        sx={{ fontWeight: 700, fontSize: "20px", color: "#80b9ad", fontFamily: "Inter" }}
                                     >
                                         $20.00
                                     </Typography>
@@ -429,7 +436,7 @@ export const BookingSimulation = () => {
                                     >
                                         <Typography
                                             variant="h6"
-                                            sx={{ fontWeight: 600, fontSize: "24px" }}
+                                            sx={{ fontWeight: 600, fontSize: "24px", fontFamily: "Inter" }}
                                         >
                                             {childCount}
                                         </Typography>
@@ -451,19 +458,19 @@ export const BookingSimulation = () => {
                                 <Stack>
                                     <Typography
                                         variant="h6"
-                                        sx={{ fontWeight: 700, fontSize: "20px" }}
+                                        sx={{ fontWeight: 700, fontSize: "20px", fontFamily: "Playfair Display" }}
                                     >
                                         Samantha Donovan
                                     </Typography>
                                     <Typography
                                         variant="body1"
-                                        sx={{ fontSize: "18px", opacity: 0.6 }}
+                                        sx={{ fontSize: "18px", opacity: 0.6, fontFamily: "Inter" }}
                                     >
                                         $34 / day
                                     </Typography>
                                     <Typography
                                         variant="h6"
-                                        sx={{ fontWeight: 700, fontSize: "20px", color: "#80b9ad" }}
+                                        sx={{ fontWeight: 700, fontSize: "20px", color: "#80b9ad", fontFamily: "Inter" }}
                                     >
                                         $34
                                     </Typography>
@@ -489,7 +496,7 @@ export const BookingSimulation = () => {
                                     >
                                         <Typography
                                             variant="h6"
-                                            sx={{ fontWeight: 600, fontSize: "24px" }}
+                                            sx={{ fontWeight: 600, fontSize: "24px", fontFamily: "Inter" }}
                                         >
                                             {guideCount}
                                         </Typography>
