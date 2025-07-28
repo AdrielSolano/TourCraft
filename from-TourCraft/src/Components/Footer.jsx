@@ -120,11 +120,11 @@ const Footer = () => {
                     maxWidth: '1200px',
                 }}
             >
-                <Grid container spacing={{ xs: 4, md: 2 }} justifyContent="space-between">
+                <Grid container spacing={{ xs: 4, md: 1 }} justifyContent="space-between">
                     {/* Logo y descripción */}
                     <Grid item xs={12} md={3}>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: { xs: 'center', md: 'flex-start' }, textAlign: { xs: 'center', md: 'left' } }}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', gap: '8px', justifyContent: { xs: 'center', md: 'flex-start' }, width: '100%' }}>
                                 <Box
                                     component="img"
                                     src={Solano12}
@@ -155,7 +155,7 @@ const Footer = () => {
                                     textAlign: 'justify',
                                 }}
                             >
-                                Lorem ipsum dolor sit amet consectetur. Enim nulla suscipit leo integer bibendum ultrices. Nulla sed arcu amet montes tellus sit sem quis.
+                                Welcome to TourCraft — your guide to authentic and personalized experiences in the Riviera Maya. Discover stunning nature, rich culture, and local flavors while supporting small businesses and sustainable tourism.
                             </Typography>
 
                             <Box sx={{ display: 'flex', gap: '12px', opacity: 0.5 }}>

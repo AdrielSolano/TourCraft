@@ -252,7 +252,7 @@ const AboutUs = () => {
                     Santiago Calderon
                   </Typography>
                   <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "Playfair Display" }}>
-                    Project leader, Software developer
+                    Project leader, UX and UI Designer
                   </Typography>
                 </CardContent>
               </TeamCard>
@@ -277,26 +277,8 @@ const AboutUs = () => {
               </TeamCard>
             </Grid>
             
-            {/* Team Member 3 */}
-            <Grid item xs={12} sm={6} md={4} lg={3}>
-              <TeamCard>
-                <Avatar 
-                  src={paco}
-                  alt="Adrian Farias"
-                  sx={{ width: 200, height: 200, mb: 2 }}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div" sx={{ fontFamily: "Playfair Display" }}>
-                    Adrian Farias
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary" sx={{ fontFamily: "Playfair Display" }}>
-                    UX and UI Designer
-                  </Typography>
-                </CardContent>
-              </TeamCard>
-            </Grid>
             
-            {/* Team Member 4 */}
+            {/* Team Member 3 */}
             <Grid item xs={12} sm={6} md={4} lg={3}>
               <TeamCard>
                 <Avatar 
@@ -315,7 +297,7 @@ const AboutUs = () => {
               </TeamCard>
             </Grid>
             
-            {/* Team Member 5 */}
+            {/* Team Member 4 */}
             <Grid item xs={12} sm={6} md={4} lg={3}>
               <TeamCard>
                 <Avatar 

@@ -179,7 +179,7 @@ const PlacesSelectionated = () => {
                                     {[
                                         { icon: Groups, text: 'Number of group: 1-6' },
                                         { icon: Schedule, text: 'Duration: Depends' },
-                                        { icon: Paid, text: 'Entry Fees: 25$ per person' },
+                                        { icon: Paid, text: 'Entry Fees: $25 per person' },
                                         { icon: DirectionsBus, text: 'Transportation: Includes' }
                                     ].map((item, index) => (
                                         <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
