@@ -208,7 +208,7 @@ export const Tours = () => {
         }else if (selectedLocation === "Tulum") {
             navigate("/tulum");
         }
-        else if (selectedLocation === "PlayadelCarmen") {
+        else if (selectedLocation === "Playa del Carmen") {
             navigate("/playadelcarmen");
         }
     };
