@@ -3,6 +3,7 @@ import TipoRoll from '../models/tipo_roll.js';
 import Ubicacion from '../models/ubicacion.js';
 import Categoria from '../models/categoria.js';
 import ZonaTuristica from '../models/zona_turistica.js';
+import TipoUsuario from '../models/tipo_usuario.js';
 
 const initDatabase = async () => {
     try {
@@ -32,6 +33,34 @@ const initDatabase = async () => {
             if (!existe) {
                 await TipoRoll.create(tipoRoll);
                 console.log(`Tipo de roll "${tipoRoll.nombre}" creado`);
+            }
+        }
+        
+        // Crear tipos de usuario si no existen
+        const tiposUsuario = [
+            {
+                id_tipo: "USR001",
+                nombre_tipo: "Usuario Regular",
+                descripción: "Usuario regular de la plataforma",
+                tipo_persona: "usuario",
+                estatus: true
+            },
+            {
+                id_tipo: "GUI001", 
+                nombre_tipo: "Guía Turístico",
+                descripción: "Guía turístico certificado",
+                tipo_persona: "guia",
+                estatus: true
+            }
+        ];
+
+        for (const tipo of tiposUsuario) {
+            const existingTipo = await TipoUsuario.findOne({ tipo_persona: tipo.tipo_persona });
+            if (!existingTipo) {
+                await TipoUsuario.create(tipo);
+                console.log(`Tipo de usuario "${tipo.nombre_tipo}" creado`);
+            } else {
+                console.log(`Tipo de usuario "${tipo.nombre_tipo}" ya existe`);
             }
         }
         

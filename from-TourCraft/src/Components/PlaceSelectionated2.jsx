@@ -76,7 +76,7 @@ const PlacesSelectionated2 = () => {
     }, []);
 
     useEffect(() => {
-        const idZona = "687c7886b73df4ffa42a9a4b";
+        const idZona = "688add025fec6a707cd8a841";
         axios.get(`http://localhost:3000/api/zonas-turisticas/${idZona}`)
             .then(res => setZona(res.data.data))
             .catch(err => console.error("Error al obtener zona turística", err));

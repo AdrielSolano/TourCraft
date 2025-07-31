@@ -21,6 +21,10 @@ const usuarioSchema = new mongoose.Schema({
         type: String,
         default: ""
     },
+    password: {
+        type: String,
+        default: ""
+    },
     telefono: {
         type: String,
         default: ""

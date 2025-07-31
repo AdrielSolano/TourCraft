@@ -17,7 +17,15 @@ import Merida from './Merida';
 import PlaceSelectionated from './PlaceSelectionated'
 import PlaceSelectionated2 from './PlaceSelectionated2'; // Importa el componente PlaceSelectionated2
 import Profile from './Profile';
+// Top Activities individual components
+import ArchitectureMerida from './ArchitectureMerida';
+import CenotesTour from './CenotesTour';
+import Izamal from './Izamal';
+import ProgresoBeach from './ProgresoBeach';
+import PlazaGrande from './PlazaGrande';
+import CenotesCuzama from './CenotesCuzama';
 import MyTickets from './MyTickets'; // Importa el componente MyTickets
+import ProtectedRoute from './ProtectedRoute'; // Importa el componente ProtectedRoute
 
 export default function AppRoutes() {
   return (
@@ -27,20 +35,96 @@ export default function AppRoutes() {
         <Route path='/Log-in' element={<LogIn />} />
         <Route path='/SignUp' element={<SignUp />} />
         <Route path='/SignUpTourGuides' element={<SignUpTourGuides />} />
-        <Route path='/Profile' element={<Profile />} /> {/* Ruta para el perfil del usuario */}
-        <Route path='/MyTickets' element={<MyTickets />} /> {/* Ruta para las reservas del usuario */}
+        <Route path='/Profile' element={
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        } />
+        <Route path='/MyTickets' element={
+          <ProtectedRoute>
+            <MyTickets />
+          </ProtectedRoute>
+        } />
         {/* Otras rutas pueden ser añadidas aquí */}
-        <Route path='/Tours' element={<Tours />} /> {/* Ruta para Tours */}
-        <Route path='/Guides' element={<Guides />} /> {/* Ruta para Guides */}
+        <Route path='/Tours' element={
+          <ProtectedRoute>
+            <Tours />
+          </ProtectedRoute>
+        } /> {/* Ruta para Tours */}
+        <Route path='/Guides' element={
+          <ProtectedRoute>
+            <Guides />
+          </ProtectedRoute>
+        } /> {/* Ruta para Guides */}
         <Route path='/Merida' element={<Merida />} />
-        <Route path='/PlaceSelectionated' element={<PlaceSelectionated />} />
-        <Route path='/PlaceSelectionated2' element={<PlaceSelectionated2 />} />
+        <Route path='/PlaceSelectionated' element={
+          <ProtectedRoute>
+            <PlaceSelectionated />
+          </ProtectedRoute>
+        } />
+        <Route path='/PlaceSelectionated2' element={
+          <ProtectedRoute>
+            <PlaceSelectionated2 />
+          </ProtectedRoute>
+        } />
+        
+        {/* Top Activities individual routes */}
+        <Route path='/ArchitectureMerida' element={
+          <ProtectedRoute>
+            <ArchitectureMerida />
+          </ProtectedRoute>
+        } />
+        <Route path='/CenotesTour' element={
+          <ProtectedRoute>
+            <CenotesTour />
+          </ProtectedRoute>
+        } />
+        <Route path='/Izamal' element={
+          <ProtectedRoute>
+            <Izamal />
+          </ProtectedRoute>
+        } />
+        <Route path='/ProgresoBeach' element={
+          <ProtectedRoute>
+            <ProgresoBeach />
+          </ProtectedRoute>
+        } />
+        <Route path='/PlazaGrande' element={
+          <ProtectedRoute>
+            <PlazaGrande />
+          </ProtectedRoute>
+        } />
+        <Route path='/CenotesCuzama' element={
+          <ProtectedRoute>
+            <CenotesCuzama />
+          </ProtectedRoute>
+        } />
 
-        <Route path='/GuideSelectionated' element={<GuideSelectionated />} /> {/* Ruta para GuideSelectionated */}
-        <Route path='/BookingSimulation' element={<BookingSimulation />} /> {/* Ruta para BookingSimulation */}
-        <Route path='/BookingSimulation2' element={<BookingSimulation2 />} /> {/* Ruta para BookingSimulation2 */}
-        <Route path='/BookingSimulation3' element={<BookingSimulation3 />} /> {/* Ruta para BookingSimulation3 */}
-        <Route path='/BookingSimulation4' element={<BookingSimulation4 />} /> {/* Ruta para BookingSimulation3 */}
+        <Route path='/GuideSelectionated' element={
+          <ProtectedRoute>
+            <GuideSelectionated />
+          </ProtectedRoute>
+        } /> {/* Ruta para GuideSelectionated */}
+        <Route path='/BookingSimulation' element={
+          <ProtectedRoute>
+            <BookingSimulation />
+          </ProtectedRoute>
+        } />
+        <Route path='/BookingSimulation2' element={
+          <ProtectedRoute>
+            <BookingSimulation2 />
+          </ProtectedRoute>
+        } />
+        <Route path='/BookingSimulation3' element={
+          <ProtectedRoute>
+            <BookingSimulation3 />
+          </ProtectedRoute>
+        } />
+        <Route path='/BookingSimulation4' element={
+          <ProtectedRoute>
+            <BookingSimulation4 />
+          </ProtectedRoute>
+        } />
         <Route path='/AboutUs' element={<AboutUs />} /> {/* Ruta para About Us */}
         <Route path='/NotFound' element={<NotFound />} /> {/* Ruta para manejar 404 */}
 

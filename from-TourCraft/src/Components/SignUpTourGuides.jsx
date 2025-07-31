@@ -30,6 +30,7 @@ export default function SignUpTourGuides() {
         apellido_paterno: "",
         apellido_materno: "",
         email: "",
+        password: "",
         telefono: "",
         edad: "",
         descripcion: "",
@@ -67,24 +68,20 @@ export default function SignUpTourGuides() {
                 apellido_paterno: formData.apellido_paterno,
                 apellido_materno: formData.apellido_materno,
                 email: formData.email,
+                password: formData.password,
                 telefono: formData.telefono,
                 edad: parseInt(formData.edad) || 0,
                 tipo_persona: "guia",
-                descripcion: formData.descripcion,
+                descripción: formData.descripcion,
                 tarifa_hora: parseFloat(formData.tarifa_hora) || 0,
-                idiomas: formData.languages.map(lang => lang.codigo),
-                id_ubicacion: null,
-                id_tipo: null,
-                estatus: true,
-                disponibilidad: true,
-                calificacion: 0,
+                id_ubicación: null,
                 certificado_id: null,
                 zona_turistica_id: null
             });
             alert("Guía registrado correctamente");
             navigate("/Log-in");
         } catch (err) {
-            alert("Error al registrar guía");
+            alert("Error al registrar guía: " + (err.response?.data?.message || "Error desconocido"));
             console.error(err);
         }
     };
@@ -327,6 +324,24 @@ export default function SignUpTourGuides() {
                                         label="Email"
                                         name="email"
                                         value={formData.email}
+                                        onChange={handleChange}
+                                        variant="outlined"
+                                        size="small"
+                                        sx={{
+                                            "& .MuiOutlinedInput-root": {
+                                                borderRadius: "3.53px",
+                                                fontFamily: "Playfair Display"
+                                            },
+                                        }}
+                                    />
+                                </Grid>
+                                <Grid item xs={6}>
+                                    <TextField
+                                        fullWidth
+                                        label="Contraseña"
+                                        name="password"
+                                        type="password"
+                                        value={formData.password}
                                         onChange={handleChange}
                                         variant="outlined"
                                         size="small"

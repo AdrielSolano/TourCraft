@@ -10,6 +10,8 @@ import {
     TextField,
     Typography,
     IconButton,
+    Alert,
+    Snackbar
 } from "@mui/material";
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import React, { useState, useRef } from "react";
@@ -22,14 +24,18 @@ const SignUp = () => {
     const navigate = useNavigate();
     const dateInputRef = useRef(null);
     const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
+        nombre: '',
+        apellido_paterno: '',
+        apellido_materno: '',
         email: '',
-        dateOfBirth: '',
         password: '',
         confirmPassword: '',
+        telefono: '',
+        edad: '',
+        fechaNacimiento: '',
         agreeToTerms: false
     });
+    const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -39,24 +45,72 @@ const SignUp = () => {
         }));
     };
 
+    const calculateAge = (birthDate) => {
+        const today = new Date();
+        const birth = new Date(birthDate);
+        let age = today.getFullYear() - birth.getFullYear();
+        const monthDiff = today.getMonth() - birth.getMonth();
+        
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+            age--;
+        }
+        
+        return age;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        // Validations
+        if (!formData.agreeToTerms) {
+            setSnackbar({ open: true, message: 'You must accept the terms and conditions', severity: 'error' });
+            return;
+        }
+
+        if (!formData.nombre || !formData.apellido_paterno || !formData.email || !formData.password) {
+            setSnackbar({ open: true, message: 'Please complete all required fields', severity: 'error' });
+            return;
+        }
+
+        if (formData.password !== formData.confirmPassword) {
+            setSnackbar({ open: true, message: 'Passwords do not match', severity: 'error' });
+            return;
+        }
+
+        if (formData.password.length < 6) {
+            setSnackbar({ open: true, message: 'Password must be at least 6 characters long', severity: 'error' });
+            return;
+        }
+
+        // Calcular edad si se proporcionó fecha de nacimiento
+        let edad = 0;
+        if (formData.fechaNacimiento) {
+            edad = calculateAge(formData.fechaNacimiento);
+        }
+
         try {
-            await axios.post("http://localhost:3000/api/smart-auth/register", {
-                nombre: formData.firstName,
-                apellido_paterno: formData.lastName,
-                apellido_materno: "",
+            const response = await axios.post("http://localhost:3000/api/auth/register", {
+                nombre: formData.nombre,
+                apellido_paterno: formData.apellido_paterno,
+                apellido_materno: formData.apellido_materno || "",
                 email: formData.email,
-                telefono: "",
-                edad: 0,
-                id_ubicación: null,
+                password: formData.password,
+                telefono: formData.telefono || "",
+                edad: edad,
+                id_ubicación: null, // Por ahora null, se puede agregar selector de ubicación después
                 tipo_persona: "usuario"
             });
-            alert("Usuario registrado correctamente");
-            navigate("/Log-in");
+
+            if (response.data.success) {
+                setSnackbar({ open: true, message: 'User registered successfully', severity: 'success' });
+                setTimeout(() => {
+                    navigate("/Log-in");
+                }, 2000);
+            }
         } catch (err) {
-            alert("Error al registrar usuario");
-            console.error(err);
+            console.error('Registration error:', err);
+            const errorMessage = err.response?.data?.message || 'Error registering user';
+            setSnackbar({ open: true, message: errorMessage, severity: 'error' });
         }
     };
 
@@ -64,6 +118,10 @@ const SignUp = () => {
         if (dateInputRef.current) {
             dateInputRef.current.focus();
         }
+    };
+
+    const handleCloseSnackbar = () => {
+        setSnackbar(prev => ({ ...prev, open: false }));
     };
 
     return (
@@ -192,21 +250,21 @@ const SignUp = () => {
                                 lineHeight: "33.6px",
                             }}
                         >
-                            Create account
-                        </Typography>
-                        <Typography
-                            variant="body1"
-                            sx={{
-                                fontFamily: "Playfair Display",
-                                fontWeight: 400,
-                                color: "#2D3748",
-                                fontSize: "16px",
-                                letterSpacing: "-0.32px",
-                                lineHeight: "22.4px",
-                            }}
-                        >
-                            Join With Us!
-                        </Typography>
+                                                    Create account
+                    </Typography>
+                    <Typography
+                        variant="body1"
+                        sx={{
+                            fontFamily: "Playfair Display",
+                            fontWeight: 400,
+                            color: "#2D3748",
+                            fontSize: "16px",
+                            letterSpacing: "-0.32px",
+                            lineHeight: "22.4px",
+                        }}
+                    >
+                        Join With Us!
+                    </Typography>
                     </Box>
 
                     <Grid container spacing={2}>
@@ -228,8 +286,8 @@ const SignUp = () => {
                                 size="small"
                                 variant="outlined"
                                 placeholder="First name"
-                                name="firstName"
-                                value={formData.firstName}
+                                name="nombre"
+                                value={formData.nombre}
                                 onChange={handleChange}
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
@@ -258,8 +316,38 @@ const SignUp = () => {
                                 size="small"
                                 variant="outlined"
                                 placeholder="Last name"
-                                name="lastName"
-                                value={formData.lastName}
+                                name="apellido_paterno"
+                                value={formData.apellido_paterno}
+                                onChange={handleChange}
+                                sx={{
+                                    "& .MuiOutlinedInput-root": {
+                                        borderRadius: "3.53px",
+                                        height: "33.87px",
+                                        fontFamily: "Playfair Display",
+                                    },
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontFamily: "Playfair Display",
+                                    fontWeight: 400,
+                                    color: "#2D3748",
+                                    fontSize: "14px",
+                                    mb: 0.5,
+                                }}
+                            >
+                                Middle name
+                            </Typography>
+                            <TextField
+                                fullWidth
+                                size="small"
+                                variant="outlined"
+                                placeholder="Middle name (optional)"
+                                name="apellido_materno"
+                                value={formData.apellido_materno}
                                 onChange={handleChange}
                                 sx={{
                                     "& .MuiOutlinedInput-root": {
@@ -311,15 +399,45 @@ const SignUp = () => {
                                     mb: 0.5,
                                 }}
                             >
+                                Phone
+                            </Typography>
+                            <TextField
+                                fullWidth
+                                size="small"
+                                variant="outlined"
+                                placeholder="Phone (optional)"
+                                name="telefono"
+                                value={formData.telefono}
+                                onChange={handleChange}
+                                sx={{
+                                    "& .MuiOutlinedInput-root": {
+                                        borderRadius: "3.53px",
+                                        height: "33.87px",
+                                        fontFamily: "Playfair Display",
+                                    },
+                                }}
+                            />
+                        </Grid>
+                        <Grid item xs={6}>
+                            <Typography
+                                variant="body2"
+                                sx={{
+                                    fontFamily: "Playfair Display",
+                                    fontWeight: 400,
+                                    color: "#2D3748",
+                                    fontSize: "14px",
+                                    mb: 0.5,
+                                }}
+                            >
                                 Date of birth
                             </Typography>
                             <TextField
                                 fullWidth
                                 size="small"
                                 variant="outlined"
-                                name="dateOfBirth"
+                                name="fechaNacimiento"
                                 type="date"
-                                value={formData.dateOfBirth}
+                                value={formData.fechaNacimiento}
                                 onChange={handleChange}
                                 inputRef={dateInputRef}
                                 InputLabelProps={{
@@ -404,13 +522,13 @@ const SignUp = () => {
                                     mb: 0.5,
                                 }}
                             >
-                                Confirm password
+                                Confirm Password
                             </Typography>
                             <TextField
                                 fullWidth
                                 size="small"
                                 variant="outlined"
-                                placeholder="Confirm Password"
+                                placeholder="Confirm password"
                                 type="password"
                                 name="confirmPassword"
                                 value={formData.confirmPassword}
@@ -546,6 +664,11 @@ const SignUp = () => {
                     <Divider sx={{ flex: 1 }} />
                 </Box>
             </Box>
+            <Snackbar open={snackbar.open} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+                <Alert onClose={handleCloseSnackbar} severity={snackbar.severity} sx={{ width: '100%' }}>
+                    {snackbar.message}
+                </Alert>
+            </Snackbar>
         </Box>
     );
 };

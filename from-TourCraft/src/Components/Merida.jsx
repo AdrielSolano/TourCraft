@@ -269,6 +269,31 @@ export default function Merida() {
     navigate('/PlaceSelectionated2');
   };
 
+  // Top Activities navigation handlers
+  const handleArchitectureClick = () => {
+    navigate('/ArchitectureMerida');
+  };
+
+  const handleCenotesClick = () => {
+    navigate('/CenotesTour');
+  };
+
+  const handleIzamalClick = () => {
+    navigate('/Izamal');
+  };
+
+  const handleProgresoClick = () => {
+    navigate('/ProgresoBeach');
+  };
+
+  const handlePlazaGrandeClick = () => {
+    navigate('/PlazaGrande');
+  };
+
+  const handleCenotesCuzamaClick = () => {
+    navigate('/CenotesCuzama');
+  };
+
   return (
     <Box sx={{ backgroundColor: "white", minHeight: "100vh" }}>
       <Container maxWidth="xl" sx={{ px: 0, overflow: "hidden" }}>
@@ -351,7 +376,24 @@ export default function Merida() {
           <Grid container spacing={3} sx={{ mb: 5 }}>
             {topActivities.map((tour) => (
               <Grid item xs={12} md={4} key={tour.id}>
-                <TourCard tour={tour} />
+                <TourCard 
+                  tour={tour} 
+                  onClick={
+                    tour.title === "Architecture in Merida"
+                      ? handleArchitectureClick
+                      : tour.title === "4 cenotes tour"
+                      ? handleCenotesClick
+                      : tour.title === "Izamal"
+                      ? handleIzamalClick
+                      : tour.title === "Progreso beach"
+                      ? handleProgresoClick
+                      : tour.title === "Plaza Grande (Main Square)"
+                      ? handlePlazaGrandeClick
+                      : tour.title === "Cenotes de Cuzamá"
+                      ? handleCenotesCuzamaClick
+                      : undefined
+                  }
+                />
               </Grid>
             ))}
           </Grid>

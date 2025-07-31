@@ -17,12 +17,15 @@ import Solano11 from "../assets/Solano11.png";
 import img48 from "../assets/img48.png";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import axios from "axios"; // ⭐ NUEVO
+import { useAuth } from './AuthContext';
 
 const LogIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState(""); // ⭐ NUEVO
   const [password, setPassword] = useState(""); // ⭐ NUEVO
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate(); // ⭐ NUEVO
+  const { login } = useAuth();
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -30,16 +33,34 @@ const LogIn = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    
+    // Validations
+    if (!email.trim()) {
+      alert("Please enter your email");
+      return;
+    }
+    
+    if (!password.trim()) {
+      alert("Please enter your password");
+      return;
+    }
+    
+    setLoading(true);
+    
     try {
-      const res = await axios.post("http://localhost:3000/api/smart-auth/login", {
-        email
-      });
-      localStorage.setItem('isLoggedIn', 'true'); // Guardar estado de login
-      alert("Login exitoso");
-      navigate("/"); // Redirige a la página principal o donde prefieras
+      const result = await login(email, password);
+      
+      if (result.success) {
+        alert("Login exitoso");
+        navigate("/");
+      } else {
+        alert("Error al iniciar sesión: " + result.message);
+      }
     } catch (err) {
-      alert("Error al iniciar sesión");
+      alert("Error al iniciar sesión: " + (err.response?.data?.message || "Error desconocido"));
       console.error(err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -236,7 +257,7 @@ const LogIn = () => {
               </Typography>
               <TextField
                 fullWidth
-                placeholder="Password"
+                placeholder="Your password"
                 type={showPassword ? "text" : "password"}
                 variant="outlined"
                 value={password} // ⭐ NUEVO
@@ -284,7 +305,8 @@ const LogIn = () => {
                 <Button
                   variant="contained"
                   fullWidth
-                  onClick={handleLogin} // ⭐ NUEVO
+                  onClick={handleLogin}
+                  disabled={loading}
                   sx={{
                     bgcolor: "#80b9ad",
                     borderRadius: "4px",
@@ -297,9 +319,12 @@ const LogIn = () => {
                     "&:hover": {
                       bgcolor: "#6ca99d",
                     },
+                    "&:disabled": {
+                      bgcolor: "#cccccc",
+                    },
                   }}
                 >
-                  Log in
+                  {loading ? "Signing in..." : "Sign In"}
                 </Button>
 
                 <Typography

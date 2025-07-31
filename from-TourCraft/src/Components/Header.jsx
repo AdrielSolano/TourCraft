@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Button, Stack, Typography, IconButton, Drawer, List, ListItem, ListItemText } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link as RouterLink, useLocation } from 'react-router-dom'; // Añade useLocation
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom'; // Añade useLocation
 import Solano11 from "../assets/Solano11.png";
 import { useState } from "react";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -9,13 +9,16 @@ import { useTheme } from "@mui/material/styles";
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import AccountCircle from '@mui/icons-material/AccountCircle';
+import { useAuth } from './AuthContext';
 
-const Header = ({ navItems }) => {
+const Header = ({ navItems = [] }) => {
     const [drawerOpen, setDrawerOpen] = useState(false);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("md"));
     const location = useLocation(); // Obtiene la ruta actual
     const [anchorEl, setAnchorEl] = useState(null);
+    const navigate = useNavigate();
+    const { user, logout, isAuthenticated } = useAuth();
 
     const handleDrawerToggle = () => {
         setDrawerOpen(!drawerOpen);
@@ -24,6 +27,12 @@ const Header = ({ navItems }) => {
     // Función para determinar si un ítem está activo
     const isActive = (path) => {
         return location.pathname === path;
+    };
+
+    const handleLogout = () => {
+        logout();
+        setAnchorEl(null);
+        navigate('/');
     };
 
     const drawer = (
@@ -159,7 +168,7 @@ const Header = ({ navItems }) => {
                 {/* Desktop Auth Buttons */}
                 {!isMobile && (
                     <Stack direction="row" spacing={2} alignItems="center">
-                        {localStorage.getItem('isLoggedIn') !== 'true' && (
+                        {!isAuthenticated && (
                             <>
                                 <Button
                                     component={RouterLink}
@@ -199,7 +208,7 @@ const Header = ({ navItems }) => {
                                 </Button>
                             </>
                         )}
-                        {localStorage.getItem('isLoggedIn') === 'true' && (
+                        {isAuthenticated && (
                             <>
                                 <IconButton onClick={e => setAnchorEl(e.currentTarget)} sx={{ p: 0, ml: 5, width: 56, height: 56, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                     <AccountCircle sx={{ width: 56, height: 56, color: '#80B9AD' }} />
@@ -223,11 +232,7 @@ const Header = ({ navItems }) => {
                                     to="/Profile" sx={{ py: 1.5, px: 2, fontWeight: 500, fontFamily: "Playfair Display", '&:hover': { background: '#f0f4f8' } }}>Mi perfil</MenuItem>
                                     <MenuItem component={RouterLink}
                                     to="/MyTickets"sx={{ py: 1.5, px: 2, fontWeight: 500, fontFamily: "Playfair Display", '&:hover': { background: '#f0f4f8' } }}>Mis reservas</MenuItem>
-                                    <MenuItem onClick={() => {
-                                        localStorage.removeItem('isLoggedIn');
-                                        setAnchorEl(null);
-                                        window.location.reload();
-                                    }} sx={{ py: 1.5, px: 2, fontWeight: 500, color: 'error.main', '&:hover': { background: '#ffeaea' } }}>
+                                    <MenuItem onClick={handleLogout} sx={{ py: 1.5, px: 2, fontWeight: 500, color: 'error.main', '&:hover': { background: '#ffeaea' } }}>
                                         Cerrar sesión
                                     </MenuItem>
                                 </Menu>
