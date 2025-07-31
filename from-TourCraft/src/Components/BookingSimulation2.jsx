@@ -22,11 +22,11 @@ import img from "../assets/img.png";
 
 // Data for pricing breakdown
 const pricingItems = [
-    { label: "Tarifa de Servicio de Plataforma", price: "$xx.xx" },
-    { label: "Tarifa de Experiencia", price: "$xx.xx" },
-    { label: "Impuestos y Otros Cargos", price: "$xx.xx" },
-    { label: "Tarifa del Transporte (Opcional)", price: "$xx.xx" },
-    { label: "Tarifa del Guía", price: "$xxx.x" },
+    { label: 'Platform Service Fee', price: '$xx.xx' },
+    { label: 'Experience Fee', price: '$xx.xx' },
+    { label: 'Taxes and Other Charges', price: '$xx.xx' },
+    { label: 'Transportation Fee (Optional)', price: '$xx.xx' },
+    { label: 'Guide Fee', price: '$xxx.x' }
 ];
 
 const steps = ["Booking Details", "Your Details", "Payment"];
@@ -97,7 +97,7 @@ export const BookingSimulation2 = () => {
                     <Typography variant="h5" sx={{ fontWeight: 600, mb: 4, fontFamily: "Playfair Display" }}>
                         Who shall we send these tickets to?
                     </Typography>
-                    
+
                     <Stack direction={{ xs: "column", sm: "row" }} spacing={2} sx={{ mb: 3 }}>
                         <Stack spacing={1} sx={{ flex: 1 }}>
                             <Typography variant="h6" fontFamily="Playfair Display" >Name</Typography>
@@ -118,7 +118,7 @@ export const BookingSimulation2 = () => {
                             />
                         </Stack>
                     </Stack>
-                    
+
                     <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
                         <Stack spacing={1} sx={{ flex: 1 }}>
                             <Typography variant="h6" fontFamily="Playfair Display">Telephone Number</Typography>
@@ -150,7 +150,7 @@ export const BookingSimulation2 = () => {
                             <Typography variant="h4" align="center" sx={{ fontWeight: 800, mb: 4, fontFamily: "Playfair Display" }}>
                                 Your Tickets Overview
                             </Typography>
-                            
+
                             {/* Tour Details */}
                             <Stack direction="row" spacing={2.5} sx={{ pb: 2.5, borderBottom: "1px solid #cccccc" }}>
                                 <Box
@@ -164,20 +164,20 @@ export const BookingSimulation2 = () => {
                                         Chichen-Itza
                                     </Typography>
                                     <Stack direction="row" spacing={1.25} alignItems="center">
-                                        <CalendarToday sx={{color:"#80b9ad"}} />
+                                        <CalendarToday sx={{ color: "#80b9ad" }} />
                                         <Typography variant="h6" sx={{ fontWeight: 600, fontFamily: "Inter" }}>
                                             FRI, 23 DEC 2024
                                         </Typography>
                                     </Stack>
                                     <Stack direction="row" spacing={1.25} alignItems="center">
-                                        <AccessTime sx={{color:"#80b9ad"}}/>
+                                        <AccessTime sx={{ color: "#80b9ad" }} />
                                         <Typography variant="h6" sx={{ fontWeight: 600, fontFamily: "Inter" }}>
                                             15:00
                                         </Typography>
                                     </Stack>
                                 </Stack>
                             </Stack>
-                            
+
                             {/* Pricing Breakdown */}
                             <Stack sx={{ py: 2.5, borderBottom: "1px solid #cccccc" }}>
                                 {pricingItems.map((item, index) => (
@@ -196,7 +196,7 @@ export const BookingSimulation2 = () => {
                                     </Stack>
                                 ))}
                             </Stack>
-                            
+
                             {/* Total Price */}
                             <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ py: 2.5 }}>
                                 <Typography variant="h5" sx={{ fontWeight: 700, opacity: 0.8, fontFamily: "Playfair Display" }}>
@@ -206,7 +206,7 @@ export const BookingSimulation2 = () => {
                                     $XXX.00
                                 </Typography>
                             </Stack>
-                            
+
                             {/* Next Step Button */}
                             <Button
                                 fullWidth
@@ -226,14 +226,19 @@ export const BookingSimulation2 = () => {
                     </Card>
                 </Box>
             </Stack>
-            
+
             {/* Advertisement Banner */}
             <Box sx={{ mt: 4, textAlign: "center" }}>
                 <Box
                     component="img"
                     src={img41}
                     alt="Car rental service advertisement"
-                    sx={{ maxWidth: "100%", height: "auto" }}
+                    sx={{
+                        maxWidth: "100%", height: "auto", marginTop: '150px',
+                        marginBottom: '150px',
+                        borderRadius: 2,
+                        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)"
+                    }}
                 />
             </Box>
         </Box>

@@ -21,15 +21,10 @@ import {
 } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import alux from "../assets/alux.jpg";
 import harris from "../assets/harris.jpg";
-import rolandi from "../assets/rolandi.jpg";
-import hard from "../assets/hard.jpg";
 import i3 from "../assets/i3.jpg";
 import i1 from "../assets/i1.jpg";
 import image54 from "../assets/image54.png";
-import img from "../assets/img.png";
-import UX1 from "../assets/UX1.jpg";
 import frame341 from "../assets/frame341.png";
 import imga5 from "../assets/imga5.png";
 import imga4 from "../assets/imga4.png";
@@ -41,122 +36,83 @@ import img40 from "../assets/img40.png";
 const featuredTours = [
   {
     id: 1,
-    title: "Chichen-Itza",
-    image: img,
+    title: "5th Avenue Shopping",
+    image: imga5,
     rating: 5,
     reviews: 1,
-    duration: "1 day",
-    originalPrice: "$1200",
-    price: "$960",
-    badge: "Best seller",
+    duration: "Flexible",
+    price: "Free",
+    badge: "Popular",
   },
   {
     id: 2,
-    title: "Uxmal, Kabah",
-    image: UX1,
+    title: "Xcaret Park",
+    image: imga1,
     rating: 5,
     reviews: 1,
-    duration: "2 days",
-    price: "$2250",
+    duration: "Full day",
+    price: "$120",
   },
 ];
 
 const topActivities = [
   {
     id: 1,
-    title: "Architecture in Merida",
-    image: imga5,
-    rating: 5,
-    reviews: 1,
-    duration: "9 Nights, 8 days",
-    price: "$1500",
-  },
-  {
-    id: 2,
-    title: "4 Cenotes Tour",
-    image: imga1,
-    rating: 5,
-    reviews: 1,
-    duration: "10 Nights, 9 days",
-    price: "$2200",
-  },
-  {
-    id: 3,
-    title: "Izamal",
+    title: "Cenote Swim Adventure",
     image: imga2,
     rating: 5,
     reviews: 1,
-    duration: "7 Nights, 8 days",
-    originalPrice: "$1200",
-    price: "$960",
+    duration: "Half day",
+    price: "$65",
   },
   {
-    id: 4,
-    title: "Progreso Beach",
+    id: 2,
+    title: "Coco Bongo Playa",
     image: imga3,
     rating: 5,
     reviews: 1,   
-    duration: "7 Nights, 8 days",
-    originalPrice: "$1500",
-    price: "$1200",
+    duration: "Night",
+    price: "$75",
   },
   {
-    id: 5,
-    title: "Plaza Grande (Main Square)",
+    id: 3,
+    title: "Ferry to Cozumel",
     image: imga4,
     rating: 5,
     reviews: 1,
-    duration: "3 Nights, 4 days",
-    price: "$860",
+    duration: "Full day",
+    price: "$25",
   },
   {
-    id: 6,
-    title: "Cenotes de Cuzamá",
+    id: 4,
+    title: "Rio Secreto",
     image: frame341,
     rating: 5,
     reviews: 1,
-    duration: "10 Nights, 9 days",
-    price: "$1020",
+    duration: "Half day",
+    price: "$89",
   },
 ];
 
 const restaurantData = [
   {
-    title: "La Chaya Maya - Mérida",
-    image: i1,
-    url: "https://lachayamaya.com/",
-    description: "Auténtica cocina yucateca en ambiente tradicional"
-  },
-  {
-    title: "Porfirio's - Mérida",
-    image: i3,
-    url: "https://porfirios.com.mx/",
-    description: "Gastronomía mexicana contemporánea"
-  },
-  {
-    title: "Alux - Playa del Carmen",
-    image: alux,
-    url: "https://aluxrestaurant.com/",
-    description: "Restaurante en una cueva natural"
-  },
-  {
-    title: "Harry's - Cancún",
+    title: "Alux Restaurant",
     image: harris,
-    url: "https://harrys.com.mx/",
-    description: "Carnes premium y mariscos frescos"
+    url: "https://aluxrestaurant.com/",
+    description: "Unique dining in a natural cave"
   },
   {
-    title: "Hartwood - Tulum",
-    image: hard,
-    url: "https://www.hartwoodtulum.com/",
-    description: "Cocina de autor con ingredientes locales y técnicas al fuego"
+    title: "La Cueva del Chango",
+    image: i1,
+    url: "https://lacuevadelchango.com/",
+    description: "Authentic Mexican in jungle setting"
   },
   {
-    title: "Casa Rolandi - Isla Mujeres",
-    image: rolandi,
-    url: "https://casarolandi.com/",
-    description: "Cocina italiana con toques mexicanos"
-  }
+    title: "Oh Lala!",
+    image: i3,
+    url: "https://ohlalaplayadelcarmen.com/",
+    description: "Intimate gourmet dining experience"
+  },
 ];
 
 const TourCard = ({ tour, onClick }) => (
@@ -259,39 +215,32 @@ const TourCard = ({ tour, onClick }) => (
   </Card>
 );
 
-export default function Merida() {
+export default function PlayaDelCarmen() {
   const navigate = useNavigate();
 
-  const handleChichenItzaClick = () => {
-    navigate('/PlaceSelectionated');
+  const handleFifthAveClick = () => {
+    navigate('/FifthAvenue');
   };
-  const handleChichenItzaClick2 = () => {
-    navigate('/PlaceSelectionated2');
+
+  const handleXcaretClick = () => {
+    navigate('/XcaretPark');
   };
 
   // Top Activities navigation handlers
-  const handleArchitectureClick = () => {
-    navigate('/ArchitectureMerida');
+  const handleCenoteClick = () => {
+    navigate('/CenoteAdventure');
   };
 
-  const handleCenotesClick = () => {
-    navigate('/CenotesTour');
+  const handleCocoBongoClick = () => {
+    navigate('/CocoBongoPlaya');
   };
 
-  const handleIzamalClick = () => {
-    navigate('/Izamal');
+  const handleFerryClick = () => {
+    navigate('/CozumelFerry');
   };
 
-  const handleProgresoClick = () => {
-    navigate('/ProgresoBeach');
-  };
-
-  const handlePlazaGrandeClick = () => {
-    navigate('/PlazaGrande');
-  };
-
-  const handleCenotesCuzamaClick = () => {
-    navigate('/CenotesCuzama');
+  const handleRioSecretoClick = () => {
+    navigate('/RioSecreto');
   };
 
   return (
@@ -321,7 +270,7 @@ export default function Merida() {
                 fontFamily: "Playfair Display",
               }}
             >
-              Merida
+              Playa del Carmen
             </Typography>
           </Box>
 
@@ -331,10 +280,10 @@ export default function Merida() {
                 <TourCard 
                   tour={tour} 
                   onClick={
-                    tour.title === "Chichen-Itza"
-                      ? handleChichenItzaClick
-                      : tour.title === "Uxmal, Kabah"
-                      ? handleChichenItzaClick2
+                    tour.title === "5th Avenue Shopping"
+                      ? handleFifthAveClick
+                      : tour.title === "Xcaret Park"
+                      ? handleXcaretClick
                       : undefined
                   }
                 />
@@ -379,18 +328,14 @@ export default function Merida() {
                 <TourCard 
                   tour={tour} 
                   onClick={
-                    tour.title === "Architecture in Merida"
-                      ? handleArchitectureClick
-                      : tour.title === "4 Cenotes Tour"
-                      ? handleCenotesClick
-                      : tour.title === "Izamal"
-                      ? handleIzamalClick
-                      : tour.title === "Progreso Beach"
-                      ? handleProgresoClick
-                      : tour.title === "Plaza Grande (Main Square)"
-                      ? handlePlazaGrandeClick
-                      : tour.title === "Cenotes de Cuzamá"
-                      ? handleCenotesCuzamaClick
+                    tour.title === "Cenote Swim Adventure"
+                      ? handleCenoteClick
+                      : tour.title === "Coco Bongo Playa"
+                      ? handleCocoBongoClick
+                      : tour.title === "Ferry to Cozumel"
+                      ? handleFerryClick
+                      : tour.title === "Rio Secreto"
+                      ? handleRioSecretoClick
                       : undefined
                   }
                 />
@@ -417,7 +362,7 @@ export default function Merida() {
 
         <Stack spacing={6} sx={{ py: 6, marginBottom:'100px' }}>
           <Typography variant="h3" align="center" sx={{ fontWeight: "bold", color: "black", fontFamily: "Playfair Display", mb: 4 }}>
-            Local restaurants in Merida
+            Best restaurants in Playa del Carmen
           </Typography>
 
           <Box sx={{ px: { xs: 1, md: 4 }, mx: "auto", maxWidth: "95%", overflow: "hidden" }}>

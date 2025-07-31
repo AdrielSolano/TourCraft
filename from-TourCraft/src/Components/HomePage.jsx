@@ -346,7 +346,7 @@ const HomePage = () => {
               {
                 icon: icon3,
                 title: 'Guides for everyone',
-                subtitle: 'guides who speak your language',
+                subtitle: 'Guides who speak your language',
                 description: 'Find tour guides that suit you: from history experts to nature enthusiasts. No matter your language or travel style, we have the perfect guide to accompany you.'
               },
               {
@@ -519,7 +519,7 @@ const HomePage = () => {
                           lineHeight: 1.2
                         }}
                       >
-                        visit
+                        Visit
                       </Typography>
                       <ArrowForward sx={{ fontSize: '1rem', opacity: 0.6 }} />
                     </Link>

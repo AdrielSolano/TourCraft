@@ -20,6 +20,7 @@ import { useNavigate } from "react-router-dom";
 import img34 from "../assets/img34.png";
 import Solano11 from "../assets/Solano11.png";
 import { Link as RouterLink } from 'react-router-dom';
+import ArrowBack from "@mui/icons-material/ArrowBack";
 
 
 export default function SignUpTourGuides() {
@@ -115,9 +116,10 @@ export default function SignUpTourGuides() {
                         height: "1024px",
                         top: 0,
                         left: 0,
-                        background: "rgba(0, 0, 0, 0.3)"
+                        zIndex: 1,
                     }}
                 >
+                    {/* Background image */}
                     <Box
                         component="img"
                         sx={{
@@ -126,10 +128,26 @@ export default function SignUpTourGuides() {
                             height: "1024px",
                             top: 0,
                             left: 0,
+                            zIndex: 1,
                         }}
                         alt="Background"
                         src={img34}
                     />
+
+                    {/* Black semi-transparent overlay */}
+                    <Box
+                        sx={{
+                            position: "absolute",
+                            width: "755px",
+                            height: "1024px",
+                            top: 0,
+                            left: 0,
+                            backgroundColor: "rgba(0, 0, 0, 0.5)",
+                            zIndex: 2,
+                        }}
+                    />
+
+                    {/* Text content */}
                     <Box
                         sx={{
                             position: "absolute",
@@ -137,6 +155,7 @@ export default function SignUpTourGuides() {
                             height: "540px",
                             top: "117px",
                             left: "80px",
+                            zIndex: 3,
                         }}
                     >
                         <Typography
@@ -174,7 +193,7 @@ export default function SignUpTourGuides() {
                         </Typography>
                     </Box>
                 </Box>
-                {/* Right side with login form */}
+                {/* Right side with registration form */}
                 <Box
                     sx={{
                         height: "1024px",
@@ -187,21 +206,41 @@ export default function SignUpTourGuides() {
                         marginTop: "30px",
                     }}
                 >
+                    {/* Back Button */}
+                <Button
+                    startIcon={<ArrowBack />}
+                    component={RouterLink}
+                    to="/SignUp"
+                    sx={{
+                        position: "absolute",
+                        top: { xs: "20px", md: "55px" },
+                        left: { xs: "20px", md: "750px" },
+                        textTransform: "none",
+                        fontWeight: 600,
+                        fontSize: "18px",
+                        zIndex: 1,
+                        color: 'black',
+                        fontFamily: "Playfair Display",
+                    }}
+                >
+                    Back
+                </Button>
+
                     <Box
                         component={RouterLink}
-                        to="/"
+                        to="/SignUp"
                         sx={{
                             position: "absolute",
                             width: "195px",
                             height: "92px",
                             top: "41px",
                             left: "1170px",
-                            display: "block", // para que el box tenga tamaño
+                            display: "block",
                         }}
                     >
                         <img
                             src={Solano11}
-                            alt="Logo TC"
+                            alt="TC Logo"
                             style={{ width: "100%", height: "100%", objectFit: "cover" }}
                         />
                     </Box>
@@ -250,7 +289,7 @@ export default function SignUpTourGuides() {
                                 }}
                             >
                                 Do you want to be a guide? <br />
-                                complete the registration application form
+                                Complete the registration application form
                             </Typography>
                             <Typography
                                 sx={{
@@ -264,13 +303,13 @@ export default function SignUpTourGuides() {
                                     textAlign: "center"
                                 }}
                             >
-                                Join With Us!
+                                Join Us!
                             </Typography>
                             <Grid container spacing={2}>
                                 <Grid item xs={6}>
                                     <TextField
                                         fullWidth
-                                        label="Nombre"
+                                        label="First Name"
                                         name="nombre"
                                         value={formData.nombre}
                                         onChange={handleChange}
@@ -287,7 +326,7 @@ export default function SignUpTourGuides() {
                                 <Grid item xs={6}>
                                     <TextField
                                         fullWidth
-                                        label="Apellido Paterno"
+                                        label="Last Name"
                                         name="apellido_paterno"
                                         value={formData.apellido_paterno}
                                         onChange={handleChange}
@@ -304,7 +343,7 @@ export default function SignUpTourGuides() {
                                 <Grid item xs={6}>
                                     <TextField
                                         fullWidth
-                                        label="Apellido Materno"
+                                        label="Middle Name"
                                         name="apellido_materno"
                                         value={formData.apellido_materno}
                                         onChange={handleChange}
@@ -338,7 +377,7 @@ export default function SignUpTourGuides() {
                                 <Grid item xs={6}>
                                     <TextField
                                         fullWidth
-                                        label="Contraseña"
+                                        label="Password"
                                         name="password"
                                         type="password"
                                         value={formData.password}
@@ -356,7 +395,7 @@ export default function SignUpTourGuides() {
                                 <Grid item xs={6}>
                                     <TextField
                                         fullWidth
-                                        label="Teléfono"
+                                        label="Phone"
                                         name="telefono"
                                         value={formData.telefono}
                                         onChange={handleChange}
@@ -373,7 +412,7 @@ export default function SignUpTourGuides() {
                                 <Grid item xs={6}>
                                     <TextField
                                         fullWidth
-                                        label="Edad"
+                                        label="Age"
                                         name="edad"
                                         value={formData.edad}
                                         onChange={handleChange}
@@ -395,7 +434,7 @@ export default function SignUpTourGuides() {
                                         value={formData.languages}
                                         onChange={handleLanguagesChange}
                                         renderInput={(params) => (
-                                            <TextField {...params} label="Idiomas" size="small" />
+                                            <TextField {...params} label="Languages" size="small" />
                                         )}
                                         sx={{ width: "100%", fontFamily: "Playfair Display" }}
                                     />
@@ -403,7 +442,7 @@ export default function SignUpTourGuides() {
                                 <Grid item xs={12}>
                                     <TextField
                                         fullWidth
-                                        label="Descripción"
+                                        label="Description"
                                         name="descripcion"
                                         value={formData.descripcion}
                                         onChange={handleChange}
@@ -423,7 +462,7 @@ export default function SignUpTourGuides() {
                                 <Grid item xs={12}>
                                     <TextField
                                         fullWidth
-                                        label="Tarifa por hora"
+                                        label="Hourly Rate"
                                         name="tarifa_hora"
                                         value={formData.tarifa_hora}
                                         onChange={handleChange}

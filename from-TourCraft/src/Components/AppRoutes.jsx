@@ -14,6 +14,9 @@ import BookingSimulation2 from './BookingSimulation2'; // Importa el componente 
 import BookingSimulation3 from './BookingSimulation3'; // Importa el componente BookingSimulation3
 import BookingSimulation4 from './BookingSimulation4';
 import Merida from './Merida';
+import Cancun from './Cancun';
+import PlayadelCarmen from './PlayadelCarmen';
+import Tulum from './Tulum';
 import PlaceSelectionated from './PlaceSelectionated'
 import PlaceSelectionated2 from './PlaceSelectionated2'; // Importa el componente PlaceSelectionated2
 import Profile from './Profile';
@@ -57,6 +60,9 @@ export default function AppRoutes() {
           </ProtectedRoute>
         } /> {/* Ruta para Guides */}
         <Route path='/Merida' element={<Merida />} />
+        <Route path='/Cancun' element={<Cancun />} />
+        <Route path='/PlayadelCarmen' element={<PlayadelCarmen />} />
+        <Route path='/Tulum' element={<Tulum />} />
         <Route path='/PlaceSelectionated' element={
           <ProtectedRoute>
             <PlaceSelectionated />

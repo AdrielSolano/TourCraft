@@ -237,7 +237,8 @@ export const BookingSimulation4 = () => {
 
             {/* Popular Local Restaurants */}
             <Box sx={{ px: { xs: 2, md: 10 }, py: 8 }}>
-                <Typography variant="h3" fontWeight="bold" textAlign="center" sx={{ mb: 6, fontFamily: 'Playfair Display' }}>
+                <Typography variant="h3" fontWeight="bold" textAlign="center" sx={{ mb: 6, fontFamily: 'Playfair Display', marginTop: '50px',
+                        marginBottom: '130px', }}>
                     Popular Local Restaurants
                 </Typography>
 
@@ -313,7 +314,9 @@ export const BookingSimulation4 = () => {
                     component="img"
                     src={img41}
                     alt="Car rental service advertisement"
-                    sx={{ maxWidth: "100%", height: "auto" }}
+                    sx={{ maxWidth: "100%", height: "auto", marginTop: '80px',
+                        marginBottom: '180px',
+                        borderRadius: 2, }}
                 />
             </Box>
         </Box>

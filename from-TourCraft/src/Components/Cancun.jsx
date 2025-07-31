@@ -21,15 +21,10 @@ import {
 } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import alux from "../assets/alux.jpg";
 import harris from "../assets/harris.jpg";
-import rolandi from "../assets/rolandi.jpg";
-import hard from "../assets/hard.jpg";
 import i3 from "../assets/i3.jpg";
 import i1 from "../assets/i1.jpg";
 import image54 from "../assets/image54.png";
-import img from "../assets/img.png";
-import UX1 from "../assets/UX1.jpg";
 import frame341 from "../assets/frame341.png";
 import imga5 from "../assets/imga5.png";
 import imga4 from "../assets/imga4.png";
@@ -41,121 +36,118 @@ import img40 from "../assets/img40.png";
 const featuredTours = [
   {
     id: 1,
-    title: "Chichen-Itza",
-    image: img,
+    title: "Isla Mujeres",
+    image: imga5,
     rating: 5,
     reviews: 1,
-    duration: "1 day",
-    originalPrice: "$1200",
-    price: "$960",
-    badge: "Best seller",
+    duration: "Full day",
+    price: "$750",
+    badge: "Popular",
   },
   {
     id: 2,
-    title: "Uxmal, Kabah",
-    image: UX1,
+    title: "Hotel Zone Tour",
+    image: imga1,
     rating: 5,
     reviews: 1,
-    duration: "2 days",
-    price: "$2250",
+    duration: "Half day",
+    price: "$450",
   },
 ];
 
 const topActivities = [
   {
     id: 1,
-    title: "Architecture in Merida",
-    image: imga5,
-    rating: 5,
-    reviews: 1,
-    duration: "9 Nights, 8 days",
-    price: "$1500",
-  },
-  {
-    id: 2,
-    title: "4 Cenotes Tour",
-    image: imga1,
-    rating: 5,
-    reviews: 1,
-    duration: "10 Nights, 9 days",
-    price: "$2200",
-  },
-  {
-    id: 3,
-    title: "Izamal",
+    title: "Cancún Underwater Museum",
     image: imga2,
     rating: 5,
     reviews: 1,
-    duration: "7 Nights, 8 days",
-    originalPrice: "$1200",
-    price: "$960",
+    duration: "3-4 hours",
+    price: "$120",
   },
   {
-    id: 4,
-    title: "Progreso Beach",
+    id: 2,
+    title: "Coco Bongo",
     image: imga3,
     rating: 5,
     reviews: 1,   
-    duration: "7 Nights, 8 days",
-    originalPrice: "$1500",
-    price: "$1200",
+    duration: "Night",
+    price: "$75",
   },
   {
-    id: 5,
-    title: "Plaza Grande (Main Square)",
+    id: 3,
+    title: "Playa Delfines",
     image: imga4,
     rating: 5,
     reviews: 1,
-    duration: "3 Nights, 4 days",
-    price: "$860",
+    duration: "Half day",
+    price: "Free",
   },
   {
-    id: 6,
-    title: "Cenotes de Cuzamá",
+    id: 4,
+    title: "El Meco Archaeological Site",
     image: frame341,
     rating: 5,
     reviews: 1,
-    duration: "10 Nights, 9 days",
-    price: "$1020",
+    duration: "2 hours",
+    price: "$65",
+  },
+  {
+    id: 5,
+    title: "Cancún Interactive Aquarium",
+    image: imga5,
+    rating: 5,
+    reviews: 1,
+    duration: "2-3 hours",
+    price: "$35",
+  },
+  {
+    id: 6,
+    title: "La Isla Shopping Village",
+    image: imga1,
+    rating: 5,
+    reviews: 1,
+    duration: "Flexible",
+    price: "Free entry",
   },
 ];
 
 const restaurantData = [
   {
-    title: "La Chaya Maya - Mérida",
-    image: i1,
-    url: "https://lachayamaya.com/",
-    description: "Auténtica cocina yucateca en ambiente tradicional"
-  },
-  {
-    title: "Porfirio's - Mérida",
-    image: i3,
-    url: "https://porfirios.com.mx/",
-    description: "Gastronomía mexicana contemporánea"
-  },
-  {
-    title: "Alux - Playa del Carmen",
-    image: alux,
-    url: "https://aluxrestaurant.com/",
-    description: "Restaurante en una cueva natural"
-  },
-  {
     title: "Harry's - Cancún",
     image: harris,
     url: "https://harrys.com.mx/",
-    description: "Carnes premium y mariscos frescos"
+    description: "Premium steaks and fresh seafood with ocean views"
   },
   {
-    title: "Hartwood - Tulum",
-    image: hard,
-    url: "https://www.hartwoodtulum.com/",
-    description: "Cocina de autor con ingredientes locales y técnicas al fuego"
+    title: "La Habichuela - Cancún",
+    image: i1,
+    url: "https://lahabichuela.com/",
+    description: "Traditional Mexican cuisine in a tropical garden"
   },
   {
-    title: "Casa Rolandi - Isla Mujeres",
-    image: rolandi,
-    url: "https://casarolandi.com/",
-    description: "Cocina italiana con toques mexicanos"
+    title: "Puerto Madero - Cancún",
+    image: i3,
+    url: "https://puertomaderorestaurantes.com/",
+    description: "Argentinian grill with marina views"
+  },
+  {
+    title: "RosaNegra - Cancún",
+    image: imga2,
+    url: "https://rosanegra.com.mx/",
+    description: "Modern Mexican cuisine with beachfront dining"
+  },
+  {
+    title: "Surfing Burrito - Cancún",
+    image: imga3,
+    url: "https://www.surfingburrito.com/",
+    description: "Casual beachfront Mexican fare"
+  },
+  {
+    title: "Fred's - Cancún",
+    image: imga4,
+    url: "https://fredshouseandgardens.com/",
+    description: "Seafood and steaks in a romantic garden setting"
   }
 ];
 
@@ -259,39 +251,40 @@ const TourCard = ({ tour, onClick }) => (
   </Card>
 );
 
-export default function Merida() {
+export default function Cancun() {
   const navigate = useNavigate();
 
-  const handleChichenItzaClick = () => {
-    navigate('/PlaceSelectionated');
+  const handleIslaMujeresClick = () => {
+    navigate('/IslaMujeres');
   };
-  const handleChichenItzaClick2 = () => {
-    navigate('/PlaceSelectionated2');
+
+  const handleHotelZoneClick = () => {
+    navigate('/HotelZoneTour');
   };
 
   // Top Activities navigation handlers
-  const handleArchitectureClick = () => {
-    navigate('/ArchitectureMerida');
+  const handleUnderwaterMuseumClick = () => {
+    navigate('/UnderwaterMuseum');
   };
 
-  const handleCenotesClick = () => {
-    navigate('/CenotesTour');
+  const handleCocoBongoClick = () => {
+    navigate('/CocoBongo');
   };
 
-  const handleIzamalClick = () => {
-    navigate('/Izamal');
+  const handlePlayaDelfinesClick = () => {
+    navigate('/PlayaDelfines');
   };
 
-  const handleProgresoClick = () => {
-    navigate('/ProgresoBeach');
+  const handleElMecoClick = () => {
+    navigate('/ElMeco');
   };
 
-  const handlePlazaGrandeClick = () => {
-    navigate('/PlazaGrande');
+  const handleAquariumClick = () => {
+    navigate('/InteractiveAquarium');
   };
 
-  const handleCenotesCuzamaClick = () => {
-    navigate('/CenotesCuzama');
+  const handleShoppingVillageClick = () => {
+    navigate('/LaIslaShopping');
   };
 
   return (
@@ -321,7 +314,7 @@ export default function Merida() {
                 fontFamily: "Playfair Display",
               }}
             >
-              Merida
+              Cancún
             </Typography>
           </Box>
 
@@ -331,10 +324,10 @@ export default function Merida() {
                 <TourCard 
                   tour={tour} 
                   onClick={
-                    tour.title === "Chichen-Itza"
-                      ? handleChichenItzaClick
-                      : tour.title === "Uxmal, Kabah"
-                      ? handleChichenItzaClick2
+                    tour.title === "Isla Mujeres"
+                      ? handleIslaMujeresClick
+                      : tour.title === "Hotel Zone Tour"
+                      ? handleHotelZoneClick
                       : undefined
                   }
                 />
@@ -379,18 +372,18 @@ export default function Merida() {
                 <TourCard 
                   tour={tour} 
                   onClick={
-                    tour.title === "Architecture in Merida"
-                      ? handleArchitectureClick
-                      : tour.title === "4 Cenotes Tour"
-                      ? handleCenotesClick
-                      : tour.title === "Izamal"
-                      ? handleIzamalClick
-                      : tour.title === "Progreso Beach"
-                      ? handleProgresoClick
-                      : tour.title === "Plaza Grande (Main Square)"
-                      ? handlePlazaGrandeClick
-                      : tour.title === "Cenotes de Cuzamá"
-                      ? handleCenotesCuzamaClick
+                    tour.title === "Cancún Underwater Museum"
+                      ? handleUnderwaterMuseumClick
+                      : tour.title === "Coco Bongo"
+                      ? handleCocoBongoClick
+                      : tour.title === "Playa Delfines"
+                      ? handlePlayaDelfinesClick
+                      : tour.title === "El Meco Archaeological Site"
+                      ? handleElMecoClick
+                      : tour.title === "Cancún Interactive Aquarium"
+                      ? handleAquariumClick
+                      : tour.title === "La Isla Shopping Village"
+                      ? handleShoppingVillageClick
                       : undefined
                   }
                 />
@@ -417,7 +410,7 @@ export default function Merida() {
 
         <Stack spacing={6} sx={{ py: 6, marginBottom:'100px' }}>
           <Typography variant="h3" align="center" sx={{ fontWeight: "bold", color: "black", fontFamily: "Playfair Display", mb: 4 }}>
-            Local restaurants in Merida
+            Best restaurants in Cancún
           </Typography>
 
           <Box sx={{ px: { xs: 1, md: 4 }, mx: "auto", maxWidth: "95%", overflow: "hidden" }}>

@@ -47,11 +47,11 @@ import Mastercard from '../assets/Mastercard.svg';
 
 // Data for pricing breakdown
 const pricingItems = [
-    { label: 'Tarifa de Servicio de Plataforma', price: '$xx.xx' },
-    { label: 'Tarifa de Experiencia', price: '$xx.xx' },
-    { label: 'Impuestos y Otros Cargos', price: '$xx.xx' },
-    { label: 'Tarifa del Transporte (Opcional)', price: '$xx.xx' },
-    { label: 'Tarifa del Guía', price: '$xxx.x' }
+    { label: 'Platform Service Fee', price: '$xx.xx' },
+    { label: 'Experience Fee', price: '$xx.xx' },
+    { label: 'Taxes and Other Charges', price: '$xx.xx' },
+    { label: 'Transportation Fee (Optional)', price: '$xx.xx' },
+    { label: 'Guide Fee', price: '$xxx.x' }
 ];
 
 // Data for steps
@@ -336,7 +336,10 @@ export const BookingSimulation3 = () => {
                 <img
                     src={img41}
                     alt="Car Rental Advertisement"
-                    style={{ width: '100%', height: 184, objectFit: 'cover' }}
+                    style={{ width: '100%', height: 184, objectFit: 'cover',  marginTop: '150px',
+                        marginBottom: '150px',
+                        borderRadius: 4,
+                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', }}
                 />
             </Box>
 

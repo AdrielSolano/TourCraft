@@ -28,11 +28,11 @@ import { Link as RouterLink } from "react-router-dom";
 
 // Data for pricing breakdown
 const pricingItems = [
-    { id: 1, label: "Tarifa de Servicio de Plataforma", price: "$xx.xx" },
-    { id: 2, label: "Tarifa de Experiencia", price: "$xx.xx" },
-    { id: 3, label: "Impuestos y Otros Cargos", price: "$xx.xx" },
-    { id: 4, label: "Tarifa del Transporte (Opcional)", price: "$xx.xx" },
-    { id: 5, label: "Tarifa del Guía", price: "$xxx.x" },
+    { label: 'Platform Service Fee', price: '$xx.xx' },
+    { label: 'Experience Fee', price: '$xx.xx' },
+    { label: 'Taxes and Other Charges', price: '$xx.xx' },
+    { label: 'Transportation Fee (Optional)', price: '$xx.xx' },
+    { label: 'Guide Fee', price: '$xxx.x' }
 ];
 
 
@@ -521,6 +521,9 @@ export const BookingSimulation = () => {
                         width: "100%",
                         maxWidth: 910,
                         height: 184,
+                        marginTop: '150px',
+                        marginBottom: '150px',
+                        borderRadius: 2,
                         mx: "auto",
                         display: "block",
                     }}

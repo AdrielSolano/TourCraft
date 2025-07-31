@@ -153,7 +153,7 @@ const restaurantData = [
     },
     {
         title: "Hartwood - Tulum",
-        image: hard, 
+        image: hard,
         url: "https://www.hartwoodtulum.com/",
         description: "Cocina de autor con ingredientes locales y técnicas al fuego"
     },
@@ -174,37 +174,43 @@ export const Tours = () => {
     const [dateAnchorEl, setDateAnchorEl] = useState(null);
     const [guestAnchorEl, setGuestAnchorEl] = useState(null);
     const navigate = useNavigate();
-    
+
     const locations = ["Merida", "Cancun", "Tulum", "Playa del Carmen", "Puerto Morelos", "Akumal"];
-    
+
     const handleLocationClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
-    
+
     const handleLocationSelect = (location) => {
         setSelectedLocation(location);
         setAnchorEl(null);
     };
-    
+
     const handleDateClick = (event) => {
         setDateAnchorEl(event.currentTarget);
     };
-    
+
     const handleGuestClick = (event) => {
         setGuestAnchorEl(event.currentTarget);
     };
-    
+
     const handleClose = () => {
         setAnchorEl(null);
         setDateAnchorEl(null);
         setGuestAnchorEl(null);
     };
-    
+
     const handleSearch = () => {
         if (selectedLocation === "Merida") {
             navigate("/merida");
+        }else if (selectedLocation === "Cancun") {
+            navigate("/cancun");
+        }else if (selectedLocation === "Tulum") {
+            navigate("/tulum");
         }
-        // You can add other location redirects here if needed
+        else if (selectedLocation === "PlayadelCarmen") {
+            navigate("/playadelcarmen");
+        }
     };
 
     const handleDateChange = (date) => {
@@ -231,6 +237,35 @@ export const Tours = () => {
                             mb: 8,
                         }}
                     >
+                        <Box
+                            sx={{
+                                position: "absolute",
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                                display: "flex",
+                                flexDirection: "column",
+                                justifyContent: "center",
+                                alignItems: "center",
+                            }}
+                        >
+                            <Typography
+                                variant="h2"
+                                sx={{
+                                    color: "white",
+                                    fontWeight: "bold",
+                                
+                                    fontFamily: "Playfair Display",
+                                    textAlign: "center",
+                                    mb: 2,
+                                }}
+                            >
+                                Selecciona a dónde deseas viajar
+                            </Typography>
+                        </Box>
+
                         <Card
                             sx={{
                                 position: "absolute",
@@ -242,14 +277,15 @@ export const Tours = () => {
                                 p: 3,
                                 borderRadius: "20px",
                                 boxShadow: "0px 3px 20px rgba(0,0,0,0.08)",
+                                display: "flex",
                             }}
                         >
                             <Stack direction="row" spacing={4} alignItems="center">
                                 <Stack direction="row" spacing={2} sx={{ flex: 1 }}>
                                     {/* Location */}
-                                    <Stack 
-                                        direction="row" 
-                                        spacing={2} 
+                                    <Stack
+                                        direction="row"
+                                        spacing={2}
                                         alignItems="center"
                                         onClick={handleLocationClick}
                                         sx={{ cursor: 'pointer' }}
@@ -270,8 +306,8 @@ export const Tours = () => {
                                         onClose={handleClose}
                                     >
                                         {locations.map((location) => (
-                                            <MenuItem 
-                                                key={location} 
+                                            <MenuItem
+                                                key={location}
                                                 onClick={() => handleLocationSelect(location)}
                                                 selected={location === selectedLocation}
                                             >
@@ -281,9 +317,9 @@ export const Tours = () => {
                                     </Menu>
 
                                     {/* Date */}
-                                    <Stack 
-                                        direction="row" 
-                                        spacing={2} 
+                                    <Stack
+                                        direction="row"
+                                        spacing={2}
                                         alignItems="center"
                                         onClick={handleDateClick}
                                         sx={{ cursor: 'pointer' }}
@@ -319,9 +355,9 @@ export const Tours = () => {
                                     </Popover>
 
                                     {/* Guests */}
-                                    <Stack 
-                                        direction="row" 
-                                        spacing={2} 
+                                    <Stack
+                                        direction="row"
+                                        spacing={2}
                                         alignItems="center"
                                         onClick={handleGuestClick}
                                         sx={{ cursor: 'pointer' }}
@@ -350,13 +386,13 @@ export const Tours = () => {
                                                 Number of guests
                                             </Typography>
                                             <Stack direction="row" alignItems="center" spacing={2}>
-                                                <IconButton 
+                                                <IconButton
                                                     onClick={() => handleGuestChange(guests - 1)}
                                                     disabled={guests <= 1}
                                                 >
                                                     -
                                                 </IconButton>
-                                                <Typography sx={{fontFamily: "Inter"}}>{guests}</Typography>
+                                                <Typography sx={{ fontFamily: "Inter" }}>{guests}</Typography>
                                                 <IconButton onClick={() => handleGuestChange(guests + 1)}>
                                                     +
                                                 </IconButton>
@@ -431,7 +467,7 @@ export const Tours = () => {
 
                                                 <Stack direction="row" spacing={2} alignItems="center">
                                                     <ScheduleIcon sx={{ fontSize: 24 }} />
-                                                    <Typography variant="body1" sx={{fontFamily: "Playfair Display"}}>{tour.duration}</Typography>
+                                                    <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>{tour.duration}</Typography>
                                                 </Stack>
 
                                                 <Stack direction="row" spacing={1} alignItems="center">
@@ -446,7 +482,7 @@ export const Tours = () => {
                                                             ${tour.originalPrice}
                                                         </Typography>
                                                     )}
-                                                    <Typography variant="body1" sx={{ fontWeight: "bold",fontFamily: "Inter" }}>
+                                                    <Typography variant="body1" sx={{ fontWeight: "bold", fontFamily: "Inter" }}>
                                                         ${tour.price}
                                                     </Typography>
                                                 </Stack>
@@ -512,7 +548,7 @@ export const Tours = () => {
                     <Divider sx={{ my: 4 }} />
 
                     {/* Restaurants */}
-                    <Stack spacing={6} sx={{ py: 6 }}>
+                    <Stack spacing={6} sx={{ py: 6, marginBottom: '100px' }}>
                         <Typography
                             variant="h3"
                             align="center"

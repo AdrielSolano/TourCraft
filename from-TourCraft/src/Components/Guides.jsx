@@ -28,65 +28,66 @@ import { Link as RouterLink } from 'react-router-dom';
 // Importación de imágenes
 import img53 from '../assets/img53.png';
 import img40 from '../assets/img40.png';
-import p1 from '../assets/p1.png';
-import p2 from '../assets/p2.png';
-
+import p1 from '../assets/p1.jpg';
+import p2 from '../assets/p2.jpg';
+import p3 from '../assets/p3.jpg';
+import p4 from '../assets/p4.jpg';
 // Datos de guías turísticos
 const guides = [
     {
         id: 1,
         name: "Sebastián Monteverde",
-        description: "Ac euismod tincidunt sed quam pharetra laoreet nisl mollis vitae.",
+        description: "Expert in Mayan culture and photography tours. Specialized in creating memorable experiences.",
         languages: "Spanish/English/Japanese",
         experience: "5 years of experience in the Merida",
         skills: ["Professional photographer", "Certified guide"],
-        bio: '"Hola, soy Sebastian, guía certificado con una gran pasión por la Riviera Maya. Llevo más de cinco años mostrando a los viajeros la belleza natural y cultural de nuestra región, desde los cenotes hasta las ruinas mayas. Mi objetivo es crear experiencias únicas y auténticas para que cada visitante se lleve recuerdos inolvidables. ¡Será un placer ser tu guía en esta aventura!"',
-        location: "Merida, MX",
+        bio: '"Hi, I\'m Sebastian, a certified guide with a great passion for the Riviera Maya. For over five years, I\'ve been showing travelers the natural and cultural beauty of our region, from cenotes to Mayan ruins. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Cancun, MX",
         rating: 4.9,
         reviews: 300,
-        image: p2,
+        image: p1,
         backgroundColor: "#f1f1f1",
     },
     {
         id: 2,
         name: "Mariana Del Valle",
-        description: "Ac euismod tincidunt sed quam pharetra laoreet nisl mollis vitae.",
+        description: "Bilingual guide with focus on eco-tourism and sustainable adventures.",
         languages: "Spanish/English/Japanese",
         experience: "5 years of experience in the Merida",
         skills: ["Certified guide", "Certified guide"],
-        bio: '"Hola, soy Mariana, guía certificado con una gran pasión por la Riviera Maya. Llevo más de cinco años mostrando a los viajeros la belleza natural y cultural de nuestra región, desde los cenotes hasta las ruinas mayas. Mi objetivo es crear experiencias únicas y auténticas para que cada visitante se lleve recuerdos inolvidables. ¡Será un placer ser tu guía en esta aventura!"',
+        bio: '"Hi, I\'m Mariana, a certified guide with a great passion for the Riviera Maya. For over five years, I\'ve been showing travelers the natural and cultural beauty of our region, from cenotes to Mayan ruins. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
         location: "Merida, MX",
         rating: 4.9,
         reviews: 300,
-        image: p1,
+        image: p2,
         backgroundColor: "#ffffff",
     },
     {
         id: 3,
         name: "Camila Arrieta",
-        description: "Ac euismod tincidunt sed quam pharetra laoreet nisl mollis vitae.",
+        description: "Food and history specialist, offering unique culinary journeys.",
         languages: "Spanish/English/Japanese",
         experience: "5 years of experience in the Merida",
         skills: ["Certified guide", "Certified guide"],
-        bio: '"Hola, soy Camila, guía certificado con una gran pasión por la Riviera Maya. Llevo más de cinco años mostrando a los viajeros la belleza natural y cultural de nuestra región, desde los cenotes hasta las ruinas mayas. Mi objetivo es crear experiencias únicas y auténticas para que cada visitante se lleve recuerdos inolvidables. ¡Será un placer ser tu guía en esta aventura!"',
-        location: "Meridad, MX",
+        bio: '"Hi, I\'m Camila, a certified guide with a great passion for the Riviera Maya. For over five years, I\'ve been showing travelers the natural and cultural beauty of our region, from cenotes to Mayan ruins. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Tulum, MX",
         rating: 4.9,
         reviews: 300,
-        image: p2,
+        image: p3,
         backgroundColor: "#f1f1f1",
     },
     {
         id: 4,
         name: "Valeria Sandoval",
-        description: "Ac euismod tincidunt sed quam pharetra laoreet nisl mollis vitae.",
+        description: "Adventure guide with expertise in water sports and jungle expeditions.",
         languages: "Spanish/English/Japanese",
         experience: "5 years of experience in the Merida",
         skills: ["Certified guide", "Certified guide"],
-        bio: '"Hola, soy Valeria, guía certificado con una gran pasión por la Riviera Maya. Llevo más de cinco años mostrando a los viajeros la belleza natural y cultural de nuestra región, desde los cenotes hasta las ruinas mayas. Mi objetivo es crear experiencias únicas y auténticas para que cada visitante se lleve recuerdos inolvidables. ¡Será un placer ser tu guía en esta aventura!"',
-        location: "Merida, MX",
+        bio: '"Hi, I\'m Valeria, a certified guide with a great passion for the Riviera Maya. For over five years, I\'ve been showing travelers the natural and cultural beauty of our region, from cenotes to Mayan ruins. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Playa del Carmen, MX",
         rating: 4.9,
         reviews: 300,
-        image: p1,
+        image: p4,
         backgroundColor: "#ffffff",
     },
 ];
@@ -449,31 +450,12 @@ const Guides = () => {
                         position: "relative",
                     }}
                 >
-                    {/* Back Button */}
-                    <Button
-                        startIcon={<ArrowBack />}
-                        component={RouterLink}
-                        to="/"
-                        sx={{
-                            position: "absolute",
-                            top: { xs: "24px", md: "32px" },
-                            left: { xs: "16px", md: "32px" },
-                            textTransform: "none",
-                            fontWeight: 100,
-                            fontFamily: "Inter",
-                            fontSize: "18px",
-                            zIndex: 1
-                        }}
-                    >
-                        Back
-                    </Button>
-
                     {/* Main Title */}
                     <Typography
                         variant="h3"
                         sx={{
                             position: "absolute",
-                            top: { xs: "80px", md: "261px" },
+                            top: { xs: "80px", md: "61px" },
                             left: { xs: "20px", md: "147px" },
                             fontFamily: "Playfair Display",
                             fontWeight: 700,
@@ -489,7 +471,7 @@ const Guides = () => {
                     {/* Feature Section */}
                     <Box
                         sx={{
-                            mt: { xs: "160px", md: "371px" },
+                            mt: { xs: "160px", md: "171px" },
                             px: { xs: 2, md: "150px" },
                             display: "flex",
                             flexDirection: { xs: "column", md: "row" },
@@ -851,7 +833,7 @@ const Guides = () => {
                     </Box>
 
                     {/* Guide Cards */}
-                    <Box sx={{ px: { xs: 2, md: 4 }, mb: 10 }}>
+                    <Box   sx={{ px: { xs: 2, md: 4 }, mb: 10 }}>
                         {guides.map((guide, index) => (
                             <Card
                                 key={index}

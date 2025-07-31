@@ -71,7 +71,15 @@ const PlacesSelectionated = () => {
     const [zona, setZona] = useState(null);
 
 
-
+    const getDescription = () => {
+        if (zona && zona.descripción) {
+            return zona.descripción;
+        }
+        if (zona && !zona.descripción) {
+            return 'No data available for this place.';
+        }
+        return 'Loading description...';
+    };
     useEffect(() => {
         axios.get("http://localhost:3000/api/categoria")
             .then(res => setCategorias(res.data.data))
@@ -85,33 +93,15 @@ const PlacesSelectionated = () => {
             .catch(err => console.error("Error al obtener zona turística", err));
     }, []);
 
-    useEffect(() => {
-        const scrollContainer = testimonialsRef.current;
-        let scrollAmount = 0;
-        const scrollSpeed = 1;
 
-        const scroll = () => {
-            if (scrollContainer) {
-                scrollAmount += scrollSpeed;
-                scrollContainer.scrollLeft = scrollAmount;
-
-                if (scrollAmount >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-                    scrollAmount = 0;
-                }
-            }
-        };
-
-        const scrollInterval = setInterval(scroll, 50);
-        return () => clearInterval(scrollInterval);
-    }, []);
 
 
     return (
         <Box sx={{ backgroundColor: '#ffffff', color: '#333333' }}>
             <Container maxWidth="lg" sx={{ py: 5 }}>
-                <Link href="/Merida" underline="none" color='black' sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 5}}>
+                <Link href="/Merida" underline="none" color='black' sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 5 }}>
                     <ArrowBack />
-                    <Typography variant="body1" color='black' sx={{ fontWeight: 600, fontFamily:"Playfair Display" }}>Back</Typography>
+                    <Typography variant="body1" color='black' sx={{ fontWeight: 600, fontFamily: "Playfair Display" }}>Back</Typography>
                 </Link>
 
                 <Grid container spacing={6}>
@@ -349,30 +339,37 @@ const PlacesSelectionated = () => {
                 </Container>
             </Box>
 
-            <Box sx={{ py: 7.5, borderTop: '1px solid rgba(0,0,0,0.1)', overflow: 'hidden' }}>
+            <Box sx={{ py: 7.5, borderTop: '1px solid rgba(0,0,0,0.1)', overflow: 'hidden', marginBottom: '100px' }}>
                 <Container maxWidth="lg">
-                    <Typography variant="h3" sx={{ fontWeight: 400, mb: 4, fontFamily: "Playfair Display" }}>
-                        See what travelers are saying about Chichen-Itza
-                    </Typography>
-
-                    <Box
-                        ref={testimonialsRef}
+                    <Typography
+                        variant="h3"
                         sx={{
-                            display: 'flex',
-                            gap: 3,
-                            overflowX: 'auto',
-                            scrollbarWidth: 'none',
-                            '&::-webkit-scrollbar': { display: 'none' },
-                            pb: 3
+                            justifyContent: 'center',
+                            fontWeight: 400,
+                            mb: 4,
+                            fontFamily: 'Playfair Display',
+                            textAlign: 'center',
                         }}
                     >
+                        See What Travelers Are Saying About… Chichen-Itza
+                    </Typography>
+
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 3 }}>
                         {[
-                            { image: lg1, name: 'Lorena Calderon', location: 'Mexico City, Mexico' },
-                            { image: lg2, name: 'Isabel Garcia', location: 'Ibiza, Spain' },
-                            { image: lg3, name: 'David Fraga', location: 'Nevada, USA' },
-                            { image: lg4, name: 'Jesus Gallegos', location: 'Lima, Peru' },
-                            { image: lg2, name: 'Lorena Calderon', location: 'Mexico City, Mexico' },
-                            { image: lg4, name: 'Isabel Garcia', location: 'Ibiza, Spain' }
+                            {
+                                image: lg1,
+                                name: 'Lorena Calderon',
+                                location: 'Mexico City, Mexico',
+                                comment:
+                                    "Visiting Chichen-Itza was a dream come true. The history, the energy, everything was simply magical. I recommend taking the guided tour to understand the rich culture behind every stone.",
+                            },
+                            {
+                                image: lg2,
+                                name: 'Isabel Garcia',
+                                location: 'Ibiza, Spain',
+                                comment:
+                                    "An unforgettable experience! I was amazed by the grandeur of the pyramid and the stories behind it. Definitely a must-visit for anyone exploring Mexico.",
+                            },
                         ].map((testimonial, index) => (
                             <Paper
                                 key={index}
@@ -380,24 +377,33 @@ const PlacesSelectionated = () => {
                                     p: 3,
                                     border: '1px solid #2f2b36',
                                     borderRadius: '10px',
-                                    minWidth: 300,
-                                    flexShrink: 0,
+                                    minWidth: '45%',
+                                    flexGrow: 2,
                                     display: 'flex',
                                     flexDirection: 'column',
                                     justifyContent: 'space-between',
-                                    gap: 2.5
+                                    gap: 2.5,
                                 }}
                             >
-                                <Typography variant="body2" sx={{ lineHeight: '22.5px', fontFamily: "Playfair Display" }}>
-                                    "Use this space to share a testimonial quote about the business, its products or its services..."
+                                <Typography
+                                    variant="body2"
+                                    sx={{ lineHeight: '22.5px', fontFamily: 'Playfair Display' }}
+                                >
+                                    "{testimonial.comment}"
                                 </Typography>
                                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-                                    <Avatar src={testimonial.image} sx={{ width: 60, height: 60, borderRadius: '50%' }} />
+                                    <Avatar
+                                        src={testimonial.image}
+                                        sx={{ width: 60, height: 60, borderRadius: '50%' }}
+                                    />
                                     <Box>
-                                        <Typography variant="body2" sx={{ fontFamily: "Playfair Display" }}>
+                                        <Typography variant="body2" sx={{ fontFamily: 'Playfair Display' }}>
                                             {testimonial.name}
                                         </Typography>
-                                        <Typography variant="body2" sx={{ fontSize: '14px', fontFamily: "Playfair Display" }}>
+                                        <Typography
+                                            variant="body2"
+                                            sx={{ fontSize: '14px', fontFamily: 'Playfair Display' }}
+                                        >
                                             {testimonial.location}
                                         </Typography>
                                     </Box>

@@ -184,7 +184,7 @@ const Footer = () => {
                             <Box component="ul" sx={{ listStyle: 'none', padding: 0, margin: 0, textAlign: 'center' }}>
                                 {[{ name: 'Home', path: '/' },
                                 { name: 'Tours', path: '/tours' },
-                                { name: 'Guides', path: '/guides' },
+                                { name: 'Guides', path: '/guides'},
                                 { name: 'About Us', path: '/about' }]
                                     .map((item) => (
                                         <li key={item.name} style={{ marginBottom: '8px' }}>

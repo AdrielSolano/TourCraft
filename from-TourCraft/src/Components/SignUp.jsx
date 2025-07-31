@@ -13,6 +13,7 @@ import {
     Alert,
     Snackbar
 } from "@mui/material";
+import ArrowBack from "@mui/icons-material/ArrowBack";
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import React, { useState, useRef } from "react";
 import { useNavigate, Link as RouterLink } from "react-router-dom";
@@ -50,17 +51,17 @@ const SignUp = () => {
         const birth = new Date(birthDate);
         let age = today.getFullYear() - birth.getFullYear();
         const monthDiff = today.getMonth() - birth.getMonth();
-        
+
         if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
             age--;
         }
-        
+
         return age;
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         // Validations
         if (!formData.agreeToTerms) {
             setSnackbar({ open: true, message: 'You must accept the terms and conditions', severity: 'error' });
@@ -154,7 +155,7 @@ const SignUp = () => {
                         left: 0,
                         width: "100%",
                         height: "100%",
-                        backgroundColor: "rgba(0, 0, 0, 0.3)",
+                        backgroundColor: "rgba(0, 0, 0, 0.5)",
                         zIndex: 1,
                     }}
                 />
@@ -171,11 +172,11 @@ const SignUp = () => {
                         color: "#ffffff",
                         fontSize: "40px",
                         textAlign: "center",
-                        lineHeight: "29.2px",
+                        lineHeight: "49.2px",
                         zIndex: 2,
                     }}
                 >
-                    Explore The Riviera Maya
+                    Explore The Riviera Maya With Us!
                 </Typography>
 
                 <Typography
@@ -213,6 +214,25 @@ const SignUp = () => {
                     position: "relative",
                 }}
             >
+                {/* Back Button */}
+                <Button
+                    startIcon={<ArrowBack />}
+                    component={RouterLink}
+                    to="/"
+                    sx={{
+                        position: "absolute",
+                        top: { xs: "20px", md: "55px" },
+                        left: { xs: "20px", md: "20px" },
+                        textTransform: "none",
+                        fontWeight: 600,
+                        fontSize: "18px",
+                        zIndex: 1,
+                        color: 'black',
+                        fontFamily: "Playfair Display",
+                    }}
+                >
+                    Back
+                </Button>
                 <Box
                     component="img"
                     src={Solano11}
@@ -236,7 +256,7 @@ const SignUp = () => {
                         display: "flex",
                         flexDirection: "column",
                         marginLeft: "70px",
-                        marginTop:"100px",
+                        marginTop: "100px",
                     }}
                 >
                     <Box sx={{ mb: 3 }}>
@@ -250,21 +270,21 @@ const SignUp = () => {
                                 lineHeight: "33.6px",
                             }}
                         >
-                                                    Create account
-                    </Typography>
-                    <Typography
-                        variant="body1"
-                        sx={{
-                            fontFamily: "Playfair Display",
-                            fontWeight: 400,
-                            color: "#2D3748",
-                            fontSize: "16px",
-                            letterSpacing: "-0.32px",
-                            lineHeight: "22.4px",
-                        }}
-                    >
-                        Join With Us!
-                    </Typography>
+                            Create account
+                        </Typography>
+                        <Typography
+                            variant="body1"
+                            sx={{
+                                fontFamily: "Playfair Display",
+                                fontWeight: 400,
+                                color: "#2D3748",
+                                fontSize: "16px",
+                                letterSpacing: "-0.32px",
+                                lineHeight: "22.4px",
+                            }}
+                        >
+                            Join With Us!
+                        </Typography>
                     </Box>
 
                     <Grid container spacing={2}>

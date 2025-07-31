@@ -48,7 +48,7 @@ import {
 } from "date-fns";
 import { Link as RouterLink } from 'react-router-dom';
 
-import p2 from "../assets/p2.png";
+import p1 from "../assets/p1.jpg";
 import adriel from "../assets/adriel.png";
 import jesus from "../assets/jesus.png";
 
@@ -57,20 +57,20 @@ const reviewsData = [
     id: 1,
     name: "Rafa Camal",
     rating: 5,
-    date: "2 October 2012",
-    title: "Veloo",
+    date: "5 May 2025",
+    title: "Amazing Experience!",
     content:
-      "The tour was very well organised. One minus is that you get completely bombarded with information...",
+      "Sebastian was an incredible guide! He shared fascinating stories about Mayan culture and made sure everyone felt comfortable. The cenote adventure was unforgettable. Highly recommended!",
     image: adriel,
   },
   {
     id: 2,
-    name: "Yisus",
+    name: "Jesus Perez",
     rating: 5,
-    date: "2 October 2012",
-    title: "Good Tour, Really Well Organised",
+    date: "2 October 2024",
+    title: "Professional and Friendly",
     content:
-      "The tour was very well organised. One minus is that you get completely bombarded with information...",
+      "The tour was very well organised and Sebastian was super friendly. He helped us discover hidden gems in Tulum and gave great tips for local food. Would book again!",
     image: jesus,
   },
 ];
@@ -128,7 +128,6 @@ const GuideSelectionated = () => {
     const dayString = formatDate(day);
     if (unavailableDates.includes(dayString)) return;
 
-    // Aquí podrías bloquear si no está en availableDates si quieres, pero lo dejo libre
     if (!startDate || (startDate && endDate)) {
       setStartDate(day);
       setEndDate(null);
@@ -180,10 +179,10 @@ const GuideSelectionated = () => {
                 backgroundColor: isUnavailable
                   ? "#ff3232"
                   : selected || inRange
-                  ? "#333"
-                  : isAvailable
-                  ? "#80b9ad"
-                  : "transparent",
+                    ? "#333"
+                    : isAvailable
+                      ? "#80b9ad"
+                      : "transparent",
                 color:
                   isUnavailable || isAvailable || selected || inRange
                     ? "#fff"
@@ -218,11 +217,16 @@ const GuideSelectionated = () => {
 
   return (
     <Box sx={{ backgroundColor: "#ffffff", minHeight: "100vh", py: 4 }}>
-      <Container maxWidth="xl">
+      <Container
+        maxWidth="xl"
+        sx={{
+          px: { xs: 2, md: 12 },
+        }}
+      >
         <Button
-       startIcon={<ArrowBack />}
-            component={RouterLink}
-            to="/Guides"
+          startIcon={<ArrowBack />}
+          component={RouterLink}
+          to="/Guides"
           sx={{
             mb: 4,
             color: "#000",
@@ -237,7 +241,7 @@ const GuideSelectionated = () => {
           <Grid item xs={12} md={6}>
             <Box
               component="img"
-              src={p2}
+              src={p1}
               alt="Profile"
               sx={{
                 width: "100%",
@@ -251,7 +255,7 @@ const GuideSelectionated = () => {
                 <Box
                   key={i}
                   component="img"
-                  src={p2}
+                  src={p1}
                   sx={{ width: 120, height: 80, borderRadius: 1, objectFit: "cover" }}
                 />
               ))}
@@ -264,7 +268,7 @@ const GuideSelectionated = () => {
                 variant="h4"
                 sx={{ fontWeight: 800, fontFamily: "Playfair Display" }}
               >
-                David Dominguez
+                Sebastian Monteverde
               </Typography>
               <Typography
                 variant="h5"
@@ -273,9 +277,8 @@ const GuideSelectionated = () => {
                 $34 / day
               </Typography>
               <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Hi, I'm Sebastian, a certified guide with a great passion for the Riviera Maya. For over five years, I've been showing travelers the natural and cultural beauty of our region, from cenotes to Mayan ruins. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!
               </Typography>
-
               <Card>
                 <CardContent>
                   <Stack spacing={2}>
@@ -309,7 +312,7 @@ const GuideSelectionated = () => {
                     </Grid>
                     {renderCalendarCells()}
 
-                    {/* Leyenda de colores */}
+                    {/* Color legend */}
                     <Box sx={{ mt: 2, display: "flex", gap: 3, flexWrap: "wrap" }}>
                       <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                         <Box
@@ -552,12 +555,12 @@ const GuideSelectionated = () => {
 
         <Divider sx={{ my: 8 }} />
 
-        <Box sx={{ mt: 6 }}>
+        <Box sx={{ mt: 6, marginBottom: '100px' }}>
           <Typography
             variant="h4"
             sx={{ fontWeight: 800, mb: 4, fontFamily: "Playfair Display" }}
           >
-            What they say about David Dominguez
+            What They Say About... Sebastian Monteverde
           </Typography>
           <Grid container spacing={4}>
             {reviewsData.map((review) => (
