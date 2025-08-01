@@ -32,6 +32,13 @@ import p1 from '../assets/p1.jpg';
 import p2 from '../assets/p2.jpg';
 import p3 from '../assets/p3.jpg';
 import p4 from '../assets/p4.jpg';
+import guide1 from '../assets/guide1.jpg';
+import guide2 from '../assets/guide2.jpg';
+import guide3 from '../assets/guide3.jpg';
+import guide4 from '../assets/guide4.jpg';
+import guide5 from '../assets/guide5.jpg';
+import guide6 from '../assets/guide6.jpg';
+import guide7 from '../assets/guide7.jpg';
 // Datos de guías turísticos
 const guides = [
     {
@@ -39,55 +46,279 @@ const guides = [
         name: "Sebastián Monteverde",
         description: "Expert in Mayan culture and photography tours. Specialized in creating memorable experiences.",
         languages: "Spanish/English/Japanese",
-        experience: "5 years of experience in the Merida",
-        skills: ["Professional photographer", "Certified guide"],
-        bio: '"Hi, I\'m Sebastian, a certified guide with a great passion for the Riviera Maya. For over five years, I\'ve been showing travelers the natural and cultural beauty of our region, from cenotes to Mayan ruins. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        experience: "8 years of experience in Cancun",
+        skills: ["Professional photographer", "Certified guide", "Mayan culture expert"],
+        bio: '"Hi, I\'m Sebastian, a certified guide with a great passion for Cancun and the Riviera Maya. For over eight years, I\'ve been showing travelers the natural and cultural beauty of our region, from cenotes to Mayan ruins. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
         location: "Cancun, MX",
         rating: 4.9,
         reviews: 300,
-        image: p1,
+        image: guide1,
         backgroundColor: "#f1f1f1",
     },
     {
         id: 2,
         name: "Mariana Del Valle",
         description: "Bilingual guide with focus on eco-tourism and sustainable adventures.",
-        languages: "Spanish/English/Japanese",
-        experience: "5 years of experience in the Merida",
-        skills: ["Certified guide", "Certified guide"],
-        bio: '"Hi, I\'m Mariana, a certified guide with a great passion for the Riviera Maya. For over five years, I\'ve been showing travelers the natural and cultural beauty of our region, from cenotes to Mayan ruins. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        languages: "Spanish/English/French",
+        experience: "6 years of experience in Merida",
+        skills: ["Certified guide", "Eco-tourism specialist", "Cultural heritage expert"],
+        bio: '"Hi, I\'m Mariana, a certified guide with a great passion for Merida and the Yucatan Peninsula. For over six years, I\'ve been showing travelers the natural and cultural beauty of our region, from cenotes to Mayan ruins. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
         location: "Merida, MX",
-        rating: 4.9,
-        reviews: 300,
-        image: p2,
+        rating: 4.8,
+        reviews: 250,
+        image: guide2,
         backgroundColor: "#ffffff",
     },
     {
         id: 3,
         name: "Camila Arrieta",
         description: "Food and history specialist, offering unique culinary journeys.",
-        languages: "Spanish/English/Japanese",
-        experience: "5 years of experience in the Merida",
-        skills: ["Certified guide", "Certified guide"],
-        bio: '"Hi, I\'m Camila, a certified guide with a great passion for the Riviera Maya. For over five years, I\'ve been showing travelers the natural and cultural beauty of our region, from cenotes to Mayan ruins. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        languages: "Spanish/English/Italian",
+        experience: "7 years of experience in Tulum",
+        skills: ["Certified guide", "Culinary expert", "Archaeological specialist"],
+        bio: '"Hi, I\'m Camila, a certified guide with a great passion for Tulum and the Riviera Maya. For over seven years, I\'ve been showing travelers the natural and cultural beauty of our region, from cenotes to Mayan ruins. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
         location: "Tulum, MX",
-        rating: 4.9,
-        reviews: 300,
-        image: p3,
+        rating: 4.7,
+        reviews: 180,
+        image: guide3,
         backgroundColor: "#f1f1f1",
     },
     {
         id: 4,
         name: "Valeria Sandoval",
         description: "Adventure guide with expertise in water sports and jungle expeditions.",
-        languages: "Spanish/English/Japanese",
-        experience: "5 years of experience in the Merida",
-        skills: ["Certified guide", "Certified guide"],
-        bio: '"Hi, I\'m Valeria, a certified guide with a great passion for the Riviera Maya. For over five years, I\'ve been showing travelers the natural and cultural beauty of our region, from cenotes to Mayan ruins. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        languages: "Spanish/English/German",
+        experience: "5 years of experience in Playa del Carmen",
+        skills: ["Certified guide", "Water sports expert", "Adventure specialist"],
+        bio: '"Hi, I\'m Valeria, a certified guide with a great passion for Playa del Carmen and the Riviera Maya. For over five years, I\'ve been showing travelers the natural and cultural beauty of our region, from cenotes to Mayan ruins. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
         location: "Playa del Carmen, MX",
+        rating: 4.6,
+        reviews: 220,
+        image: guide4,
+        backgroundColor: "#ffffff",
+    },
+    {
+        id: 5,
+        name: "Carlos Méndez",
+        description: "Marine biologist and whale shark specialist with deep knowledge of marine life.",
+        languages: "Spanish/English/Portuguese",
+        experience: "10 years of experience in Holbox",
+        skills: ["Marine biologist", "Whale shark expert", "Eco-tourism certified"],
+        bio: '"Hi, I\'m Carlos, a marine biologist and certified guide with a great passion for Holbox and its marine life. For over ten years, I\'ve been showing travelers the natural beauty of our region, from whale sharks to pristine beaches. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Holbox, MX",
         rating: 4.9,
-        reviews: 300,
+        reviews: 150,
+        image: guide5,
+        backgroundColor: "#f1f1f1",
+    },
+    {
+        id: 6,
+        name: "Isabella Rodríguez",
+        description: "Scuba diving instructor and coral reef conservation specialist.",
+        languages: "Spanish/English/French",
+        experience: "9 years of experience in Cozumel",
+        skills: ["Scuba instructor", "Coral reef expert", "Marine conservationist"],
+        bio: '"Hi, I\'m Isabella, a scuba diving instructor and certified guide with a great passion for Cozumel and its underwater world. For over nine years, I\'ve been showing travelers the natural beauty of our region, from coral reefs to marine life. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Cozumel, MX",
+        rating: 4.8,
+        reviews: 200,
+        image: guide6,
+        backgroundColor: "#ffffff",
+    },
+    {
+        id: 7,
+        name: "Roberto Silva",
+        description: "Archaeologist and Mayan ruins expert with extensive knowledge of ancient civilizations.",
+        languages: "Spanish/English/Mayan",
+        experience: "12 years of experience in Cancun",
+        skills: ["Archaeologist", "Mayan ruins expert", "Cultural historian"],
+        bio: '"Hi, I\'m Roberto, an archaeologist and certified guide with a great passion for Cancun and Mayan culture. For over twelve years, I\'ve been showing travelers the cultural beauty of our region, from ancient ruins to historical sites. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Cancun, MX",
+        rating: 4.9,
+        reviews: 280,
+        image: guide7,
+        backgroundColor: "#f1f1f1",
+    },
+    {
+        id: 8,
+        name: "Ana García",
+        description: "Cenote specialist and cave diving expert with focus on underground exploration.",
+        languages: "Spanish/English/Italian",
+        experience: "6 years of experience in Tulum",
+        skills: ["Cenote expert", "Cave diver", "Adventure guide"],
+        bio: '"Hi, I\'m Ana, a cenote specialist and certified guide with a great passion for Tulum and its underground wonders. For over six years, I\'ve been showing travelers the natural beauty of our region, from cenotes to cave systems. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Tulum, MX",
+        rating: 4.7,
+        reviews: 160,
+        image: p1,
+        backgroundColor: "#ffffff",
+    },
+    {
+        id: 9,
+        name: "Diego Martínez",
+        description: "Professional photographer and adventure guide specializing in wildlife photography tours.",
+        languages: "Spanish/English/Portuguese",
+        experience: "11 years of experience in Holbox",
+        skills: ["Wildlife photographer", "Bird watching expert", "Nature conservationist"],
+        bio: '"Hi, I\'m Diego, a wildlife photographer and certified guide with a great passion for Holbox and its natural wonders. For over eleven years, I\'ve been showing travelers the incredible biodiversity of our region, from flamingos to exotic birds. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Holbox, MX",
+        rating: 4.8,
+        reviews: 175,
+        image: p2,
+        backgroundColor: "#f1f1f1",
+    },
+    {
+        id: 10,
+        name: "Sofia Herrera",
+        description: "Marine biologist and snorkeling expert with focus on coral reef preservation.",
+        languages: "Spanish/English/French",
+        experience: "8 years of experience in Cozumel",
+        skills: ["Marine biologist", "Snorkeling instructor", "Coral reef specialist"],
+        bio: '"Hi, I\'m Sofia, a marine biologist and certified guide with a great passion for Cozumel and its underwater paradise. For over eight years, I\'ve been showing travelers the incredible marine life of our region, from colorful fish to coral reefs. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Cozumel, MX",
+        rating: 4.7,
+        reviews: 190,
+        image: p3,
+        backgroundColor: "#ffffff",
+    },
+    {
+        id: 11,
+        name: "Luis Mendoza",
+        description: "Historian and cultural guide specializing in colonial architecture and local traditions.",
+        languages: "Spanish/English/Mayan",
+        experience: "9 years of experience in Merida",
+        skills: ["Cultural historian", "Architecture expert", "Local traditions specialist"],
+        bio: '"Hi, I\'m Luis, a cultural historian and certified guide with a great passion for Merida and its rich heritage. For over nine years, I\'ve been showing travelers the cultural beauty of our region, from colonial buildings to traditional markets. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Merida, MX",
+        rating: 4.6,
+        reviews: 210,
         image: p4,
+        backgroundColor: "#f1f1f1",
+    },
+    {
+        id: 12,
+        name: "Elena Torres",
+        description: "Adventure sports instructor and extreme activities coordinator.",
+        languages: "Spanish/English/German",
+        experience: "7 years of experience in Playa del Carmen",
+        skills: ["Adventure sports instructor", "Extreme activities expert", "Safety specialist"],
+        bio: '"Hi, I\'m Elena, an adventure sports instructor and certified guide with a great passion for Playa del Carmen and its thrilling activities. For over seven years, I\'ve been showing travelers the exciting adventures of our region, from zip-lining to rappelling. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Playa del Carmen, MX",
+        rating: 4.8,
+        reviews: 165,
+        image: p1,
+        backgroundColor: "#ffffff",
+    },
+    {
+        id: 13,
+        name: "Carmen Vega",
+        description: "Art historian and cultural guide specializing in local crafts and traditions.",
+        languages: "Spanish/English/French",
+        experience: "8 years of experience in Merida",
+        skills: ["Art historian", "Cultural specialist", "Local crafts expert"],
+        bio: '"Hi, I\'m Carmen, an art historian and certified guide with a great passion for Merida and its artistic heritage. For over eight years, I\'ve been showing travelers the cultural beauty of our region, from traditional crafts to colonial art. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Merida, MX",
+        rating: 4.7,
+        reviews: 185,
+        image: p2,
+        backgroundColor: "#f1f1f1",
+    },
+    {
+        id: 14,
+        name: "Miguel Ángel",
+        description: "Professional photographer and Instagram influencer specializing in travel photography.",
+        languages: "Spanish/English/Portuguese",
+        experience: "6 years of experience in Cancun",
+        skills: ["Travel photographer", "Social media expert", "Content creator"],
+        bio: '"Hi, I\'m Miguel Ángel, a travel photographer and certified guide with a great passion for Cancun and its photogenic locations. For over six years, I\'ve been showing travelers the most beautiful spots of our region, from pristine beaches to hidden gems. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Cancun, MX",
+        rating: 4.6,
+        reviews: 195,
+        image: p3,
+        backgroundColor: "#ffffff",
+    },
+    {
+        id: 15,
+        name: "Patricia Morales",
+        description: "Yoga instructor and wellness guide specializing in beach and cenote yoga sessions.",
+        languages: "Spanish/English/Italian",
+        experience: "9 years of experience in Tulum",
+        skills: ["Yoga instructor", "Wellness guide", "Meditation expert"],
+        bio: '"Hi, I\'m Patricia, a yoga instructor and certified guide with a great passion for Tulum and its spiritual energy. For over nine years, I\'ve been showing travelers the wellness side of our region, from beach yoga to cenote meditation. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Tulum, MX",
+        rating: 4.9,
+        reviews: 145,
+        image: p4,
+        backgroundColor: "#f1f1f1",
+    },
+    {
+        id: 16,
+        name: "Fernando Ruiz",
+        description: "Fishing guide and marine sports specialist with expertise in deep sea fishing.",
+        languages: "Spanish/English/German",
+        experience: "12 years of experience in Cozumel",
+        skills: ["Fishing guide", "Marine sports expert", "Boat captain"],
+        bio: '"Hi, I\'m Fernando, a fishing guide and certified captain with a great passion for Cozumel and its marine adventures. For over twelve years, I\'ve been showing travelers the best fishing spots of our region, from deep sea to reef fishing. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Cozumel, MX",
+        rating: 4.8,
+        reviews: 170,
+        image: p1,
+        backgroundColor: "#ffffff",
+    },
+    {
+        id: 17,
+        name: "Lucía Hernández",
+        description: "Culinary guide and food tour specialist with focus on local cuisine and markets.",
+        languages: "Spanish/English/French",
+        experience: "7 years of experience in Playa del Carmen",
+        skills: ["Culinary guide", "Food tour expert", "Local cuisine specialist"],
+        bio: '"Hi, I\'m Lucía, a culinary guide and certified food expert with a great passion for Playa del Carmen and its delicious cuisine. For over seven years, I\'ve been showing travelers the gastronomic wonders of our region, from street food to fine dining. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Playa del Carmen, MX",
+        rating: 4.7,
+        reviews: 155,
+        image: p2,
+        backgroundColor: "#f1f1f1",
+    },
+    {
+        id: 18,
+        name: "Ricardo Mendoza",
+        description: "Archaeologist and Mayan astronomy expert with deep knowledge of ancient calendars.",
+        languages: "Spanish/English/Mayan",
+        experience: "15 years of experience in Merida",
+        skills: ["Archaeologist", "Mayan astronomy expert", "Cultural researcher"],
+        bio: '"Hi, I\'m Ricardo, an archaeologist and certified guide with a great passion for Merida and Mayan astronomy. For over fifteen years, I\'ve been showing travelers the astronomical knowledge of our ancient civilization, from celestial alignments to calendar systems. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Merida, MX",
+        rating: 4.9,
+        reviews: 225,
+        image: p3,
+        backgroundColor: "#ffffff",
+    },
+    {
+        id: 19,
+        name: "Adriana Silva",
+        description: "Eco-tourism specialist and sustainable travel coordinator with focus on conservation.",
+        languages: "Spanish/English/Portuguese",
+        experience: "10 years of experience in Holbox",
+        skills: ["Eco-tourism specialist", "Conservation expert", "Sustainable travel guide"],
+        bio: '"Hi, I\'m Adriana, an eco-tourism specialist and certified guide with a great passion for Holbox and its natural conservation. For over ten years, I\'ve been showing travelers the sustainable side of our region, from wildlife protection to eco-friendly practices. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Holbox, MX",
+        rating: 4.8,
+        reviews: 135,
+        image: p4,
+        backgroundColor: "#f1f1f1",
+    },
+    {
+        id: 20,
+        name: "Javier Torres",
+        description: "Nightlife guide and entertainment specialist with expertise in local bars and clubs.",
+        languages: "Spanish/English/Italian",
+        experience: "6 years of experience in Cancun",
+        skills: ["Nightlife guide", "Entertainment specialist", "Party coordinator"],
+        bio: '"Hi, I\'m Javier, a nightlife guide and certified entertainment specialist with a great passion for Cancun and its vibrant nightlife. For over six years, I\'ve been showing travelers the best parties of our region, from beach clubs to rooftop bars. My goal is to create unique and authentic experiences so every visitor takes home unforgettable memories. It will be a pleasure to be your guide on this adventure!"',
+        location: "Cancun, MX",
+        rating: 4.5,
+        reviews: 180,
+        image: p1,
         backgroundColor: "#ffffff",
     },
 ];
@@ -210,7 +441,7 @@ const GuideInfo = ({ guide }) => {
                     fontSize: { xs: "24px", md: "28px" },
                 }}
             >
-                Guide In Merida
+                Guide In {guide.location.split(',')[0]}
             </Typography>
 
             <Typography
@@ -381,7 +612,8 @@ const GuideImage = ({ guide }) => {
                 sx={{
                     width: "100%",
                     height: "100%",
-                    objectFit: "cover"
+                    objectFit: "cover",
+                    objectPosition: "top center"
                 }}
             />
         </Box>
@@ -396,6 +628,14 @@ const Guides = () => {
     const [features, setFeatures] = useState(featureOptions);
     const [availability, setAvailability] = useState(availabilityOptions);
     const [ratings, setRatings] = useState(ratingOptions);
+    const [locations, setLocations] = useState([
+        { name: "Cancun", selected: false },
+        { name: "Merida", selected: true },
+        { name: "Tulum", selected: false },
+        { name: "Playa del Carmen", selected: false },
+        { name: "Holbox", selected: false },
+        { name: "Cozumel", selected: false },
+    ]);
 
     // Manejadores de cambios para los filtros
     const handleLanguageChange = (index) => {
@@ -426,6 +666,14 @@ const Guides = () => {
         const newRatings = [...ratings];
         newRatings[index].checked = !newRatings[index].checked;
         setRatings(newRatings);
+    };
+
+    const handleLocationChange = (index) => {
+        const newLocations = locations.map((location, i) => ({
+            ...location,
+            selected: i === index
+        }));
+        setLocations(newLocations);
     };
 
     return (
@@ -597,21 +845,12 @@ const Guides = () => {
                                 height: "46px",
                             }}
                         >
-                            {locations.map((location) => (
+                            {locations.map((location, index) => (
                                 <Chip
                                     key={location.name}
                                     label={location.name}
                                     clickable
-                                    component={RouterLink}
-                                    to={
-                                        location.name === "Merida" ? "/Merida" :
-                                        location.name === "Cancun" ? "/Cancun" :
-                                        location.name === "Tulum" ? "/Tulum" :
-                                        location.name === "Playa del Carmen" ? "/PlayadelCarmen" :
-                                        location.name === "Holbox" ? "/Holbox" :
-                                        location.name === "Cozumel" ? "/Cozumel" :
-                                        "#"
-                                    }
+                                    onClick={() => handleLocationChange(index)}
                                     sx={{
                                         height: "44px",
                                         minWidth: "130px",
@@ -840,7 +1079,13 @@ const Guides = () => {
 
                     {/* Guide Cards */}
                     <Box   sx={{ px: { xs: 2, md: 4 }, mb: 10 }}>
-                        {guides.map((guide, index) => (
+                        {guides
+                            .filter(guide => {
+                                const selectedLocation = locations.find(loc => loc.selected);
+                                if (!selectedLocation) return true;
+                                return guide.location.includes(selectedLocation.name);
+                            })
+                            .map((guide, index) => (
                             <Card
                                 key={index}
                                 sx={{
@@ -852,15 +1097,15 @@ const Guides = () => {
                                 }}
                             >
                                 <CardContent sx={{ p: 0 }}>
-                                    <Grid container spacing={4} sx={{ p: { xs: 3, md: 7.5 } }}>
-                                        {/* Alternar orden en móvil */}
-                                        <Grid item xs={12} md={6} order={{ xs: index % 2 === 0 ? 1 : 2, md: 'unset' }}>
-                                            <GuideInfo guide={guide} />
-                                        </Grid>
-                                        <Grid item xs={12} md={6} order={{ xs: index % 2 === 0 ? 2 : 1, md: 'unset' }}>
-                                            <GuideImage guide={guide} />
-                                        </Grid>
-                                    </Grid>
+                                                                         <Grid container spacing={4} sx={{ p: { xs: 3, md: 7.5 } }}>
+                                         {/* Información siempre arriba, imagen siempre abajo */}
+                                         <Grid item xs={12} md={6}>
+                                             <GuideInfo guide={guide} />
+                                         </Grid>
+                                         <Grid item xs={12} md={6}>
+                                             <GuideImage guide={guide} />
+                                         </Grid>
+                                     </Grid>
                                 </CardContent>
                             </Card>
                         ))}

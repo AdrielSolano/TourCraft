@@ -54,6 +54,20 @@ import alux from "../assets/alux.jpg";
 import harris from "../assets/harris.jpg";
 import rolandi from "../assets/rolandi.jpg";
 import hard from "../assets/hard.jpg";
+// Images for places
+import cancun from "../assets/cancun.jpeg";
+import tulum from "../assets/tulum.webp";
+import holbox from "../assets/holbox.webp";
+import cozumel from "../assets/cozumel.jpg";
+import merida from "../assets/UX1.jpg";
+import playadelcarmen from "../assets/UX2.jpeg";
+// Images for tours
+import xcaret from "../assets/xcaret.jpg";
+import coba from "../assets/coba.jpg";
+import whaleSharkTour from "../assets/whale-shark-tour.jpg";
+import muyil from "../assets/muyil.jpeg";
+import ux1 from "../assets/UX1.jpg";
+import xplor from "../assets/xplor.png";
 
 // Data
 const tourData = [
@@ -62,68 +76,76 @@ const tourData = [
         rating: 5,
         reviews: 1,
         duration: "1 day",
-        price: 1500,
+        price: 34,
         originalPrice: null,
         discount: null,
         image: img,
+        route: "/PlaceSelectionated",
     },
     {
-        title: "Isla de las tortugas, Akumal",
+        title: "Whale Shark Adventure",
         rating: 5,
         reviews: 1,
-        duration: "1 day",
-        price: 2200,
+        duration: "Full day",
+        price: 150,
         originalPrice: null,
         discount: null,
-        image: img11,
+        image: whaleSharkTour,
+        route: "/WhaleSharkTour",
     },
     {
         title: "Sian Ka'an Biosphere Reserve",
         rating: 5,
         reviews: 1,
-        duration: "2 days",
-        price: 960,
-        originalPrice: 1200,
-        image: img22,
+        duration: "1 day",
+        price: 120,
+        originalPrice: null,
+        discount: null,
+        image: muyil,
+        route: "/SianKaan",
     },
     {
-        title: "Puerto Morelos tour",
-        rating: 5,
-        reviews: 1,
-        duration: "3 days",
-        price: 1200,
-        originalPrice: 1500,
-        image: img33,
-    },
-    {
-        title: "Ruinas de Cobá",
+        title: "Xcaret Park Adventure",
         rating: 5,
         reviews: 1,
         duration: "1 day",
-        price: 860,
+        price: 120,
         originalPrice: null,
         discount: null,
-        image: img34,
+        image: xcaret,
+        route: "/XcaretPark",
     },
     {
-        title: "Cenote Dos Ojos, Tulum",
+        title: "Tulum Ruins Tour",
         rating: 5,
         reviews: 1,
-        duration: "4 hours",
-        price: 1020,
+        duration: "1 day",
+        price: 65,
         originalPrice: null,
         discount: null,
-        image: img44,
+        image: coba,
+        route: "/TulumRuinsTour",
+    },
+    {
+        title: "Uxmal Archaeological Site",
+        rating: 5,
+        reviews: 1,
+        duration: "1 day",
+        price: 34,
+        originalPrice: null,
+        discount: null,
+        image: ux1,
+        route: "/PlaceSelectionated2",
     },
 ];
 
 const placesData = [
-    { image: card10 },
-    { image: card2 },
-    { image: card3 },
-    { image: card11 },
-    { image: card1 },
-    { image: card13 },
+    { image: cancun, name: "Cancun", route: "/Cancun" },
+    { image: tulum, name: "Tulum", route: "/Tulum" },
+    { image: playadelcarmen, name: "Playa del Carmen", route: "/PlayadelCarmen" },
+    { image: holbox, name: "Holbox", route: "/Holbox" },
+    { image: cozumel, name: "Cozumel", route: "/Cozumel" },
+    { image: merida, name: "Merida", route: "/Merida" },
 ];
 
 const restaurantData = [
@@ -202,19 +224,19 @@ export const Tours = () => {
 
     const handleSearch = () => {
         if (selectedLocation === "Merida") {
-            navigate("/merida");
+            navigate("/Merida");
         } else if (selectedLocation === "Cancun") {
-            navigate("/cancun");
+            navigate("/Cancun");
         } else if (selectedLocation === "Tulum") {
-            navigate("/tulum");
+            navigate("/Tulum");
         }
         else if (selectedLocation === "Playa del Carmen") {
-            navigate("/playadelcarmen");
+            navigate("/PlayadelCarmen");
         } else if (selectedLocation === "Holbox") {
-            navigate("/holbox");
+            navigate("/Holbox");
         }
         else if (selectedLocation === "Cozumel") {
-            navigate("/cozumel");
+            navigate("/Cozumel");
         }
     };
 
@@ -439,12 +461,19 @@ export const Tours = () => {
                             {tourData.map((tour, index) => (
                                 <Grid item xs={12} sm={6} md={4} key={index}>
                                     <Card
+                                        onClick={() => navigate(tour.route)}
                                         sx={{
                                             height: 494,
                                             borderRadius: "20px",
                                             overflow: "hidden",
                                             boxShadow: "0px 3px 20px rgba(0,0,0,0.08)",
                                             position: "relative",
+                                            cursor: "pointer",
+                                            transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                                            "&:hover": {
+                                                transform: "scale(1.02)",
+                                                boxShadow: "0px 8px 25px rgba(0,0,0,0.15)",
+                                            },
                                         }}
                                     >
                                         <Box
@@ -526,6 +555,7 @@ export const Tours = () => {
                             {placesData.map((place, index) => (
                                 <Grid item xs={12} sm={6} md={4} key={index}>
                                     <Box
+                                        onClick={() => navigate(place.route)}
                                         sx={{
                                             height: 248,
                                             background: `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(${place.image})`,
@@ -536,6 +566,12 @@ export const Tours = () => {
                                             display: "flex",
                                             alignItems: "flex-end",
                                             p: 3,
+                                            cursor: "pointer",
+                                            transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                                            "&:hover": {
+                                                transform: "scale(1.02)",
+                                                boxShadow: "0px 8px 25px rgba(0,0,0,0.15)",
+                                            },
                                         }}
                                     >
                                         <Typography
