@@ -1,278 +1,306 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
 import {
-  Box,
-  Container,
-  Typography,
-  Button,
-  Grid,
-  Card,
-  CardContent,
-  CardMedia,
-  Rating,
-  Chip,
-  Stack,
-  Divider
+    Box,
+    Container,
+    Typography,
+    Button,
+    Grid,
+    Card,
+    CardMedia,
+    CardContent,
+    Chip,
+    Link,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Paper,
+    Avatar
 } from '@mui/material';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import {
+    ArrowBack,
+    ChevronRight,
+    CardTravel,
+    Explore,
+    LocalTaxi,
+    DirectionsWalk,
+    Groups,
+    Paid,
+    DirectionsBus,
+    Schedule,
+} from '@mui/icons-material';
 import imga2 from '../assets/imga2.png';
 import image54 from '../assets/image54.png';
 import { Link as RouterLink } from 'react-router-dom';
+import axios from "axios";
+
+const iconMap = {
+    "Business Tours": CardTravel,
+    "Nature & Adventure": Explore,
+    "Transportation": LocalTaxi,
+    "Local Visit": DirectionsWalk,
+    "Pet Friendly": DirectionsBus,
+};
+
+const texts = [
+    "Guided tour of the ecological reserve",
+    "Visit to the crocodile sanctuary",
+    "Access to the historic lighthouse",
+    "Snorkeling in protected coral reefs",
+    "Educational nature trails and bird watching",
+    "Professional bilingual guide",
+    "Transportation to and from the park",
+    "Light refreshments and snacks"
+];
 
 const PuntaSurEcoPark = () => {
-  const navigate = useNavigate();
+    const testimonialsRef = useRef(null);
+    const [categorias, setCategorias] = useState([]);
+    const [zona, setZona] = useState(null);
 
-  const handleBack = () => {
-    navigate('/Cozumel');
-  };
+    const getDescription = () => {
+        return 'Experience the pristine beauty of Punta Sur Eco Park, a protected ecological reserve at the southern tip of Cozumel Island. This natural sanctuary features untouched beaches, a crocodile sanctuary, a historic lighthouse with breathtaking panoramic views, and diverse wildlife that makes it a paradise for nature enthusiasts.';
+    };
 
-  const handleBookNow = () => {
-    // Aquí puedes agregar la lógica para reservar
-    console.log('Booking Punta Sur Eco Park tour');
-  };
+    useEffect(() => {
+        axios.get("http://localhost:3000/api/categoria")
+            .then(res => setCategorias(res.data.data))
+            .catch(err => console.error("Error al obtener categorías", err));
+    }, []);
 
-  return (
-    <Box sx={{ backgroundColor: "white", minHeight: "100vh" }}>
-      <Container maxWidth="xl" sx={{ px: 0, overflow: "hidden" }}>
-        <Container maxWidth="lg" sx={{ px: 15 }}>
-          {/* Header */}
-          <Box sx={{ mb: 4 }}>
-            <Button
-              startIcon={<ArrowBackIcon />}
-              onClick={handleBack}
-              sx={{
-                mb: 2,
-                fontFamily: "Playfair Display",
-                fontWeight: 600,
-                fontSize: "18px",
-                color: "#000000",
-                textTransform: "none",
-              }}
-            >
-              Back to Cozumel
-            </Button>
-          </Box>
+    useEffect(() => {
+        const idZona = "688bd630f77e1f6903e19c73";
+        axios.get(`http://localhost:3000/api/zonas-turisticas/${idZona}`)
+            .then(res => setZona(res.data.data))
+            .catch(err => console.error("Error al obtener zona turística", err));
+    }, []);
 
-          {/* Hero Section */}
-          <Box
-            sx={{
-              height: 400,
-              borderRadius: "20px",
-              backgroundImage: `url(${imga2})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              mb: 4,
-              position: 'relative',
-            }}
-          >
-            <Box
-              sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                backgroundColor: 'rgba(0,0,0,0.3)',
-                borderRadius: "20px",
-              }}
-            />
-            <Typography
-              variant="h2"
-              fontWeight="bold"
-              color="white"
-              sx={{
-                fontSize: "48px",
-                textShadow: "0px 4px 4px rgba(0,0,0,0.25)",
-                fontFamily: "Playfair Display",
-                position: 'relative',
-                zIndex: 1,
-              }}
-            >
-              Punta Sur Eco Park
-            </Typography>
-          </Box>
+    return (
+        <Box sx={{ backgroundColor: '#ffffff', color: '#333333' }}>
+            <Container maxWidth="lg" sx={{ py: 5 }}>
+                <Link href="/Cozumel" underline="none" color='black' sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 5 }}>
+                    <ArrowBack />
+                    <Typography variant="body1" color='black' sx={{ fontWeight: 600, fontFamily: "Playfair Display" }}>Back</Typography>
+                </Link>
 
-          <Grid container spacing={4}>
-            {/* Main Content */}
-            <Grid item xs={12} md={8}>
-              <Typography
-                variant="h4"
-                sx={{
-                  fontFamily: "Playfair Display",
-                  fontWeight: 700,
-                  mb: 3,
-                  color: "#0e3d4d"
-                }}
-              >
-                Discover the Natural Wonders of Punta Sur
-              </Typography>
+                <Grid container spacing={6}>
+                    <Grid item xs={12} md={6}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+                            <Box>
+                                <CardMedia
+                                    component="img"
+                                    image="https://imgs.search.brave.com/AYii9UESvA7_mGexm4QWhL-SBQa7NRGWMICvQQKuj3E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9hay1k/LnRyaXBjZG4uY29t/L2ltYWdlcy8wSEo0/ZzEyMDAwaGI2bHQy/Zjg5QkNfV18xNDQw/XzgxMF9RODAud2Vi/cD9wcm9jPXNvdXJj/ZS90cmlwJnByb2M9/c291cmNlL3RyaXA"
+                                    alt="Punta Sur Eco Park main view"
+                                    sx={{ borderRadius: '12px', mb: 2.25, width: '100%', height: 'auto' }}
+                                />
+                            </Box>
 
-              <Typography
-                variant="body1"
-                sx={{
-                  fontFamily: "Playfair Display",
-                  fontSize: "18px",
-                  lineHeight: 1.6,
-                  mb: 4,
-                  color: "#666"
-                }}
-              >
-                Experience the pristine beauty of Punta Sur Eco Park, a protected ecological reserve 
-                at the southern tip of Cozumel Island. This natural sanctuary features untouched beaches, 
-                a crocodile sanctuary, a historic lighthouse with breathtaking panoramic views, and diverse 
-                wildlife that makes it a paradise for nature enthusiasts.
-              </Typography>
+                                                        <Box>
+                                <Typography variant="h4" sx={{ fontWeight: 800, mb: 2.5, fontFamily: "Playfair Display" }}>
+                                    Details
+                                </Typography>
+                                <Typography variant="body1" sx={{ lineHeight: '30px', mb: 2, fontFamily: "Playfair Display" }}>
+                                    {getDescription()}
+                                </Typography>
+                            </Box>
 
-              <Typography
-                variant="h5"
-                sx={{
-                  fontFamily: "Playfair Display",
-                  fontWeight: 600,
-                  mb: 2,
-                  color: "#0e3d4d"
-                }}
-              >
-                What's Included:
-              </Typography>
+                            <Box>
+                                <Typography variant="h4" sx={{ fontWeight: 800, mb: 2.5, fontFamily: "Playfair Display" }}>
+                                    Location
+                                </Typography>
+                                <Box sx={{ borderRadius: '25px', overflow: 'hidden' }}>
+                                    <iframe
+                                        width="100%"
+                                        height="400"
+                                        frameBorder="0"
+                                        style={{ border: 0 }}
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.021329480135!2d-86.958828!3d20.2925317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4facc97b44f901:0x2716ce912f7da3f0!2sPunta%20Sur%20Eco%20Beach%20Park!5e0!3m2!1ses-419!2smx!4v1690412072934!5m2!1ses-419!2smx"
+                                        allowFullScreen=""
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                    ></iframe>
+                                </Box>
+                            </Box>
 
-              <Box sx={{ mb: 4 }}>
-                <Stack spacing={2}>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Guided tour of the ecological reserve
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Visit to the crocodile sanctuary
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Access to the historic lighthouse
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Snorkeling in protected coral reefs
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Educational nature trails and bird watching
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Professional bilingual guide
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Transportation to and from the park
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Light refreshments and snacks
-                  </Typography>
-                </Stack>
-              </Box>
+                            <Box>
+                                <List sx={{ width: '100%', bgcolor: 'transparent', padding: 0 }}>
+                                    {[
+                                        { icon: Groups, text: 'Number of group: 1-8' },
+                                        { icon: Schedule, text: 'Duration: Full day' },
+                                        { icon: Paid, text: 'Entry Fees: $35 per person' },
+                                        { icon: DirectionsBus, text: 'Transportation: Includes' }
+                                    ].map((item, index) => (
+                                        <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
+                                            <ListItemIcon sx={{ minWidth: 32 }}>
+                                                <item.icon sx={{ color: '#7bbcb0', fontSize: 20 }} />
+                                            </ListItemIcon>
+                                            <ListItemText
+                                                primary={item.text}
+                                                sx={{
+                                                    '& .MuiListItemText-primary': {
+                                                        fontFamily: "Playfair Display",
+                                                        fontSize: '14px',
+                                                        color: '#666'
+                                                    }
+                                                }}
+                                            />
+                                        </ListItem>
+                                    ))}
+                                </List>
+                            </Box>
+                        </Box>
+                    </Grid>
 
-              <Typography
-                variant="h5"
-                sx={{
-                  fontFamily: "Playfair Display",
-                  fontWeight: 600,
-                  mb: 2,
-                  color: "#0e3d4d"
-                }}
-              >
-                Tour Details:
-              </Typography>
+                    <Grid item xs={12} md={6}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                            <Box>
+                                <Typography variant="h3" sx={{ fontWeight: 800, mb: 2, fontFamily: "Playfair Display" }}>
+                                    Punta Sur Eco Park
+                                </Typography>
+                                <Typography variant="h6" sx={{ color: '#7bbcb0', mb: 3, fontFamily: "Playfair Display" }}>
+                                    From $35
+                                </Typography>
+                                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
+                                    {categorias.map((cat) => {
+                                        const Icon = iconMap[cat.nombre] || CardTravel;
+                                        return (
+                                            <Chip
+                                                key={cat._id}
+                                                icon={<Icon sx={{ color: '#80b9ad' }} />}
+                                                label={cat.nombre}
+                                                sx={{ backgroundColor: "#fff", color: '#80b9ad', fontWeight: 700, border: "none", boxShadow: 1, fontFamily: "Playfair Display" }}
+                                            />
+                                        );
+                                    })}
+                                </Box>
+                            </Box>
 
-              <Grid container spacing={3} sx={{ mb: 4 }}>
-                <Grid item xs={12} sm={6}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <AccessTimeIcon sx={{ mr: 1, color: '#7bbcb0' }} />
-                    <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                      Duration: 9 Nights, 8 days
-                    </Typography>
-                  </Box>
+                            <Box>
+                                <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, fontFamily: "Playfair Display" }}>
+                                    What's included
+                                </Typography>
+                                <List sx={{ width: '100%', bgcolor: 'transparent', padding: 0 }}>
+                                    {texts.map((text, index) => (
+                                        <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
+                                            <ListItemIcon sx={{ minWidth: 32 }}>
+                                                <FiberManualRecordIcon sx={{ color: '#7bbcb0', fontSize: 8 }} />
+                                            </ListItemIcon>
+                                            <ListItemText
+                                                primary={text}
+                                                sx={{
+                                                    '& .MuiListItemText-primary': {
+                                                        fontFamily: "Playfair Display",
+                                                        fontSize: '14px',
+                                                        color: '#666'
+                                                    }
+                                                }}
+                                            />
+                                        </ListItem>
+                                    ))}
+                                </List>
+                            </Box>
+
+                            <Button
+                                variant="contained"
+                                component={RouterLink}
+                                to="/Guides"
+                                sx={{
+                                    alignSelf: 'flex-start',
+                                    backgroundColor: '#80b9ad',
+                                    color: '#ffffff',
+                                    fontSize: '20px',
+                                    fontWeight: 600,
+                                    fontFamily: "'Inter'",
+                                    px: 3,
+                                    py: 1.5,
+                                    borderRadius: '50px',
+                                    boxShadow: '0px 6px 10px rgba(0, 0, 0, 0.1)',
+                                    textTransform: 'none',
+                                    '&:hover': { backgroundColor: '#6da89c' }
+                                }}
+                            >
+                                Select place
+                            </Button>
+                        </Box>
+                    </Grid>
                 </Grid>
-                <Grid item xs={12} sm={6}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <LocationOnIcon sx={{ mr: 1, color: '#7bbcb0' }} />
-                    <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                      Location: Punta Sur, Cozumel Island
+            </Container>
+            
+            <Box sx={{ py: 7.5, borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+                <Container maxWidth="lg">
+                    <Typography variant="h2" align="center" sx={{ fontWeight: 700, mb: 7.5, fontFamily: "Playfair Display" }}>
+                        Nearby places in Punta Sur
                     </Typography>
-                  </Box>
-                </Grid>
-              </Grid>
-            </Grid>
 
-            {/* Sidebar */}
-            <Grid item xs={12} md={4}>
-              <Card elevation={3} sx={{ borderRadius: 3, p: 3 }}>
-                <Typography
-                  variant="h5"
-                  sx={{
-                    fontFamily: "Playfair Display",
-                    fontWeight: 700,
-                    mb: 3,
-                    color: "#0e3d4d"
-                  }}
-                >
-                  Tour Information
-                </Typography>
+                    <Grid container spacing={5}>
+                        {[
+                            {
+                                image: "https://imgs.search.brave.com/XyFFndWGAdA4YC1NON4_g4ItfzjkDi_4_TcczNrfrtA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jZG4udHJpcGFk/dmlzb3IuY29tL21l/ZGlhL3Bob3RvLW8v/MWMvOGQvNTMvYWYv/bG9sYS12YWxlbnRp/bmEtOS15ZWFycy5q/cGc",
+                                title: 'El Cielo Beach',
+                                description: 'Famous for its crystal-clear waters and starfish sightings. Perfect for snorkeling and swimming in pristine conditions.',
+                                url: "https://www.cozumel-parks.com/el-cielo-beach"
+                            },
+                            {
+                                image: image54,
+                                title: 'Columbia Reef',
+                                description: 'One of Cozumel\'s most beautiful coral reefs, perfect for diving and snorkeling with diverse marine life.',
+                                url: "https://www.cozumel-parks.com/columbia-reef"
+                            },
+                            {
+                                image: "https://imgs.search.brave.com/XyFFndWGAdA4YC1NON4_g4ItfzjkDi_4_TcczNrfrtA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jZG4udHJpcGFk/dmlzb3IuY29tL21l/ZGlhL3Bob3RvLW8v/MWMvOGQvNTMvYWYv/bG9sYS12YWxlbnRp/bmEtOS15ZWFycy5q/cGc",
+                                title: 'Punta Sur Lighthouse',
+                                description: 'Historic lighthouse offering panoramic views of the Caribbean Sea and the southern tip of Cozumel Island.',
+                                url: "https://www.cozumel-parks.com/punta-sur-lighthouse"
+                            }
+                        ].map((place, index) => (
+                            <Grid item xs={12} sm={6} md={4} key={index}>
+                                <Card sx={{
+                                    boxShadow: '0px 3px 20px rgba(0, 0, 0, 0.08)',
+                                    borderRadius: '20px',
+                                    overflow: 'hidden'
+                                }}>
+                                    <CardMedia
+                                        component="img"
+                                        image={place.image}
+                                        alt={place.title}
+                                        sx={{ height: 404, borderRadius: '24px', mb: 2, width: '100%' }}
+                                    />
+                                    <CardContent sx={{ px: 1.25 }}>
+                                        <Typography variant="h5" sx={{ fontWeight: 700, mb: 1.5, fontFamily: "Playfair Display" }}>
+                                            {place.title}
+                                        </Typography>
+                                        <Typography variant="body1" sx={{ mb: 3.125, fontFamily: "Playfair Display" }}>
+                                            {place.description}
+                                        </Typography>
+                                        <Link
+                                            href={place.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            underline="none"
+                                            sx={{
+                                                color: '#80b9ad',
+                                                fontWeight: 600,
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: 1,
+                                                fontFamily: "Inter"
+                                            }}
+                                        >
+                                            See More <ChevronRight />
+                                        </Link>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Container>
+            </Box>
+            
+        </Box>
 
-                <Box sx={{ mb: 3 }}>
-                  <Typography variant="h4" sx={{ color: '#7bbcb0', fontWeight: 700 }}>
-                    From $1500
-                  </Typography>
-                  <Typography variant="body2" sx={{ color: '#666' }}>
-                    per person
-                  </Typography>
-                </Box>
-
-                <Divider sx={{ my: 2 }} />
-
-                <Box sx={{ mb: 3 }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
-                    <Rating value={5} readOnly size="small" />
-                    <Typography variant="body2" sx={{ ml: 1, color: '#666' }}>
-                      (1 Review)
-                    </Typography>
-                  </Box>
-                </Box>
-
-                <Button
-                  variant="contained"
-                  fullWidth
-                  onClick={handleBookNow}
-                  sx={{
-                    bgcolor: '#7bbcb0',
-                    py: 2,
-                    fontFamily: "Playfair Display",
-                    fontWeight: 600,
-                    fontSize: "16px",
-                    textTransform: "none",
-                    '&:hover': {
-                      bgcolor: '#6aa99d'
-                    }
-                  }}
-                >
-                  Book Now
-                </Button>
-
-                <Typography
-                  variant="body2"
-                  sx={{
-                    mt: 2,
-                    textAlign: 'center',
-                    color: '#666',
-                    fontFamily: "Playfair Display"
-                  }}
-                >
-                  Free cancellation up to 24 hours before tour
-                </Typography>
-              </Card>
-            </Grid>
-          </Grid>
-        </Container>
-      </Container>
-    </Box>
-  );
+        
+    );
 };
 
 export default PuntaSurEcoPark; 
