@@ -430,7 +430,7 @@ export const Tours = () => {
                     </Box>
 
                     {/* Tours */}
-                    <Stack spacing={8}>
+                    <Stack spacing={8} marginBottom={'150px'}>
                         <Typography variant="h3" align="center" sx={{ fontWeight: "bold", color: "black", fontFamily: "Playfair Display" }}>
                             Popular Tours
                         </Typography>

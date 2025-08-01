@@ -96,7 +96,7 @@ const restaurantData = [
 
 export const BookingSimulation4 = () => {
     return (
-        <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
+        <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh", py: 4, marginRight: '100px', marginLeft: '100px' }}>
             {/* My Tickets Section */}
             <Box sx={{ px: { xs: 2, md: 10 }, py: 4 }}>
                 <Typography variant="h4" fontWeight="bold" sx={{ mb: 4 }} fontFamily= 'Playfair Display'>
@@ -293,7 +293,7 @@ export const BookingSimulation4 = () => {
             </Box>
 
             {/* Advertisement Banner */}
-            <Box sx={{ mt: 4, textAlign: "center" }}>
+            <Box sx={{ mt: 4, textAlign: "center", marginBottom: '150px' }}>
                 <Box
                     component="img"
                     src={img41}
