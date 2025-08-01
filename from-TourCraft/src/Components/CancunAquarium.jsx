@@ -17,6 +17,7 @@ import AccessTime from "@mui/icons-material/AccessTime";
 import LocationOn from "@mui/icons-material/LocationOn";
 import { useNavigate } from "react-router-dom";
 import imga5 from "../assets/imga5.png";
+import aqua from "../assets/aqua.jpg";
 
 const CancunAquarium = () => {
   const navigate = useNavigate();
@@ -62,7 +63,7 @@ const CancunAquarium = () => {
               <CardMedia
                 component="img"
                 height="400"
-                image={imga5}
+                image={aqua}
                 alt="Cancún Interactive Aquarium"
                 sx={{ objectFit: "cover" }}
               />

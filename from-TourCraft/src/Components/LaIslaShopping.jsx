@@ -17,6 +17,7 @@ import AccessTime from "@mui/icons-material/AccessTime";
 import LocationOn from "@mui/icons-material/LocationOn";
 import { useNavigate } from "react-router-dom";
 import imga1 from "../assets/imga1.png";
+import villa from "../assets/villa.jpg";
 
 const LaIslaShopping = () => {
   const navigate = useNavigate();
@@ -62,7 +63,7 @@ const LaIslaShopping = () => {
               <CardMedia
                 component="img"
                 height="400"
-                image={imga1}
+                image={villa}
                 alt="La Isla Shopping Village"
                 sx={{ objectFit: "cover" }}
               />

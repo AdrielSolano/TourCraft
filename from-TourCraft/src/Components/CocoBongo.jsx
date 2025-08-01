@@ -17,6 +17,7 @@ import AccessTime from "@mui/icons-material/AccessTime";
 import LocationOn from "@mui/icons-material/LocationOn";
 import { useNavigate } from "react-router-dom";
 import imga3 from "../assets/imga3.png";
+import cococ from "../assets/cococ.webp";
 
 const CocoBongo = () => {
   const navigate = useNavigate();
@@ -62,7 +63,7 @@ const CocoBongo = () => {
               <CardMedia
                 component="img"
                 height="400"
-                image={imga3}
+                image={cococ}
                 alt="Coco Bongo"
                 sx={{ objectFit: "cover" }}
               />

@@ -17,6 +17,7 @@ import AccessTime from "@mui/icons-material/AccessTime";
 import LocationOn from "@mui/icons-material/LocationOn";
 import { useNavigate } from "react-router-dom";
 import imga4 from "../assets/imga4.png";
+import delfines from "../assets/delfines.webp";
 
 const PlayaDelfines = () => {
   const navigate = useNavigate();
@@ -62,7 +63,7 @@ const PlayaDelfines = () => {
               <CardMedia
                 component="img"
                 height="400"
-                image={imga4}
+                image={delfines}
                 alt="Playa Delfines"
                 sx={{ objectFit: "cover" }}
               />

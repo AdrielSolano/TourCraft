@@ -17,6 +17,7 @@ import AccessTime from "@mui/icons-material/AccessTime";
 import LocationOn from "@mui/icons-material/LocationOn";
 import { useNavigate } from "react-router-dom";
 import frame341 from "../assets/Frame341.png";
+import meco from "../assets/meco.jpg";
 
 const ElMecoArchaeological = () => {
   const navigate = useNavigate();
@@ -62,7 +63,7 @@ const ElMecoArchaeological = () => {
               <CardMedia
                 component="img"
                 height="400"
-                image={frame341}
+                image={meco}
                 alt="El Meco Archaeological Site"
                 sx={{ objectFit: "cover" }}
               />
