@@ -18,7 +18,7 @@ const ProtectedRoute = ({ children }) => {
 
   if (!isAuthenticated) {
     return (
-      <Container maxWidth="sm" sx={{ mt: 8 }}>
+      <Container maxWidth="sm" sx={{ mt: 8, marginBottom: '140px' }}>
         <Paper elevation={3} sx={{ p: 4, textAlign: 'center' }}>
           <Typography variant="h4" sx={{ mb: 2, fontFamily: 'Playfair Display', fontWeight: 700 }}>
             Access Required
