@@ -31,12 +31,17 @@ import image54 from "../assets/image54.png";
 import img from "../assets/img.png";
 import UX1 from "../assets/UX1.jpg";
 import frame341 from "../assets/Frame341.png";
-import imga5 from "../assets/imga5.png";
-import imga4 from "../assets/imga4.png";
-import imga3 from "../assets/imga3.png";
-import imga2 from "../assets/imga2.png";
-import imga1 from "../assets/imga1.png";
 import img40 from "../assets/img40.png";
+import arch from "../assets/arch.jpg";
+import cen4 from "../assets/cen4.jpg";
+import izamal from "../assets/izamal.webp";
+import progreso from "../assets/progreso.jpg";
+import grande from "../assets/grande.jpg";
+import cuza from "../assets/cuza.jpg";
+import apoala from "../assets/apoala.jpg";
+import kuuk from "../assets/kuuk.avif";
+import teya from "../assets/teya.jpeg";
+import rosas from "../assets/rosas.jpeg";
 
 const featuredTours = [
   {
@@ -65,7 +70,7 @@ const topActivities = [
   {
     id: 1,
     title: "Architecture in Merida",
-    image: imga5,
+    image: arch,
     rating: 5,
     reviews: 1,
     duration: "9 Nights, 8 days",
@@ -74,7 +79,7 @@ const topActivities = [
   {
     id: 2,
     title: "4 Cenotes Tour",
-    image: imga1,
+    image: cen4,
     rating: 5,
     reviews: 1,
     duration: "10 Nights, 9 days",
@@ -83,7 +88,7 @@ const topActivities = [
   {
     id: 3,
     title: "Izamal",
-    image: imga2,
+    image: izamal,
     rating: 5,
     reviews: 1,
     duration: "7 Nights, 8 days",
@@ -93,7 +98,7 @@ const topActivities = [
   {
     id: 4,
     title: "Progreso Beach",
-    image: imga3,
+    image: progreso,
     rating: 5,
     reviews: 1,   
     duration: "7 Nights, 8 days",
@@ -103,7 +108,7 @@ const topActivities = [
   {
     id: 5,
     title: "Plaza Grande (Main Square)",
-    image: imga4,
+    image: grande,
     rating: 5,
     reviews: 1,
     duration: "3 Nights, 4 days",
@@ -112,7 +117,7 @@ const topActivities = [
   {
     id: 6,
     title: "Cenotes de Cuzamá",
-    image: frame341,
+    image: cuza,
     rating: 5,
     reviews: 1,
     duration: "10 Nights, 9 days",
@@ -134,28 +139,28 @@ const restaurantData = [
     description: "Gastronomía mexicana contemporánea"
   },
   {
-    title: "Alux - Playa del Carmen",
-    image: alux,
-    url: "https://aluxrestaurant.com/",
-    description: "Restaurante en una cueva natural"
+    title: "Apoala - Mérida",
+    image: apoala,
+    url: "https://www.instagram.com/apoala.merida/",
+    description: "Cocina oaxaqueña-yucateca fusión"
   },
   {
-    title: "Harry's - Cancún",
-    image: harris,
-    url: "https://harrys.com.mx/",
-    description: "Carnes premium y mariscos frescos"
+    title: "Kuuk - Mérida",
+    image: kuuk,
+    url: "https://www.kuuk.mx/",
+    description: "Alta cocina yucateca con estrella Michelin"
   },
   {
-    title: "Hartwood - Tulum",
-    image: hard,
-    url: "https://www.hartwoodtulum.com/",
-    description: "Cocina de autor con ingredientes locales y técnicas al fuego"
+    title: "Hacienda Teya - Mérida",
+    image: teya,
+    url: "https://haciendateya.com/",
+    description: "Cocina tradicional en hacienda histórica"
   },
   {
-    title: "Casa Rolandi - Isla Mujeres",
-    image: rolandi,
-    url: "https://casarolandi.com/",
-    description: "Cocina italiana con toques mexicanos"
+    title: "Rosas & Xocolate - Mérida",
+    image: rosas,
+    url: "https://www.rosasandxocolate.com/",
+    description: "Experiencia gourmet con chocolate como protagonista"
   }
 ];
 
