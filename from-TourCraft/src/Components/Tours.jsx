@@ -260,7 +260,7 @@ export const Tours = () => {
                             backgroundImage: `url(${image38})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
-                            borderRadius: 2,
+                            borderRadius: 8,
                             mb: 8,
                         }}
                     >
@@ -273,6 +273,7 @@ export const Tours = () => {
                                 bottom: 0,
                                 backgroundColor: "rgba(0, 0, 0, 0.5)",
                                 display: "flex",
+                                borderRadius: 8,
                                 flexDirection: "column",
                                 justifyContent: "center",
                                 alignItems: "center",
