@@ -19,6 +19,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import imga4 from '../assets/imga4.png';
 import image54 from '../assets/image54.png';
+import { Link as RouterLink } from 'react-router-dom';
 
 const ElCieloSnorkeling = () => {
   const navigate = useNavigate();

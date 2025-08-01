@@ -223,21 +223,24 @@ const WhaleSharkTour = () => {
                             <Box>
                                 <Button
                                     variant="contained"
-                                    fullWidth
+                                    component={RouterLink}
+                                    to="/Guides"
                                     sx={{
-                                        bgcolor: '#7bbcb0',
-                                        color: 'white',
-                                        py: 2,
-                                        fontFamily: "Playfair Display",
+                                        alignSelf: 'flex-start',
+                                        backgroundColor: '#80b9ad',
+                                        color: '#ffffff',
+                                        fontSize: '20px',
                                         fontWeight: 600,
-                                        fontSize: '16px',
+                                        fontFamily: "'Inter'",
+                                        px: 3,
+                                        py: 1.5,
+                                        borderRadius: '50px',
+                                        boxShadow: '0px 6px 10px rgba(0, 0, 0, 0.1)',
                                         textTransform: 'none',
-                                        '&:hover': {
-                                            bgcolor: '#6aa99d'
-                                        }
+                                        '&:hover': { backgroundColor: '#6da89c' }
                                     }}
                                 >
-                                    Book Now
+                                    Select place
                                 </Button>
                             </Box>
                         </Box>

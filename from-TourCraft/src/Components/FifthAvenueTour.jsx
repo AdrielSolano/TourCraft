@@ -1,227 +1,239 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import React, { useEffect, useRef, useState } from 'react';
 import {
     Box,
     Container,
     Typography,
+    Button,
     Grid,
     Card,
-    CardContent,
     CardMedia,
-    Button,
+    CardContent,
     Chip,
-    Stack,
+    Link,
     List,
     ListItem,
     ListItemIcon,
     ListItemText,
-    Link,
-} from "@mui/material";
-import { CardTravel, ChevronRight } from "@mui/icons-material";
+    Paper,
+    Avatar
+} from '@mui/material';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import {
+    ArrowBack,
+    ChevronRight,
+    CardTravel,
+    Explore,
+    LocalTaxi,
+    DirectionsWalk,
+    Groups,
+    Paid,
+    DirectionsBus,
+    Schedule,
+} from '@mui/icons-material';
+import { Link as RouterLink } from 'react-router-dom';
+import axios from "axios";
 import lolaValentina from "../assets/lola-valentina.jpg";
 import laCasaDeLasMayoras from "../assets/la-casa-de-las-mayoras.jpg";
 import laRosaNegra from "../assets/la-rosa-negra.jpg";
-import AccessTime from "@mui/icons-material/AccessTime";
-import LocationOn from "@mui/icons-material/LocationOn";
-import imga4 from "../assets/imga4.png";
+
+const iconMap = {
+    "Business Tours": CardTravel,
+    "Nature & Adventure": Explore,
+    "Transportation": LocalTaxi,
+    "Local Visit": DirectionsWalk,
+    "Pet Friendly": DirectionsBus,
+};
+
+const texts = [
+    "3 pickup location options: Parque de Santa Ana, Viajes Colibrí Yucatán TOURS, Entrada Avenida Cupules del Hotel Fiesta Americana. See more",
+    "Van (2 hours)",
+    "5th Avenue - Photo stop, Visit, Guided tour, Free time, Shopping (2.5 hours)",
+    "Van (15 minutes)",
+    "Playa del Carmen Beach - Lunch, Swimming (2.5 hours)",
+    "Van (1 hour)",
+    "Downtown Playa - Photo stop, Visit, Guided tour, Free time, Shopping (1.5 hours)",
+    "Van (1 hour)",
+    "3 drop-off locations: Viajes Colibrí Yucatán TOURS, Entrada Avenida Cupules del Hotel Fiesta Americana, Parque de Santa Ana"
+];
 
 const FifthAvenueTour = () => {
-  const navigate = useNavigate();
+    const testimonialsRef = useRef(null);
+    const [categorias, setCategorias] = useState([]);
+    const [zona, setZona] = useState(null);
 
-  const handleBackClick = () => {
-    navigate('/PlayadelCarmen');
-  };
+    const getDescription = () => {
+        if (zona && zona.descripción) {
+            return zona.descripción;
+        }
+        if (zona && !zona.descripción) {
+            return 'No data available for this place.';
+        }
+        return 'Loading description...';
+    };
 
-  return (
-    <Box sx={{ backgroundColor: "white", minHeight: "100vh" }}>
-      <Container maxWidth="lg" sx={{ px: 15, py: 4 }}>
-        {/* Header */}
-        <Box sx={{ mb: 6 }}>
-          <Button 
-            onClick={handleBackClick}
-            sx={{ 
-              mb: 3, 
-              color: "#0e3d4d",
-              fontFamily: "Playfair Display",
-              textTransform: "none",
-              fontSize: "16px"
-            }}
-          >
-            ← Back to Playa del Carmen
-          </Button>
-          <Typography 
-            variant="h2" 
-            sx={{ 
-              fontFamily: "Playfair Display",
-              fontWeight: 700,
-              color: "#0e3d4d",
-              fontSize: { xs: "32px", md: "48px" }
-            }}
-          >
-            5th Avenue Tour
-          </Typography>
-        </Box>
+    useEffect(() => {
+        axios.get("http://localhost:3000/api/categoria")
+            .then(res => setCategorias(res.data.data))
+            .catch(err => console.error("Error al obtener categorías", err));
+    }, []);
 
-        {/* Main Content */}
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
-            <Card sx={{ borderRadius: "20px", overflow: "hidden", boxShadow: "0px 3px 20px rgba(0,0,0,0.08)" }}>
-              <CardMedia
-                component="img"
-                height="400"
-                image="https://imgs.search.brave.com/MYE35k9WOwAMy_WQzE-sAF4LdeDJt3ieW7TZhsEAsQQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Z2lsbGVzLXNtYXJ0/aG9tZXBsYXlhLmNv/bS9fbWVkaWEvaW1n/L3NtYWxsL3BsYXlh/LTVlbWUtYXZlbnVl/LndlYnA"
-                alt="5th Avenue Playa del Carmen"
-                sx={{ objectFit: "cover" }}
-              />
-            </Card>
-          </Grid>
-          
-          <Grid item xs={12} md={6}>
-            <Stack spacing={4}>
-              <Box>
-                <Typography 
-                  variant="h4" 
-                  sx={{ 
-                    fontFamily: "Playfair Display",
-                    fontWeight: 600,
-                    color: "#0e3d4d",
-                    mb: 2
-                  }}
-                >
-                  About 5th Avenue
-                </Typography>
-                <Typography 
-                  sx={{ 
-                    fontFamily: "Playfair Display",
-                    color: "#666",
-                    lineHeight: 1.6,
-                    mb: 3
-                  }}
-                >
-                  La Quinta Avenida (5th Avenue) is the heart and soul of Playa del Carmen. This pedestrian-only street 
-                  stretches for 20 blocks and is lined with restaurants, bars, shops, and entertainment venues. It's the perfect 
-                  place to experience the vibrant culture and nightlife of the Riviera Maya.
-                </Typography>
-              </Box>
+    useEffect(() => {
+        const idZona = "688bd6f4f77e1f6903e19c77";
+        axios.get(`http://localhost:3000/api/zonas-turisticas/${idZona}`)
+            .then(res => setZona(res.data.data))
+            .catch(err => console.error("Error al obtener zona turística", err));
+    }, []);
 
-              <Box>
-                <Typography 
-                  variant="h5" 
-                  sx={{ 
-                    fontFamily: "Playfair Display",
-                    fontWeight: 600,
-                    color: "#0e3d4d",
-                    mb: 2
-                  }}
-                >
-                  What to Expect
-                </Typography>
-                <Stack spacing={2}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <AccessTime sx={{ color: "#0e3d4d" }} />
-                    <Typography sx={{ fontFamily: "Playfair Display" }}>
-                      Duration: 2-3 hours
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                    <LocationOn sx={{ color: "#0e3d4d" }} />
-                    <Typography sx={{ fontFamily: "Playfair Display" }}>
-                      Location: Playa del Carmen Downtown
-                    </Typography>
-                  </Box>
-                </Stack>
-              </Box>
+    return (
+        <Box sx={{ backgroundColor: '#ffffff', color: '#333333' }}>
+            <Container maxWidth="lg" sx={{ py: 5 }}>
+                <Link href="/PlayadelCarmen" underline="none" color='black' sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 5 }}>
+                    <ArrowBack />
+                    <Typography variant="body1" color='black' sx={{ fontWeight: 600, fontFamily: "Playfair Display" }}>Back</Typography>
+                </Link>
 
-              <Box>
-                <Typography 
-                  variant="h5" 
-                  sx={{ 
-                    fontFamily: "Playfair Display",
-                    fontWeight: 600,
-                    color: "#0e3d4d",
-                    mb: 2
-                  }}
-                >
-                  Highlights
-                </Typography>
-                <Stack spacing={1}>
-                  <Typography sx={{ fontFamily: "Playfair Display", color: "#666" }}>
-                    • Explore local artisan shops and boutiques
-                  </Typography>
-                  <Typography sx={{ fontFamily: "Playfair Display", color: "#666" }}>
-                    • Taste authentic Mexican cuisine
-                  </Typography>
-                  <Typography sx={{ fontFamily: "Playfair Display", color: "#666" }}>
-                    • Visit the famous Mamita's Beach Club
-                  </Typography>
-                  <Typography sx={{ fontFamily: "Playfair Display", color: "#666" }}>
-                    • Experience live music and entertainment
-                  </Typography>
-                  <Typography sx={{ fontFamily: "Playfair Display", color: "#666" }}>
-                    • Shop for souvenirs and local crafts
-                  </Typography>
-                </Stack>
-              </Box>
+                <Grid container spacing={6}>
+                    <Grid item xs={12} md={6}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+                            <Box>
+                                <CardMedia
+                                    component="img"
+                                    image="https://imgs.search.brave.com/MYE35k9WOwAMy_WQzE-sAF4LdeDJt3ieW7TZhsEAsQQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Z2lsbGVzLXNtYXJ0/aG9tZXBsYXlhLmNv/bS9fbWVkaWEvaW1n/L3NtYWxsL3BsYXlh/LTVlbWUtYXZlbnVl/LndlYnA"
+                                    alt="5th Avenue main view"
+                                    sx={{ borderRadius: '12px', mb: 2.25, width: '100%', height: 'auto' }}
+                                />
+                            </Box>
 
-              <Box>
-                <Typography 
-                  variant="h5" 
-                  sx={{ 
-                    fontFamily: "Playfair Display",
-                    fontWeight: 600,
-                    color: "#0e3d4d",
-                    mb: 2
-                  }}
-                >
-                  Tour Details
-                </Typography>
-                <Stack spacing={2}>
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Typography sx={{ fontFamily: "Playfair Display", fontWeight: 600 }}>
-                      Price
-                    </Typography>
-                    <Typography sx={{ fontFamily: "Playfair Display", fontWeight: 600, color: "#0e3d4d" }}>
-                      $35
-                    </Typography>
-                  </Box>
-                  <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <Typography sx={{ fontFamily: "Playfair Display", fontWeight: 600 }}>
-                      Rating
-                    </Typography>
-                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                      <Rating value={5} readOnly size="small" />
-                      <Typography sx={{ fontFamily: "Playfair Display" }}>
-                        5.0 (1 review)
-                      </Typography>
-                    </Box>
-                  </Box>
-                </Stack>
-              </Box>
+                            <Box>
+                                <Typography variant="h4" sx={{ fontWeight: 800, mb: 2.5, fontFamily: "Playfair Display" }}>
+                                    Details
+                                </Typography>
+                                <Typography variant="body1" sx={{ lineHeight: '30px', mb: 2, fontFamily: "Playfair Display" }}>
+                                    {getDescription()}
+                                </Typography>
+                            </Box>
 
-              <Button
-                variant="contained"
-                sx={{
-                  bgcolor: "#80b9ad",
-                  color: "#0e3d4d",
-                  borderRadius: "12px",
-                  py: 2,
-                  textTransform: "none",
-                  fontFamily: "Inter",
-                  fontSize: "16px",
-                  fontWeight: 600,
-                  '&:hover': {
-                    bgcolor: "#6da89c"
-                  }
-                }}
-              >
-                Book This Tour
-              </Button>
-            </Stack>
-          </Grid>
-        </Grid>
-      </Container>
+                            <Box>
+                                <Typography variant="h4" sx={{ fontWeight: 800, mb: 2.5, fontFamily: "Playfair Display" }}>
+                                    Location
+                                </Typography>
+                                <Box sx={{ borderRadius: '25px', overflow: 'hidden' }}>
+                                    <iframe
+                                        width="100%"
+                                        height="400"
+                                        frameBorder="0"
+                                        style={{ border: 0 }}
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.021329480135!2d-87.77303488462958!3d20.25991058629522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e5a8b8b8b8b8%3A0x8f4e5a8b8b8b8b8!2s5th%20Avenue%20Playa%20del%20Carmen!5e0!3m2!1ses-419!2smx!4v1690412072934!5m2!1ses-419!2smx"
+                                        allowFullScreen=""
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                    ></iframe>
+                                </Box>
+                            </Box>
+
+                            <Box>
+                                <List sx={{ width: '100%', bgcolor: 'transparent', padding: 0 }}>
+                                    {[
+                                        { icon: Groups, text: 'Number of group: 1-6' },
+                                        { icon: Schedule, text: 'Duration: Half day' },
+                                        { icon: Paid, text: 'Entry Fees: Free' },
+                                        { icon: DirectionsBus, text: 'Transportation: Optional' }
+                                    ].map((item, index) => (
+                                        <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
+                                            <ListItemIcon sx={{ minWidth: 32 }}>
+                                                <item.icon sx={{ color: '#7bbcb0', fontSize: 20 }} />
+                                            </ListItemIcon>
+                                            <ListItemText
+                                                primary={item.text}
+                                                sx={{
+                                                    '& .MuiListItemText-primary': {
+                                                        fontFamily: "Playfair Display",
+                                                        fontSize: '14px',
+                                                        color: '#666'
+                                                    }
+                                                }}
+                                            />
+                                        </ListItem>
+                                    ))}
+                                </List>
+                            </Box>
+                        </Box>
+                    </Grid>
+
+                    <Grid item xs={12} md={6}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                            <Box>
+                                <Typography variant="h3" sx={{ fontWeight: 800, mb: 2, fontFamily: "Playfair Display" }}>
+                                    5th Avenue Tour
+                                </Typography>
+                                <Typography variant="h6" sx={{ color: '#7bbcb0', mb: 3, fontFamily: "Playfair Display" }}>
+                                    From $35
+                                </Typography>
+                                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
+                                    {categorias.map((cat) => {
+                                        const Icon = iconMap[cat.nombre] || CardTravel;
+                                        return (
+                                            <Chip
+                                                key={cat._id}
+                                                icon={<Icon sx={{ color: '#80b9ad' }} />}
+                                                label={cat.nombre}
+                                                sx={{ backgroundColor: "#fff", color: '#80b9ad', fontWeight: 700, border: "none", boxShadow: 1, fontFamily: "Playfair Display" }}
+                                            />
+                                        );
+                                    })}
+                                </Box>
+                            </Box>
+
+                            <Box>
+                                <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, fontFamily: "Playfair Display" }}>
+                                    What's included
+                                </Typography>
+                                <List sx={{ width: '100%', bgcolor: 'transparent', padding: 0 }}>
+                                    {texts.map((text, index) => (
+                                        <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
+                                            <ListItemIcon sx={{ minWidth: 32 }}>
+                                                <FiberManualRecordIcon sx={{ color: '#7bbcb0', fontSize: 8 }} />
+                                            </ListItemIcon>
+                                            <ListItemText
+                                                primary={text}
+                                                sx={{
+                                                    '& .MuiListItemText-primary': {
+                                                        fontFamily: "Playfair Display",
+                                                        fontSize: '14px',
+                                                        color: '#666'
+                                                    }
+                                                }}
+                                            />
+                                        </ListItem>
+                                    ))}
+                                </List>
+                            </Box>
+
+                            <Button
+                                variant="contained"
+                                component={RouterLink}
+                                to="/Guides"
+                                sx={{
+                                    alignSelf: 'flex-start',
+                                    backgroundColor: '#80b9ad',
+                                    color: '#ffffff',
+                                    fontSize: '20px',
+                                    fontWeight: 600,
+                                    fontFamily: "'Inter'",
+                                    px: 3,
+                                    py: 1.5,
+                                    borderRadius: '50px',
+                                    boxShadow: '0px 6px 10px rgba(0, 0, 0, 0.1)',
+                                    textTransform: 'none',
+                                    '&:hover': { backgroundColor: '#6da89c' }
+                                }}
+                            >
+                                Select place
+                            </Button>
+                        </Box>
+                    </Grid>
+                </Grid>
+            </Container>
             
             <Box sx={{ py: 7.5, borderTop: '1px solid rgba(0,0,0,0.1)' }}>
                 <Container maxWidth="lg">

@@ -131,7 +131,6 @@ export default function AppRoutes() {
         <Route path='/MuyilLagoon' element={<MuyilLagoon />} />
         <Route path='/CenoteDosOjos' element={<CenoteDosOjos />} />
         <Route path='/FifthAvenueTour' element={<FifthAvenueTour />} />
-        <Route path='/FifthAvenue' element={<FifthAvenueTour />} />
         <Route path='/XcaretPark' element={<XcaretPark />} />
         <Route path='/CenoteAdventure' element={<CenoteSwimAdventure />} />
         <Route path='/CozumelFerry' element={<FerryToCozumel />} />

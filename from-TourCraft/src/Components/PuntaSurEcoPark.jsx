@@ -19,6 +19,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import imga2 from '../assets/imga2.png';
 import image54 from '../assets/image54.png';
+import { Link as RouterLink } from 'react-router-dom';
 
 const PuntaSurEcoPark = () => {
   const navigate = useNavigate();

@@ -44,6 +44,7 @@ import axios from "axios";
 import lolaValentina from "../assets/lola-valentina.jpg";
 import laCasaDeLasMayoras from "../assets/la-casa-de-las-mayoras.jpg";
 import laRosaNegra from "../assets/la-rosa-negra.jpg";
+import { Link as RouterLink } from 'react-router-dom';
 
 const iconMap = {
   "Business Tours": CardTravel,
@@ -316,24 +317,27 @@ const ScubaDivingTour = () => {
                   </Box>
                 </Box>
 
-                <Button
-                  variant="contained"
-                  fullWidth
-                  onClick={handleBookNow}
-                  sx={{
-                    bgcolor: '#7bbcb0',
-                    py: 2,
-                    fontFamily: "Playfair Display",
-                    fontWeight: 600,
-                    fontSize: "16px",
-                    textTransform: "none",
-                    '&:hover': {
-                      bgcolor: '#6aa99d'
-                    }
-                  }}
-                >
-                  Book Now
-                </Button>
+                            <Button
+                                variant="contained"
+                                component={RouterLink}
+                                to="/Guides"
+                                sx={{
+                                    alignSelf: 'flex-start',
+                                    backgroundColor: '#80b9ad',
+                                    color: '#ffffff',
+                                    fontSize: '20px',
+                                    fontWeight: 600,
+                                    fontFamily: "'Inter'",
+                                    px: 3,
+                                    py: 1.5,
+                                    borderRadius: '50px',
+                                    boxShadow: '0px 6px 10px rgba(0, 0, 0, 0.1)',
+                                    textTransform: 'none',
+                                    '&:hover': { backgroundColor: '#6da89c' }
+                                }}
+                            >
+                                Select place
+                            </Button>
 
                 <Typography
                   variant="body2"

@@ -32,27 +32,12 @@ import imga3 from "../assets/imga3.png";
 import imga2 from "../assets/imga2.png";
 import imga1 from "../assets/imga1.png";
 import img40 from "../assets/img40.png";
-import quinta from "../assets/quinta.webp";
-import xcaret from "../assets/xcaret.jpg";
-import playad from "../assets/playad.jpg";
-import swin from "../assets/swin.jpg";
-import cocop from "../assets/cocop.jpg";
-import ferry from "../assets/ferry.webp";
-import rio from "../assets/rio.jpg";
-import xplor from "../assets/xplor.png";
-import threeD from "../assets/3d.webp"; // Assuming you have a 3D Museum image
-import lala from "../assets/lala.jpg"; // Assuming you have a restaurant image
-import cueva from "../assets/cueva.jpeg"; // Assuming you have a restaurant image7
-import alux from "../assets/alux.jpeg"; // Assuming you have a restaurant image
-import fogon from '../assets/fogon.jpg';
-import chezCeline from '../assets/chezCeline.jpeg';
-import harrys from '../assets/harrys.jpg';
 
 const featuredTours = [
     {
         id: 1,
         title: "5th Avenue Shopping",
-        image: quinta,
+        image: "https://imgs.search.brave.com/MYE35k9WOwAMy_WQzE-sAF4LdeDJt3ieW7TZhsEAsQQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Z2lsbGVzLXNtYXJ0/aG9tZXBsYXlhLmNv/bS9fbWVkaWEvaW1n/L3NtYWxsL3BsYXlh/LTVlbWUtYXZlbnVl/LndlYnA",
         rating: 5,
         reviews: 1,
         duration: "Flexible",
@@ -62,7 +47,7 @@ const featuredTours = [
     {
         id: 2,
         title: "Xcaret Park",
-        image: xcaret,
+        image: "https://imgs.search.brave.com/Eqbsmp1puSb7zC4wzKtvyMvvroZX7pr5RsmxfzybkRM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAxNi8w/Mi8yOS8wNi80Ni94/Y2FyZXQtMTIyODE4/Ml82NDAuanBn",
         rating: 5,
         reviews: 1,
         duration: "Full day",
@@ -74,7 +59,7 @@ const topActivities = [
     {
         id: 1,
         title: "Cenote Swim Adventure",
-        image: swin,
+        image: imga2,
         rating: 5,
         reviews: 1,
         duration: "Half day",
@@ -83,7 +68,7 @@ const topActivities = [
     {
         id: 2,
         title: "Coco Bongo Playa",
-        image: cocop,
+        image: imga3,
         rating: 5,
         reviews: 1,
         duration: "Night",
@@ -92,7 +77,7 @@ const topActivities = [
     {
         id: 3,
         title: "Ferry to Cozumel",
-        image: ferry,
+        image: imga4,
         rating: 5,
         reviews: 1,
         duration: "Full day",
@@ -101,7 +86,7 @@ const topActivities = [
     {
         id: 4,
         title: "Rio Secreto",
-        image: rio,
+        image: frame341,
         rating: 5,
         reviews: 1,
         duration: "Half day",
@@ -110,7 +95,7 @@ const topActivities = [
     {
         id: 5,
         title: "Xplor Adventure Park",
-        image: xplor, // You might want to use a different image
+        image: imga5, // You might want to use a different image
         rating: 5,
         reviews: 1,
         duration: "Full day",
@@ -119,7 +104,7 @@ const topActivities = [
     {
         id: 6,
         title: "3D Museum of Wonders",
-        image: threeD, // You might want to use a different image
+        image: imga1, // You might want to use a different image
         rating: 5,
         reviews: 1,
         duration: "2 hours",
@@ -130,40 +115,22 @@ const topActivities = [
 const restaurantData = [
     {
         title: "Alux Restaurant",
-        image: alux,
+        image: harris,
         url: "https://aluxrestaurant.com/",
         description: "Unique dining in a natural cave"
     },
     {
         title: "La Cueva del Chango",
-        image: cueva,
+        image: i1,
         url: "https://lacuevadelchango.com/",
         description: "Authentic Mexican in jungle setting"
     },
     {
         title: "Oh Lala!",
-        image: lala,
+        image: i3,
         url: "https://ohlalaplayadelcarmen.com/",
         description: "Intimate gourmet dining experience"
     },
-    {
-        title: "El Fogón",
-        image: fogon, // Asegúrate de importar esta imagen
-        url: "https://www.tripadvisor.com/Restaurant_Review-g150812-d7394908-Reviews-El_Fogon-Playa_del_Carmen_Yucatan_Peninsula.html",
-        description: "Best tacos al pastor in town (local favorite)"
-    },
-    {
-        title: "Chez Céline",
-        image: chezCeline, // Asegúrate de importar esta imagen
-        url: "https://www.chezceline.com.mx/",
-        description: "Charming French bakery & bistro"
-    },
-    {
-        title: "Harry's Prime Steakhouse & Raw Bar",
-        image: harrys, // Asegúrate de importar esta imagen
-        url: "https://harrys.com.mx/",
-        description: "Upscale steakhouse with seafood options"
-    }
 ];
 
 const TourCard = ({ tour, onClick }) => (
@@ -269,8 +236,8 @@ const TourCard = ({ tour, onClick }) => (
 export default function PlayaDelCarmen() {
     const navigate = useNavigate();
 
-    const handleFifthAveClick = () => {
-        navigate('/FifthAvenue');
+    const handleFifthAvenueClick = () => {
+        navigate('/FifthAvenueTour');
     };
 
     const handleXcaretClick = () => {
@@ -308,7 +275,7 @@ export default function PlayaDelCarmen() {
                         sx={{
                             height: 320,
                             borderRadius: "20px",
-                            backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(${playad})`,
+                            backgroundImage: `url(${image54})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             display: "flex",
@@ -338,7 +305,7 @@ export default function PlayaDelCarmen() {
                                     tour={tour}
                                     onClick={
                                         tour.title === "5th Avenue Shopping"
-                                            ? handleFifthAveClick
+                                            ? handleFifthAvenueClick
                                             : tour.title === "Xcaret Park"
                                                 ? handleXcaretClick
                                                 : undefined
