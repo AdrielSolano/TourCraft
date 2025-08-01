@@ -17,6 +17,7 @@ import AccessTime from "@mui/icons-material/AccessTime";
 import LocationOn from "@mui/icons-material/LocationOn";
 import { useNavigate } from "react-router-dom";
 import imga2 from "../assets/imga2.png";
+import under from "../assets/under.jpeg";
 
 const UnderwaterMuseum = () => {
   const navigate = useNavigate();
@@ -37,6 +38,10 @@ const UnderwaterMuseum = () => {
               color: "#0e3d4d",
               fontFamily: "Playfair Display",
               textTransform: "none",
+              fontWeight: 600,
+              display: "flex",
+              alignItems: "center",
+              gap: 1,
               fontSize: "16px"
             }}
           >
@@ -62,7 +67,7 @@ const UnderwaterMuseum = () => {
               <CardMedia
                 component="img"
                 height="400"
-                image={imga2}
+                image={under}
                 alt="Cancún Underwater Museum"
                 sx={{ objectFit: "cover" }}
               />
