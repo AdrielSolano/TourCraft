@@ -10,7 +10,7 @@
     "install-all": "npm install && cd Turiscraft && npm install && cd TourCraft/TourCraft && npm install",
     "init-db": "cd Turiscraft && npm run init-db",
    "build": "cd from-TourCraft && npm install && npm run build",
-"start": "node back-Turiscraft/index.js"
+"start": "cd back-Turiscraft && node index.jss"
   },
   "keywords": ["tourism", "reservations", "react", "nodejs", "mongodb"],
   "author": "TourCraft Team",
