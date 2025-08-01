@@ -18,6 +18,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import frame341 from '../assets/Frame341.png';
+import cuzu from '../assets/cuza.jpg'; // Assuming you have a Cuzamá image
 
 const CenotesCuzama = () => {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ const CenotesCuzama = () => {
             sx={{
               height: 400,
               borderRadius: "20px",
-              backgroundImage: `url(${frame341})`,
+              backgroundImage: `url(${cuzu})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               display: "flex",

@@ -18,6 +18,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import imga4 from '../assets/imga4.png';
+import grande from '../assets/grande.jpg';
 
 const PlazaGrande = () => {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ const PlazaGrande = () => {
             sx={{
               height: 400,
               borderRadius: "20px",
-              backgroundImage: `url(${imga4})`,
+              backgroundImage: `url(${grande})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               display: "flex",

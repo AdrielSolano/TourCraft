@@ -18,6 +18,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import imga1 from '../assets/imga1.png';
+import cen4 from '../assets/cen4.jpg';
 
 const CenotesTour = () => {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ const CenotesTour = () => {
             sx={{
               height: 400,
               borderRadius: "20px",
-              backgroundImage: `url(${imga1})`,
+              backgroundImage: `url(${cen4})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               display: "flex",

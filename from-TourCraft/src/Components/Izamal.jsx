@@ -18,6 +18,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import imga2 from '../assets/imga2.png';
+import izamal from '../assets/izamal.webp';
 
 const Izamal = () => {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ const Izamal = () => {
             sx={{
               height: 400,
               borderRadius: "20px",
-              backgroundImage: `url(${imga2})`,
+              backgroundImage: `url(${izamal})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               display: "flex",

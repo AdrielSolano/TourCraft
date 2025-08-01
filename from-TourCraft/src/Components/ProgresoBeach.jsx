@@ -18,6 +18,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import imga3 from '../assets/imga3.png';
+import progreso from '../assets/progreso.jpg';
 
 const ProgresoBeach = () => {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ const ProgresoBeach = () => {
             sx={{
               height: 400,
               borderRadius: "20px",
-              backgroundImage: `url(${imga3})`,
+              backgroundImage: `url(${progreso})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               display: "flex",

@@ -19,6 +19,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import imga5 from '../assets/imga5.png';
 import image54 from '../assets/image54.png';
+import arch from '../assets/arch.jpg';
 
 const ArchitectureMerida = () => {
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ const ArchitectureMerida = () => {
             sx={{
               height: 400,
               borderRadius: "20px",
-              backgroundImage: `url(${imga5})`,
+              backgroundImage: `url(${arch})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               display: "flex",
