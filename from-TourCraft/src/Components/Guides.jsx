@@ -52,7 +52,7 @@ const guides = [
         location: "Cancun, MX",
         rating: 4.9,
         reviews: 300,
-        image: guide1,
+        image: p1,
         backgroundColor: "#f1f1f1",
     },
     {
