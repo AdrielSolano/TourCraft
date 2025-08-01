@@ -121,7 +121,12 @@ const Header = ({ navItems = [] }) => {
                 }}
             >
                 {/* Logo container */}
-                <Box sx={{ width: { xs: "120px", sm: "150px", md: "180px" }, display: "flex", alignItems: "center" }}>
+                <Box
+                    sx={{ width: { xs: "120px", sm: "150px", md: "180px" }, display: "flex", alignItems: "center" }}
+                    component={RouterLink}
+                    to="/"
+                    style={{ textDecoration: "none" }}
+                >
                     <Box
                         component="img"
                         sx={{
@@ -130,10 +135,9 @@ const Header = ({ navItems = [] }) => {
                             objectFit: "contain",
                         }}
                         alt="Solano11"
-                        src={Solano11} />
+                        src={Solano11}
+                    />
                 </Box>
-
-                {/* Desktop Navigation */}
                 {!isMobile && (
                     <Stack
                         direction="row"
