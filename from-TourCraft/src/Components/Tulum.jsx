@@ -32,6 +32,19 @@ import imga3 from "../assets/imga3.png";
 import imga2 from "../assets/imga2.png";
 import imga1 from "../assets/imga1.png";
 import img40 from "../assets/img40.png";
+import tulum from "../assets/tulum.webp";
+import gran from "../assets/gran.jpeg";
+import coba from "../assets/coba.jpg";
+import club from "../assets/club.jpg";
+import muyil from "../assets/muyil.jpeg";
+import tortu from "../assets/tortu.webp";
+import ojo from "../assets/ojo.jpeg";
+import arca from "../assets/arca.jpeg";
+import har from "../assets/har.jpg";
+import gi from "../assets/gi.jpeg";
+import casabanana from "../assets/casabanana.webp";
+import kinToh from "../assets/kintoh.png";
+import posadaMargherita from "../assets/posadamargherita.jpg";
 
 const featuredTours = [
     {
@@ -59,7 +72,7 @@ const topActivities = [
     {
         id: 1,
         title: "Gran Cenote",
-        image: imga2,
+        image: gran,
         rating: 5,
         reviews: 1,
         duration: "Half day",
@@ -68,7 +81,7 @@ const topActivities = [
     {
         id: 2,
         title: "Coba Ruins",
-        image: imga3,
+        image: coba,
         rating: 5,
         reviews: 1,
         duration: "Half day",
@@ -77,7 +90,7 @@ const topActivities = [
     {
         id: 3,
         title: "Beach Clubs",
-        image: imga4,
+        image: club,
         rating: 5,
         reviews: 1,
         duration: "Flexible",
@@ -86,7 +99,7 @@ const topActivities = [
     {
         id: 4,
         title: "Muyil Lagoon",
-        image: frame341,
+        image: muyil,
         rating: 5,
         reviews: 1,
         duration: "Half day",
@@ -95,7 +108,7 @@ const topActivities = [
     {
         id: 5,
         title: "Akumal Turtle Swim",
-        image: imga5, // You might want to use a different image
+        image: tortu, // You might want to use a different image
         rating: 5,
         reviews: 1,
         duration: "Half day",
@@ -104,7 +117,7 @@ const topActivities = [
     {
         id: 6,
         title: "Cenote Dos Ojos",
-        image: imga1, // You might want to use a different image
+        image: ojo, // You might want to use a different image
         rating: 5,
         reviews: 1,
         duration: "Half day",
@@ -115,22 +128,40 @@ const topActivities = [
 const restaurantData = [
     {
         title: "Hartwood",
-        image: harris,
+        image: har,
         url: "https://hartwoodtulum.com/",
         description: "Wood-fired cuisine in jungle setting"
     },
     {
         title: "Arca",
-        image: i1,
+        image: arca,
         url: "https://arcatulum.com/",
         description: "Modern Mexican with local ingredients"
     },
     {
         title: "Gitano",
-        image: i3,
+        image: gi,
         url: "https://gitanotulum.com/",
         description: "Jungle-chic mezcal bar & restaurant"
     },
+    {
+        title: "Casa Banana",
+        image: casabanana, // Asegúrate de importar esta imagen
+        url: "https://casabananatulum.com/",
+        description: "Argentinian grill with tropical twist"
+    },
+    {
+        title: "Kin Toh",
+        image: kinToh, // Asegúrate de importar esta imagen
+        url: "https://azulik.com/restaurants-bars/kin-toh/",
+        description: "Treehouse dining with Mayan inspiration"
+    },
+    {
+        title: "Posada Margherita",
+        image: posadaMargherita, // Asegúrate de importar esta imagen
+        url: "https://posadamargherita.com/",
+        description: "Authentic Italian beachfront eatery"
+    }
 ];
 
 const TourCard = ({ tour, onClick }) => (
@@ -277,7 +308,7 @@ export default function Tulum() {
                         sx={{
                             height: 320,
                             borderRadius: "20px",
-                            backgroundImage: `url(${image54})`,
+                            backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(${tulum})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             display: "flex",

@@ -32,12 +32,27 @@ import imga3 from "../assets/imga3.png";
 import imga2 from "../assets/imga2.png";
 import imga1 from "../assets/imga1.png";
 import img40 from "../assets/img40.png";
+import quinta from "../assets/quinta.webp";
+import xcaret from "../assets/xcaret.jpg";
+import playad from "../assets/playad.jpg";
+import swin from "../assets/swin.jpg";
+import cocop from "../assets/cocop.jpg";
+import ferry from "../assets/ferry.webp";
+import rio from "../assets/rio.jpg";
+import xplor from "../assets/xplor.png";
+import threeD from "../assets/3d.webp"; // Assuming you have a 3D Museum image
+import lala from "../assets/lala.jpg"; // Assuming you have a restaurant image
+import cueva from "../assets/cueva.jpeg"; // Assuming you have a restaurant image7
+import alux from "../assets/alux.jpeg"; // Assuming you have a restaurant image
+import fogon from '../assets/fogon.jpg';
+import chezCeline from '../assets/chezCeline.jpeg';
+import harrys from '../assets/harrys.jpg';
 
 const featuredTours = [
     {
         id: 1,
         title: "5th Avenue Shopping",
-        image: imga5,
+        image: quinta,
         rating: 5,
         reviews: 1,
         duration: "Flexible",
@@ -47,7 +62,7 @@ const featuredTours = [
     {
         id: 2,
         title: "Xcaret Park",
-        image: imga1,
+        image: xcaret,
         rating: 5,
         reviews: 1,
         duration: "Full day",
@@ -59,7 +74,7 @@ const topActivities = [
     {
         id: 1,
         title: "Cenote Swim Adventure",
-        image: imga2,
+        image: swin,
         rating: 5,
         reviews: 1,
         duration: "Half day",
@@ -68,7 +83,7 @@ const topActivities = [
     {
         id: 2,
         title: "Coco Bongo Playa",
-        image: imga3,
+        image: cocop,
         rating: 5,
         reviews: 1,
         duration: "Night",
@@ -77,7 +92,7 @@ const topActivities = [
     {
         id: 3,
         title: "Ferry to Cozumel",
-        image: imga4,
+        image: ferry,
         rating: 5,
         reviews: 1,
         duration: "Full day",
@@ -86,7 +101,7 @@ const topActivities = [
     {
         id: 4,
         title: "Rio Secreto",
-        image: frame341,
+        image: rio,
         rating: 5,
         reviews: 1,
         duration: "Half day",
@@ -95,7 +110,7 @@ const topActivities = [
     {
         id: 5,
         title: "Xplor Adventure Park",
-        image: imga5, // You might want to use a different image
+        image: xplor, // You might want to use a different image
         rating: 5,
         reviews: 1,
         duration: "Full day",
@@ -104,7 +119,7 @@ const topActivities = [
     {
         id: 6,
         title: "3D Museum of Wonders",
-        image: imga1, // You might want to use a different image
+        image: threeD, // You might want to use a different image
         rating: 5,
         reviews: 1,
         duration: "2 hours",
@@ -115,22 +130,40 @@ const topActivities = [
 const restaurantData = [
     {
         title: "Alux Restaurant",
-        image: harris,
+        image: alux,
         url: "https://aluxrestaurant.com/",
         description: "Unique dining in a natural cave"
     },
     {
         title: "La Cueva del Chango",
-        image: i1,
+        image: cueva,
         url: "https://lacuevadelchango.com/",
         description: "Authentic Mexican in jungle setting"
     },
     {
         title: "Oh Lala!",
-        image: i3,
+        image: lala,
         url: "https://ohlalaplayadelcarmen.com/",
         description: "Intimate gourmet dining experience"
     },
+    {
+        title: "El Fogón",
+        image: fogon, // Asegúrate de importar esta imagen
+        url: "https://www.tripadvisor.com/Restaurant_Review-g150812-d7394908-Reviews-El_Fogon-Playa_del_Carmen_Yucatan_Peninsula.html",
+        description: "Best tacos al pastor in town (local favorite)"
+    },
+    {
+        title: "Chez Céline",
+        image: chezCeline, // Asegúrate de importar esta imagen
+        url: "https://www.chezceline.com.mx/",
+        description: "Charming French bakery & bistro"
+    },
+    {
+        title: "Harry's Prime Steakhouse & Raw Bar",
+        image: harrys, // Asegúrate de importar esta imagen
+        url: "https://harrys.com.mx/",
+        description: "Upscale steakhouse with seafood options"
+    }
 ];
 
 const TourCard = ({ tour, onClick }) => (
@@ -275,7 +308,7 @@ export default function PlayaDelCarmen() {
                         sx={{
                             height: 320,
                             borderRadius: "20px",
-                            backgroundImage: `url(${image54})`,
+                            backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(${playad})`,
                             backgroundSize: "cover",
                             backgroundPosition: "center",
                             display: "flex",

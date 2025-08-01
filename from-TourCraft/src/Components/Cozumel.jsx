@@ -21,17 +21,20 @@ import {
 } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import harris from "../assets/harris.jpg";
-import i3 from "../assets/i3.jpg";
-import i1 from "../assets/i1.jpg";
-import image54 from "../assets/image54.png";
-import frame341 from "../assets/Frame341.png";
-import imga5 from "../assets/imga5.png";
-import imga4 from "../assets/imga4.png";
-import imga3 from "../assets/imga3.png";
-import imga2 from "../assets/imga2.png";
-import imga1 from "../assets/imga1.png";
+import pesca from "../assets/pesca.jpg";
+import denis from "../assets/denis.jpg";
+import cozumel from "../assets/cozumel.jpg";
 import img40 from "../assets/img40.png";
+import punta from "../assets/punta.jpg";
+import chan from "../assets/chan.webp";
+import cielo from "../assets/cielo.jpeg";
+import palan from "../assets/palan.png";
+import mu from "../assets/mu.jpeg";
+import jeep from "../assets/jeep.jpg";
+import choza from "../assets/choza.jpg";
+import guido from "../assets/guido.jpg";
+import palomar from "../assets/palomar.jpg";
+import miso from "../assets/miso.jpg";
 
 const featuredTours = [
   {
@@ -60,7 +63,7 @@ const topActivities = [
   {
     id: 1,
     title: "Punta Sur Eco Park",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
+    image: punta,
     rating: 5,
     reviews: 1,
     duration: "9 Nights, 8 days",
@@ -69,7 +72,7 @@ const topActivities = [
   {
     id: 2,
     title: "Chankanaab Beach",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
+    image: chan,
     rating: 5,
     reviews: 1,
     duration: "7 Nights, 8 days",
@@ -79,7 +82,7 @@ const topActivities = [
   {
     id: 3,
     title: "El Cielo Snorkeling",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
+    image: cielo,
     rating: 5,
     reviews: 1,
     duration: "10 Nights, 9 days",
@@ -88,7 +91,7 @@ const topActivities = [
   {
     id: 4,
     title: "Playa Palancar",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
+    image: palan,
     rating: 5,
     reviews: 1,
     duration: "3 Nights, 4 days",
@@ -97,7 +100,7 @@ const topActivities = [
   {
     id: 5,
     title: "Cozumel Museum",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
+    image: mu,
     rating: 5,
     reviews: 1,
     duration: "7 Nights, 8 days",
@@ -107,7 +110,7 @@ const topActivities = [
   {
     id: 6,
     title: "Island Jeep Tour",
-    image: imga1,
+    image: jeep,
     rating: 5,
     reviews: 1,
     duration: "10 Nights, 9 days",
@@ -118,37 +121,37 @@ const topActivities = [
 const restaurantData = [
   {
     title: "La Choza - Cozumel",
-    image: harris,
+    image: choza,
     url: "https://lachozacozumel.com/",
     description: "Traditional Mexican cuisine with local flavors"
   },
   {
     title: "Casa Denis - Cozumel",
-    image: i1,
+    image: denis,
     url: "https://casadenis.com/",
     description: "Authentic Yucatecan dishes since 1945"
   },
   {
     title: "El Pescador - Cozumel",
-    image: i3,
+    image: pesca,
     url: "https://elpescadorcozumel.com/",
     description: "Fresh seafood and Caribbean specialties"
   },
   {
     title: "La Mission - Cozumel",
-    image: imga2,
+    image: miso,
     url: "https://lamissioncozumel.com/",
     description: "Mexican cuisine with a modern twist"
   },
   {
     title: "Guido's - Cozumel",
-    image: imga3,
+    image: guido,
     url: "https://guidoscozumel.com/",
     description: "Italian restaurant with ocean views"
   },
   {
     title: "El Palomar - Cozumel",
-    image: imga4,
+    image: palomar,
     url: "https://elpalomarcozumel.com/",
     description: "Beachfront dining with fresh ingredients"
   }
@@ -298,7 +301,7 @@ export default function Cozumel() {
             sx={{
               height: 320,
               borderRadius: "20px",
-              backgroundImage: `url(${image54})`,
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${cozumel})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               display: "flex",

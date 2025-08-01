@@ -24,14 +24,18 @@ import { useNavigate } from "react-router-dom";
 import harris from "../assets/harris.jpg";
 import i3 from "../assets/i3.jpg";
 import i1 from "../assets/i1.jpg";
-import image54 from "../assets/image54.png";
-import frame341 from "../assets/Frame341.png";
-import imga5 from "../assets/imga5.png";
 import imga4 from "../assets/imga4.png";
 import imga3 from "../assets/imga3.png";
 import imga2 from "../assets/imga2.png";
 import imga1 from "../assets/imga1.png";
 import img40 from "../assets/img40.png";
+import cancun from "../assets/cancun.jpeg";
+import under from "../assets/under.jpeg";
+import cococ from "../assets/cococ.webp";
+import delfines from "../assets/delfines.webp";
+import meco from "../assets/meco.jpg";
+import aqua from "../assets/aqua.jpg";
+import villa from "../assets/villa.jpg";
 
 const featuredTours = [
   {
@@ -59,7 +63,7 @@ const topActivities = [
   {
     id: 1,
     title: "Cancún Underwater Museum",
-    image: imga2,
+    image: under,
     rating: 5,
     reviews: 1,
     duration: "3-4 hours",
@@ -68,7 +72,7 @@ const topActivities = [
   {
     id: 2,
     title: "Coco Bongo",
-    image: imga3,
+    image: cococ,
     rating: 5,
     reviews: 1,   
     duration: "Night",
@@ -77,7 +81,7 @@ const topActivities = [
   {
     id: 3,
     title: "Playa Delfines",
-    image: imga4,
+    image: delfines,
     rating: 5,
     reviews: 1,
     duration: "Half day",
@@ -86,7 +90,7 @@ const topActivities = [
   {
     id: 4,
     title: "El Meco Archaeological Site",
-    image: frame341,
+    image: meco,
     rating: 5,
     reviews: 1,
     duration: "2 hours",
@@ -95,7 +99,7 @@ const topActivities = [
   {
     id: 5,
     title: "Cancún Interactive Aquarium",
-    image: imga5,
+    image: aqua,
     rating: 5,
     reviews: 1,
     duration: "2-3 hours",
@@ -104,7 +108,7 @@ const topActivities = [
   {
     id: 6,
     title: "La Isla Shopping Village",
-    image: imga1,
+    image: villa,
     rating: 5,
     reviews: 1,
     duration: "Flexible",
@@ -295,7 +299,7 @@ export default function Cancun() {
             sx={{
               height: 320,
               borderRadius: "20px",
-              backgroundImage: `url(${image54})`,
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(${cancun})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               display: "flex",
