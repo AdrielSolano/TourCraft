@@ -134,8 +134,7 @@ const WhaleSharkTour = () => {
                                         height="400"
                                         frameBorder="0"
                                         style={{ border: 0 }}
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.021329480135!2d-87.77303488462958!3d20.25991058629522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e5a8b8b8b8b8%3A0x8f4e5a8b8b8b8b8!2sWhale%20Shark%20Tour%2C%20Holbox!5e0!3m2!1ses-419!2smx!4v1690412072934!5m2!1ses-419!2smx"
-                                        allowFullScreen=""
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.91648497456!2d-87.3794558!3d21.5206227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4d92753cae1733%3A0x671ed9d9f94b57f9!2sHolbox%20Whale%20Shark%20Tours!5e0!3m2!1sen!2smx!4v1712345678901"                                        allowFullScreen=""
                                         loading="lazy"
                                         referrerPolicy="no-referrer-when-downgrade"
                                     ></iframe>

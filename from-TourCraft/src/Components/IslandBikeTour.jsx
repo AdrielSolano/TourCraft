@@ -134,8 +134,7 @@ const IslandBikeTour = () => {
                                         height="400"
                                         frameBorder="0"
                                         style={{ border: 0 }}
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.021329480135!2d-87.77303488462958!3d20.25991058629522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e5a8b8b8b8b8%3A0x8f4e5a8b8b8b8b8!2sIsland%20Bike%20Tour%2C%20Cozumel!5e0!3m2!1ses-419!2smx!4v1690412072934!5m2!1ses-419!2smx"
-                                        allowFullScreen=""
+ src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.093384478894!2d-87.3828947!3d21.5235775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4d93e8793c5d4b%3A0x7e4411b872fff2eb!2sBikeLand%20Holbox!5e0!3m2!1sen!2smx!4v1712345678901"                                        allowFullScreen=""
                                         loading="lazy"
                                         referrerPolicy="no-referrer-when-downgrade"
                                     ></iframe>

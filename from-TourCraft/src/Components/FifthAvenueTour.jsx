@@ -123,8 +123,7 @@ const FifthAvenueTour = () => {
                                         height="400"
                                         frameBorder="0"
                                         style={{ border: 0 }}
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.021329480135!2d-87.77303488462958!3d20.25991058629522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e5a8b8b8b8b8%3A0x8f4e5a8b8b8b8b8!2s5th%20Avenue%20Playa%20del%20Carmen!5e0!3m2!1ses-419!2smx!4v1690412072934!5m2!1ses-419!2smx"
-                                        allowFullScreen=""
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.91648497456!2d-87.0731457!3d20.6291573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e43396692e03b%3A0xb363ad7670e2157!2sQuinta%20Avenida%2C%20Playa%20del%20Carmen%2C%20Q.R.!5e0!3m2!1ses!2smx!4v1712345678901"                                        allowFullScreen=""
                                         loading="lazy"
                                         referrerPolicy="no-referrer-when-downgrade"
                                     ></iframe>

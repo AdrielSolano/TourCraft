@@ -138,8 +138,7 @@ const SianKaanBiosphere = () => {
                                         height="400"
                                         frameBorder="0"
                                         style={{ border: 0 }}
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.021329480135!2d-87.77303488462958!3d20.25991058629522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e5a8b8b8b8b8%3A0x8f4e5a8b8b8b8b8!2sSian%20Ka%27an%20Biosphere%2C%20Quintana%20Roo!5e0!3m2!1ses-419!2smx!4v1690412072934!5m2!1ses-419!2smx"
-                                        allowFullScreen=""
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.267381580643!2d-87.7261122!3d19.4980308!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5aa6364b0b8955%3A0x2e1756ec20094d4d!2s77187%20Sian%20Ka%27an%2C%20Q.R.!5e0!3m2!1ses!2smx!4v1712345678901"                                        allowFullScreen=""
                                         loading="lazy"
                                         referrerPolicy="no-referrer-when-downgrade"
                                     ></iframe>

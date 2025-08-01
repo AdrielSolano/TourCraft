@@ -134,8 +134,7 @@ const SanGervasioRuins = () => {
                                         height="400"
                                         frameBorder="0"
                                         style={{ border: 0 }}
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.021329480135!2d-87.77303488462958!3d20.25991058629522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e5a8b8b8b8b8%3A0x8f4e5a8b8b8b8b8!2sSan%20Gervasio%20Ruins%2C%20Cozumel!5e0!3m2!1ses-419!2smx!4v1690412072934!5m2!1ses-419!2smx"
-                                        allowFullScreen=""
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.91648497456!2d-86.931787!3d20.4964933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e59d21f8c7449%3A0xe64feabe709d72a9!2sParador%20Tur%C3%ADstico%20San%20Gervasio!5e0!3m2!1sen!2smx!4v1712345678901"                                        allowFullScreen=""
                                         loading="lazy"
                                         referrerPolicy="no-referrer-when-downgrade"
                                     ></iframe>

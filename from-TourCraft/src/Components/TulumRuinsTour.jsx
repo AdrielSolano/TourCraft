@@ -129,18 +129,22 @@ const TulumRuinsTour = () => {
                                 <Typography variant="h4" sx={{ fontWeight: 800, mb: 2.5, fontFamily: "Playfair Display" }}>
                                     Location
                                 </Typography>
-                                <Box sx={{ borderRadius: '25px', overflow: 'hidden' }}>
-                                    <iframe
-                                        width="100%"
-                                        height="400"
-                                        frameBorder="0"
-                                        style={{ border: 0 }}
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.021329480135!2d-87.77303488462958!3d20.25991058629522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e5a8b8b8b8b8%3A0x8f4e5a8b8b8b8b8!2sTulum%20Ruins%2C%20Quintana%20Roo!5e0!3m2!1ses-419!2smx!4v1690412072934!5m2!1ses-419!2smx"
-                                        allowFullScreen=""
-                                        loading="lazy"
-                                        referrerPolicy="no-referrer-when-downgrade"
-                                    ></iframe>
-                                </Box>
+                                <Box sx={{ 
+    borderRadius: '25px', 
+    overflow: 'hidden',
+    width: '100%', // Asegura que el contenedor ocupe el ancho disponible
+}}>
+    <iframe
+        width="100%"
+        height="400"
+        frameBorder="0"
+        style={{ border: 0 }}
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.91648497456!2d-87.4399011!3d20.2181432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4fd3dfe8b35023%3A0xd3ce8416e49f55aa!2sRuinas%20de%20Tulum!5e0!3m2!1ses!2smx!4v1712345678901"        allowFullScreen
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        title="Mapa de las Ruinas de Tulum"
+    ></iframe>
+</Box>
                             </Box>
 
                             <Box>
