@@ -14,6 +14,7 @@ import {
 import AccessTime from "@mui/icons-material/AccessTime";
 import LocationOn from "@mui/icons-material/LocationOn";
 import imga5 from '../assets/imga5.png';
+import xplor from '../assets/xplor.png';
 
 const XplorAdventurePark = () => {
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ const XplorAdventurePark = () => {
               <CardMedia
                 component="img"
                 height="400"
-                image={imga5}
+                image={xplor}
                 alt="Xplor Adventure Park"
                 sx={{ objectFit: "cover" }}
               />

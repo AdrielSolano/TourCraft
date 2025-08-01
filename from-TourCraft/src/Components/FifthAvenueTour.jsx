@@ -123,7 +123,8 @@ const FifthAvenueTour = () => {
                                         height="400"
                                         frameBorder="0"
                                         style={{ border: 0 }}
-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.91648497456!2d-87.0731457!3d20.6291573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e43396692e03b%3A0xb363ad7670e2157!2sQuinta%20Avenida%2C%20Playa%20del%20Carmen%2C%20Q.R.!5e0!3m2!1ses!2smx!4v1712345678901"                                        allowFullScreen=""
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.91648497456!2d-87.0731457!3d20.6291573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4e43396692e03b%3A0xb363ad7670e2157!2sQuinta%20Avenida%2C%20Playa%20del%20Carmen%2C%20Q.R.!5e0!3m2!1ses!2smx!4v1712345678901"
+                                        allowFullScreen=""
                                         loading="lazy"
                                         referrerPolicy="no-referrer-when-downgrade"
                                     ></iframe>
@@ -140,16 +141,13 @@ src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.91648497456!2d
                                     ].map((item, index) => (
                                         <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
                                             <ListItemIcon sx={{ minWidth: 32 }}>
-                                                <item.icon sx={{ color: '#7bbcb0', fontSize: 20 }} />
+                                                <item.icon sx={{ color: '#80b9ad', fontSize: 24 }} />
                                             </ListItemIcon>
                                             <ListItemText
                                                 primary={item.text}
-                                                sx={{
-                                                    '& .MuiListItemText-primary': {
-                                                        fontFamily: "Playfair Display",
-                                                        fontSize: '14px',
-                                                        color: '#666'
-                                                    }
+                                                primaryTypographyProps={{
+                                                    fontWeight: 700,
+                                                    fontFamily: "Playfair Display"
                                                 }}
                                             />
                                         </ListItem>
@@ -160,52 +158,34 @@ src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.91648497456!2d
                     </Grid>
 
                     <Grid item xs={12} md={6}>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
                             <Box>
-                                <Typography variant="h3" sx={{ fontWeight: 800, mb: 2, fontFamily: "Playfair Display" }}>
+                                <Typography variant="h2" sx={{ fontWeight: 800, mb: 2, fontFamily: "Playfair Display" }}>
                                     5th Avenue Tour
                                 </Typography>
-                                <Typography variant="h6" sx={{ color: '#7bbcb0', mb: 3, fontFamily: "Playfair Display" }}>
-                                    From $35
-                                </Typography>
-                                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
-                                    {categorias.map((cat) => {
-                                        const Icon = iconMap[cat.nombre] || CardTravel;
-                                        return (
-                                            <Chip
-                                                key={cat._id}
-                                                icon={<Icon sx={{ color: '#80b9ad' }} />}
-                                                label={cat.nombre}
-                                                sx={{ backgroundColor: "#fff", color: '#80b9ad', fontWeight: 700, border: "none", boxShadow: 1, fontFamily: "Playfair Display" }}
-                                            />
-                                        );
-                                    })}
-                                </Box>
                             </Box>
 
-                            <Box>
-                                <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, fontFamily: "Playfair Display" }}>
-                                    What's included
+                            <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 2 }}>
+                                <Typography variant="h5" sx={{ fontWeight: 600, opacity: 0.8, fontFamily: "Playfair Display" }}>
+                                    from
                                 </Typography>
-                                <List sx={{ width: '100%', bgcolor: 'transparent', padding: 0 }}>
-                                    {texts.map((text, index) => (
-                                        <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
-                                            <ListItemIcon sx={{ minWidth: 32 }}>
-                                                <FiberManualRecordIcon sx={{ color: '#7bbcb0', fontSize: 8 }} />
-                                            </ListItemIcon>
-                                            <ListItemText
-                                                primary={text}
-                                                sx={{
-                                                    '& .MuiListItemText-primary': {
-                                                        fontFamily: "Playfair Display",
-                                                        fontSize: '14px',
-                                                        color: '#666'
-                                                    }
-                                                }}
-                                            />
-                                        </ListItem>
-                                    ))}
-                                </List>
+                                <Typography variant="h4" sx={{ fontWeight: 800, color: '#80b9ad', fontFamily: "Inter" }}>
+                                    35 $
+                                </Typography>
+                            </Box>
+
+                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
+                                {categorias.map((cat) => {
+                                    const Icon = iconMap[cat.nombre] || CardTravel;
+                                    return (
+                                        <Chip
+                                            key={cat._id}
+                                            icon={<Icon sx={{ color: '#80b9ad' }} />}
+                                            label={cat.nombre}
+                                            sx={{ backgroundColor: "#fff", color: '#80b9ad', fontWeight: 700, border: "none", boxShadow: 1, fontFamily: "Playfair Display" }}
+                                        />
+                                    );
+                                })}
                             </Box>
 
                             <Button
@@ -229,11 +209,32 @@ src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.91648497456!2d
                             >
                                 Select place
                             </Button>
+
+                            <Box sx={{ position: 'relative' }}>
+                                <Typography variant="h4" sx={{ fontWeight: 800, mb: 3.75, fontFamily: "Playfair Display" }}>
+                                    Experience (Itinerary)
+                                </Typography>
+
+                                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5, pl: 5 }}>
+                                    {texts.map((text, i) => {
+                                        const parts = text.split(':');
+                                        return (
+                                            <Box key={i} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
+                                                <FiberManualRecordIcon sx={{ color: '#80b9ad', fontSize: 16, mt: '6px' }} />
+                                                <Typography variant="body1" sx={{ fontFamily: "'Playfair Display'" }}>
+                                                    {parts[0] && <strong>{parts[0]}{parts.length > 1 ? ':' : ''} </strong>}
+                                                    {parts[1] ? parts[1] : parts[0]}
+                                                </Typography>
+                                            </Box>
+                                        );
+                                    })}
+                                </Box>
+                            </Box>
                         </Box>
                     </Grid>
                 </Grid>
             </Container>
-            
+
             <Box sx={{ py: 7.5, borderTop: '1px solid rgba(0,0,0,0.1)' }}>
                 <Container maxWidth="lg">
                     <Typography variant="h2" align="center" sx={{ fontWeight: 700, mb: 7.5, fontFamily: "Playfair Display" }}>
@@ -303,9 +304,81 @@ src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119066.91648497456!2d
                     </Grid>
                 </Container>
             </Box>
-            
+
+            <Box sx={{ py: 7.5, borderTop: '1px solid rgba(0,0,0,0.1)', overflow: 'hidden', marginBottom: '100px' }}>
+                <Container maxWidth="lg">
+                    <Typography
+                        variant="h3"
+                        sx={{
+                            justifyContent: 'center',
+                            fontWeight: 400,
+                            mb: 4,
+                            fontFamily: 'Playfair Display',
+                            textAlign: 'center',
+                        }}
+                    >
+                        See What Travelers Are Saying About 5th Avenue
+                    </Typography>
+
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 3 }}>
+                        {[
+                            {
+                                image: "https://randomuser.me/api/portraits/women/44.jpg",
+                                name: 'Maria Rodriguez',
+                                location: 'Madrid, Spain',
+                                comment: "5th Avenue is absolutely amazing! The vibrant atmosphere, shops, and restaurants make it a must-visit. I spent hours exploring and could have spent more!"
+                            },
+                            {
+                                image: "https://randomuser.me/api/portraits/men/32.jpg",
+                                name: 'John Smith',
+                                location: 'New York, USA',
+                                comment: "The energy on 5th Avenue is incredible. From street performers to high-end shops, there's something for everyone. Don't miss the local artisans selling their crafts!"
+                            }
+                        ].map((testimonial, index) => (
+                            <Paper
+                                key={index}
+                                sx={{
+                                    p: 3,
+                                    border: '1px solid #2f2b36',
+                                    borderRadius: '10px',
+                                    minWidth: '45%',
+                                    flexGrow: 2,
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'space-between',
+                                    gap: 2.5,
+                                }}
+                            >
+                                <Typography
+                                    variant="body2"
+                                    sx={{ lineHeight: '22.5px', fontFamily: 'Playfair Display' }}
+                                >
+                                    "{testimonial.comment}"
+                                </Typography>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+                                    <Avatar
+                                        src={testimonial.image}
+                                        sx={{ width: 60, height: 60, borderRadius: '50%' }}
+                                    />
+                                    <Box>
+                                        <Typography variant="body2" sx={{ fontFamily: 'Playfair Display' }}>
+                                            {testimonial.name}
+                                        </Typography>
+                                        <Typography
+                                            variant="body2"
+                                            sx={{ fontSize: '14px', fontFamily: 'Playfair Display' }}
+                                        >
+                                            {testimonial.location}
+                                        </Typography>
+                                    </Box>
+                                </Box>
+                            </Paper>
+                        ))}
+                    </Box>
+                </Container>
+            </Box>
         </Box>
     );
 };
 
-export default FifthAvenueTour; 
+export default FifthAvenueTour;

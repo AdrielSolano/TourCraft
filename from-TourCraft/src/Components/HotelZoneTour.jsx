@@ -30,17 +30,6 @@ import {
     DirectionsBus,
     Schedule,
 } from '@mui/icons-material';
-import img from '../assets/img.png';
-import img40 from '../assets/img40.png';
-import img41 from '../assets/img41.png';
-import img44 from '../assets/img44.png';
-import lg1 from '../assets/lg1.png';
-import lg2 from '../assets/lg2.png';
-import lg3 from '../assets/lg3.png';
-import lg4 from '../assets/lg4.png';
-import Rectangle16 from '../assets/Rectangle16.png';
-import Rectangle161 from '../assets/Rectangle161.png';
-import Rectangle162 from '../assets/Rectangle162.png';
 import { Link as RouterLink } from 'react-router-dom';
 import axios from "axios";
 import laRosaNegra from "../assets/la-rosa-negra.jpg";
@@ -57,13 +46,13 @@ const iconMap = {
 
 const texts = [
     "3 pickup location options: Parque de Santa Ana, Viajes Colibrí Yucatán TOURS, Entrada Avenida Cupules del Hotel Fiesta Americana. See more",
-    "Van (2 hours)",
-    "Chichén Itzá - Photo stop, Visit, Guided tour, Free time, Shopping (2.5 hours)",
+    "Van (30 minutes)",
+    "Hotel Zone - Luxury shopping, beach clubs, and resort visits (3 hours)",
     "Van (15 minutes)",
-    "Cenote Ik Kil - Lunch, Swimming (2.5 hours)",
-    "Van (1 hour)",
-    "Izamal - Photo stop, Visit, Guided tour, Free time, Shopping (1.5 hours)",
-    "Van (1 hour)",
+    "La Isla Shopping Village - Lunch, Shopping (2 hours)",
+    "Van (30 minutes)",
+    "Playa Delfines - Photo stop, Beach time (1.5 hours)",
+    "Van (30 minutes)",
     "3 drop-off locations: Viajes Colibrí Yucatán TOURS, Entrada Avenida Cupules del Hotel Fiesta Americana, Parque de Santa Ana"
 ];
 
@@ -152,16 +141,13 @@ const HotelZoneTour = () => {
                                     ].map((item, index) => (
                                         <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
                                             <ListItemIcon sx={{ minWidth: 32 }}>
-                                                <item.icon sx={{ color: '#7bbcb0', fontSize: 20 }} />
+                                                <item.icon sx={{ color: '#80b9ad', fontSize: 24 }} />
                                             </ListItemIcon>
                                             <ListItemText
                                                 primary={item.text}
-                                                sx={{
-                                                    '& .MuiListItemText-primary': {
-                                                        fontFamily: "Playfair Display",
-                                                        fontSize: '14px',
-                                                        color: '#666'
-                                                    }
+                                                primaryTypographyProps={{
+                                                    fontWeight: 700,
+                                                    fontFamily: "Playfair Display"
                                                 }}
                                             />
                                         </ListItem>
@@ -172,52 +158,34 @@ const HotelZoneTour = () => {
                     </Grid>
 
                     <Grid item xs={12} md={6}>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
                             <Box>
-                                <Typography variant="h3" sx={{ fontWeight: 800, mb: 2, fontFamily: "Playfair Display" }}>
+                                <Typography variant="h2" sx={{ fontWeight: 800, mb: 2, fontFamily: "Playfair Display" }}>
                                     Hotel Zone Tour
                                 </Typography>
-                                <Typography variant="h6" sx={{ color: '#7bbcb0', mb: 3, fontFamily: "Playfair Display" }}>
-                                    From $450
-                                </Typography>
-                                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
-                                    {categorias.map((cat) => {
-                                        const Icon = iconMap[cat.nombre] || CardTravel;
-                                        return (
-                                            <Chip
-                                                key={cat._id}
-                                                icon={<Icon sx={{ color: '#80b9ad' }} />}
-                                                label={cat.nombre}
-                                                sx={{ backgroundColor: "#fff", color: '#80b9ad', fontWeight: 700, border: "none", boxShadow: 1, fontFamily: "Playfair Display" }}
-                                            />
-                                        );
-                                    })}
-                                </Box>
                             </Box>
 
-                            <Box>
-                                <Typography variant="h5" sx={{ fontWeight: 700, mb: 2, fontFamily: "Playfair Display" }}>
-                                    What's included
+                            <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 2 }}>
+                                <Typography variant="h5" sx={{ fontWeight: 600, opacity: 0.8, fontFamily: "Playfair Display" }}>
+                                    from
                                 </Typography>
-                                <List sx={{ width: '100%', bgcolor: 'transparent', padding: 0 }}>
-                                    {texts.map((text, index) => (
-                                        <ListItem key={index} disableGutters sx={{ py: 0.5 }}>
-                                            <ListItemIcon sx={{ minWidth: 32 }}>
-                                                <FiberManualRecordIcon sx={{ color: '#7bbcb0', fontSize: 8 }} />
-                                            </ListItemIcon>
-                                            <ListItemText
-                                                primary={text}
-                                                sx={{
-                                                    '& .MuiListItemText-primary': {
-                                                        fontFamily: "Playfair Display",
-                                                        fontSize: '14px',
-                                                        color: '#666'
-                                                    }
-                                                }}
-                                            />
-                                        </ListItem>
-                                    ))}
-                                </List>
+                                <Typography variant="h4" sx={{ fontWeight: 800, color: '#80b9ad', fontFamily: "Inter" }}>
+                                    450 $
+                                </Typography>
+                            </Box>
+
+                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
+                                {categorias.map((cat) => {
+                                    const Icon = iconMap[cat.nombre] || CardTravel;
+                                    return (
+                                        <Chip
+                                            key={cat._id}
+                                            icon={<Icon sx={{ color: '#80b9ad' }} />}
+                                            label={cat.nombre}
+                                            sx={{ backgroundColor: "#fff", color: '#80b9ad', fontWeight: 700, border: "none", boxShadow: 1, fontFamily: "Playfair Display" }}
+                                        />
+                                    );
+                                })}
                             </Box>
 
                             <Button
@@ -241,11 +209,32 @@ const HotelZoneTour = () => {
                             >
                                 Select place
                             </Button>
+
+                            <Box sx={{ position: 'relative' }}>
+                                <Typography variant="h4" sx={{ fontWeight: 800, mb: 3.75, fontFamily: "Playfair Display" }}>
+                                    Experience (Itinerary)
+                                </Typography>
+
+                                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2.5, pl: 5 }}>
+                                    {texts.map((text, i) => {
+                                        const parts = text.split(':');
+                                        return (
+                                            <Box key={i} sx={{ display: 'flex', alignItems: 'flex-start', gap: 1 }}>
+                                                <FiberManualRecordIcon sx={{ color: '#80b9ad', fontSize: 16, mt: '6px' }} />
+                                                <Typography variant="body1" sx={{ fontFamily: "'Playfair Display'" }}>
+                                                    {parts[0] && <strong>{parts[0]}{parts.length > 1 ? ':' : ''} </strong>}
+                                                    {parts[1] ? parts[1] : parts[0]}
+                                                </Typography>
+                                            </Box>
+                                        );
+                                    })}
+                                </Box>
+                            </Box>
                         </Box>
                     </Grid>
                 </Grid>
             </Container>
-            
+
             <Box sx={{ py: 7.5, borderTop: '1px solid rgba(0,0,0,0.1)' }}>
                 <Container maxWidth="lg">
                     <Typography variant="h2" align="center" sx={{ fontWeight: 700, mb: 7.5, fontFamily: "Playfair Display" }}>
@@ -315,9 +304,81 @@ const HotelZoneTour = () => {
                     </Grid>
                 </Container>
             </Box>
-            
+
+            <Box sx={{ py: 7.5, borderTop: '1px solid rgba(0,0,0,0.1)', overflow: 'hidden', marginBottom: '100px' }}>
+                <Container maxWidth="lg">
+                    <Typography
+                        variant="h3"
+                        sx={{
+                            justifyContent: 'center',
+                            fontWeight: 400,
+                            mb: 4,
+                            fontFamily: 'Playfair Display',
+                            textAlign: 'center',
+                        }}
+                    >
+                        See What Travelers Are Saying About Hotel Zone
+                    </Typography>
+
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 3 }}>
+                        {[
+                            {
+                                image: "https://randomuser.me/api/portraits/women/47.jpg",
+                                name: 'Emma Rodriguez',
+                                location: 'New York, USA',
+                                comment: "The Hotel Zone in Cancun is absolutely stunning! The beaches are pristine and the resorts are world-class. The nightlife is incredible with so many options for dining and entertainment."
+                            },
+                            {
+                                image: "https://randomuser.me/api/portraits/men/35.jpg",
+                                name: 'James Wilson',
+                                location: 'London, UK',
+                                comment: "The perfect mix of relaxation and excitement. The beaches are breathtaking, and the shopping at La Isla Village was fantastic. Don't miss the sunset at Playa Delfines!"
+                            }
+                        ].map((testimonial, index) => (
+                            <Paper
+                                key={index}
+                                sx={{
+                                    p: 3,
+                                    border: '1px solid #2f2b36',
+                                    borderRadius: '10px',
+                                    minWidth: '45%',
+                                    flexGrow: 2,
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    justifyContent: 'space-between',
+                                    gap: 2.5,
+                                }}
+                            >
+                                <Typography
+                                    variant="body2"
+                                    sx={{ lineHeight: '22.5px', fontFamily: 'Playfair Display' }}
+                                >
+                                    "{testimonial.comment}"
+                                </Typography>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
+                                    <Avatar
+                                        src={testimonial.image}
+                                        sx={{ width: 60, height: 60, borderRadius: '50%' }}
+                                    />
+                                    <Box>
+                                        <Typography variant="body2" sx={{ fontFamily: 'Playfair Display' }}>
+                                            {testimonial.name}
+                                        </Typography>
+                                        <Typography
+                                            variant="body2"
+                                            sx={{ fontSize: '14px', fontFamily: 'Playfair Display' }}
+                                        >
+                                            {testimonial.location}
+                                        </Typography>
+                                    </Box>
+                                </Box>
+                            </Paper>
+                        ))}
+                    </Box>
+                </Container>
+            </Box>
         </Box>
     );
 };
 
-export default HotelZoneTour; 
+export default HotelZoneTour;

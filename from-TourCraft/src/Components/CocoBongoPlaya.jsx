@@ -14,6 +14,7 @@ import {
 import AccessTime from "@mui/icons-material/AccessTime";
 import LocationOn from "@mui/icons-material/LocationOn";
 import imga3 from '../assets/imga3.png';
+import cocop from '../assets/cocop.jpg';
 
 const CocoBongoPlaya = () => {
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ const CocoBongoPlaya = () => {
               <CardMedia
                 component="img"
                 height="400"
-                image={imga3}
+                image={ cocop }
                 alt="Coco Bongo Playa"
                 sx={{ objectFit: "cover" }}
               />

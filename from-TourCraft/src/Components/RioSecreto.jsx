@@ -14,7 +14,7 @@ import {
 import AccessTime from "@mui/icons-material/AccessTime";
 import LocationOn from "@mui/icons-material/LocationOn";
 import frame341 from '../assets/Frame341.png';
-
+import rio from '../assets/rio.jpg';
 const RioSecreto = () => {
   const navigate = useNavigate();
 
@@ -59,7 +59,7 @@ const RioSecreto = () => {
               <CardMedia
                 component="img"
                 height="400"
-                image={frame341}
+                image={rio}
                 alt="Rio Secreto"
                 sx={{ objectFit: "cover" }}
               />

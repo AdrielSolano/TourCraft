@@ -29,9 +29,15 @@ import frame341 from "../assets/Frame341.png";
 import imga5 from "../assets/imga5.png";
 import imga4 from "../assets/imga4.png";
 import imga3 from "../assets/imga3.png";
-import imga2 from "../assets/imga2.png";
 import imga1 from "../assets/imga1.png";
 import img40 from "../assets/img40.png";
+import cocop from "../assets/cocop.jpg";
+import swin from "../assets/swin.jpg";
+import ferry from "../assets/ferry.webp";
+import rio from "../assets/rio.jpg";
+import xplor from "../assets/xplor.png";
+import threeD from "../assets/3d.webp"; // Assuming you have a 3D Museum image
+
 
 const featuredTours = [
     {
@@ -59,7 +65,7 @@ const topActivities = [
     {
         id: 1,
         title: "Cenote Swim Adventure",
-        image: imga2,
+        image: swin,
         rating: 5,
         reviews: 1,
         duration: "Half day",
@@ -68,7 +74,7 @@ const topActivities = [
     {
         id: 2,
         title: "Coco Bongo Playa",
-        image: imga3,
+        image: cocop,
         rating: 5,
         reviews: 1,
         duration: "Night",
@@ -77,7 +83,7 @@ const topActivities = [
     {
         id: 3,
         title: "Ferry to Cozumel",
-        image: imga4,
+        image: ferry,
         rating: 5,
         reviews: 1,
         duration: "Full day",
@@ -86,7 +92,7 @@ const topActivities = [
     {
         id: 4,
         title: "Rio Secreto",
-        image: frame341,
+        image: rio,
         rating: 5,
         reviews: 1,
         duration: "Half day",
@@ -95,7 +101,7 @@ const topActivities = [
     {
         id: 5,
         title: "Xplor Adventure Park",
-        image: imga5, // You might want to use a different image
+        image: xplor, // You might want to use a different image
         rating: 5,
         reviews: 1,
         duration: "Full day",
@@ -104,7 +110,7 @@ const topActivities = [
     {
         id: 6,
         title: "3D Museum of Wonders",
-        image: imga1, // You might want to use a different image
+        image: threeD, // You might want to use a different image
         rating: 5,
         reviews: 1,
         duration: "2 hours",

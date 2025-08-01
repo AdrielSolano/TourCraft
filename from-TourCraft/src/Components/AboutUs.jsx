@@ -16,7 +16,7 @@ import Santiago from '../assets/santiago.png';
 import paco from '../assets/paco.png';
 import Jesus from '../assets/jesus.png';
 import Adriel from '../assets/adriel.png';
-import Alexis from '../assets/alexis.png';
+import Alexis from '../assets/alexis.jpg';
 import car from '../assets/car.png';
 import lapiz from '../assets/lapiz.png';
 import lupa from '../assets/lupa.png';

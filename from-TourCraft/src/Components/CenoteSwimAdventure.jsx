@@ -14,6 +14,7 @@ import {
 import AccessTime from "@mui/icons-material/AccessTime";
 import LocationOn from "@mui/icons-material/LocationOn";
 import imga2 from '../assets/imga2.png';
+import swin from '../assets/swin.jpg';
 
 const CenoteSwimAdventure = () => {
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ const CenoteSwimAdventure = () => {
               <CardMedia
                 component="img"
                 height="400"
-                image={imga2}
+                image={ swin }
                 alt="Cenote Swim Adventure"
                 sx={{ objectFit: "cover" }}
               />

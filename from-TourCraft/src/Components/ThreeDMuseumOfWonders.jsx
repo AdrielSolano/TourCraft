@@ -14,6 +14,7 @@ import {
 import AccessTime from "@mui/icons-material/AccessTime";
 import LocationOn from "@mui/icons-material/LocationOn";
 import imga1 from '../assets/imga1.png';
+import threeDMuseum from '../assets/3d.webp';
 
 const ThreeDMuseumOfWonders = () => {
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ const ThreeDMuseumOfWonders = () => {
               <CardMedia
                 component="img"
                 height="400"
-                image={imga1}
+                image={ threeDMuseum }
                 alt="3D Museum of Wonders"
                 sx={{ objectFit: "cover" }}
               />

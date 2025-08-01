@@ -14,6 +14,7 @@ import {
 import AccessTime from "@mui/icons-material/AccessTime";
 import LocationOn from "@mui/icons-material/LocationOn";
 import imga4 from '../assets/imga4.png';
+import ferry from '../assets/ferry.webp';
 
 const FerryToCozumel = () => {
   const navigate = useNavigate();
@@ -59,7 +60,7 @@ const FerryToCozumel = () => {
               <CardMedia
                 component="img"
                 height="400"
-                image={imga4}
+                image={ ferry }
                 alt="Ferry to Cozumel"
                 sx={{ objectFit: "cover" }}
               />
