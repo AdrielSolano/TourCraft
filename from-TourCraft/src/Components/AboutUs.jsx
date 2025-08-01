@@ -255,7 +255,7 @@ const AboutUs = () => {
                     Santiago Calderon
                   </Typography>
                   <Typography variant="body2" fontFamily='Playfair Display' color="text.secondary">
-                    Project leader, UX and UI Designer
+                    Project leader,  Software developer
                   </Typography>
                 </CardContent>
               </TeamCard>
@@ -293,7 +293,7 @@ const AboutUs = () => {
                     Jesus Gallegos
                   </Typography>
                   <Typography variant="body2" fontFamily='Playfair Display'color="text.secondary">
-                    Team leader, Software developer
+                    Scrum master, Software developer
                   </Typography>
                 </CardContent>
               </TeamCard>
@@ -312,7 +312,7 @@ const AboutUs = () => {
                     Adriel Solano
                   </Typography>
                   <Typography variant="body2" fontFamily='Playfair Display'color="text.secondary">
-                    Scrum master, Software Development
+                    UX and UI Designer, Software Development
                   </Typography>
                 </CardContent>
               </TeamCard>
@@ -331,7 +331,7 @@ const AboutUs = () => {
                     Alexis Bustos
                   </Typography>
                   <Typography variant="body2" fontFamily='Playfair Display'color="text.secondary">
-                    (DBA) DataBase Administrator
+                    (DBA) DataBase Architect
                   </Typography>
                 </CardContent>
               </TeamCard>
