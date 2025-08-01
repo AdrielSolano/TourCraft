@@ -44,6 +44,12 @@ import Rectangle161 from '../assets/Rectangle161.png';
 import Rectangle162 from '../assets/Rectangle162.png';
 import { Link as RouterLink } from 'react-router-dom';
 import axios from "axios";
+import sianKaanRestaurant1 from "../assets/sian-kaan-restaurant1.jpg";
+import sianKaanRestaurant2 from "../assets/sian-kaan-restaurant2.jpg";
+import sianKaanRestaurant3 from "../assets/sian-kaan-restaurant3.jpg";
+import lolaValentina from "../assets/lola-valentina.jpg";
+import laCasaDeLasMayoras from "../assets/la-casa-de-las-mayoras.jpg";
+import laRosaNegra from "../assets/la-rosa-negra.jpg";
 
 const iconMap = {
     "Business Tours": CardTravel,
@@ -242,6 +248,77 @@ const SianKaanBiosphere = () => {
                     </Grid>
                 </Grid>
             </Container>
+            
+            <Box sx={{ py: 7.5, borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+                <Container maxWidth="lg">
+                    <Typography variant="h2" align="center" sx={{ fontWeight: 700, mb: 7.5, fontFamily: "Playfair Display" }}>
+                        Nearby places in Sian Ka'an Biosphere
+                    </Typography>
+
+                    <Grid container spacing={5}>
+                        {[
+                            {
+                                image: lolaValentina,
+                                title: 'El Paraíso Maya',
+                                description: 'Traditional Mayan restaurant with authentic local cuisine and stunning lagoon views. Famous for their cochinita pibil and fresh seafood.',
+                                url: "https://www.tripadvisor.com/Restaurant_Review-g150809-d155162-Reviews-El_Paraiso_Maya-Tulum_Yucatan_Peninsula.html"
+                            },
+                            {
+                                image: laCasaDeLasMayoras,
+                                title: 'La Laguna Azul',
+                                description: 'Beachfront restaurant specializing in fresh catch of the day and traditional Mexican dishes. Perfect for sunset dining with ocean views.',
+                                url: "https://www.tripadvisor.com/Restaurant_Review-g150809-d155163-Reviews-La_Laguna_Azul-Tulum_Yucatan_Peninsula.html"
+                            },
+                            {
+                                image: laRosaNegra,
+                                title: 'Cenote Restaurant',
+                                description: 'Unique dining experience near natural cenotes with organic ingredients and farm-to-table concept. Known for their fresh juices and local specialties.',
+                                url: "https://www.tripadvisor.com/Restaurant_Review-g150809-d155164-Reviews-Cenote_Restaurant-Tulum_Yucatan_Peninsula.html"
+                            }
+                        ].map((place, index) => (
+                            <Grid item xs={12} sm={6} md={4} key={index}>
+                                <Card sx={{
+                                    boxShadow: '0px 3px 20px rgba(0, 0, 0, 0.08)',
+                                    borderRadius: '20px',
+                                    overflow: 'hidden'
+                                }}>
+                                    <CardMedia
+                                        component="img"
+                                        image={place.image}
+                                        alt={place.title}
+                                        sx={{ height: 404, borderRadius: '24px', mb: 2, width: '100%' }}
+                                    />
+                                    <CardContent sx={{ px: 1.25 }}>
+                                        <Typography variant="h5" sx={{ fontWeight: 700, mb: 1.5, fontFamily: "Playfair Display" }}>
+                                            {place.title}
+                                        </Typography>
+                                        <Typography variant="body1" sx={{ mb: 3.125, fontFamily: "Playfair Display" }}>
+                                            {place.description}
+                                        </Typography>
+                                        <Link
+                                            href={place.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            underline="none"
+                                            sx={{
+                                                color: '#80b9ad',
+                                                fontWeight: 600,
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: 1,
+                                                fontFamily: "Inter"
+                                            }}
+                                        >
+                                            See More <ChevronRight />
+                                        </Link>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Container>
+            </Box>
+            
         </Box>
     );
 };

@@ -1,21 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import {
-  Box,
-  Container,
-  Typography,
-  Grid,
-  Card,
-  CardContent,
-  CardMedia,
-  Button,
-  Stack,
-  Rating,
-  Chip,
-  Divider
-} from '@mui/material';
+    Box,
+    Container,
+    Typography,
+    Grid,
+    Card,
+    CardContent,
+    CardMedia,
+    Button,
+    Chip,
+    Stack,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Link,
+} from "@mui/material";
+import { CardTravel, ChevronRight } from "@mui/icons-material";
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import lolaValentina from "../assets/lola-valentina.jpg";
+import laCasaDeLasMayoras from "../assets/la-casa-de-las-mayoras.jpg";
+import laRosaNegra from "../assets/la-rosa-negra.jpg";
 import AccessTime from "@mui/icons-material/AccessTime";
 import LocationOn from "@mui/icons-material/LocationOn";
-import { useNavigate } from "react-router-dom";
 import imga4 from "../assets/imga4.png";
 
 const FifthAvenueTour = () => {
@@ -213,8 +222,79 @@ const FifthAvenueTour = () => {
           </Grid>
         </Grid>
       </Container>
-    </Box>
-  );
+            
+            <Box sx={{ py: 7.5, borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+                <Container maxWidth="lg">
+                    <Typography variant="h2" align="center" sx={{ fontWeight: 700, mb: 7.5, fontFamily: "Playfair Display" }}>
+                        Nearby places in 5th Avenue
+                    </Typography>
+
+                    <Grid container spacing={5}>
+                        {[
+                            {
+                                image: lolaValentina,
+                                title: 'Coco Bongo Playa',
+                                description: 'Famous nightclub and entertainment venue with live shows and international DJs. Perfect for nightlife and entertainment.',
+                                url: "https://www.cocobongo.com.mx/playa-del-carmen"
+                            },
+                            {
+                                image: laCasaDeLasMayoras,
+                                title: 'La Casa del Habano',
+                                description: 'Premium cigar lounge with authentic Cuban cigars and fine spirits. Experience luxury and tradition in the heart of Playa.',
+                                url: "https://www.lacasadelhabano.com"
+                            },
+                            {
+                                image: laRosaNegra,
+                                title: 'Fusion Beach Bar',
+                                description: 'Beachfront bar with international cuisine and signature cocktails. Famous for their sunset views and live music.',
+                                url: "https://www.fusionbeachbar.com"
+                            }
+                        ].map((place, index) => (
+                            <Grid item xs={12} sm={6} md={4} key={index}>
+                                <Card sx={{
+                                    boxShadow: '0px 3px 20px rgba(0, 0, 0, 0.08)',
+                                    borderRadius: '20px',
+                                    overflow: 'hidden'
+                                }}>
+                                    <CardMedia
+                                        component="img"
+                                        image={place.image}
+                                        alt={place.title}
+                                        sx={{ height: 404, borderRadius: '24px', mb: 2, width: '100%' }}
+                                    />
+                                    <CardContent sx={{ px: 1.25 }}>
+                                        <Typography variant="h5" sx={{ fontWeight: 700, mb: 1.5, fontFamily: "Playfair Display" }}>
+                                            {place.title}
+                                        </Typography>
+                                        <Typography variant="body1" sx={{ mb: 3.125, fontFamily: "Playfair Display" }}>
+                                            {place.description}
+                                        </Typography>
+                                        <Link
+                                            href={place.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            underline="none"
+                                            sx={{
+                                                color: '#80b9ad',
+                                                fontWeight: 600,
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: 1,
+                                                fontFamily: "Inter"
+                                            }}
+                                        >
+                                            See More <ChevronRight />
+                                        </Link>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Container>
+            </Box>
+            
+        </Box>
+    );
 };
 
 export default FifthAvenueTour; 

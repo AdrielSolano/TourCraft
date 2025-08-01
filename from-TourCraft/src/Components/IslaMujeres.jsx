@@ -46,6 +46,8 @@ import Rectangle161 from '../assets/Rectangle161.png';
 import Rectangle162 from '../assets/Rectangle162.png';
 import { Link as RouterLink } from 'react-router-dom';
 import axios from "axios";
+import lolaValentina from "../assets/lola-valentina.jpg";
+import laCasaDeLasMayoras from "../assets/la-casa-de-las-mayoras.jpg";
 
 const iconMap = {
     "Business Tours": CardTravel,
@@ -244,7 +246,80 @@ const IslaMujeres = () => {
                     </Grid>
                 </Grid>
             </Container>
+            
+            <Box sx={{ py: 7.5, borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+                <Container maxWidth="lg">
+                    <Typography variant="h2" align="center" sx={{ fontWeight: 700, mb: 7.5, fontFamily: "Playfair Display" }}>
+                        Nearby places in Isla Mujeres
+                    </Typography>
+
+                    <Grid container spacing={5}>
+                        {[
+                            {
+                                image: "https://imgs.search.brave.com/XyFFndWGAdA4YC1NON4_g4ItfzjkDi_4_TcczNrfrtA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jZG4udHJpcGFk/dmlzb3IuY29tL21l/ZGlhL3Bob3RvLW8v/MWMvOGQvNTMvYWYv/bG9sYS12YWxlbnRp/bmEtOS15ZWFycy5q/cGc",
+                                title: 'Lola Valentina',
+                                description: 'Enjoy fresh seafood and traditional Mexican cuisine with ocean views. Famous for their ceviche and margaritas.',
+                                url: "https://www.lolavalentinaisla.com/"
+                            },
+                            {
+                                image: lolaValentina,
+                                title: 'María Dolores',
+                                description: 'Beachfront dining with Mediterranean-inspired cuisine and stunning sunset views. Famous for their seafood paella and cocktails.',
+                                url: "https://guide.michelin.com/mx/es/quintana-roo/isla-mujeres_2067800/restaurante/maria-dolores"
+                            },
+                            {
+                                image: laCasaDeLasMayoras,
+                                title: 'La Casa De Las Mayoras',
+                                description: 'Authentic Mediterranean flavors in a charming setting. Try their grilled octopus and homemade hummus with sea views.',
+                                url: "https://guide.michelin.com/mx/es/quintana-roo/cancun_2067235/restaurante/la-casa-de-las-mayoras"
+                            }
+                        ].map((place, index) => (
+                            <Grid item xs={12} sm={6} md={4} key={index}>
+                                <Card sx={{
+                                    boxShadow: '0px 3px 20px rgba(0, 0, 0, 0.08)',
+                                    borderRadius: '20px',
+                                    overflow: 'hidden'
+                                }}>
+                                    <CardMedia
+                                        component="img"
+                                        image={place.image}
+                                        alt={place.title}
+                                        sx={{ height: 404, borderRadius: '24px', mb: 2, width: '100%' }}
+                                    />
+                                    <CardContent sx={{ px: 1.25 }}>
+                                        <Typography variant="h5" sx={{ fontWeight: 700, mb: 1.5, fontFamily: "Playfair Display" }}>
+                                            {place.title}
+                                        </Typography>
+                                        <Typography variant="body1" sx={{ mb: 3.125, fontFamily: "Playfair Display" }}>
+                                            {place.description}
+                                        </Typography>
+                                        <Link
+                                            href={place.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            underline="none"
+                                            sx={{
+                                                color: '#80b9ad',
+                                                fontWeight: 600,
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: 1,
+                                                fontFamily: "Inter"
+                                            }}
+                                        >
+                                            See More <ChevronRight />
+                                        </Link>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Container>
+            </Box>
+            
         </Box>
+
+        
     );
 };
 

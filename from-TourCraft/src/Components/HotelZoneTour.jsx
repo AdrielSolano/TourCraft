@@ -43,6 +43,9 @@ import Rectangle161 from '../assets/Rectangle161.png';
 import Rectangle162 from '../assets/Rectangle162.png';
 import { Link as RouterLink } from 'react-router-dom';
 import axios from "axios";
+import laRosaNegra from "../assets/la-rosa-negra.jpg";
+import montemar from "../assets/montemar.jpg";
+import navios from "../assets/navios.jpg";
 
 const iconMap = {
     "Business Tours": CardTravel,
@@ -241,6 +244,77 @@ const HotelZoneTour = () => {
                     </Grid>
                 </Grid>
             </Container>
+            
+            <Box sx={{ py: 7.5, borderTop: '1px solid rgba(0,0,0,0.1)' }}>
+                <Container maxWidth="lg">
+                    <Typography variant="h2" align="center" sx={{ fontWeight: 700, mb: 7.5, fontFamily: "Playfair Display" }}>
+                        Nearby places in Hotel Zone
+                    </Typography>
+
+                    <Grid container spacing={5}>
+                        {[
+                            {
+                                image: laRosaNegra,
+                                title: 'La Rosa Negra',
+                                description: 'Upscale Mexican restaurant with live music and stunning lagoon views. Famous for their authentic Mexican cuisine and cocktails.',
+                                url: "https://rosanegra.com.mx/es/sucursales/cancun"
+                            },
+                            {
+                                image: montemar,
+                                title: 'Montemar',
+                                description: 'Beachfront dining with fresh seafood and Mediterranean cuisine. Perfect for romantic dinners with ocean views.',
+                                url: "https://montemar.com.mx/"
+                            },
+                            {
+                                image: navios,
+                                title: 'Navíos',
+                                description: 'Seafood restaurant specializing in fresh catches and traditional Mexican dishes. Known for their ceviche and grilled fish.',
+                                url: "https://naviosseafood.com/"
+                            }
+                        ].map((place, index) => (
+                            <Grid item xs={12} sm={6} md={4} key={index}>
+                                <Card sx={{
+                                    boxShadow: '0px 3px 20px rgba(0, 0, 0, 0.08)',
+                                    borderRadius: '20px',
+                                    overflow: 'hidden'
+                                }}>
+                                    <CardMedia
+                                        component="img"
+                                        image={place.image}
+                                        alt={place.title}
+                                        sx={{ height: 404, borderRadius: '24px', mb: 2, width: '100%' }}
+                                    />
+                                    <CardContent sx={{ px: 1.25 }}>
+                                        <Typography variant="h5" sx={{ fontWeight: 700, mb: 1.5, fontFamily: "Playfair Display" }}>
+                                            {place.title}
+                                        </Typography>
+                                        <Typography variant="body1" sx={{ mb: 3.125, fontFamily: "Playfair Display" }}>
+                                            {place.description}
+                                        </Typography>
+                                        <Link
+                                            href={place.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            underline="none"
+                                            sx={{
+                                                color: '#80b9ad',
+                                                fontWeight: 600,
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: 1,
+                                                fontFamily: "Inter"
+                                            }}
+                                        >
+                                            See More <ChevronRight />
+                                        </Link>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
+                </Container>
+            </Box>
+            
         </Box>
     );
 };
