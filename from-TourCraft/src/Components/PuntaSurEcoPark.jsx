@@ -17,18 +17,19 @@ import {
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import frame341 from '../assets/Frame341.png';
+import imga2 from '../assets/imga2.png';
+import image54 from '../assets/image54.png';
 
-const CenotesCuzama = () => {
+const PuntaSurEcoPark = () => {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate('/Merida');
+    navigate('/Cozumel');
   };
 
   const handleBookNow = () => {
     // Aquí puedes agregar la lógica para reservar
-    console.log('Booking Cenotes de Cuzamá tour');
+    console.log('Booking Punta Sur Eco Park tour');
   };
 
   return (
@@ -49,7 +50,7 @@ const CenotesCuzama = () => {
                 textTransform: "none",
               }}
             >
-              Back to Merida
+              Back to Cozumel
             </Button>
           </Box>
 
@@ -58,7 +59,7 @@ const CenotesCuzama = () => {
             sx={{
               height: 400,
               borderRadius: "20px",
-              backgroundImage: `url(${frame341})`,
+              backgroundImage: `url(${imga2})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               display: "flex",
@@ -91,7 +92,7 @@ const CenotesCuzama = () => {
                 zIndex: 1,
               }}
             >
-              Cenotes de Cuzamá
+              Punta Sur Eco Park
             </Typography>
           </Box>
 
@@ -107,7 +108,7 @@ const CenotesCuzama = () => {
                   color: "#0e3d4d"
                 }}
               >
-                Explore the Hidden Gems of Yucatan's Underground
+                Discover the Natural Wonders of Punta Sur
               </Typography>
 
               <Typography
@@ -120,39 +121,11 @@ const CenotesCuzama = () => {
                   color: "#666"
                 }}
               >
-                Discover the lesser-known but equally stunning cenotes of Cuzamá, a collection of natural 
-                sinkholes that offer a more intimate and authentic experience. These hidden gems provide 
-                crystal-clear waters and unique geological formations away from the tourist crowds.
+                Experience the pristine beauty of Punta Sur Eco Park, a protected ecological reserve 
+                at the southern tip of Cozumel Island. This natural sanctuary features untouched beaches, 
+                a crocodile sanctuary, a historic lighthouse with breathtaking panoramic views, and diverse 
+                wildlife that makes it a paradise for nature enthusiasts.
               </Typography>
-
-              <Typography
-                variant="h5"
-                sx={{
-                  fontFamily: "Playfair Display",
-                  fontWeight: 600,
-                  mb: 2,
-                  color: "#0e3d4d"
-                }}
-              >
-                Cenotes You'll Visit:
-              </Typography>
-
-              <Box sx={{ mb: 4 }}>
-                <Stack spacing={2}>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • <strong>Cenote Chansinic'che:</strong> Known for its deep blue waters and impressive depth
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • <strong>Cenote Bolonchojol:</strong> Features stunning stalactites and crystal formations
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • <strong>Cenote Ucil:</strong> A smaller, more intimate cenote with clear waters
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • <strong>Cenote Chelentún:</strong> Famous for its unique rock formations and natural light
-                  </Typography>
-                </Stack>
-              </Box>
 
               <Typography
                 variant="h5"
@@ -169,28 +142,28 @@ const CenotesCuzama = () => {
               <Box sx={{ mb: 4 }}>
                 <Stack spacing={2}>
                   <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Transportation from Merida to Cuzamá
+                    • Guided tour of the ecological reserve
+                  </Typography>
+                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
+                    • Visit to the crocodile sanctuary
+                  </Typography>
+                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
+                    • Access to the historic lighthouse
+                  </Typography>
+                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
+                    • Snorkeling in protected coral reefs
+                  </Typography>
+                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
+                    • Educational nature trails and bird watching
                   </Typography>
                   <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
                     • Professional bilingual guide
                   </Typography>
                   <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Safety equipment (life jackets, helmets, flashlights)
+                    • Transportation to and from the park
                   </Typography>
                   <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Snorkeling equipment
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Traditional Mayan lunch
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Bottled water and refreshments
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Photography assistance
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • All entrance fees
+                    • Light refreshments and snacks
                   </Typography>
                 </Stack>
               </Box>
@@ -212,7 +185,7 @@ const CenotesCuzama = () => {
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                     <AccessTimeIcon sx={{ mr: 1, color: '#7bbcb0' }} />
                     <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                      Duration: 10 Nights, 9 days
+                      Duration: 9 Nights, 8 days
                     </Typography>
                   </Box>
                 </Grid>
@@ -220,72 +193,11 @@ const CenotesCuzama = () => {
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                     <LocationOnIcon sx={{ mr: 1, color: '#7bbcb0' }} />
                     <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                      Location: Cuzamá, Yucatan
+                      Location: Punta Sur, Cozumel Island
                     </Typography>
                   </Box>
                 </Grid>
               </Grid>
-
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Playfair Display",
-                  fontWeight: 600,
-                  mb: 2,
-                  color: "#0e3d4d"
-                }}
-              >
-                Why Choose Cuzamá Cenotes:
-              </Typography>
-
-              <Typography
-                variant="body1"
-                sx={{
-                  fontFamily: "Playfair Display",
-                  fontSize: "16px",
-                  lineHeight: 1.6,
-                  mb: 4,
-                  color: "#666"
-                }}
-              >
-                • Less crowded than popular cenotes
-                • More authentic and local experience
-                • Unique geological formations
-                • Crystal-clear waters year-round
-                • Perfect for photography
-                • Suitable for all swimming levels
-                • Guided by local experts
-              </Typography>
-
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Playfair Display",
-                  fontWeight: 600,
-                  mb: 2,
-                  color: "#0e3d4d"
-                }}
-              >
-                Important Notes:
-              </Typography>
-
-              <Typography
-                variant="body1"
-                sx={{
-                  fontFamily: "Playfair Display",
-                  fontSize: "16px",
-                  lineHeight: 1.6,
-                  mb: 4,
-                  color: "#666"
-                }}
-              >
-                • Bring swimwear, towel, and change of clothes
-                • Some cenotes require climbing down stairs
-                • Water temperature is refreshing (around 24°C)
-                • Maximum group size: 8 people for intimate experience
-                • Flashlights provided for darker cenotes
-                • Respect for natural environment required
-              </Typography>
             </Grid>
 
             {/* Sidebar */}
@@ -305,7 +217,7 @@ const CenotesCuzama = () => {
 
                 <Box sx={{ mb: 3 }}>
                   <Typography variant="h4" sx={{ color: '#7bbcb0', fontWeight: 700 }}>
-                    From $1020
+                    From $1500
                   </Typography>
                   <Typography variant="body2" sx={{ color: '#666' }}>
                     per person
@@ -362,4 +274,4 @@ const CenotesCuzama = () => {
   );
 };
 
-export default CenotesCuzama; 
+export default PuntaSurEcoPark; 

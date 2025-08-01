@@ -30,7 +30,7 @@ import i1 from "../assets/i1.jpg";
 import image54 from "../assets/image54.png";
 import img from "../assets/img.png";
 import UX1 from "../assets/UX1.jpg";
-import frame341 from "../assets/frame341.png";
+import frame341 from "../assets/Frame341.png";
 import imga5 from "../assets/imga5.png";
 import imga4 from "../assets/imga4.png";
 import imga3 from "../assets/imga3.png";

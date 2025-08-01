@@ -94,14 +94,12 @@ const guides = [
 
 // Datos de ubicaciones
 const locations = [
-    { name: "Xcaret", selected: false },
     { name: "Cancun", selected: false },
     { name: "Merida", selected: true },
-    { name: "Cozumel", selected: false },
     { name: "Tulum", selected: false },
-    { name: "Isla Mujeres", selected: false },
-    { name: "Puerto Morelos", selected: false },
-    { name: "Hol-box", selected: false },
+    { name: "Playa del Carmen", selected: false },
+    { name: "Holbox", selected: false },
+    { name: "Cozumel", selected: false },
 ];
 
 // Opciones de filtros
@@ -590,7 +588,7 @@ const Guides = () => {
                     <Box sx={{ overflowX: "auto", px: 2 }}>
                         <Stack
                             direction="row"
-                            spacing={2}
+                            spacing={4}
                             sx={{
                                 width: "max-content",
                                 mx: "auto",
@@ -605,7 +603,15 @@ const Guides = () => {
                                     label={location.name}
                                     clickable
                                     component={RouterLink}
-                                    to={location.name === "Merida" ? "/Merida" : "#"}
+                                    to={
+                                        location.name === "Merida" ? "/Merida" :
+                                        location.name === "Cancun" ? "/Cancun" :
+                                        location.name === "Tulum" ? "/Tulum" :
+                                        location.name === "Playa del Carmen" ? "/PlayadelCarmen" :
+                                        location.name === "Holbox" ? "/Holbox" :
+                                        location.name === "Cozumel" ? "/Cozumel" :
+                                        "#"
+                                    }
                                     sx={{
                                         height: "44px",
                                         minWidth: "130px",

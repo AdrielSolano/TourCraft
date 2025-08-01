@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Box,
@@ -12,23 +12,90 @@ import {
   Rating,
   Chip,
   Stack,
-  Divider
+  Divider,
+  Link,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText
 } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import frame341 from '../assets/Frame341.png';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import {
+  Groups,
+  Paid,
+  DirectionsBus,
+  Schedule,
+  CardTravel,
+  Explore,
+  LocalTaxi,
+  DirectionsWalk,
+} from '@mui/icons-material';
+import imga1 from '../assets/imga1.png';
+import image54 from '../assets/image54.png';
+import img from '../assets/img.png';
+import img8 from '../assets/img8.jpg';
+import img9 from '../assets/img9.jpg';
+import img10 from '../assets/img10.jpg';
+import axios from "axios";
 
-const CenotesCuzama = () => {
+const iconMap = {
+  "Business Tours": CardTravel,
+  "Nature & Adventure": Explore,
+  "Transportation": LocalTaxi,
+  "Local Visit": DirectionsWalk,
+  "Pet Friendly": DirectionsBus,
+};
+
+const texts = [
+  "3 pickup location options: Parque de Santa Ana, Viajes Colibrí Yucatán TOURS, Entrada Avenida Cupules del Hotel Fiesta Americana. See more",
+  "Van (2 hours)",
+  "Chichén Itzá - Photo stop, Visit, Guided tour, Free time, Shopping (2.5 hours)",
+  "Van (15 minutes)",
+  "Cenote Ik Kil - Lunch, Swimming (2.5 hours)",
+  "Van (1 hour)",
+  "Izamal - Photo stop, Visit, Guided tour, Free time, Shopping (1.5 hours)",
+  "Van (1 hour)",
+  "3 drop-off locations: Viajes Colibrí Yucatán TOURS, Entrada Avenida Cupules del Hotel Fiesta Americana, Parque de Santa Ana"
+];
+
+const ScubaDivingTour = () => {
   const navigate = useNavigate();
+  const [categorias, setCategorias] = useState([]);
+  const [zona, setZona] = useState(null);
+
+  const getDescription = () => {
+    if (zona && zona.descripción) {
+      return zona.descripción;
+    }
+    if (zona && !zona.descripción) {
+      return 'No data available for this place.';
+    }
+    return 'Loading description...';
+  };
+
+  useEffect(() => {
+    axios.get("http://localhost:3000/api/categoria")
+      .then(res => setCategorias(res.data.data))
+      .catch(err => console.error("Error al obtener categorías", err));
+  }, []);
+
+  useEffect(() => {
+    const idZona = "688bd70cf77e1f6903e19c7c";
+    axios.get(`http://localhost:3000/api/zonas-turisticas/${idZona}`)
+      .then(res => setZona(res.data.data))
+      .catch(err => console.error("Error al obtener zona turística", err));
+  }, []);
 
   const handleBack = () => {
-    navigate('/Merida');
+    navigate('/Cozumel');
   };
 
   const handleBookNow = () => {
     // Aquí puedes agregar la lógica para reservar
-    console.log('Booking Cenotes de Cuzamá tour');
+    console.log('Booking Scuba Diving Tour');
   };
 
   return (
@@ -49,7 +116,7 @@ const CenotesCuzama = () => {
                 textTransform: "none",
               }}
             >
-              Back to Merida
+              Back to Cozumel
             </Button>
           </Box>
 
@@ -58,7 +125,7 @@ const CenotesCuzama = () => {
             sx={{
               height: 400,
               borderRadius: "20px",
-              backgroundImage: `url(${frame341})`,
+              backgroundImage: `url(https://imgs.search.brave.com/9bo7DwFQ2Hn0OM8mhsMDdthfV-4ag50JnzJfnO692C8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cmVzcG9uc2libGV0/cmF2ZWwuY29tL2lt/YWdlc0NsaWVudC9T/XzEzOTc1Ni5qcGc)`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               display: "flex",
@@ -91,7 +158,7 @@ const CenotesCuzama = () => {
                 zIndex: 1,
               }}
             >
-              Cenotes de Cuzamá
+              Scuba Diving Tour
             </Typography>
           </Box>
 
@@ -107,7 +174,7 @@ const CenotesCuzama = () => {
                   color: "#0e3d4d"
                 }}
               >
-                Explore the Hidden Gems of Yucatan's Underground
+                Explore the Underwater Wonders of Cozumel
               </Typography>
 
               <Typography
@@ -120,39 +187,8 @@ const CenotesCuzama = () => {
                   color: "#666"
                 }}
               >
-                Discover the lesser-known but equally stunning cenotes of Cuzamá, a collection of natural 
-                sinkholes that offer a more intimate and authentic experience. These hidden gems provide 
-                crystal-clear waters and unique geological formations away from the tourist crowds.
+                {getDescription()}
               </Typography>
-
-              <Typography
-                variant="h5"
-                sx={{
-                  fontFamily: "Playfair Display",
-                  fontWeight: 600,
-                  mb: 2,
-                  color: "#0e3d4d"
-                }}
-              >
-                Cenotes You'll Visit:
-              </Typography>
-
-              <Box sx={{ mb: 4 }}>
-                <Stack spacing={2}>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • <strong>Cenote Chansinic'che:</strong> Known for its deep blue waters and impressive depth
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • <strong>Cenote Bolonchojol:</strong> Features stunning stalactites and crystal formations
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • <strong>Cenote Ucil:</strong> A smaller, more intimate cenote with clear waters
-                  </Typography>
-                  <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • <strong>Cenote Chelentún:</strong> Famous for its unique rock formations and natural light
-                  </Typography>
-                </Stack>
-              </Box>
 
               <Typography
                 variant="h5"
@@ -169,28 +205,28 @@ const CenotesCuzama = () => {
               <Box sx={{ mb: 4 }}>
                 <Stack spacing={2}>
                   <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Transportation from Merida to Cuzamá
+                    • Professional PADI certified dive guides
                   </Typography>
                   <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Professional bilingual guide
+                    • Complete scuba diving equipment rental
                   </Typography>
                   <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Safety equipment (life jackets, helmets, flashlights)
+                    • Safety briefing and training session
                   </Typography>
                   <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Snorkeling equipment
+                    • Multiple world-class dive sites
                   </Typography>
                   <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Traditional Mayan lunch
+                    • Marine life identification and education
                   </Typography>
                   <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Bottled water and refreshments
+                    • Underwater photography opportunities
                   </Typography>
                   <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • Photography assistance
+                    • Transportation to and from dive sites
                   </Typography>
                   <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                    • All entrance fees
+                    • Light refreshments and snacks
                   </Typography>
                 </Stack>
               </Box>
@@ -220,72 +256,11 @@ const CenotesCuzama = () => {
                   <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                     <LocationOnIcon sx={{ mr: 1, color: '#7bbcb0' }} />
                     <Typography variant="body1" sx={{ fontFamily: "Playfair Display" }}>
-                      Location: Cuzamá, Yucatan
+                      Location: Cozumel, Quintana Roo
                     </Typography>
                   </Box>
                 </Grid>
               </Grid>
-
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Playfair Display",
-                  fontWeight: 600,
-                  mb: 2,
-                  color: "#0e3d4d"
-                }}
-              >
-                Why Choose Cuzamá Cenotes:
-              </Typography>
-
-              <Typography
-                variant="body1"
-                sx={{
-                  fontFamily: "Playfair Display",
-                  fontSize: "16px",
-                  lineHeight: 1.6,
-                  mb: 4,
-                  color: "#666"
-                }}
-              >
-                • Less crowded than popular cenotes
-                • More authentic and local experience
-                • Unique geological formations
-                • Crystal-clear waters year-round
-                • Perfect for photography
-                • Suitable for all swimming levels
-                • Guided by local experts
-              </Typography>
-
-              <Typography
-                variant="h6"
-                sx={{
-                  fontFamily: "Playfair Display",
-                  fontWeight: 600,
-                  mb: 2,
-                  color: "#0e3d4d"
-                }}
-              >
-                Important Notes:
-              </Typography>
-
-              <Typography
-                variant="body1"
-                sx={{
-                  fontFamily: "Playfair Display",
-                  fontSize: "16px",
-                  lineHeight: 1.6,
-                  mb: 4,
-                  color: "#666"
-                }}
-              >
-                • Bring swimwear, towel, and change of clothes
-                • Some cenotes require climbing down stairs
-                • Water temperature is refreshing (around 24°C)
-                • Maximum group size: 8 people for intimate experience
-                • Flashlights provided for darker cenotes
-                • Respect for natural environment required
-              </Typography>
             </Grid>
 
             {/* Sidebar */}
@@ -305,11 +280,25 @@ const CenotesCuzama = () => {
 
                 <Box sx={{ mb: 3 }}>
                   <Typography variant="h4" sx={{ color: '#7bbcb0', fontWeight: 700 }}>
-                    From $1020
+                    From $2250
                   </Typography>
                   <Typography variant="body2" sx={{ color: '#666' }}>
                     per person
                   </Typography>
+                </Box>
+
+                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1.5 }}>
+                  {categorias.map((cat) => {
+                    const Icon = iconMap[cat.nombre] || CardTravel;
+                    return (
+                      <Chip
+                        key={cat._id}
+                        icon={<Icon sx={{ color: '#80b9ad' }} />}
+                        label={cat.nombre}
+                        sx={{ backgroundColor: "#fff", color: '#80b9ad', fontWeight: 700, border: "none", boxShadow: 1, fontFamily: "Playfair Display" }}
+                      />
+                    );
+                  })}
                 </Box>
 
                 <Divider sx={{ my: 2 }} />
@@ -362,4 +351,4 @@ const CenotesCuzama = () => {
   );
 };
 
-export default CenotesCuzama; 
+export default ScubaDivingTour; 

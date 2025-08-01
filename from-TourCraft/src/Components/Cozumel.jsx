@@ -36,118 +36,121 @@ import img40 from "../assets/img40.png";
 const featuredTours = [
   {
     id: 1,
-    title: "Isla Mujeres",
-    image: "https://imgs.search.brave.com/6IPdNZaJ5VtBCXJ2cGU6bubqMcZqNkl0tIdnUxhQ6xI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dHJhdmVsYW5kbGVp/c3VyZS5jb20vdGht/Yi9RbXliREFpdm5h/T0w1b1ZzcEF5QkQt/ekVUZEE9LzE1MDB4/MC9maWx0ZXJzOm5v/X3Vwc2NhbGUoKTpt/YXhfYnl0ZXMoMTUw/MDAwKTpzdHJpcF9p/Y2MoKS9UQUwtaXNs/YS1tdWplcmVzLXN1/bnNldC1JU0xBTVVK/RVJFUzA3MjMtZGNm/MmEwZjkwNWM2NGZm/Yzk5MjdiMzE5MDkx/MDE1YmMuanBn",
+    title: "San Gervasio Ruins",
+    image: "https://imgs.search.brave.com/lm_87TXKrydoMyTjivmbg-GYOnnnl-kEtjC2xtdOXBQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS1jZG4udHJpcGFk/dmlzb3IuY29tL21l/ZGlhL3Bob3RvLW8v/MDMvNjcvYWMvN2Mv/c2FuLWdlcnZhc2lv/LXJ1aW5zLmpwZw",
     rating: 5,
     reviews: 1,
-    duration: "Full day",
-    price: "$750",
-    badge: "Popular",
+    duration: "7 Nights, 8 days",
+    originalPrice: "$1200",
+    price: "$960",
+    badge: "Best seller",
   },
   {
     id: 2,
-    title: "Hotel Zone Tour",
-    image: "https://imgs.search.brave.com/B2gaWWJ2jo_dlpRzAo8aHnQtbVOUcBPc9aRm8vY0UPg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Z3BzbXljaXR5LmNv/bS9pbWcvZ2QvMzE4/Ny5qcGc",
+    title: "Scuba Diving Tour",
+    image: "https://imgs.search.brave.com/9bo7DwFQ2Hn0OM8mhsMDdthfV-4ag50JnzJfnO692C8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/cmVzcG9uc2libGV0/cmF2ZWwuY29tL2lt/YWdlc0NsaWVudC9T/XzEzOTc1Ni5qcGc",
     rating: 5,
     reviews: 1,
-    duration: "Half day",
-    price: "$450",
+    duration: "10 Nights, 9 days",
+    price: "$2250",
   },
 ];
 
 const topActivities = [
   {
     id: 1,
-    title: "Cancún Underwater Museum",
-    image: imga2,
+    title: "Punta Sur Eco Park",
+    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
     rating: 5,
     reviews: 1,
-    duration: "3-4 hours",
-    price: "$120",
+    duration: "9 Nights, 8 days",
+    price: "$1500",
   },
   {
     id: 2,
-    title: "Coco Bongo",
-    image: imga3,
+    title: "Chankanaab Beach",
+    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
     rating: 5,
-    reviews: 1,   
-    duration: "Night",
-    price: "$75",
+    reviews: 1,
+    duration: "7 Nights, 8 days",
+    originalPrice: "$1200",
+    price: "$960",
   },
   {
     id: 3,
-    title: "Playa Delfines",
-    image: imga4,
+    title: "El Cielo Snorkeling",
+    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
     rating: 5,
     reviews: 1,
-    duration: "Half day",
-    price: "Free",
+    duration: "10 Nights, 9 days",
+    price: "$2200",
   },
   {
     id: 4,
-    title: "El Meco Archaeological Site",
-    image: frame341,
+    title: "Playa Palancar",
+    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
     rating: 5,
     reviews: 1,
-    duration: "2 hours",
-    price: "$65",
+    duration: "3 Nights, 4 days",
+    price: "$860",
   },
   {
     id: 5,
-    title: "Cancún Interactive Aquarium",
-    image: imga5,
+    title: "Cozumel Museum",
+    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80",
     rating: 5,
     reviews: 1,
-    duration: "2-3 hours",
-    price: "$35",
+    duration: "7 Nights, 8 days",
+    originalPrice: "$1500",
+    price: "$1200",
   },
   {
     id: 6,
-    title: "La Isla Shopping Village",
+    title: "Island Jeep Tour",
     image: imga1,
     rating: 5,
     reviews: 1,
-    duration: "Flexible",
-    price: "Free entry",
+    duration: "10 Nights, 9 days",
+    price: "$1020",
   },
 ];
 
 const restaurantData = [
   {
-    title: "Harry's - Cancún",
+    title: "La Choza - Cozumel",
     image: harris,
-    url: "https://harrys.com.mx/",
-    description: "Premium steaks and fresh seafood with ocean views"
+    url: "https://lachozacozumel.com/",
+    description: "Traditional Mexican cuisine with local flavors"
   },
   {
-    title: "La Habichuela - Cancún",
+    title: "Casa Denis - Cozumel",
     image: i1,
-    url: "https://lahabichuela.com/",
-    description: "Traditional Mexican cuisine in a tropical garden"
+    url: "https://casadenis.com/",
+    description: "Authentic Yucatecan dishes since 1945"
   },
   {
-    title: "Puerto Madero - Cancún",
+    title: "El Pescador - Cozumel",
     image: i3,
-    url: "https://puertomaderorestaurantes.com/",
-    description: "Argentinian grill with marina views"
+    url: "https://elpescadorcozumel.com/",
+    description: "Fresh seafood and Caribbean specialties"
   },
   {
-    title: "RosaNegra - Cancún",
+    title: "La Mission - Cozumel",
     image: imga2,
-    url: "https://rosanegra.com.mx/",
-    description: "Modern Mexican cuisine with beachfront dining"
+    url: "https://lamissioncozumel.com/",
+    description: "Mexican cuisine with a modern twist"
   },
   {
-    title: "Surfing Burrito - Cancún",
+    title: "Guido's - Cozumel",
     image: imga3,
-    url: "https://www.surfingburrito.com/",
-    description: "Casual beachfront Mexican fare"
+    url: "https://guidoscozumel.com/",
+    description: "Italian restaurant with ocean views"
   },
   {
-    title: "Fred's - Cancún",
+    title: "El Palomar - Cozumel",
     image: imga4,
-    url: "https://fredshouseandgardens.com/",
-    description: "Seafood and steaks in a romantic garden setting"
+    url: "https://elpalomarcozumel.com/",
+    description: "Beachfront dining with fresh ingredients"
   }
 ];
 
@@ -251,40 +254,40 @@ const TourCard = ({ tour, onClick }) => (
   </Card>
 );
 
-export default function Cancun() {
+export default function Cozumel() {
   const navigate = useNavigate();
 
-  const handleIslaMujeresClick = () => {
-    navigate('/IslaMujeres');
+  const handleSanGervasioClick = () => {
+    navigate('/SanGervasioRuins');
   };
 
-  const handleHotelZoneClick = () => {
-    navigate('/HotelZoneTour');
+  const handleScubaDivingClick = () => {
+    navigate('/ScubaDivingTour');
   };
 
   // Top Activities navigation handlers
-  const handleUnderwaterMuseumClick = () => {
-    navigate('/UnderwaterMuseum');
+  const handlePuntaSurClick = () => {
+    navigate('/PuntaSurEcoPark');
   };
 
-  const handleCocoBongoClick = () => {
-    navigate('/CocoBongo');
+  const handleChankanaabClick = () => {
+    navigate('/ChankanaabBeach');
   };
 
-  const handlePlayaDelfinesClick = () => {
-    navigate('/PlayaDelfines');
+  const handleElCieloClick = () => {
+    navigate('/ElCieloSnorkeling');
   };
 
-  const handleElMecoClick = () => {
-    navigate('/ElMeco');
+  const handlePlayaPalancarClick = () => {
+    navigate('/PlayaPalancar');
   };
 
-  const handleAquariumClick = () => {
-    navigate('/InteractiveAquarium');
+  const handleCozumelMuseumClick = () => {
+    navigate('/CozumelMuseum');
   };
 
-  const handleShoppingVillageClick = () => {
-    navigate('/LaIslaShopping');
+  const handleJeepTourClick = () => {
+    navigate('/IslandJeepTour');
   };
 
   return (
@@ -314,7 +317,7 @@ export default function Cancun() {
                 fontFamily: "Playfair Display",
               }}
             >
-              Cancún
+              Cozumel
             </Typography>
           </Box>
 
@@ -324,10 +327,10 @@ export default function Cancun() {
                 <TourCard 
                   tour={tour} 
                   onClick={
-                    tour.title === "Isla Mujeres"
-                      ? handleIslaMujeresClick
-                      : tour.title === "Hotel Zone Tour"
-                      ? handleHotelZoneClick
+                    tour.title === "San Gervasio Ruins"
+                      ? handleSanGervasioClick
+                      : tour.title === "Scuba Diving Tour"
+                      ? handleScubaDivingClick
                       : undefined
                   }
                 />
@@ -372,18 +375,18 @@ export default function Cancun() {
                 <TourCard 
                   tour={tour} 
                   onClick={
-                    tour.title === "Cancún Underwater Museum"
-                      ? handleUnderwaterMuseumClick
-                      : tour.title === "Coco Bongo"
-                      ? handleCocoBongoClick
-                      : tour.title === "Playa Delfines"
-                      ? handlePlayaDelfinesClick
-                      : tour.title === "El Meco Archaeological Site"
-                      ? handleElMecoClick
-                      : tour.title === "Cancún Interactive Aquarium"
-                      ? handleAquariumClick
-                      : tour.title === "La Isla Shopping Village"
-                      ? handleShoppingVillageClick
+                    tour.title === "Punta Sur Eco Park"
+                      ? handlePuntaSurClick
+                      : tour.title === "Chankanaab Beach"
+                      ? handleChankanaabClick
+                      : tour.title === "El Cielo Snorkeling"
+                      ? handleElCieloClick
+                      : tour.title === "Playa Palancar"
+                      ? handlePlayaPalancarClick
+                      : tour.title === "Cozumel Museum"
+                      ? handleCozumelMuseumClick
+                      : tour.title === "Island Jeep Tour"
+                      ? handleJeepTourClick
                       : undefined
                   }
                 />
@@ -410,7 +413,7 @@ export default function Cancun() {
 
         <Stack spacing={6} sx={{ py: 6, marginBottom:'100px' }}>
           <Typography variant="h3" align="center" sx={{ fontWeight: "bold", color: "black", fontFamily: "Playfair Display", mb: 4 }}>
-            Best restaurants in Cancún
+            Local restaurants in Cozumel
           </Typography>
 
           <Box sx={{ px: { xs: 1, md: 4 }, mx: "auto", maxWidth: "95%", overflow: "hidden" }}>
@@ -472,4 +475,4 @@ export default function Cancun() {
       </Container>
     </Box>
   );
-}
+} 

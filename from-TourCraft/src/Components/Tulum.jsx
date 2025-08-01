@@ -25,7 +25,7 @@ import harris from "../assets/harris.jpg";
 import i3 from "../assets/i3.jpg";
 import i1 from "../assets/i1.jpg";
 import image54 from "../assets/image54.png";
-import frame341 from "../assets/frame341.png";
+import frame341 from "../assets/Frame341.png";
 import imga5 from "../assets/imga5.png";
 import imga4 from "../assets/imga4.png";
 import imga3 from "../assets/imga3.png";
@@ -37,7 +37,7 @@ const featuredTours = [
     {
         id: 1,
         title: "Tulum Ruins Tour",
-        image: imga5,
+        image: "https://imgs.search.brave.com/JMXsYsHYqxVvsI94IQ2ob_E9CHqaOZFqgwEW5x2oKJM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dGhlY3VzdG9tdG91/ci5jb20vd3AtY29u/dGVudC91cGxvYWRz/LzIwMjQvMDUvVHVs/dW0tUnVpbnMtYnkt/YWxpc2EtbWF0dGhl/d3Mtc2NhbGVkLmpw/Zw",
         rating: 5,
         reviews: 1,
         duration: "Half day",
@@ -47,7 +47,7 @@ const featuredTours = [
     {
         id: 2,
         title: "Sian Ka'an Biosphere",
-        image: imga1,
+        image: "https://imgs.search.brave.com/_tWhkHxHyWrj1dMhGNIY0UyAcufJ93wTIyFKMsY9gZ0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9saWxs/YWdyZWVuLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAxOS8w/Ny9TaWFuLUthYW4t/Qmlvc3BoZXJlLVJl/c2VydmUtTWV4aWNv/LTMxLmpwZw",
         rating: 5,
         reviews: 1,
         duration: "Full day",
@@ -237,7 +237,7 @@ export default function Tulum() {
     const navigate = useNavigate();
 
     const handleRuinsClick = () => {
-        navigate('/TulumRuins');
+        navigate('/TulumRuinsTour');
     };
 
     const handleSianKaanClick = () => {

@@ -36,118 +36,118 @@ import img40 from "../assets/img40.png";
 const featuredTours = [
   {
     id: 1,
-    title: "Isla Mujeres",
-    image: "https://imgs.search.brave.com/6IPdNZaJ5VtBCXJ2cGU6bubqMcZqNkl0tIdnUxhQ6xI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dHJhdmVsYW5kbGVp/c3VyZS5jb20vdGht/Yi9RbXliREFpdm5h/T0w1b1ZzcEF5QkQt/ekVUZEE9LzE1MDB4/MC9maWx0ZXJzOm5v/X3Vwc2NhbGUoKTpt/YXhfYnl0ZXMoMTUw/MDAwKTpzdHJpcF9p/Y2MoKS9UQUwtaXNs/YS1tdWplcmVzLXN1/bnNldC1JU0xBTVVK/RVJFUzA3MjMtZGNm/MmEwZjkwNWM2NGZm/Yzk5MjdiMzE5MDkx/MDE1YmMuanBn",
+    title: "Whale Shark Tour",
+    image: "https://imgs.search.brave.com/HgM7T0QNfcUhT_rajRFq65cg4VngwSzrEFMbhNIyW_0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dGhlbGFuZ2thaHRy/YXZlbC5jb20vd3At/Y29udGVudC91cGxv/YWRzLzIwMjEvMDkv/T3Blbi1UcmlwLUhp/dS1QYXVzLVN1bWJh/d2EuanBn",
     rating: 5,
     reviews: 1,
     duration: "Full day",
-    price: "$750",
+    price: "$120",
     badge: "Popular",
   },
   {
     id: 2,
-    title: "Hotel Zone Tour",
-    image: "https://imgs.search.brave.com/B2gaWWJ2jo_dlpRzAo8aHnQtbVOUcBPc9aRm8vY0UPg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/Z3BzbXljaXR5LmNv/bS9pbWcvZ2QvMzE4/Ny5qcGc",
+    title: "Island Bike Tour",
+    image: "https://imgs.search.brave.com/NL3SOVtfWkaYJCMPkqXejSH3Zl65DuWCiPi1Fnl2frQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS50YWNkbi5jb20v/bWVkaWEvYXR0cmFj/dGlvbnMtc3BsaWNl/LXNwcC0zNjB4MjQw/LzBlL2E2LzhjLzNk/LmpwZw",
     rating: 5,
     reviews: 1,
     duration: "Half day",
-    price: "$450",
+    price: "$45",
   },
 ];
 
 const topActivities = [
   {
     id: 1,
-    title: "Cancún Underwater Museum",
+    title: "Punta Mosquito",
     image: imga2,
-    rating: 5,
-    reviews: 1,
-    duration: "3-4 hours",
-    price: "$120",
-  },
-  {
-    id: 2,
-    title: "Coco Bongo",
-    image: imga3,
-    rating: 5,
-    reviews: 1,   
-    duration: "Night",
-    price: "$75",
-  },
-  {
-    id: 3,
-    title: "Playa Delfines",
-    image: imga4,
     rating: 5,
     reviews: 1,
     duration: "Half day",
     price: "Free",
   },
   {
-    id: 4,
-    title: "El Meco Archaeological Site",
-    image: frame341,
+    id: 2,
+    title: "Yalahau Lagoon",
+    image: imga3,
     rating: 5,
     reviews: 1,
-    duration: "2 hours",
-    price: "$65",
-  },
-  {
-    id: 5,
-    title: "Cancún Interactive Aquarium",
-    image: imga5,
-    rating: 5,
-    reviews: 1,
-    duration: "2-3 hours",
+    duration: "3-4 hours",
     price: "$35",
   },
   {
+    id: 3,
+    title: "Cenote Yalahau",
+    image: imga4,
+    rating: 5,
+    reviews: 1,
+    duration: "2-3 hours",
+    price: "$25",
+  },
+  {
+    id: 4,
+    title: "Bird Watching",
+    image: frame341,
+    rating: 5,
+    reviews: 1,
+    duration: "3-4 hours",
+    price: "$40",
+  },
+  {
+    id: 5,
+    title: "Flamingo Spotting",
+    image: imga5,
+    rating: 5,
+    reviews: 1,
+    duration: "Half day",
+    price: "$30",
+  },
+  {
     id: 6,
-    title: "La Isla Shopping Village",
+    title: "Beach Yoga",
     image: imga1,
     rating: 5,
     reviews: 1,
-    duration: "Flexible",
-    price: "Free entry",
+    duration: "1 hour",
+    price: "$15",
   },
 ];
 
 const restaurantData = [
   {
-    title: "Harry's - Cancún",
+    title: "Viva Zapata - Holbox",
     image: harris,
-    url: "https://harrys.com.mx/",
-    description: "Premium steaks and fresh seafood with ocean views"
+    url: "https://vivazapata.com/",
+    description: "Fresh seafood and Mexican cuisine with ocean views"
   },
   {
-    title: "La Habichuela - Cancún",
+    title: "La Tortilleria - Holbox",
     image: i1,
-    url: "https://lahabichuela.com/",
-    description: "Traditional Mexican cuisine in a tropical garden"
+    url: "https://latortilleriarestaurante.com/",
+    description: "Authentic Mexican food in a casual setting"
   },
   {
-    title: "Puerto Madero - Cancún",
+    title: "Casa Nostra - Holbox",
     image: i3,
-    url: "https://puertomaderorestaurantes.com/",
-    description: "Argentinian grill with marina views"
+    url: "https://casanostra.com.mx/",
+    description: "Italian cuisine with a Caribbean twist"
   },
   {
-    title: "RosaNegra - Cancún",
+    title: "El Sabor de Holbox",
     image: imga2,
-    url: "https://rosanegra.com.mx/",
-    description: "Modern Mexican cuisine with beachfront dining"
+    url: "https://elsabordeholbox.com/",
+    description: "Local flavors and traditional dishes"
   },
   {
-    title: "Surfing Burrito - Cancún",
+    title: "Casa Las Tortugas",
     image: imga3,
-    url: "https://www.surfingburrito.com/",
-    description: "Casual beachfront Mexican fare"
+    url: "https://casalastortugas.com/",
+    description: "Beachfront dining with fresh ingredients"
   },
   {
-    title: "Fred's - Cancún",
+    title: "Mandarina Beach Club",
     image: imga4,
-    url: "https://fredshouseandgardens.com/",
-    description: "Seafood and steaks in a romantic garden setting"
+    url: "https://mandarinabeachclub.com/",
+    description: "Upscale beachfront dining experience"
   }
 ];
 
@@ -251,40 +251,40 @@ const TourCard = ({ tour, onClick }) => (
   </Card>
 );
 
-export default function Cancun() {
+export default function Holbox() {
   const navigate = useNavigate();
 
-  const handleIslaMujeresClick = () => {
-    navigate('/IslaMujeres');
+  const handleWhaleSharkClick = () => {
+    navigate('/WhaleSharkTour');
   };
 
-  const handleHotelZoneClick = () => {
-    navigate('/HotelZoneTour');
+  const handleBikeTourClick = () => {
+    navigate('/IslandBikeTour');
   };
 
   // Top Activities navigation handlers
-  const handleUnderwaterMuseumClick = () => {
-    navigate('/UnderwaterMuseum');
+  const handlePuntaMosquitoClick = () => {
+    navigate('/PuntaMosquito');
   };
 
-  const handleCocoBongoClick = () => {
-    navigate('/CocoBongo');
+  const handleYalahauLagoonClick = () => {
+    navigate('/YalahauLagoon');
   };
 
-  const handlePlayaDelfinesClick = () => {
-    navigate('/PlayaDelfines');
+  const handleCenoteYalahauClick = () => {
+    navigate('/CenoteYalahau');
   };
 
-  const handleElMecoClick = () => {
-    navigate('/ElMeco');
+  const handleBirdWatchingClick = () => {
+    navigate('/BirdWatching');
   };
 
-  const handleAquariumClick = () => {
-    navigate('/InteractiveAquarium');
+  const handleFlamingoSpottingClick = () => {
+    navigate('/FlamingoSpotting');
   };
 
-  const handleShoppingVillageClick = () => {
-    navigate('/LaIslaShopping');
+  const handleBeachYogaClick = () => {
+    navigate('/BeachYoga');
   };
 
   return (
@@ -314,7 +314,7 @@ export default function Cancun() {
                 fontFamily: "Playfair Display",
               }}
             >
-              Cancún
+              Holbox
             </Typography>
           </Box>
 
@@ -324,10 +324,10 @@ export default function Cancun() {
                 <TourCard 
                   tour={tour} 
                   onClick={
-                    tour.title === "Isla Mujeres"
-                      ? handleIslaMujeresClick
-                      : tour.title === "Hotel Zone Tour"
-                      ? handleHotelZoneClick
+                    tour.title === "Whale Shark Tour"
+                      ? handleWhaleSharkClick
+                      : tour.title === "Island Bike Tour"
+                      ? handleBikeTourClick
                       : undefined
                   }
                 />
@@ -372,18 +372,18 @@ export default function Cancun() {
                 <TourCard 
                   tour={tour} 
                   onClick={
-                    tour.title === "Cancún Underwater Museum"
-                      ? handleUnderwaterMuseumClick
-                      : tour.title === "Coco Bongo"
-                      ? handleCocoBongoClick
-                      : tour.title === "Playa Delfines"
-                      ? handlePlayaDelfinesClick
-                      : tour.title === "El Meco Archaeological Site"
-                      ? handleElMecoClick
-                      : tour.title === "Cancún Interactive Aquarium"
-                      ? handleAquariumClick
-                      : tour.title === "La Isla Shopping Village"
-                      ? handleShoppingVillageClick
+                    tour.title === "Punta Mosquito"
+                      ? handlePuntaMosquitoClick
+                      : tour.title === "Yalahau Lagoon"
+                      ? handleYalahauLagoonClick
+                      : tour.title === "Cenote Yalahau"
+                      ? handleCenoteYalahauClick
+                      : tour.title === "Bird Watching"
+                      ? handleBirdWatchingClick
+                      : tour.title === "Flamingo Spotting"
+                      ? handleFlamingoSpottingClick
+                      : tour.title === "Beach Yoga"
+                      ? handleBeachYogaClick
                       : undefined
                   }
                 />
@@ -410,7 +410,7 @@ export default function Cancun() {
 
         <Stack spacing={6} sx={{ py: 6, marginBottom:'100px' }}>
           <Typography variant="h3" align="center" sx={{ fontWeight: "bold", color: "black", fontFamily: "Playfair Display", mb: 4 }}>
-            Best restaurants in Cancún
+            Best restaurants in Holbox
           </Typography>
 
           <Box sx={{ px: { xs: 1, md: 4 }, mx: "auto", maxWidth: "95%", overflow: "hidden" }}>
@@ -472,4 +472,4 @@ export default function Cancun() {
       </Container>
     </Box>
   );
-}
+} 
