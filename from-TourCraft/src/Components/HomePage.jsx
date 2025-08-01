@@ -501,7 +501,7 @@ const HomePage = () => {
                       {guide.question}
                     </Typography>
                     <Link
-                      href="#"
+                      href="/Guides"
                       sx={{
                         display: 'flex',
                         alignItems: 'center',

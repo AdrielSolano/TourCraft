@@ -66,7 +66,7 @@ export const BookingSimulation = () => {
     };
 
     return (
-        <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh" }}>
+        <Box sx={{ bgcolor: "#ffffff", minHeight: "100vh", p: 4 }}>
            
             {/* Back Button and Title */}
             <Box sx={{ px: { xs: 2, md: 15 }, py: 2 }}>
@@ -77,8 +77,9 @@ export const BookingSimulation = () => {
                     sx={{
                         color: "#000000",
                         fontWeight: 600,
-                        fontFamily: "Inter",
+                        fontFamily: "Playfair Display",
                         fontSize: "18px",
+                        textTransform: "none",
                         mb: 2,
                     }}
                 >
