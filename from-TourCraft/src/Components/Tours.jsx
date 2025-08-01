@@ -197,7 +197,7 @@ export const Tours = () => {
     const [guestAnchorEl, setGuestAnchorEl] = useState(null);
     const navigate = useNavigate();
 
-    const locations = ["Merida", "Cancun", "Tulum", "Playa del Carmen", "Holbox", "Cozumel"];
+    const locations = ["Merida", "Holbox", "Tulum", "Playa del Carmen","Cancun", "Cozumel"];
 
     const handleLocationClick = (event) => {
         setAnchorEl(event.currentTarget);
