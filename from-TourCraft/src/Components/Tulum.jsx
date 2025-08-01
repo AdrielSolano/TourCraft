@@ -46,6 +46,7 @@ import casabanana from "../assets/casabanana.webp";
 import kinToh from "../assets/kintoh.png";
 import posadaMargherita from "../assets/posadamargherita.jpg";
 
+
 const featuredTours = [
     {
         id: 1,
