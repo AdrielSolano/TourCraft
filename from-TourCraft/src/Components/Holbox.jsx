@@ -21,17 +21,22 @@ import {
 } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import harris from "../assets/harris.jpg";
-import i3 from "../assets/i3.jpg";
-import i1 from "../assets/i1.jpg";
-import image54 from "../assets/image54.png";
-import frame341 from "../assets/Frame341.png";
-import imga5 from "../assets/imga5.png";
-import imga4 from "../assets/imga4.png";
-import imga3 from "../assets/imga3.png";
 import imga2 from "../assets/imga2.png";
-import imga1 from "../assets/imga1.png";
 import img40 from "../assets/img40.png";
+import holbox from "../assets/holbox.webp";
+import mosquito from "../assets/mosquito.webp";
+import yalahau from "../assets/yalahau.jpeg";
+import yalahau1 from "../assets/yalahau1.jpg";
+import bird from "../assets/bird.jpg";
+import fla from "../assets/fla.webp";
+import yoga from "../assets/yoga.webp";
+import zapata from "../assets/zapata.jpg";
+import manda from "../assets/manda.webp";
+import nostra from "../assets/nostra.jpg";
+import las from "../assets/las.jpg";
+import torti from "../assets/torti.jpg";
+import sabor from "../assets/sabor.jpg";
+
 
 const featuredTours = [
   {
@@ -59,7 +64,7 @@ const topActivities = [
   {
     id: 1,
     title: "Punta Mosquito",
-    image: imga2,
+    image: mosquito,
     rating: 5,
     reviews: 1,
     duration: "Half day",
@@ -68,7 +73,7 @@ const topActivities = [
   {
     id: 2,
     title: "Yalahau Lagoon",
-    image: imga3,
+    image: yalahau1,
     rating: 5,
     reviews: 1,
     duration: "3-4 hours",
@@ -77,7 +82,7 @@ const topActivities = [
   {
     id: 3,
     title: "Cenote Yalahau",
-    image: imga4,
+    image: yalahau,
     rating: 5,
     reviews: 1,
     duration: "2-3 hours",
@@ -86,7 +91,7 @@ const topActivities = [
   {
     id: 4,
     title: "Bird Watching",
-    image: frame341,
+    image: bird,
     rating: 5,
     reviews: 1,
     duration: "3-4 hours",
@@ -95,7 +100,7 @@ const topActivities = [
   {
     id: 5,
     title: "Flamingo Spotting",
-    image: imga5,
+    image: fla,
     rating: 5,
     reviews: 1,
     duration: "Half day",
@@ -104,7 +109,7 @@ const topActivities = [
   {
     id: 6,
     title: "Beach Yoga",
-    image: imga1,
+    image: yoga,
     rating: 5,
     reviews: 1,
     duration: "1 hour",
@@ -115,37 +120,37 @@ const topActivities = [
 const restaurantData = [
   {
     title: "Viva Zapata - Holbox",
-    image: harris,
+    image: zapata,
     url: "https://vivazapata.com/",
     description: "Fresh seafood and Mexican cuisine with ocean views"
   },
   {
     title: "La Tortilleria - Holbox",
-    image: i1,
+    image: torti,
     url: "https://latortilleriarestaurante.com/",
     description: "Authentic Mexican food in a casual setting"
   },
   {
     title: "Casa Nostra - Holbox",
-    image: i3,
+    image: nostra,
     url: "https://casanostra.com.mx/",
     description: "Italian cuisine with a Caribbean twist"
   },
   {
     title: "El Sabor de Holbox",
-    image: imga2,
+    image: sabor,
     url: "https://elsabordeholbox.com/",
     description: "Local flavors and traditional dishes"
   },
   {
     title: "Casa Las Tortugas",
-    image: imga3,
+    image: las,
     url: "https://casalastortugas.com/",
     description: "Beachfront dining with fresh ingredients"
   },
   {
     title: "Mandarina Beach Club",
-    image: imga4,
+    image: manda,
     url: "https://mandarinabeachclub.com/",
     description: "Upscale beachfront dining experience"
   }
@@ -295,7 +300,7 @@ export default function Holbox() {
             sx={{
               height: 320,
               borderRadius: "20px",
-              backgroundImage: `url(${image54})`,
+              backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),url(${holbox})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
               display: "flex",

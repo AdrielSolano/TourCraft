@@ -21,13 +21,6 @@ import {
 } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import harris from "../assets/harris.jpg";
-import i3 from "../assets/i3.jpg";
-import i1 from "../assets/i1.jpg";
-import imga4 from "../assets/imga4.png";
-import imga3 from "../assets/imga3.png";
-import imga2 from "../assets/imga2.png";
-import imga1 from "../assets/imga1.png";
 import img40 from "../assets/img40.png";
 import cancun from "../assets/cancun.jpeg";
 import under from "../assets/under.jpeg";
@@ -36,6 +29,12 @@ import delfines from "../assets/delfines.webp";
 import meco from "../assets/meco.jpg";
 import aqua from "../assets/aqua.jpg";
 import villa from "../assets/villa.jpg";
+import harrys2 from "../assets/harrys2.jpg";
+import habi from "../assets/habi.jpeg";
+import madero from "../assets/madero.jpeg";
+import rosa from "../assets/rosa.jpg";
+import burri from "../assets/burri.jpg";
+import freds from "../assets/freds.png";
 
 const featuredTours = [
   {
@@ -119,37 +118,37 @@ const topActivities = [
 const restaurantData = [
   {
     title: "Harry's - Cancún",
-    image: harris,
+    image: harrys2,
     url: "https://harrys.com.mx/",
     description: "Premium steaks and fresh seafood with ocean views"
   },
   {
     title: "La Habichuela - Cancún",
-    image: i1,
+    image: habi,
     url: "https://lahabichuela.com/",
     description: "Traditional Mexican cuisine in a tropical garden"
   },
   {
     title: "Puerto Madero - Cancún",
-    image: i3,
+    image: madero,
     url: "https://puertomaderorestaurantes.com/",
     description: "Argentinian grill with marina views"
   },
   {
     title: "RosaNegra - Cancún",
-    image: imga2,
+    image: rosa,
     url: "https://rosanegra.com.mx/",
     description: "Modern Mexican cuisine with beachfront dining"
   },
   {
     title: "Surfing Burrito - Cancún",
-    image: imga3,
+    image: burri,
     url: "https://www.surfingburrito.com/",
     description: "Casual beachfront Mexican fare"
   },
   {
     title: "Fred's - Cancún",
-    image: imga4,
+    image: freds,
     url: "https://fredshouseandgardens.com/",
     description: "Seafood and steaks in a romantic garden setting"
   }

@@ -175,7 +175,7 @@ export const Tours = () => {
     const [guestAnchorEl, setGuestAnchorEl] = useState(null);
     const navigate = useNavigate();
 
-    const locations = ["Merida", "Cancun", "Tulum", "Playa del Carmen", "Puerto Morelos", "Akumal"];
+    const locations = ["Merida", "Cancun", "Tulum", "Playa del Carmen", "Holbox", "Cozumel"];
 
     const handleLocationClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -203,13 +203,18 @@ export const Tours = () => {
     const handleSearch = () => {
         if (selectedLocation === "Merida") {
             navigate("/merida");
-        }else if (selectedLocation === "Cancun") {
+        } else if (selectedLocation === "Cancun") {
             navigate("/cancun");
-        }else if (selectedLocation === "Tulum") {
+        } else if (selectedLocation === "Tulum") {
             navigate("/tulum");
         }
         else if (selectedLocation === "Playa del Carmen") {
             navigate("/playadelcarmen");
+        } else if (selectedLocation === "Holbox") {
+            navigate("/holbox");
+        }
+        else if (selectedLocation === "Cozumel") {
+            navigate("/cozumel");
         }
     };
 
@@ -252,17 +257,17 @@ export const Tours = () => {
                             }}
                         >
                             <Typography
-                                variant="h2"
+                                variant="h3"
                                 sx={{
                                     color: "white",
                                     fontWeight: "bold",
-                                
+
                                     fontFamily: "Playfair Display",
                                     textAlign: "center",
                                     mb: 2,
                                 }}
                             >
-                                Selecciona a dónde deseas viajar
+                                Select where you want to travel
                             </Typography>
                         </Box>
 
