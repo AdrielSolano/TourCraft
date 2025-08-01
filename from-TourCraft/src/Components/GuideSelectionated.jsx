@@ -560,7 +560,7 @@ const GuideSelectionated = () => {
             variant="h4"
             sx={{ fontWeight: 800, mb: 4, fontFamily: "Playfair Display" }}
           >
-            What They Say About... Sebastian Monteverde
+            What They Say About Sebastian Monteverde
           </Typography>
           <Grid container spacing={4}>
             {reviewsData.map((review) => (
