@@ -9,8 +9,8 @@
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
     "install-all": "npm install && cd Turiscraft && npm install && cd TourCraft/TourCraft && npm install",
     "init-db": "cd Turiscraft && npm run init-db",
-   "build": "cd client && npm install && npm run build",
-"start": "node server/index.js"
+   "build": "cd from-TourCraft && npm install && npm run build",
+"start": "node back-Turiscraft/index.js"
   },
   "keywords": ["tourism", "reservations", "react", "nodejs", "mongodb"],
   "author": "TourCraft Team",
