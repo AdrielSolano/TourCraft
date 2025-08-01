@@ -38,10 +38,6 @@ const UnderwaterMuseum = () => {
               color: "#0e3d4d",
               fontFamily: "Playfair Display",
               textTransform: "none",
-              fontWeight: 600,
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
               fontSize: "16px"
             }}
           >
